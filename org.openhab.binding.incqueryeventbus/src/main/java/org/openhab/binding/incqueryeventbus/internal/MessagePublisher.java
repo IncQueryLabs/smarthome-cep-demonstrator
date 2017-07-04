@@ -8,8 +8,6 @@
  */
 package org.openhab.binding.incqueryeventbus.internal;
 
-import org.openhab.core.types.Command;
-import org.openhab.core.types.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +17,7 @@ import org.slf4j.LoggerFactory;
  * @author Davy Vanherbergen
  * @since 1.3.0
  */
-public class MessagePublisher extends AbstractMessagePubSub {
+public class MessagePublisher {
 
     private static final Logger logger = LoggerFactory.getLogger(MessagePublisher.class);
 
@@ -32,34 +30,6 @@ public class MessagePublisher extends AbstractMessagePubSub {
      */
     public MessagePublisher(String logString) {
         this.logString = logString;
-    }
-
-    /**
-     * Check if this configuration supports processing of the given State.
-     *
-     * @param state
-     *            for which to check if we can process.
-     * @return true if processing is supported.
-     */
-    public boolean supportsState(State state) {
-        if (getMessageType().equals(MessageType.STATE)) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Check if this configuration supports processing of the given Command.
-     *
-     * @param command
-     *            for which to check if we can process.
-     * @return true if processing is supported.
-     */
-    public boolean supportsCommand(Command command) {
-        if (getMessageType().equals(MessageType.COMMAND)) {
-            return true;
-        }
-        return false;
     }
 
     /**

@@ -16,61 +16,37 @@ import org.openhab.core.items.Item;
 import org.openhab.core.types.Command;
 import org.openhab.core.types.State;
 import org.openhab.core.types.TypeParser;
-import org.openhab.model.item.binding.BindingConfigParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Message subscriber configuration for items which receive inbound MQTT
- * messages.
- *
- * @author Davy Vanherbergen
- * @since 1.3.0
- */
-public class MessageSubscriber extends AbstractMessagePubSub {
+public class MessageSubscriber {
 
     private static Logger logger = LoggerFactory.getLogger(MessageSubscriber.class);
 
     private EventPublisher eventPublisher;
 
-    private List<Class<? extends State>> acceptedDataTypes = null;
-    private List<Class<? extends Command>> acceptedCommandTypes = null;
+    public void postCommand(Item item, String message) {
 
-    public MessageSubscriber() {
-
-    }
-
-    /**
-     * Create new MessageSubscriber from config string and specific item we will be updating.
-     *
-     * @param configuration
-     *            config string
-     * @param item
-     *            the item to which we will later post updates and send commands
-     * @throws BindingConfigParseException
-     *             if the config string is invalid
-     */
-    public MessageSubscriber(Item item) {
-
-        if (item != null) {
-            // copy the accepted data types and commands from the specific item we will be updating
-            this.acceptedDataTypes = new ArrayList<Class<? extends State>>(item.getAcceptedDataTypes());
-            this.acceptedCommandTypes = new ArrayList<Class<? extends Command>>(item.getAcceptedCommandTypes());
-        }
-    }
-
-    public void processMessage(String message) {
-
-        if (getMessageType().equals(MessageType.COMMAND)) {
-            Command command = getCommand(message, this.acceptedCommandTypes);
-            eventPublisher.postCommand(getItemName(), command);
-            logger.info("Publishing to OpenHAB: " + getItemName() + " command: " + message);
-        } else {
-            State state = getState(message, this.acceptedDataTypes);
-            eventPublisher.postUpdate(getItemName(), state);
-            logger.info("Publishing to OpenHAB: " + getItemName() + " state: " + message);
+        if (item == null) {
+            logger.error("Item is NULL");
+            return;
         }
 
+        Command command = getCommand(message, new ArrayList<Class<? extends Command>>(item.getAcceptedCommandTypes()));
+        eventPublisher.postCommand(item.getName(), command);
+        logger.info("Publishing to OpenHAB: " + item.getName() + " command: " + message);
+    }
+
+    public void postState(Item item, String message) {
+
+        if (item == null) {
+            logger.error("Item is NULL");
+            return;
+        }
+
+        State state = getState(message, new ArrayList<Class<? extends State>>(item.getAcceptedDataTypes()));
+        eventPublisher.postUpdate(item.getName(), state);
+        logger.info("Publishing to OpenHAB: " + item.getName() + " state: " + message);
     }
 
     /**
@@ -80,6 +56,10 @@ public class MessageSubscriber extends AbstractMessagePubSub {
      *            EventPublisher
      */
     public void setEventPublisher(EventPublisher eventPublisher) {
+        if (eventPublisher == null) {
+            logger.error("EventPublisher is cannot be null");
+            return;
+        }
         this.eventPublisher = eventPublisher;
     }
 

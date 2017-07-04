@@ -1,7 +1,9 @@
 package org.openhab.binding.incqueryeventbus.internal;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.openhab.core.binding.AbstractBinding;
-import org.openhab.core.items.Item;
 import org.openhab.core.items.ItemNotFoundException;
 import org.openhab.core.items.ItemRegistry;
 import org.openhab.core.types.Command;
@@ -9,7 +11,7 @@ import org.openhab.core.types.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class IncQueryEventBusBinding extends AbstractBinding<IncQueryBindingProvider> {
+public class IncQueryEventBusBinding extends AbstractBinding<EventBusBindingProvider> {
 
     private static final Logger logger = LoggerFactory.getLogger(IncQueryEventBusBinding.class);
 
@@ -24,7 +26,10 @@ public class IncQueryEventBusBinding extends AbstractBinding<IncQueryBindingProv
 
     private MessageSubscriber commandSubscriber;
 
-    private static final String subscribeItemName = "mqttPir";
+    // private static final String subscribeItemName = "dandridbinding_dandrid_38f61f87_pir_switch";
+    private static final String subscribeItemName = "dandridbinding_dandrid_38f61f87_mqtt_switch";
+
+    Timer timer = new Timer();
 
     @Override
     public void activate() {
@@ -33,19 +38,22 @@ public class IncQueryEventBusBinding extends AbstractBinding<IncQueryBindingProv
 
         statePublisher = new MessagePublisher(" state changed to: ");
         commandPublisher = new MessagePublisher(" received command: ");
+        stateSubscriber = new MessageSubscriber();
+        commandSubscriber = new MessageSubscriber();
 
-        try {
-            Item item = itemRegistry.getItem(subscribeItemName);
-            stateSubscriber = new MessageSubscriber(item);
-            commandSubscriber = new MessageSubscriber(item);
-        } catch (ItemNotFoundException e) {
-            logger.debug("Unable to find item {} for update; dropping", subscribeItemName);
-            return;
-        } catch (Exception e) {
-            logger.error("Error parsing state from message.", e);
-            return;
-        }
+        stateSubscriber.setEventPublisher(eventPublisher);
+        commandSubscriber.setEventPublisher(eventPublisher);
 
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    commandSubscriber.postCommand(itemRegistry.getItem(subscribeItemName), "ON");
+                } catch (ItemNotFoundException e) {
+                    logger.error("Item not found");
+                }
+            }
+        }, 5 * 1000, 5 * 1000);
     }
 
     @Override
