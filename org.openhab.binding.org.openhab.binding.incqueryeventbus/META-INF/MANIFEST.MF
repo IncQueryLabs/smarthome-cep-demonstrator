@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Private-Package: org.openhab.binding.incqueryeventbus.internal
+Ignore-Package: org.openhab.binding.incqueryeventbus.internal
+Bundle-Name: IncQueryEventBus Binding
+Bundle-Vendor: openHAB
+Bundle-Version: 2.1.0.qualifier
+Bundle-ManifestVersion: 2
+Bundle-Description: This is the EventBus binding of the open Home Aut
+ omation Bus (openHAB)
+Import-Package: 
+ org.apache.commons.lang;version="2.6.0",
+ org.eclipse.smarthome.config.core,
+ org.eclipse.smarthome.core.library.types,
+ org.eclipse.smarthome.core.thing,
+ org.eclipse.smarthome.core.thing.binding,
+ org.eclipse.smarthome.core.thing.binding.builder,
+ org.eclipse.smarthome.core.thing.type,
+ org.eclipse.smarthome.core.types,
+ org.openhab.binding.incqueryeventbus,
+ org.openhab.binding.incqueryeventbus.handler,
+ org.openhab.core.binding,
+ org.openhab.core.items,
+ org.openhab.core.types,
+ org.openhab.model.item.binding,
+ org.osgi.framework;version="1.8.0",
+ org.osgi.service.cm;version="1.5.0",
+ org.slf4j
+Bundle-SymbolicName: org.openhab.binding.incqueryeventbus;singleton:=true
+Bundle-DocURL: http://www.openhab.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/*.xml
+Bundle-ClassPath: .
+Export-Package: org.openhab.binding.incqueryeventbus,
+ org.openhab.binding.incqueryeventbus.handler
+Require-Bundle: org.openhab.core.compat1x
+Bundle-Activator: org.openhab.binding.incqueryeventbus.internal.Activator
