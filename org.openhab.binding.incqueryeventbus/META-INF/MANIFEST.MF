@@ -32,5 +32,6 @@ Service-Component: OSGI-INF/*.xml
 Bundle-ClassPath: .
 Export-Package: org.openhab.binding.incqueryeventbus,
  org.openhab.binding.incqueryeventbus.handler
-Require-Bundle: org.openhab.core.compat1x
+Require-Bundle: org.openhab.core.compat1x,
+ IEventBusService
 Bundle-Activator: org.openhab.binding.incqueryeventbus.internal.Activator

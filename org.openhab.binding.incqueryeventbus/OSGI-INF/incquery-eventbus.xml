@@ -13,7 +13,8 @@
     <implementation class="org.openhab.binding.incqueryeventbus.internal.IncQueryEventBusBinding" />
 
     <service>
-        <provide interface="org.osgi.service.event.EventHandler" /> 
+        <provide interface="org.osgi.service.event.EventHandler" />
+        <provide interface="com.incquerylabs.iot.ieventbusservice.IEventBusService"/> 
     </service>
     <property name="service.pid" type="String" value="org.openhab.incquery-eventbus"/> 
     <property name="event.topics" type="String" value="openhab/*" />
