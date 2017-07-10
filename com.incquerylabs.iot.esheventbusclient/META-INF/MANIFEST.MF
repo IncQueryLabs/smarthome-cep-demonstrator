@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EventBusClient
+Bundle-SymbolicName: com.incquerylabs.iot.esheventbusclient
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: INCQUERYLABS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.incquerylabs.iot.eshieventbusservice,
+ org.eclipse.smarthome.core.items,
+ org.eclipse.smarthome.core.library.types,
+ org.eclipse.smarthome.core.types,
+ org.slf4j
+Service-Component: OSGI-INF/event-bus-client.xml

@@ -31,7 +31,7 @@ public class EventBusSubscriber implements IEventBusSubscriber {
     @Override
     public void commandReceived(String command) {
         logger.debug("IncQuery: " + itemName + " received command: " + command);
-        if (itemName.equals(EventBusClient.registeredItems[EventBusClient.allowPirSwitch]) && command.equals("ON")) {
+        if (itemName.equals(EventBusClient.registeredItems[EventBusClient.pirSwitch]) && command.equals("ON")) {
             try {
                 eventBusService.postCommand(EventBusClient.registeredItems[EventBusClient.mqttSwitch], "ON");
             } catch (ItemNotFoundException e) {

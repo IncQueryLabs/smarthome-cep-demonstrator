@@ -14,8 +14,7 @@ public class EventBusClient {
     public static final int pirSwitch = 1;
     public static final int mqttSwitch = 2;
 
-    public static final String[] registeredItems = { "dandridbinding_dandrid_38f61f87_allow_pir_switch",
-            "dandridbinding_dandrid_38f61f87_pir_switch", "dandridbinding_dandrid_38f61f87_mqtt_switch" };
+    public static final String[] registeredItems = { "allowPirSwitch", "mqttPir", "mqttSwitch" };
 
     public void activate() {
         logger.debug("IncQuery: Activating event bus client.");

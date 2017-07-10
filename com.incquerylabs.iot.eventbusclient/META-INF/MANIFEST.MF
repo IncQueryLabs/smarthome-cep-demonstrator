@@ -8,3 +8,4 @@ Service-Component: OSG-INF/event-bus-client.xml
 Import-Package: com.incquerylabs.iot.ieventbusservice,
  org.openhab.core.items
 Require-Bundle: org.slf4j.log4j
+Export-Package: com.incquerylabs.iot.eventbusclient.internal
