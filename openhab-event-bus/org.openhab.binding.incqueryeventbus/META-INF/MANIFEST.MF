@@ -8,6 +8,7 @@ Bundle-ManifestVersion: 2
 Bundle-Description: This is the EventBus binding of the open Home Aut
  omation Bus (openHAB)
 Import-Package: 
+ com.incquerylabs.iot.ieventbusservice,
  org.apache.commons.lang;version="2.6.0",
  org.eclipse.smarthome.config.core,
  org.eclipse.smarthome.core.library.types,
@@ -33,5 +34,5 @@ Bundle-ClassPath: .
 Export-Package: org.openhab.binding.incqueryeventbus,
  org.openhab.binding.incqueryeventbus.handler
 Require-Bundle: org.openhab.core.compat1x,
- IEventBusService
+ com.incquerylabs.iot.ieventbusservice;bundle-version="1.0.0"
 Bundle-Activator: org.openhab.binding.incqueryeventbus.internal.Activator

@@ -66,17 +66,8 @@ public class IncQueryEventBusBinding extends AbstractBinding<EventBusBindingProv
             return;
         }
 
-        try {
-            Item item = itemRegistry.getItem(itemName);
-            String oldState = item.getState().toString();
-            eventSubscriber.stateChanged(oldState, newState.toString());
-
-            logger.trace("IncQuery: Received from OpenHAB: " + itemName + " state changed from " + oldState + " to "
-                    + newState);
-        } catch (ItemNotFoundException e) {
-            logger.error("IncQuery: Item not found");
-        }
-
+        eventSubscriber.stateChanged(newState.toString());
+        logger.trace("IncQuery: Received from OpenHAB: " + itemName + " state changed to " + newState);
     }
 
     @Override
