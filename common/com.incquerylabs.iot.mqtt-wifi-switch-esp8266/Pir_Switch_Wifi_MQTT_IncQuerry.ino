@@ -1,9 +1,9 @@
 const int pirPin = D7;
 const int buttonPin = 15;//D8     //const int buttonPin = D3;
 const int ledPin = BUILTIN_LED;             //const int ledPin = BUILTIN_LED;
-const char* topicSwitch =     "home/switch";
-const char* topicSub =        "home/command";
-const char* topicPir =        "home/pir";
+const char* topicSwitchOut =     "in/mqttSwitch/command";
+const char* topicSwitchIn =   "out/mqttSwitch/state";
+const char* topicPirOut =        "in/mqttPir/command";
 
 volatile bool buttonPressed = false;
 volatile bool pirChanged = false;
@@ -51,13 +51,13 @@ void loop()
     if (pirState == HIGH)
     {
       //Serial.println("Motion detected  ALARM");
-      client.publish(topicPir, "ON");
+      client.publish(topicPirOut, "ON");
       pirState = LOW;
     }
     else if (pirState == LOW)
     {
       //Serial.println("Motion detected  ALARM");
-      client.publish(topicPir, "OFF");
+      client.publish(topicPirOut, "OFF");
       pirState = LOW;
     }
     pirChanged = false;
@@ -70,11 +70,11 @@ void loop()
 
     if (ledState == LOW)
     {
-      client.publish(topicSwitch, "ON");
+      client.publish(topicSwitchOut, "ON");
     }
     else
     {
-      client.publish(topicSwitch, "OFF");
+      client.publish(topicSwitchOut, "OFF");
     }
     buttonPressed = false;
   }

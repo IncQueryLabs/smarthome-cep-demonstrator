@@ -4,13 +4,13 @@
 #include <Wire.h>
 
 // Connect to the WiFi
-const char* wifi_ssid =       "wifi name";
-const char* wifi_password =   "wifi password";
-const char* mqtt_server =     "mqtt-broker ip";
-const int   mqtt_port =       1883; //mqtt port
-const char* mqtt_user =       "mqtt-user";
-const char* mqtt_password =   "mqtt-broker-password";
-const String client_id =      "ESP8266";
+const char* wifi_ssid =       "IncQuery_Interns";
+const char* wifi_password =   "u4sejJWUKctv";
+const char* mqtt_server =     "192.168.3.45";
+const int   mqtt_port =       1183;
+const char* mqtt_user =       "dandrid";
+const char* mqtt_password =   "M+O!S%Q/U=I(T)t0o1";
+const String client_id =      "a0:20:a6:19:4a:fc-ESP8266";
 
 long lastReconnectAttempt = 0;
 
@@ -54,7 +54,7 @@ bool reconnect()
   {
     Serial.println("connected");
     client.publish("connection", (client_id + " connected").c_str());
-    client.subscribe(topicSub);  //subscribed to topic
+    client.subscribe(topicSwitchIn);  //subscribed to topic
     client.loop();
   }
   else 
