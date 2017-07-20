@@ -1,0 +1,6 @@
+{
+  "rule_1": {
+    "class": "java.lang.Boolean",
+    "value": false
+  }
+}
