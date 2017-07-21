@@ -1,7 +1,7 @@
 # OpenSHS
 Open Smart Home Simulator
 
-# #Quick start
+##Quick start
 Ensure you have blender installed. To start a simulation of our demo:
 
 ```
