@@ -27,7 +27,6 @@
               <goal>unpack-dependencies</goal>
             </goals>
 			<configuration>
-				<exclude>
 				<outputDirectory>${project.build.directory}/classes</outputDirectory>
 			</configuration>
           </execution>
@@ -50,7 +49,7 @@
             <!--
               assume public classes are in the top package, and private classes are under ".internal"
             -->
-            <Export-Package></Export-Package>
+            <_exportcontents>.!*.internal.*,!*.debug.*,!*.impl.*,org.drools.*,org.kie.api.*</_exportcontents>
 			<Import-Package></Import-Package>
 			<!--
 			<Include-Resource>{maven-resources}, {maven-dependencies} </Include-Resource>
