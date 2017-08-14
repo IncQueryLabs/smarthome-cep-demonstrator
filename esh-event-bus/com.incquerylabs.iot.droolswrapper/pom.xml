@@ -14,77 +14,27 @@
     	<bundle.namespace>com.incquerylabs.iot.droolswrapper</bundle.namespace>
 	</properties>
 
-	<repositories>
-	<!-- TODO remove this once maven central replicates the jboss repository -->
-	<!-- Included so the examples sources in the distribution zip build out-of-the-box with maven -->
-		<repository>
-			<id>jboss-public-repository-group</id>
-			<name>JBoss Public Repository Group</name>
-			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
-			<layout>default</layout>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>never</updatePolicy>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>daily</updatePolicy>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>jahida</id>
-			<name>jahida</name>
-			<url>http://maven.jahia.org/maven2/</url>
-		</repository>
-	</repositories>
-
-
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-      <resource>
-        <directory>.</directory>
-        <includes>
-          <include>plugin.xml</include>
-        </includes>
-      </resource>
-    </resources>
+
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <artifactSet>
-                <includes>
-                  <include>**</include>
-                </includes>
-              </artifactSet>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
+	  <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
-            <id>copy-dependencies</id>
-            <phase>package</phase>
+            <id>unpack-dependencies</id>
+            <phase>generate-sources</phase>
             <goals>
-              <goal>copy-dependencies</goal>
+              <goal>unpack-dependencies</goal>
             </goals>
+			<configuration>
+				<exclude>
+				<outputDirectory>${project.build.directory}/classes</outputDirectory>
+			</configuration>
           </execution>
         </executions>
       </plugin>
-      <plugin>
+	  
+	  <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
         <version>2.5.0</version>
@@ -100,14 +50,16 @@
             <!--
               assume public classes are in the top package, and private classes are under ".internal"
             -->
-            <Export-Package>!${bundle.namespace}.internal.*,${bundle.namespace}.*;version="${project.version}"</Export-Package>
-
-
-            <Include-Resource>{maven-resources}, {maven-dependencies} </Include-Resource>
-            <!--
+            <Export-Package></Export-Package>
+			<Import-Package></Import-Package>
+			<!--
+			<Include-Resource>{maven-resources}, {maven-dependencies} </Include-Resource>
+            
               embed compile/runtime dependencies using path that matches the copied dependency folder
             -->
-            <Embed-Transitive>true</Embed-Transitive>
+            <!--<Embed-Transitive>true</Embed-Transitive>-->
+			<Embed-Directory>target/classes</Embed-Directory>
+			<Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
             <Embed-Dependency>*;inline=true</Embed-Dependency>
           </instructions>
         </configuration>
@@ -116,6 +68,7 @@
   </build>
 
   	<dependencies>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -123,38 +76,17 @@
 			<scope>test</scope>
 		</dependency>
 
-	    <dependency>
-	      <groupId>org.osgi</groupId>
-	      <artifactId>osgi_R4_core</artifactId>
-	      <version>1.0</version>
-	      <scope>provided</scope>
-	      <optional>true</optional>
-	    </dependency>
-
-	    <dependency>
-	      <groupId>org.osgi</groupId>
-	      <artifactId>osgi_R4_compendium</artifactId>
-	      <version>1.0</version>
-	      <scope>provided</scope>
-	      <optional>true</optional>
-	    </dependency>
-
-		<dependency>
-			<groupId>org.kie</groupId>
-			<artifactId>kie-api</artifactId>
-			<version>${runtime.version}</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-core</artifactId>
 			<version>${runtime.version}</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-compiler</artifactId>
 			<version>${runtime.version}</version>
 		</dependency>
-  	</dependencies>
+
+	</dependencies>
 </project>
