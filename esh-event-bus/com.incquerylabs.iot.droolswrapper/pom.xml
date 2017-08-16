@@ -12,6 +12,7 @@
 		<runtime.version>6.3.0.Final</runtime.version>
 	    <bundle.symbolicName>com.incquerylabs.iot.droolswrapper</bundle.symbolicName>
     	<bundle.namespace>com.incquerylabs.iot.droolswrapper</bundle.namespace>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
   <build>
@@ -49,7 +50,7 @@
             <!--
               assume public classes are in the top package, and private classes are under ".internal"
             -->
-            <_exportcontents>.!*.internal.*,!*.debug.*,!*.impl.*,org.drools.*,org.kie.api.*</_exportcontents>
+            <_exportcontents>org.kie.*</_exportcontents>
 			<Import-Package></Import-Package>
 			<!--
 			<Include-Resource>{maven-resources}, {maven-dependencies} </Include-Resource>
