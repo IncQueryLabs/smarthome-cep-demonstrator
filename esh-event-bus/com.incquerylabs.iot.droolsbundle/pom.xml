@@ -26,16 +26,9 @@
 
 
   <build>
-
-	  <!--resources>
-		<resource>
-			<directory>${project.basedir}/src/main/resources</directory>
-			<filtering>false</filtering>
-		</resource>
-	  </resources-->
-
     <plugins>
-	  <plugin>
+      
+      <plugin>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
@@ -44,85 +37,61 @@
             <goals>
               <goal>unpack-dependencies</goal>
             </goals>
-			<configuration>
-				<outputDirectory>${project.build.directory}/classes</outputDirectory>
-        <excludes>org.eclipse.smarthome.core.*</excludes>
-			</configuration>
+      			<configuration>
+      				<outputDirectory>${project.build.directory}/classes</outputDirectory>
+              <excludes>org.eclipse.smarthome.core.*</excludes>
+      			</configuration>
           </execution>
         </executions>
       </plugin>
-	  
-  	<!--plugin>
-		  <artifactId>maven-jar-plugin</artifactId>
-		  <configuration>
-		    <archive>  
-		      <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-		    </archive> 
-		  </configuration>
-		</plugin-->  
 
 	  <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
         <version>2.5.0</version>
         <extensions>true</extensions>
-        <!--
-          the following instructions build a simple set of public/private classes into an OSGi bundle
-        -->
         <configuration>
           <manifestLocation>META-INF</manifestLocation>
           <instructions>
             <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
             <Service-Component>OSGI-INF/drools-test.xml</Service-Component>
-            <!--
-              assume public classes are in the top package, and private classes are under ".internal"
-            -->
-
-      <_exportcontents></_exportcontents>
-			<Import-Package>org.slf4j,com.incquerylabs.iot.eshieventbusservice,org.eclipse.smarthome.core.types,org.eclipse.smarthome.core.library.types,org.eclipse.smarthome.core.items</Import-Package>
-      <!--
-			<Include-Resource>{maven-resources}, {maven-dependencies} </Include-Resource>
-            
-              embed compile/runtime dependencies using path that matches the copied dependency folder
-            -->
-            <!--<Embed-Transitive>true</Embed-Transitive>-->
-			<Embed-Directory>target/classes</Embed-Directory>
-			<Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
+            <_exportcontents></_exportcontents>
+			      <Import-Package>org.slf4j,com.incquerylabs.iot.eshieventbusservice,org.eclipse.smarthome.core.types,org.eclipse.smarthome.core.library.types,org.eclipse.smarthome.core.items</Import-Package>
+			      <Embed-Directory>target/classes</Embed-Directory>
+			      <Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
             <Embed-Dependency>*;inline=true</Embed-Dependency>
           </instructions>
         </configuration>
       </plugin>
     </plugins>
+
   </build>
 
   	<dependencies>
 		
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-core</artifactId>
-			<version>${runtime.version}</version>
-		</dependency>
+  		<dependency>
+  			<groupId>org.drools</groupId>
+  			<artifactId>drools-core</artifactId>
+  			<version>${runtime.version}</version>
+  		</dependency>
 		
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-compiler</artifactId>
-			<version>${runtime.version}</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.eclipse.smarthome.core/org.eclipse.smarthome.core -->
-		<dependency>
-		    <groupId>org.eclipse.smarthome.core</groupId>
-		    <artifactId>org.eclipse.smarthome.core</artifactId>
-		    <version>0.9.0.b5</version>
-		</dependency>
+  		<dependency>
+  			<groupId>org.drools</groupId>
+  			<artifactId>drools-compiler</artifactId>
+  			<version>${runtime.version}</version>
+  		</dependency>
 
-        <dependency>
+  		<dependency>
+  		    <groupId>org.eclipse.smarthome.core</groupId>
+  		    <artifactId>org.eclipse.smarthome.core</artifactId>
+  		    <version>0.9.0.b5</version>
+  		</dependency>
+
+      <dependency>
 		    <groupId>com.incquerylabs.iot</groupId>
 		    <artifactId>com.incquerylabs.iot.eshieventbusservice</artifactId>
 		    <version>1.0-SNAPSHOT</version>
-		    <!--type>bundle</type-->
-		    <!--scope>compile</scope-->
-        </dependency>
+      </dependency>
 	</dependencies>
 </project>
