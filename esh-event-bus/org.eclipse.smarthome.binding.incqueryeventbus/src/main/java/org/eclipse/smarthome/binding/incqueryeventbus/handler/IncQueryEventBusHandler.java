@@ -8,7 +8,7 @@
  */
 package org.eclipse.smarthome.binding.incqueryeventbus.handler;
 
-import static org.eclipse.smarthome.binding.incqueryeventbus.IncQueryEventBusBindingConstants.*;
+import static org.eclipse.smarthome.binding.incqueryeventbus.IncQueryEventBusBindingConstants.CHANNEL_1;
 
 import org.eclipse.smarthome.core.thing.ChannelUID;
 import org.eclipse.smarthome.core.thing.Thing;

@@ -8,7 +8,7 @@
  */
 package org.eclipse.smarthome.binding.incqueryeventbus.internal;
 
-import static org.eclipse.smarthome.binding.incqueryeventbus.IncQueryEventBusBindingConstants.*;
+import static org.eclipse.smarthome.binding.incqueryeventbus.IncQueryEventBusBindingConstants.THING_TYPE_SAMPLE;
 
 import java.util.Collections;
 import java.util.Set;

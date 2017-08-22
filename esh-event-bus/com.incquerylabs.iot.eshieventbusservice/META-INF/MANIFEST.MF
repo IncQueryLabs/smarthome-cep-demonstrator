@@ -5,6 +5,5 @@ Bundle-SymbolicName: com.incquerylabs.iot.eshieventbusservice
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: INCQUERYLABS
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.smarthome.core.items,
- org.eclipse.smarthome.core.types
 Export-Package: com.incquerylabs.iot.eshieventbusservice
+Require-Bundle: org.eclipse.smarthome.core;bundle-version="0.9.0"
