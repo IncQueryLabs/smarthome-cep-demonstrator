@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: IEvenetBusService
-Bundle-SymbolicName: com.incquerylabs.iot.ieventbusservice
-Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: INCQUERYLABS
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.openhab.core.items
-Export-Package: com.incquerylabs.iot.ieventbusservice
