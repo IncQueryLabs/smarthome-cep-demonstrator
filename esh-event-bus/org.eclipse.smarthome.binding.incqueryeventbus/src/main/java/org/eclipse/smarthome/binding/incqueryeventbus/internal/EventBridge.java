@@ -54,7 +54,6 @@ public class EventBridge implements EventSubscriber, IEventBusService {
         types.add(ItemUpdatedEvent.TYPE);
         types.add(ItemAddedEvent.TYPE);
         types.add(ItemRemovedEvent.TYPE);
-
         return types;
     }
 
@@ -66,21 +65,24 @@ public class EventBridge implements EventSubscriber, IEventBusService {
      */
     @Override
     public void receive(Event event) {
+
         if (event instanceof ItemCommandEvent) {
 
             ItemCommandEvent icEvent = (ItemCommandEvent) event;
             String itemName = icEvent.getItemName();
             Command command = icEvent.getItemCommand();
 
-            for (IEventBusSubscriber subscriber : eventBusSubscribers) {
-                try {
-                    subscriber.commandReceived(itemRegistry.getItem(itemName), command);
-                } catch (ItemNotFoundException e) {
-                    logger.error("IncQuery: item not found {}, message: ", itemName, e.toString());
-                }
+            try {
+                Item item = itemRegistry.getItem(itemName);
+                for (IEventBusSubscriber subscriber : eventBusSubscribers) {
+                    subscriber.commandReceived(item, command);
 
+                }
+                logger.info("IncQuery: " + icEvent);
+
+            } catch (ItemNotFoundException e) {
+                logger.error("IncQuery: item not found {}, message: ", itemName, e.toString());
             }
-            logger.info("IncQuery: {} received command {}", itemName, command);
 
         } else if (event instanceof ItemStateChangedEvent) {
 
@@ -89,19 +91,68 @@ public class EventBridge implements EventSubscriber, IEventBusService {
             State state = isEvent.getItemState();
             State oldState = isEvent.getOldItemState();
 
-            for (IEventBusSubscriber subscriber : eventBusSubscribers) {
-                try {
-                    subscriber.stateChanged(itemRegistry.getItem(itemName), state, oldState);
-                } catch (ItemNotFoundException e) {
-                    logger.error("IncQuery: item not found {}, message: ", itemName, e.toString());
+            try {
+                Item item = itemRegistry.getItem(itemName);
+
+                for (IEventBusSubscriber subscriber : eventBusSubscribers) {
+                    subscriber.stateChanged(item, state, oldState);
                 }
+                logger.info("IncQuery: " + isEvent);
+
+            } catch (ItemNotFoundException e) {
+                logger.error("IncQuery: item not found {}, message: ", itemName, e.toString());
             }
-            logger.info("IncQuery: {} changed state from {} to {}", itemName, oldState, state);
+
+        } else if (event instanceof ItemAddedEvent) {
+
+            ItemAddedEvent iaEvent = (ItemAddedEvent) event;
+            String itemName = iaEvent.getItem().name;
+
+            try {
+                Item item = itemRegistry.getItem(itemName);
+
+                for (IEventBusSubscriber subscriber : eventBusSubscribers) {
+                    subscriber.itemAdded(item);
+                }
+                logger.info("IncQuery: " + iaEvent);
+
+            } catch (ItemNotFoundException e) {
+                logger.error("IncQuery: item not found {}, message: ", itemName, e.toString());
+            }
+
+        } else if (event instanceof ItemRemovedEvent) {
+
+            ItemRemovedEvent irEvent = (ItemRemovedEvent) event;
+            String itemName = irEvent.getItem().name;
+
+            for (IEventBusSubscriber subscriber : eventBusSubscribers) {
+                subscriber.itemRemoved(itemName);
+            }
+            logger.info("IncQuery: " + irEvent);
+
+        } else if (event instanceof ItemUpdatedEvent) {
+
+            ItemUpdatedEvent iuEvent = (ItemUpdatedEvent) event;
+            String itemName = iuEvent.getItem().name;
+            String oldItemName = iuEvent.getOldItem().name;
+
+            try {
+                Item item = itemRegistry.getItem(itemName);
+
+                for (IEventBusSubscriber subscriber : eventBusSubscribers) {
+                    subscriber.itemUpdated(item, oldItemName);
+                }
+                logger.info("IncQuery: " + iuEvent);
+
+            } catch (ItemNotFoundException e) {
+                logger.error("IncQuery: item not found {}, message: ", itemName, e.toString());
+            }
+
         } else {
+
             logger.info("IncQuery: received event, type: " + event.getType() + " topic: " + event.getTopic()
                     + " payload: " + event.getPayload());
         }
-
     }
 
     @Override
@@ -160,5 +211,4 @@ public class EventBridge implements EventSubscriber, IEventBusService {
     public EventFilter getEventFilter() {
         return null;
     }
-
 }

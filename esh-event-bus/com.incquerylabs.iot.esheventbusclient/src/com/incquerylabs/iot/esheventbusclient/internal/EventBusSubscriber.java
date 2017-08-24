@@ -1,5 +1,7 @@
 package com.incquerylabs.iot.esheventbusclient.internal;
 
+import java.util.Collection;
+
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.types.Command;
@@ -32,5 +34,30 @@ public class EventBusSubscriber implements IEventBusSubscriber {
             eventBusService.postCommand(EventBusClient.registeredItems[EventBusClient.mqttSwitch], OnOffType.ON);
         }
         logger.debug("IncQuery: " + item.getName() + " received command: " + command);
+    }
+
+    @Override
+    public void initItems(Collection<Item> items) {
+        for (Item item : items) {
+            logger.debug("IncQuery: init item: " + item.getName());
+        }
+    }
+
+    @Override
+    public void itemAdded(Item item) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void itemRemoved(String itemName) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void itemUpdated(Item newItem, String oldItemName) {
+        // TODO Auto-generated method stub
+
     }
 }

@@ -55,9 +55,10 @@
           <instructions>
             <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
+            <Require-Bundle>com.incquerylabs.iot.eshieventbusservice</Require-Bundle>
             <Service-Component>OSGI-INF/drools-test.xml</Service-Component>
             <_exportcontents></_exportcontents>
-			      <Import-Package>org.slf4j,com.incquerylabs.iot.eshieventbusservice,org.eclipse.smarthome.core.types,org.eclipse.smarthome.core.library.types,org.eclipse.smarthome.core.items</Import-Package>
+			      <Import-Package>org.slf4j,org.eclipse.smarthome.core.types,org.eclipse.smarthome.core.library.types,org.eclipse.smarthome.core.items</Import-Package>
 			      <Embed-Directory>target/classes</Embed-Directory>
 			      <Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
             <Embed-Dependency>*;inline=true</Embed-Dependency>
@@ -88,10 +89,5 @@
   		    <version>0.9.0.b5</version>
   		</dependency>
 
-      <dependency>
-		    <groupId>com.incquerylabs.iot</groupId>
-		    <artifactId>com.incquerylabs.iot.eshieventbusservice</artifactId>
-		    <version>1.0-SNAPSHOT</version>
-      </dependency>
 	</dependencies>
 </project>

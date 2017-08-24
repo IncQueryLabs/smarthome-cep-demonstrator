@@ -6,6 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: INCQUERYLABS
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.incquerylabs.iot.eshieventbusservice,
+ ch.qos.logback.classic;version="1.0.7",
+ org.apache.log4j.spi;version="1.2.17",
  org.eclipse.smarthome.core.items,
  org.eclipse.smarthome.core.library.types,
  org.eclipse.smarthome.core.types,

@@ -10,11 +10,15 @@ Bundle-Version: 1.0.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Embed-Dependency: *;inline=true
 Embed-Directory: target/classes
-Import-Package: org.eclipse.smarthome.core.types,com.incquerylabs.iot.es
- hieventbusservice,org.eclipse.smarthome.core.library.types,org.slf4j;ve
- rsion="[1.7,2)",org.eclipse.smarthome.core.items
+Import-Package: org.eclipse.smarthome.core.items,
+ org.eclipse.smarthome.core.library.types,
+ org.eclipse.smarthome.core.types,
+ org.slf4j;version="[1.7,2)"
 Require-Capability: osgi.service;effective:=active;filter:="(objectClass
  =com.incquerylabs.iot.eshieventbusservice.IEventBusService)",osgi.ee;fi
  lter:="(&(osgi.ee=JavaSE)(version=1.8))"
 Service-Component: OSGI-INF/drools-test.xml
 Tool: Bnd-2.3.0.201405100607
+Require-Bundle: com.incquerylabs.iot.eshieventbusservice;bundle-version="1.0.0"
+Export-Package: com.incquerylabs.iot.droolsbundle,
+ rules

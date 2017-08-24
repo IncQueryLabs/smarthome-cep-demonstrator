@@ -2,6 +2,8 @@ package com.incquerylabs.iot.droolsbundle;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Collection;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.library.types.OnOffType;
@@ -137,5 +139,28 @@ public class EventBusSubscriber implements IEventBusSubscriber {
         public State getOldState() {
             return this.oldState;
         }
+    }
+
+    @Override
+    public void initItems(Collection<Item> items) {
+        new ConcurrentHashMap<String, Item>();
+    }
+
+    @Override
+    public void itemAdded(Item item) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void itemRemoved(String itemName) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void itemUpdated(Item newItem, String oldItemName) {
+        // TODO Auto-generated method stub
+
     }
 }
