@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="dandridbinding"
+						  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						  xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+						  xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+
+	<thing-type id="dandrid">
+		<label>Dandrid Binding Thing</label>
+		<description>Sample thing for Dandrid Binding</description>
+
+		<channels>
+			<channel id="allow-pir-switch" typeId="allow-pir-switch"/>
+			<channel id="pir-switch" typeId="pir-switch"/>
+			<channel id="mqtt-switch" typeId="mqtt-switch"/>
+			<channel id="motion" typeId="motion-event"/>
+			<channel id="motion-start" typeId="motion-event"/>
+			<channel id="motion-stop" typeId="motion-event"/>
+		</channels>
+	</thing-type>
+
+	<channel-type id="allow-pir-switch">
+		<item-type>Switch</item-type>
+		<label>Allow PIR</label>
+		<description>Allow PIR switches </description>
+	</channel-type>
+    
+    <channel-type id="pir-switch">
+        <item-type>Switch</item-type>
+        <label>PIR switch</label>
+        <description>Pir switch</description>
+        <state readOnly="true"/> 
+    </channel-type>
+    
+	<channel-type id="mqtt-switch">
+        <item-type>Switch</item-type>
+        <label>MQTT switch</label>
+        <description>Switches via MQTT</description>
+    </channel-type>
+    
+    <channel-type id="motion-event">
+    <kind>trigger</kind>
+    <label>Motion</label>
+    <description>Motion event</description>
+    <event>
+      <options>
+        <option value="START">start</option>
+        <option value="END">end</option>
+      </options>
+    </event>
+</channel-type>
+
+</thing:thing-descriptions>
