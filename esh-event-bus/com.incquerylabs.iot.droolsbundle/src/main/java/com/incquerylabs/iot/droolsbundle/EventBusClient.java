@@ -9,7 +9,6 @@ import com.incquerylabs.iot.eshieventbusservice.IEventBusSubscriber;
 public class EventBusClient {
     static Logger logger = LoggerFactory.getLogger(EventBusClient.class);
 
-    private IEventBusService eventBusService;
     private IEventBusSubscriber eventBusSubscriber;
 
     public void activate() {
@@ -22,7 +21,6 @@ public class EventBusClient {
     }
 
     public void setEventBusService(IEventBusService eventBusService) {
-        this.eventBusService = eventBusService;
         logger.debug("IncQuery: registered event bus service.");
 
         eventBusSubscriber = new EventBusSubscriber(eventBusService);
@@ -33,8 +31,6 @@ public class EventBusClient {
     public void unsetEventBusService(IEventBusService eventBusService) {
         eventBusService.unsetSubscriber(eventBusSubscriber);
         logger.trace("IncQuery: unregistered event bus subscriber.");
-
-        this.eventBusService = null;
         logger.debug("IncQuery: unregistered event bus service.");
     }
 }
