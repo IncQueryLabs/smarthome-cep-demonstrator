@@ -1,15 +1,13 @@
 package com.incquerylabs.iot.droolsbundle;
 
 import org.eclipse.smarthome.core.items.Item;
-import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.types.Command;
 
 public class ItemCommandEvent {
-    public static final Command ON = OnOffType.ON;
-    public static final Command OFF = OnOffType.OFF;
 
     private Item item;
     private Command command;
+    private boolean processed = false;
 
     public ItemCommandEvent(Item item, Command command) {
         this.item = item;
@@ -26,6 +24,14 @@ public class ItemCommandEvent {
 
     public Command getCommand() {
         return this.command;
+    }
+
+    public boolean getProcessed() {
+        return processed;
+    }
+
+    public void setProcessed() {
+        processed = true;
     }
 
     @Override

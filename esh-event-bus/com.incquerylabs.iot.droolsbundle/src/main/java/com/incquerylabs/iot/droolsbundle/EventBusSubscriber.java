@@ -75,12 +75,13 @@ public class EventBusSubscriber implements IEventBusSubscriber {
         synchronized (lock) {
             logger.debug("IncQuery droolsbundle: " + item.getName() + " state changed to: " + newState);
             ItemStateChangedEvent itemStateChangedEvent = new ItemStateChangedEvent(item, newState, oldState);
-            FactHandle handle = kSession.insert(itemStateChangedEvent);
-
             updateItem(item);
 
+            FactHandle handle = kSession.insert(itemStateChangedEvent);
             kSession.fireAllRules();
-            kSession.delete(handle);
+
+            itemStateChangedEvent.setProcessed();
+            kSession.update(handle, itemStateChangedEvent);
         }
     }
 
@@ -89,12 +90,13 @@ public class EventBusSubscriber implements IEventBusSubscriber {
         synchronized (lock) {
             logger.debug("IncQuery droolsbundle: " + item.getName() + " received command: " + command);
             ItemCommandEvent itemReceivedCommand = new ItemCommandEvent(item, command);
-            FactHandle handle = kSession.insert(itemReceivedCommand);
 
             updateItem(item);
 
+            FactHandle handle = kSession.insert(itemReceivedCommand);
             kSession.fireAllRules();
-            kSession.delete(handle);
+            itemReceivedCommand.setProcessed();
+            kSession.update(handle, itemReceivedCommand);
         }
     }
 

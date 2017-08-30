@@ -1,4 +1,4 @@
-package drooldsample
+package droolssample
 
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.library.items.SwitchItem;
@@ -70,7 +70,7 @@ end
 
 rule "Item command event"
     when
-        $itemCommand : ItemCommandEvent( name : name, command : command)
+        $itemCommand : ItemCommandEvent( name : name, command : command, processed == false)
     then
         System.out.println( "IncQuery droolsbundle: " + $itemCommand);
 end
@@ -78,52 +78,37 @@ end
 
 rule "Item state changed event"
     when
-        $itemState : ItemStateChangedEvent( $item : item, name : name, newState : newState, oldState : oldState)
+        $itemState : ItemStateChangedEvent( $item : item, name : name, newState : newState, oldState : oldState, processed == false)
     then
         System.out.println( "IncQuery droolsbundle: item " + $itemState);
-        insert($item);
 end
 
 
-rule "added item to rule engine"
+rule "Exapmle Lights Switch"
     when
-        $item : Item(name : name)
-    then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName() + " " + $item.getName());
-end
+        $item : Item( name == "Light_FF_Bed_Ceiling", $state : state)
 
-
-rule "Example Lights Switch On"
-    when
-        $item : Item( name == "Light_FF_Bed_Ceiling", state == OFF) 
-
-        $itemState : ItemStateChangedEvent( name == "Heating_FF_Bed", newState == ON )
+        $itemState : ItemStateChangedEvent( name == "Heating_FF_Bed", newState == ON, processed == false )
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        openhab.postCommand($item.getName(), ON);
-end
-
-
-rule "Exapmle Lights Switch Off"
-    when
-        $item : Item( name == "Light_FF_Bed_Ceiling", state == ON) 
-
-        $itemState : ItemStateChangedEvent( name == "Heating_FF_Bed", newState == ON )
-    then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        openhab.postCommand($item.getName(), OFF);
+        if ($state == ON) {
+            openhab.postCommand($item.getName(), OFF);
+        } else {
+            openhab.postCommand($item.getName(), ON);
+        }
 end
 
 
 
 rule "A Lights Switch On"
     when
-        $item : Item( name == "A_Lights", state == OFF) 
+        $item : Item( name == "A_Lights", $state : state) 
 
-        $itemState : ItemStateChangedEvent( 
-        (name == "A_Light_Switch_Dimmer_1_Up" && newState == OPEN) || 
-        (name == "A_Light_Switch_Dimmer_2_Up" && newState == OPEN) || 
-        (name == "A_Light_Switch_Dimmer_3_Up" && newState == OPEN) )
+        $itemState : ItemStateChangedEvent( ( 
+        name == "A_Light_Switch_Dimmer_1_Up" || 
+        name == "A_Light_Switch_Dimmer_2_Up" || 
+        name == "A_Light_Switch_Dimmer_3_Up") && 
+        newState == OPEN && processed == false )
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         openhab.postCommand($item.getName(), ON);
@@ -132,36 +117,69 @@ end
 
 rule "A Lights Switch Off"
     when
-        $item : Item( name == "A_Lights", state == ON) 
+        $item : Item( name == "A_Lights", $state : state) 
 
-        itemState : ItemStateChangedEvent( 
-        (name == "A_Light_Switch_Dimmer_1_Down" && newState == OPEN) || 
-        (name == "A_Light_Switch_Dimmer_2_Down" && newState == OPEN) || 
-        (name == "A_Light_Switch_Dimmer_3_Down" && newState == OPEN) )
+        $itemState : ItemStateChangedEvent( ( 
+        name == "A_Light_Switch_Dimmer_1_Down" || 
+        name == "A_Light_Switch_Dimmer_2_Down" || 
+        name == "A_Light_Switch_Dimmer_3_Down") && 
+        newState == OPEN && processed == false )
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         openhab.postCommand($item.getName(), OFF);
 end
 
 
-rule "A Lights Motion On"
+rule "A Lights Motion"
     when
-        $item : Item( name == "A_Lights", state == OFF) 
-        $brigthnessSensor : Item( name == "A_Brightness_Sensor", state == OPEN) 
+        $item : Item( name == "A_Lights", $lightState : state)
+        $brigthnessSensor : Item( name == "A_Brightness_Sensor", $brightnesSesnsorState: state)
 
-        $itemState : ItemStateChangedEvent( name == "A_Motion_Detector", newState == OPEN)
+        $itemState : ItemStateChangedEvent( name == "A_Motion_Detector", $motionDetectorState : newState, processed == false)
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        openhab.postCommand($item.getName(), ON);
+
+        if ($lightState == ON && $motionDetectorState == CLOSED) {
+            openhab.postCommand($item.getName(), OFF);
+        } else if ($lightState == OFF && $motionDetectorState == OPEN && $brightnesSesnsorState == OPEN) {
+            openhab.postCommand($item.getName(), ON);
+        }
 end
 
 
-rule "A Lights Motion Off"
-    when
-        $item : Item( name == "A_Lights", state == ON) 
 
-        $motion : ItemStateChangedEvent( name == "A_Motion_Detector", newState == CLOSED)
+rule "A RollerShades 1"
+    when
+        Item( name == "A_Roller_Shades_1_Up", $stateUp : state)
+        Item( name == "A_Roller_Shades_1_Down", $stateDown : state) 
+
+        $itemState : ItemStateChangedEvent( (
+        name == "A_Up_Down_Switch_1_Up" || 
+        name == "A_Up_Down_Switch_1_Down") && 
+        newState == OPEN && processed == false )
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        openhab.postCommand($item.getName(), OFF);
+
+        if($itemState.getName().equals("A_Up_Down_Switch_1_Up") ) {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("A_Roller_Shades_1_Up", ON);
+                openhab.postCommand("A_Roller_Shades_2_Up", ON);
+            }
+            else {
+                openhab.postCommand("A_Roller_Shades_1_Down", OFF);
+                openhab.postCommand("A_Roller_Shades_2_Down", OFF);
+            }
+        }
+        else {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("A_Roller_Shades_1_Down", ON);
+                openhab.postCommand("A_Roller_Shades_2_Down", ON);
+            }
+            else {
+                openhab.postCommand("A_Roller_Shades_1_Up", OFF);
+                openhab.postCommand("A_Roller_Shades_2_Up", OFF);
+            }
+        }
 end

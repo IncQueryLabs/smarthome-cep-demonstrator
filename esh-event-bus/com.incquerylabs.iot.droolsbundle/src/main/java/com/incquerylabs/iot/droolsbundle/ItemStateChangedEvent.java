@@ -1,16 +1,14 @@
 package com.incquerylabs.iot.droolsbundle;
 
 import org.eclipse.smarthome.core.items.Item;
-import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.types.State;
 
 public class ItemStateChangedEvent {
-    public static final State OPEN = OpenClosedType.OPEN;
-    public static final State CLOSED = OpenClosedType.CLOSED;
 
     private Item item;
     private State newState;
     private State oldState;
+    private boolean processed = false;
 
     public ItemStateChangedEvent(Item item, State newState, State oldState) {
         this.item = item;
@@ -32,6 +30,14 @@ public class ItemStateChangedEvent {
 
     public State getOldState() {
         return this.oldState;
+    }
+
+    public boolean getProcessed() {
+        return processed;
+    }
+
+    public void setProcessed() {
+        processed = true;
     }
 
     @Override
