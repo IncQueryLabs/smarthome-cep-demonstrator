@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1503581644698
+Bnd-LastModified: 1503999324320
 Build-Jdk: 1.8.0_144
 Built-By: dandrid
 Bundle-ManifestVersion: 2
@@ -8,10 +8,10 @@ Bundle-Name: com.incquerylabs.iot.droolsbundle [com.incquerylabs.iot.dro
 Bundle-SymbolicName: com.incquerylabs.iot.droolsbundle
 Bundle-Version: 1.0.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Embed-Dependency: *;inline=true
-Embed-Directory: target/classes
-Import-Package: org.slf4j;version="[1.7,2)",org.eclipse.smarthome.core.l
- ibrary.types,org.eclipse.smarthome.core.types,org.eclipse.smarthome.cor
+Embed-Dependency: *;scope=compile|runtime;inline=true
+Embed-Transitive: true
+Import-Package: org.slf4j;version="[1.7,2)",org.eclipse.smarthome.core.t
+ ypes,org.eclipse.smarthome.core.library.types,org.eclipse.smarthome.cor
  e.items
 Require-Bundle: com.incquerylabs.iot.eshieventbusservice
 Require-Capability: osgi.service;effective:=active;filter:="(objectClass
@@ -20,6 +20,7 @@ Require-Capability: osgi.service;effective:=active;filter:="(objectClass
 Service-Component: OSGI-INF/drools-test.xml
 Tool: Bnd-2.3.0.201405100607
 Bundle-ClassPath: .,
+ src/main/resources/,
  lib/antlr-runtime-3.5.jar,
  lib/commons-codec-1.4.jar,
  lib/drools-compiler-6.3.0.Final.jar,

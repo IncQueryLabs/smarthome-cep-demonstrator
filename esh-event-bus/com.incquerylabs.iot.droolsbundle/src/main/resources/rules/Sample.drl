@@ -1,6 +1,7 @@
 package drooldsample
 
 import org.eclipse.smarthome.core.items.Item;
+import org.eclipse.smarthome.core.library.items.SwitchItem;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.types.Command;
@@ -8,6 +9,7 @@ import org.eclipse.smarthome.core.types.State;
 import com.incquerylabs.iot.droolsbundle.ItemCommandEvent;
 import com.incquerylabs.iot.droolsbundle.ItemStateChangedEvent;
 import com.incquerylabs.iot.eshieventbusservice.IEventBusService;
+
 
 global IEventBusService openhab;
 global OpenClosedType OPEN;
@@ -25,11 +27,13 @@ declare ItemStateChangedEvent
     @role ( event )
 end
 
+
 declare ManualSwitchON
     @role ( event )
 
     itemName : String @key
 end
+
 
 
 
@@ -39,11 +43,6 @@ rule "Init"
         eval ( true )
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        
-        OPEN = OpenClosedType.OPEN;
-        CLOSED = OpenClosedType.CLOSED;
-        ON = OnOffType.ON;
-        OFF = OnOffType.OFF;
 
         openhab.postCommand("A_Lights", OFF);
         openhab.postCommand("O_Lights_Porch_1", OFF);
@@ -79,10 +78,42 @@ end
 
 rule "Item state changed event"
     when
-        $itemState : ItemStateChangedEvent( name : name, newState : newState, oldState : oldState)
+        $itemState : ItemStateChangedEvent( $item : item, name : name, newState : newState, oldState : oldState)
     then
         System.out.println( "IncQuery droolsbundle: item " + $itemState);
+        insert($item);
 end
+
+
+rule "added item to rule engine"
+    when
+        $item : Item(name : name)
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName() + " " + $item.getName());
+end
+
+
+rule "Example Lights Switch On"
+    when
+        $item : Item( name == "Light_FF_Bed_Ceiling", state == OFF) 
+
+        $itemState : ItemStateChangedEvent( name == "Heating_FF_Bed", newState == ON )
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        openhab.postCommand($item.getName(), ON);
+end
+
+
+rule "Exapmle Lights Switch Off"
+    when
+        $item : Item( name == "Light_FF_Bed_Ceiling", state == ON) 
+
+        $itemState : ItemStateChangedEvent( name == "Heating_FF_Bed", newState == ON )
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        openhab.postCommand($item.getName(), OFF);
+end
+
 
 
 rule "A Lights Switch On"
@@ -116,7 +147,7 @@ end
 rule "A Lights Motion On"
     when
         $item : Item( name == "A_Lights", state == OFF) 
-        $brigthnessSensor : Item( name == "A_Lights", state == OPEN) 
+        $brigthnessSensor : Item( name == "A_Brightness_Sensor", state == OPEN) 
 
         $itemState : ItemStateChangedEvent( name == "A_Motion_Detector", newState == OPEN)
     then
@@ -132,39 +163,5 @@ rule "A Lights Motion Off"
         $motion : ItemStateChangedEvent( name == "A_Motion_Detector", newState == CLOSED)
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        openhab.postCommand($item.getName(), OnOffType.OFF);
+        openhab.postCommand($item.getName(), OFF);
 end
-
-
-/*
-rule "A RollerShades 2"
-    when
-        Status( itemName == "A_Roller_Shades_3_Up", $statusUp : status)
-        Status( itemName == "A_Roller_Shades_3_Down", $statusDown : status)
-
-        itemState : ItemStateChanged( (itemName == "A_Up_Down_Switch_2_Up" && newState == OpenClosedType.OPEN) || (itemName == "A_Up_Down_Switch_2_Down" && newState == OpenClosedType.OPEN) )
-    then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
-        if(itemState.getItemName() == "A_Up_Down_Switch_2_Up" ) {
-            if( $statusUp == OnOffType.OFF && $statusDown == OnOffType.OFF) {
-                openhab.postCommand("A_Roller_Shades_3_Up", OnOffType.ON);
-                openhab.postCommand("A_Roller_Shades_4_Up", OnOffType.ON);
-            }
-            else {
-                openhab.postCommand("A_Roller_Shades_3_Down", OnOffType.OFF);
-                openhab.postCommand("A_Roller_Shades_4_Down", OnOffType.OFF);
-            }
-        }
-        else {
-            if( $statusUp == OnOffType.OFF && $statusDown == OnOffType.OFF) {
-                openhab.postCommand("A_Roller_Shades_3_Down", OnOffType.ON);
-                openhab.postCommand("A_Roller_Shades_4_Down", OnOffType.ON);
-            }
-            else {
-                openhab.postCommand("A_Roller_Shades_3_Up", OnOffType.OFF);
-                openhab.postCommand("A_Roller_Shades_4_Up", OnOffType.OFF);
-            }
-        }
-end
-*/

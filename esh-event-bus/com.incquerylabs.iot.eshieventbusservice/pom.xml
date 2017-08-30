@@ -6,6 +6,7 @@
   
     <properties>
         <tycho-version>1.0.0</tycho-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
@@ -26,5 +27,15 @@
             </plugin>
       </plugins>
    </build>
+
+  <dependencies>
+
+        <dependency>
+          <groupId>org.eclipse.smarthome.core</groupId>
+          <artifactId>org.eclipse.smarthome.core</artifactId>
+          <version>0.9.0.b5</version>
+      </dependency>
+
+  </dependencies>
   
 </project>

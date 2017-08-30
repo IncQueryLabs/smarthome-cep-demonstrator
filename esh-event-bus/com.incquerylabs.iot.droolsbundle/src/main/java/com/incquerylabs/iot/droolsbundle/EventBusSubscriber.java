@@ -6,6 +6,8 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.smarthome.core.items.Item;
+import org.eclipse.smarthome.core.library.types.OnOffType;
+import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.types.Command;
 import org.eclipse.smarthome.core.types.State;
 import org.kie.api.builder.Results;
@@ -50,6 +52,10 @@ public class EventBusSubscriber implements IEventBusSubscriber {
 
             kSession = kieHelper.build(EventProcessingOption.STREAM).newKieSession();
             kSession.setGlobal("openhab", eventBusService);
+            kSession.setGlobal("ON", OnOffType.ON);
+            kSession.setGlobal("OFF", OnOffType.OFF);
+            kSession.setGlobal("OPEN", OpenClosedType.OPEN);
+            kSession.setGlobal("CLOSED", OpenClosedType.CLOSED);
 
             logger.debug("IncQuery droolsbundle: successfully loaded DRL file");
             logger.debug("IncQuery droolsbundle: kSession: " + kSession);
@@ -59,12 +65,20 @@ public class EventBusSubscriber implements IEventBusSubscriber {
         }
     }
 
+    private void updateItem(Item item) {
+        kSession.update(addedItems.get(item.getName()), item);
+        logger.error("IncQuery droolsbundle: item " + item.getName() + " updated reference in the rule engine");
+    }
+
     @Override
     public void stateChanged(Item item, State newState, State oldState) {
         synchronized (lock) {
             logger.debug("IncQuery droolsbundle: " + item.getName() + " state changed to: " + newState);
             ItemStateChangedEvent itemStateChangedEvent = new ItemStateChangedEvent(item, newState, oldState);
             FactHandle handle = kSession.insert(itemStateChangedEvent);
+
+            updateItem(item);
+
             kSession.fireAllRules();
             kSession.delete(handle);
         }
@@ -75,8 +89,12 @@ public class EventBusSubscriber implements IEventBusSubscriber {
         synchronized (lock) {
             logger.debug("IncQuery droolsbundle: " + item.getName() + " received command: " + command);
             ItemCommandEvent itemReceivedCommand = new ItemCommandEvent(item, command);
-            kSession.insert(itemReceivedCommand);
+            FactHandle handle = kSession.insert(itemReceivedCommand);
+
+            updateItem(item);
+
             kSession.fireAllRules();
+            kSession.delete(handle);
         }
     }
 
@@ -84,24 +102,24 @@ public class EventBusSubscriber implements IEventBusSubscriber {
     public void initItems(Collection<Item> items) {
         logger.debug("IncQuery droolsbundle: init " + items.size() + " items");
         for (Item item : items) {
-            FactHandle handle = kSession.insert(item);
-            addedItems.put(item.getName(), handle);
-            logger.debug("IncQuery droolsbundle: added item to rule engine: " + item.getName());
+            itemAdded(item);
         }
-        kSession.fireAllRules();
     }
 
     @Override
     public void itemAdded(Item item) {
 
         if (addedItems.get(item.getName()) == null) {
+
             FactHandle handle = kSession.insert(item);
             addedItems.put(item.getName(), handle);
-            kSession.fireAllRules();
-            logger.debug("IncQuery droolsbundle: added item to rule engine: " + item.getName());
+            logger.error("IncQuery droolsbundle: added item to rule engine: " + item.getName());
+
         } else {
-            logger.error("IncQuery droolsbundle: item " + item.getName() + "was already added to rule engine");
+            updateItem(item);
         }
+
+        kSession.fireAllRules();
     }
 
     @Override
@@ -115,7 +133,7 @@ public class EventBusSubscriber implements IEventBusSubscriber {
             logger.debug("IncQuery droolsbundle: removed item from rule engine: " + itemName);
         } else {
             logger.error(
-                    "IncQuery droolsbundle: tried to delete item" + itemName + ", but it wasn!t in the rule engine");
+                    "IncQuery droolsbundle: tried to delete item" + itemName + ", but it wasn't in the rule engine");
         }
     }
 
