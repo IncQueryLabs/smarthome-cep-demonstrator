@@ -8,6 +8,12 @@ public interface IEventBusService {
 
     public void postCommand(Item item, Command command);
 
+    public void timedCommand(ITimedCommand timedCommand);
+
+    public void stopTimedCommand(String itemName);
+
+    public void stopTimedCommand(Item item);
+
     public void setSubscriber(IEventBusSubscriber eventSubscriber);
 
     public void unsetSubscriber(IEventBusSubscriber eventSubscriber);

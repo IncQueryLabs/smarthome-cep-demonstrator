@@ -7,7 +7,6 @@ public class ItemCommandEvent {
 
     private Item item;
     private Command command;
-    private boolean processed = false;
 
     public ItemCommandEvent(Item item, Command command) {
         this.item = item;
@@ -24,14 +23,6 @@ public class ItemCommandEvent {
 
     public Command getCommand() {
         return this.command;
-    }
-
-    public boolean getProcessed() {
-        return processed;
-    }
-
-    public void setProcessed() {
-        processed = true;
     }
 
     @Override
