@@ -1,7 +1,6 @@
 package com.incquerylabs.iot.droolsbundle;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -44,8 +43,7 @@ public class EventBusSubscriber implements IEventBusSubscriber {
         try {
             synchronized (lock) {
                 KieHelper kieHelper = new KieHelper();
-                kieHelper.addResource(ResourceFactory.newInputStreamResource(new FileInputStream("rules\\Sample.drl")),
-                        ResourceType.DRL);
+                kieHelper.addResource(ResourceFactory.newClassPathResource("rules/Sample.drl"), ResourceType.DRL);
 
                 Results results = kieHelper.verify();
                 if (results.hasMessages(org.kie.api.builder.Message.Level.ERROR)) {
