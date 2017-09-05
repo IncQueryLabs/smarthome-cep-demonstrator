@@ -59,6 +59,8 @@ rule "Init"
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
 
+        openhab.postCommand("Example_Light", OFF);
+        
         openhab.postCommand("A_Lights", OFF);
         openhab.postCommand("A_Lights_Analog", OFF);
         openhab.postCommand("O_Lights_Porch_1", OFF);
@@ -105,9 +107,9 @@ end
 
 rule "Exapmle Lights Switch"
     when
-        $item : Item( name == "Light_FF_Bed_Ceiling", $state : state)
+        $item : Item( name == "Example_Light", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "Heating_FF_Bed", newState == ON)
+        $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == OPEN)
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         if ($state == ON) {
