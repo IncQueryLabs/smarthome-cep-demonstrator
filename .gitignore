@@ -10,3 +10,5 @@ esh-event-bus/com\.incquerylabs\.iot\.eshieventbusservice/target/
 esh-event-bus/org\.eclipse\.smarthome\.binding\.incqueryeventbus/target/
 
 esh-event-bus/com\.incquerylabs\.iot\.droolsbundle/lib/
+
+esh-event-bus/com\.incquerylabs\.iot\.droolsbundle\.test/target/

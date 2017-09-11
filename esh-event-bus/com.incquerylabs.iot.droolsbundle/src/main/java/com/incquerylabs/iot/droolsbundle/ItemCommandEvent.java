@@ -1,12 +1,9 @@
 package com.incquerylabs.iot.droolsbundle;
 
 import org.eclipse.smarthome.core.items.Item;
-import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.types.Command;
 
 public class ItemCommandEvent {
-    public static final Command ON = OnOffType.ON;
-    public static final Command OFF = OnOffType.OFF;
 
     private Item item;
     private Command command;

@@ -1,0 +1,90 @@
+package homeioexample
+
+global OpenClosedType ARMED
+global OpenClosedType DEARMED
+global OpenClosedType BRIGHTNESS
+global OpenClosedType DARKNESS
+
+declare AlarmArmed
+    @role ( event )
+end
+
+declare AlarmRaised
+    @role ( event )
+end
+
+
+rule "Alarm armed"
+    when
+        not( AlarmArmed() )
+        ItemStateChangedEvent( name == "E_Alarm_Key_Pad_Armed", newState == ARMED)
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+
+        insert(new AlarmArmed());
+end
+
+rule "Alarm dearmed"
+    when
+        $armed : AlarmArmed()
+        
+        ItemStateChangedEvent( name == "E_Alarm_Key_Pad_Armed", newState == DEARMED)
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        
+        retract($armed);
+end
+
+
+
+rule "Alarm for light"
+    when
+        $armed : AlarmArmed()
+        not ( AlarmRaised() )
+        $firstBrigthness : ItemStateHistory(this after[10s] $armed, name matches ".*Brightness_Sensor", newState == BRIGHTNESS)
+        
+        $secondBrigthness : ItemStateChangedEvent(this after[5s, 1m] $firstBrigthness, name matches ".*Brightness_Sensor", newState == BRIGHTNESS)
+    then
+        insert(new AlarmRaised());
+end
+
+
+rule "Alarm for motion or door open"
+    when
+        $armed : AlarmArmed()
+        not ( AlarmRaised() )
+        
+        ItemStateChangedEvent( this after[10s] $armed && 
+        ( name matches ".*Motion_Detector" && newState == OPEN ) || 
+        ( name matches ".*Door_Detector.*" && newState == CLOSED ) )
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        
+        insert(new AlarmRaised());
+end
+
+
+rule "Alarm raised"
+    when
+        AlarmRaised()
+    then
+    
+        openhab.postCommand("E_Siren", ON);
+        openhab.postCommand("O_Siren", ON);
+        //openhab.postCommand("gLight", ON);
+end
+
+
+rule "Alarm stop"
+    when
+        not( AlarmArmed() )
+        
+        $alarmRaised : AlarmRaised()
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        
+        retract($alarmRaised);
+        openhab.postCommand("E_Siren", OFF);
+        openhab.postCommand("O_Siren", OFF);
+        //openhab.postCommand("gLight", OFF);
+end

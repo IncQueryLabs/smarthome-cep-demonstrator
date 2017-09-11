@@ -2,6 +2,7 @@ package org.eclipse.smarthome.binding.incqueryeventbus.internal;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import org.eclipse.smarthome.core.events.Event;
@@ -25,6 +26,7 @@ import org.slf4j.LoggerFactory;
 
 import com.incquerylabs.iot.eshieventbusservice.IEventBusService;
 import com.incquerylabs.iot.eshieventbusservice.IEventBusSubscriber;
+import com.incquerylabs.iot.eshieventbusservice.ITimedCommand;
 
 public class EventBridge implements EventSubscriber, IEventBusService {
     static Logger logger = LoggerFactory.getLogger(EventBridge.class);
@@ -36,6 +38,7 @@ public class EventBridge implements EventSubscriber, IEventBusService {
 
     private ItemRegistry itemRegistry;
     private EventPublisher eventPublisher;
+    private ConcurrentHashMap<String, ITimedCommand> timedCommands = new ConcurrentHashMap<String, ITimedCommand>();
     private CopyOnWriteArraySet<IEventBusSubscriber> eventBusSubscribers = new CopyOnWriteArraySet<IEventBusSubscriber>();
 
     /**
@@ -156,13 +159,13 @@ public class EventBridge implements EventSubscriber, IEventBusService {
     }
 
     @Override
-    public void postCommand(String itemName, Command command) {
+    public synchronized void postCommand(String itemName, Command command) {
         eventPublisher.post(ItemEventFactory.createCommandEvent(itemName, command));
         logger.info("IncQuery: posted command to item: " + itemName + " " + command);
     }
 
     @Override
-    public void postCommand(Item item, Command command) {
+    public synchronized void postCommand(Item item, Command command) {
         postCommand(item.getName(), command);
     }
 
@@ -187,7 +190,7 @@ public class EventBridge implements EventSubscriber, IEventBusService {
     }
 
     @Override
-    public void setSubscriber(IEventBusSubscriber eventSubscriber) {
+    public synchronized void setSubscriber(IEventBusSubscriber eventSubscriber) {
         if (!eventBusSubscribers.contains(eventSubscriber)) {
             eventBusSubscribers.add(eventSubscriber);
             logger.info("IncQuery: set event subscriber");
@@ -195,7 +198,7 @@ public class EventBridge implements EventSubscriber, IEventBusService {
     }
 
     @Override
-    public void unsetSubscriber(IEventBusSubscriber eventSubscriber) {
+    public synchronized void unsetSubscriber(IEventBusSubscriber eventSubscriber) {
         if (eventBusSubscribers.remove(eventSubscriber)) {
             logger.info("IncQuery: set event subscriber");
         }
@@ -210,5 +213,31 @@ public class EventBridge implements EventSubscriber, IEventBusService {
     @Override
     public EventFilter getEventFilter() {
         return null;
+    }
+
+    @Override
+    public synchronized void timedCommand(ITimedCommand timedCommand) {
+        String itemName = timedCommand.getItemName();
+        stopTimedCommand(timedCommands.get(itemName));
+
+        timedCommand.start(this);
+        timedCommands.put(itemName, timedCommand);
+    }
+
+    private void stopTimedCommand(ITimedCommand timedCommand) {
+        if (timedCommand != null) {
+            timedCommand.stop();
+            timedCommands.remove(timedCommand.getItemName());
+        }
+    }
+
+    @Override
+    public synchronized void stopTimedCommand(String itemName) {
+        stopTimedCommand(timedCommands.get(itemName));
+    }
+
+    @Override
+    public synchronized void stopTimedCommand(Item item) {
+        stopTimedCommand(item.getName());
     }
 }
