@@ -1,0 +1,16 @@
+package homeioexample
+
+
+rule "C lights"
+    when
+        $item : Item( name == "C_Lights", $state : state)
+
+        $itemState : ItemStateChangedEvent( name == "C_Light_Switch", newState == OPEN)
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        if ($state == ON) {
+            openhab.postCommand($item, OFF);
+        } else {
+            openhab.postCommand($item, ON);
+        }
+end

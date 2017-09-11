@@ -43,7 +43,31 @@ public class EventBusSubscriber implements IEventBusSubscriber {
         try {
             synchronized (lock) {
                 KieHelper kieHelper = new KieHelper();
-                kieHelper.addResource(ResourceFactory.newClassPathResource("rules/Sample.drl"), ResourceType.DRL);
+                kieHelper.addResource(ResourceFactory.newClassPathResource("rules/Common.drl"), ResourceType.DRL);
+                kieHelper.addResource(ResourceFactory.newClassPathResource("rules/Alarm.drl"), ResourceType.DRL);
+
+                char[] dimmeRooms = { 'A', 'D', 'E' };
+                char[] lightsRooms = { 'A', 'B', 'C', 'D', 'E' };
+                char[] motionRoomes = { 'A', 'B', 'D', 'E' };
+                char[] rollershadesRooms = { 'A', 'D', 'E' };
+
+                for (char room : dimmeRooms) {
+                    kieHelper.addResource(ResourceFactory.newClassPathResource("rules/dimmer/Room-" + room + ".drl"),
+                            ResourceType.DRL);
+                }
+                for (char room : lightsRooms) {
+                    kieHelper.addResource(ResourceFactory.newClassPathResource("rules/lights/Room-" + room + ".drl"),
+                            ResourceType.DRL);
+                }
+                for (char room : motionRoomes) {
+                    kieHelper.addResource(ResourceFactory.newClassPathResource("rules/motion/Room-" + room + ".drl"),
+                            ResourceType.DRL);
+                }
+                for (char room : rollershadesRooms) {
+                    kieHelper.addResource(
+                            ResourceFactory.newClassPathResource("rules/rollershades/Room-" + room + ".drl"),
+                            ResourceType.DRL);
+                }
 
                 Results results = kieHelper.verify();
                 if (results.hasMessages(org.kie.api.builder.Message.Level.ERROR)) {
@@ -62,6 +86,11 @@ public class EventBusSubscriber implements IEventBusSubscriber {
                 kSession.setGlobal("HUNDRED", PercentType.HUNDRED);
                 kSession.setGlobal("INCREASE", IncreaseDecreaseType.INCREASE);
                 kSession.setGlobal("DECREASE", IncreaseDecreaseType.DECREASE);
+
+                kSession.setGlobal("ARMED", OpenClosedType.OPEN);
+                kSession.setGlobal("DEARMED", OpenClosedType.CLOSED);
+                kSession.setGlobal("BRIGHTNESS", OpenClosedType.CLOSED);
+                kSession.setGlobal("DARKNESS", OpenClosedType.OPEN);
             }
             logger.debug("IncQuery droolsbundle: successfully loaded DRL file");
 

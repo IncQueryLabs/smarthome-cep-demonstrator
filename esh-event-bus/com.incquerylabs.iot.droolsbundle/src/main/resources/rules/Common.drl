@@ -1,0 +1,127 @@
+package homeioexample
+
+import org.eclipse.smarthome.core.items.Item;
+import org.eclipse.smarthome.core.library.items.SwitchItem;
+import org.eclipse.smarthome.core.library.types.OnOffType;
+import org.eclipse.smarthome.core.library.types.OpenClosedType;
+import org.eclipse.smarthome.core.library.types.PercentType;
+import org.eclipse.smarthome.core.library.types.DecimalType;
+import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
+import org.eclipse.smarthome.core.types.Command;
+import org.eclipse.smarthome.core.types.State;
+import com.incquerylabs.iot.droolsbundle.ItemCommandEvent;
+import com.incquerylabs.iot.droolsbundle.ItemCommandHistory;
+import com.incquerylabs.iot.droolsbundle.ItemStateChangedEvent;
+import com.incquerylabs.iot.droolsbundle.ItemStateHistory;
+import com.incquerylabs.iot.droolsbundle.TimedDimmer;
+import com.incquerylabs.iot.eshieventbusservice.IEventBusService;
+
+
+global IEventBusService openhab;
+global OpenClosedType OPEN;
+global OpenClosedType CLOSED;
+global OnOffType ON;
+global OnOffType OFF;
+global PercentType HUNDRED;
+global PercentType ZERO;
+global IncreaseDecreaseType INCREASE;
+global IncreaseDecreaseType DECREASE;
+
+
+declare ItemCommandEvent
+    @role ( event )
+end
+
+
+declare ItemCommandHistory
+    @role ( event )
+end
+
+
+declare ItemStateChangedEvent
+    @role ( event )
+end
+
+
+declare ItemStateHistory
+    @role ( event )
+end
+
+
+
+
+
+
+rule "Init"
+    lock-on-active
+    when
+        eval ( true )
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+
+        openhab.postCommand("Example_Light", OFF);
+        
+        openhab.postCommand("A_Lights", OFF);
+        openhab.postCommand("A_Lights_Analog", ZERO);
+        openhab.postCommand("A_Roller_Shades_1_Up", OFF);
+        openhab.postCommand("A_Roller_Shades_1_Down", OFF);
+        openhab.postCommand("A_Roller_Shades_3_Up", OFF);
+        openhab.postCommand("A_Roller_Shades_3_Down", OFF);
+
+        openhab.postCommand("A_Light_Switch_Dimmer_3_Up", CLOSED);
+        openhab.postCommand("A_Light_Switch_Dimmer_3_Down", CLOSED);
+        
+        openhab.postCommand("B_Lights_1", OFF);
+        openhab.postCommand("B_Lights_2", OFF);
+        openhab.postCommand("B_Lights_1_Analog", ZERO);
+        openhab.postCommand("B_Lights_2_Analog", ZERO);
+        
+        openhab.postCommand("C_Lights", OFF);
+        openhab.postCommand("C_Lights_Analog", ZERO);
+        
+        openhab.postCommand("D_Lights_1", OFF);
+        openhab.postCommand("D_Lights_2", OFF);
+        openhab.postCommand("D_Lights_1_Analog", ZERO);
+        openhab.postCommand("D_Lights_2_Analog", ZERO);
+        openhab.postCommand("D_Roller_Shades_Up", OFF);
+        openhab.postCommand("D_Roller_Shades_Down", OFF);
+
+        openhab.postCommand("E_Lights", OFF);
+        openhab.postCommand("E_Lights_Analog", OFF);
+        openhab.postCommand("E_Roller_Shades_Up", OFF);
+        openhab.postCommand("E_Roller_Shades_Down", OFF);
+        
+        openhab.postCommand("O_Lights_Porch_1", OFF);
+        openhab.postCommand("O_Lights_Porch_2", OFF);
+end
+
+
+rule "Item command event"
+    when
+        $itemCommand : ItemCommandEvent( name : name, command : command)
+    then
+        System.out.println( "IncQuery droolsbundle: " + $itemCommand);
+end
+
+
+rule "Item state changed event"
+    when
+        $itemState : ItemStateChangedEvent( $item : item, name : name, newState : newState, oldState : oldState)
+    then
+        System.out.println( "IncQuery droolsbundle: item " + $itemState);
+end
+
+
+rule "Exapmle Lights Switch"
+    when
+        $item : Item( name == "Example_Light", $state : state)
+
+        $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == OPEN)
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        if ($state == ON) {
+            openhab.postCommand($item, OFF);
+        } else {
+            openhab.postCommand($item, ON);
+        }
+end

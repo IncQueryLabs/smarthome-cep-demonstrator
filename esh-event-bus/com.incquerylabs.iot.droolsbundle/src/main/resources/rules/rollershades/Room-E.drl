@@ -1,0 +1,34 @@
+package homeioexample
+
+
+rule "E RollerShades"
+    when
+        Item( name == "E_Roller_Shades_Up", $stateUp : state)
+        Item( name == "E_Roller_Shades_Down", $stateDown : state) 
+
+        $itemState : ItemStateChangedEvent( (
+        name == "E_Up_Down_Switch_Up" || 
+        name == "E_Up_Down_Switch_Down") && 
+        newState == OPEN )
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+
+        if($itemState.getName().equals("E_Up_Down_Switch_Up") ) {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("E_Roller_Shades_Up", ON);
+            }
+            else {
+                openhab.postCommand("E_Roller_Shades_Down", OFF);
+            }
+        }
+        else {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("E_Roller_Shades_Down", ON);
+            }
+            else {
+                openhab.postCommand("E_Roller_Shades_Up", OFF);
+            }
+        }
+end

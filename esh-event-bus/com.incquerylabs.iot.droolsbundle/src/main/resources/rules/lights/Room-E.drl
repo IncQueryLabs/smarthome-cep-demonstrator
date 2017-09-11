@@ -1,0 +1,61 @@
+package homeioexample
+
+
+rule "E Lights Switch On"
+    when
+        $item : Item( name == "E_Lights_Analog", $state : state) 
+
+        $itemStateOpen : ItemStateHistory( ( 
+        name == "E_Light_Switch_Dimmer_1_Up" || 
+        name == "E_Light_Switch_Dimmer_2_Up" ) && 
+        newState == OPEN )
+
+
+        $itemStateClosed : ItemStateChangedEvent ( 
+        this after[0s,1s] $itemStateOpen && (
+        name == "E_Light_Switch_Dimmer_1_Up" || 
+        name == "E_Light_Switch_Dimmer_2_Up" ) && 
+        newState == CLOSED )
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+
+        openhab.postCommand($item.getName(), HUNDRED);
+end
+
+
+rule "E Lights Switch Off"
+    when
+        $item : Item( name == "E_Lights_Analog", $state : state) 
+
+        $itemStateOpen : ItemStateHistory( ( 
+        name == "E_Light_Switch_Dimmer_1_Down" || 
+        name == "E_Light_Switch_Dimmer_2_Down" ) && 
+        newState == OPEN )
+
+        $itemStateClosed : ItemStateChangedEvent ( 
+        this after[0s,1s] $itemStateOpen && (
+        name == "E_Light_Switch_Dimmer_1_Down" || 
+        name == "E_Light_Switch_Dimmer_2_Down" ) && 
+        newState == CLOSED )
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+
+        openhab.postCommand($item.getName(), ZERO);
+end
+
+
+rule "E Lights Switch"
+    when
+        $item : Item( name == "E_Lights_Analog", $state : state)
+
+        $itemState : ItemStateChangedEvent( name == "E_Light_Switch_1", newState == OPEN)
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        if ($state.equals(HUNDRED)) {
+            openhab.postCommand($item, ZERO);
+            openhab.postCommand("G_Lights_Analog", ZERO);
+        } else {
+            openhab.postCommand($item, HUNDRED);
+            openhab.postCommand("G_Lights_Analog", HUNDRED);
+        }
+end

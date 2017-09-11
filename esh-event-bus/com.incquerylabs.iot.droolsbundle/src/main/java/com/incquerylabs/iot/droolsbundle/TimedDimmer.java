@@ -51,7 +51,7 @@ public class TimedDimmer implements ITimedCommand {
     }
 
     @Override
-    public void start(IEventBusService eventBus) {
+    public void start(final IEventBusService eventBus) {
         timer.scheduleAtFixedRate(new TimerTask() {
 
             @Override
