@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" name="com.incquerylabs.iot.esheventbusclient">
-   <implementation class="com.incquerylabs.iot.esheventbusclient.EventBusClient"/>
-   <reference bind="setEventBusService" cardinality="1..1" interface="com.incquerylabs.iot.eshieventbusservice.IEventBusService" name="IEventBusService" policy="static" unbind="unsetEventBusService"/>
-</scr:component>

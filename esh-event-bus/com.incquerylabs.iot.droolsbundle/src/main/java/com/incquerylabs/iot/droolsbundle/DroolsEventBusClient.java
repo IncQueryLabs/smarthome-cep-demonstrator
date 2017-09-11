@@ -21,24 +21,24 @@ import org.kie.internal.utils.KieHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.incquerylabs.iot.eshieventbusservice.IEventBusService;
-import com.incquerylabs.iot.eshieventbusservice.IEventBusSubscriber;
+import com.incquerylabs.iot.eshieventbusservice.IEventPublisher;
+import com.incquerylabs.iot.eshieventbusservice.IEventSubscriber;
 
-public class EventBusSubscriber implements IEventBusSubscriber {
-    static Logger logger = LoggerFactory.getLogger(EventBusSubscriber.class);
+public class DroolsEventBusClient implements IEventSubscriber {
+    static Logger logger = LoggerFactory.getLogger(DroolsEventBusClient.class);
+    private static final String subscriberName = "Drools event bus client";
 
     private Object lock = new Object();
     private ConcurrentHashMap<String, FactHandle> addedItems = new ConcurrentHashMap<String, FactHandle>();
 
     private KieSession kSession;
+    boolean droolsInitialized = false;
+    boolean publisherInitialized = false;
 
-    protected IEventBusService eventBusService;
-
-    public EventBusSubscriber(IEventBusService eventBusService) {
+    public DroolsEventBusClient() {
 
         logger.debug("IncQuery droolsbundle: constructor");
         logger.debug("IncQuery droolsbundle: location: " + new File("location.txt").getAbsolutePath());
-        this.eventBusService = eventBusService;
 
         try {
             synchronized (lock) {
@@ -77,7 +77,6 @@ public class EventBusSubscriber implements IEventBusSubscriber {
                 }
 
                 kSession = kieHelper.build(EventProcessingOption.STREAM).newKieSession();
-                kSession.setGlobal("openhab", eventBusService);
                 kSession.setGlobal("ON", OnOffType.ON);
                 kSession.setGlobal("OFF", OnOffType.OFF);
                 kSession.setGlobal("OPEN", OpenClosedType.OPEN);
@@ -103,7 +102,7 @@ public class EventBusSubscriber implements IEventBusSubscriber {
         synchronized (lock) {
             kSession.update(addedItems.get(item.getName()), item);
         }
-        logger.error("IncQuery droolsbundle: item " + item.getName() + " updated reference in the rule engine");
+        logger.info("IncQuery droolsbundle: item " + item.getName() + " updated reference in the rule engine");
     }
 
     @Override
@@ -155,7 +154,7 @@ public class EventBusSubscriber implements IEventBusSubscriber {
             synchronized (lock) {
                 addedItems.put(item.getName(), handle);
             }
-            logger.error("IncQuery droolsbundle: added item to rule engine: " + item.getName());
+            logger.info("IncQuery droolsbundle: added item to rule engine: " + item.getName());
 
         } else {
             updateItem(item);
@@ -188,5 +187,18 @@ public class EventBusSubscriber implements IEventBusSubscriber {
     public void itemUpdated(Item newItem, String oldItemName) {
         itemRemoved(oldItemName);
         itemAdded(newItem);
+    }
+
+    public void setEventPublisher(IEventPublisher eventPublisher) {
+        kSession.setGlobal("openhab", eventPublisher);
+    }
+
+    public void unsetEventPublisher(IEventPublisher eventPublisher) {
+        kSession.setGlobal("openhab", null);
+    }
+
+    @Override
+    public String getSubscriberName() {
+        return subscriberName;
     }
 }

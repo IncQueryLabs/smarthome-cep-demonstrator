@@ -74,11 +74,11 @@
             <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
             <Require-Bundle>com.incquerylabs.iot.eshieventbusservice</Require-Bundle>
-            <Service-Component>OSGI-INF/drools-test.xml</Service-Component>
+            <Service-Component>OSGI-INF/droolsEventBusClient.xml</Service-Component>
             
             <_exportcontents>com.incquerylabs.iot.droolsbundle</_exportcontents>
 			<Import-Package>org.slf4j,org.eclipse.smarthome.core.types,org.eclipse.smarthome.core.library.types,org.eclipse.smarthome.core.items</Import-Package>
-            <Bundle-ClassPath>.,{maven-dependencies},src/main/resources/,lib/</Bundle-ClassPath>
+            <Bundle-ClassPath>.,{maven-dependencies},src/main/resources/,lib/*.jar</Bundle-ClassPath>
             
             <Embed-Dependency>*;scope=compile|runtime;inline=true</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>

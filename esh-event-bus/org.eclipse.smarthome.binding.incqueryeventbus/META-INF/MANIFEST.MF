@@ -8,6 +8,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: .
 Import-Package: 
  com.incquerylabs.iot.eshieventbusservice,
+ org.eclipse.jdt.annotation,
  org.eclipse.smarthome.config.core,
  org.eclipse.smarthome.core.events,
  org.eclipse.smarthome.core.items,
@@ -17,7 +18,7 @@ Import-Package:
  org.eclipse.smarthome.core.thing.binding,
  org.eclipse.smarthome.core.types,
  org.slf4j;version="1.7.2"
-Service-Component: OSGI-INF/*.xml,
- OSGI-INF/eventbridge.xml
+Service-Component: OSGI-INF/*.xml,OSGI-INF/eventbridge.xml,OSGI-INF/evetnSubscriber.xml,
+ OSGI-INF/evetnPublisher.xml
 Export-Package: org.eclipse.smarthome.binding.incqueryeventbus,
  org.eclipse.smarthome.binding.incqueryeventbus.handler

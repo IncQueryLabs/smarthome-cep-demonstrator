@@ -2,7 +2,7 @@ package com.incquerylabs.iot.eshieventbusservice;
 
 public interface ITimedCommand {
 
-    public void start(IEventBusService service);
+    public void start(IEventPublisher publisher);
 
     public void stop();
 

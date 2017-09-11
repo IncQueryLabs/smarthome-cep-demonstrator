@@ -7,14 +7,13 @@ import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;
 import org.junit.Before;
 
-import com.incquerylabs.iot.droolsbundle.EventBusSubscriber;
-import com.incquerylabs.iot.eshieventbusservice.IEventBusSubscriber;
+import com.incquerylabs.iot.droolsbundle.DroolsEventBusClient;
 
 import junit.framework.TestCase;
 
 public abstract class BaseTest extends TestCase {
     protected EventBusMock eventBus;
-    protected IEventBusSubscriber drools;
+    protected DroolsEventBusClient drools;
 
     protected void setState(GenericItem item, State state) {
         State oldState = item.getState();
@@ -28,7 +27,8 @@ public abstract class BaseTest extends TestCase {
     @Before
     public void setUp() {
         eventBus = new EventBusMock();
-        drools = new EventBusSubscriber(eventBus);
+        drools = new DroolsEventBusClient();
+        drools.setEventPublisher(eventBus);
 
         LinkedList<Item> tesetItems = getTestItems();
 
@@ -40,5 +40,4 @@ public abstract class BaseTest extends TestCase {
             drools.itemAdded(item);
         }
     }
-
 }

@@ -14,10 +14,10 @@ import com.incquerylabs.iot.droolsbundle.ItemCommandHistory;
 import com.incquerylabs.iot.droolsbundle.ItemStateChangedEvent;
 import com.incquerylabs.iot.droolsbundle.ItemStateHistory;
 import com.incquerylabs.iot.droolsbundle.TimedDimmer;
-import com.incquerylabs.iot.eshieventbusservice.IEventBusService;
+import com.incquerylabs.iot.eshieventbusservice.IEventPublisher;
 
 
-global IEventBusService openhab;
+global IEventPublisher openhab;
 global OpenClosedType OPEN;
 global OpenClosedType CLOSED;
 global OnOffType ON;
