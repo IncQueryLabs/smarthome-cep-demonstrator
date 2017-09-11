@@ -3,7 +3,7 @@ package com.incquerylabs.iot.eshieventbusservice;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.Command;
 
-public interface IEventBusService {
+public interface IEventPublisher {
     public void postCommand(String itemName, Command command);
 
     public void postCommand(Item item, Command command);
@@ -13,8 +13,4 @@ public interface IEventBusService {
     public void stopTimedCommand(String itemName);
 
     public void stopTimedCommand(Item item);
-
-    public void setSubscriber(IEventBusSubscriber eventSubscriber);
-
-    public void unsetSubscriber(IEventBusSubscriber eventSubscriber);
 }

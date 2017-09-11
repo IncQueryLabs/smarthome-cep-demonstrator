@@ -7,7 +7,7 @@ import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
 import org.eclipse.smarthome.core.library.types.PercentType;
 
-import com.incquerylabs.iot.eshieventbusservice.IEventBusService;
+import com.incquerylabs.iot.eshieventbusservice.IEventPublisher;
 import com.incquerylabs.iot.eshieventbusservice.ITimedCommand;
 
 public class TimedDimmer implements ITimedCommand {
@@ -51,7 +51,7 @@ public class TimedDimmer implements ITimedCommand {
     }
 
     @Override
-    public void start(final IEventBusService eventBus) {
+    public void start(final IEventPublisher eventBus) {
         timer.scheduleAtFixedRate(new TimerTask() {
 
             @Override

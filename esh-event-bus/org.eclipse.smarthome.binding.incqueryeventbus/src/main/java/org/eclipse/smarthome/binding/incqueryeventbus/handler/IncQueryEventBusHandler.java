@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
  */
 public class IncQueryEventBusHandler extends BaseThingHandler {
 
+    @SuppressWarnings("unused")
     private final Logger logger = LoggerFactory.getLogger(IncQueryEventBusHandler.class);
 
     public IncQueryEventBusHandler(Thing thing) {

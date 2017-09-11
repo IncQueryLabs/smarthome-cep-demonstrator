@@ -12,11 +12,10 @@ import org.eclipse.smarthome.core.types.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.incquerylabs.iot.eshieventbusservice.IEventBusService;
-import com.incquerylabs.iot.eshieventbusservice.IEventBusSubscriber;
+import com.incquerylabs.iot.eshieventbusservice.IEventPublisher;
 import com.incquerylabs.iot.eshieventbusservice.ITimedCommand;
 
-public class EventBusMock implements IEventBusService {
+public class EventBusMock implements IEventPublisher {
     static Logger logger = LoggerFactory.getLogger(EventBusMock.class);
 
     Map<Item, LinkedList<Command>> commands = new HashMap<Item, LinkedList<Command>>();
@@ -68,18 +67,6 @@ public class EventBusMock implements IEventBusService {
     @Override
     public synchronized void stopTimedCommand(Item item) {
         stopTimedCommand(item.getName());
-    }
-
-    @Override
-    public void setSubscriber(IEventBusSubscriber eventSubscriber) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void unsetSubscriber(IEventBusSubscriber eventSubscriber) {
-        // TODO Auto-generated method stub
-
     }
 
     private void processCommand(Item item, Command command) {
