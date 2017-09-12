@@ -112,6 +112,7 @@ rule "Item state changed event"
 end
 
 
+
 rule "Exapmle Lights Switch"
     when
         $item : Item( name == "Example_Light", $state : state)
