@@ -1,7 +1,9 @@
 package com.incquerylabs.iot.droolsbundle;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.Collection;
+import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.smarthome.core.items.Item;
@@ -13,7 +15,6 @@ import org.eclipse.smarthome.core.types.Command;
 import org.eclipse.smarthome.core.types.State;
 import org.kie.api.builder.Results;
 import org.kie.api.conf.EventProcessingOption;
-import org.kie.api.io.ResourceType;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
 import org.kie.internal.io.ResourceFactory;
@@ -21,6 +22,7 @@ import org.kie.internal.utils.KieHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.incquerylabs.iot.eshieventbusservice.IDrlLoader;
 import com.incquerylabs.iot.eshieventbusservice.IEventPublisher;
 import com.incquerylabs.iot.eshieventbusservice.IEventSubscriber;
 
@@ -30,43 +32,27 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
     private Object lock = new Object();
     private ConcurrentHashMap<String, FactHandle> addedItems = new ConcurrentHashMap<String, FactHandle>();
+    private IDrlLoader drlLoader = null;
 
     private KieSession kSession;
-    boolean droolsInitialized = false;
-    boolean publisherInitialized = false;
+    private volatile boolean droolsInitialized = false;
+
+    private IEventPublisher eventPublisher = null;
 
     public DroolsEventBusClient() {
 
         logger.debug("IncQuery droolsbundle: constructor");
         logger.debug("IncQuery droolsbundle: location: " + new File("location.txt").getAbsolutePath());
+    }
 
+    private void loadDrools() {
         try {
             synchronized (lock) {
                 KieHelper kieHelper = new KieHelper();
-                kieHelper.addResource(ResourceFactory.newClassPathResource("rules/Common.drl"), ResourceType.DRL);
-                kieHelper.addResource(ResourceFactory.newClassPathResource("rules/Alarm.drl"), ResourceType.DRL);
 
-                char[] dimmeRooms = { 'A', 'D', 'E' };
-                char[] lightsRooms = { 'A', 'B', 'C', 'D', 'E' };
-                char[] motionRoomes = { 'A', 'B', 'D', 'E' };
-                char[] rollershadesRooms = { 'A', 'D', 'E' };
-
-                for (char room : dimmeRooms) {
-                    kieHelper.addResource(ResourceFactory.newClassPathResource("rules/dimmer/Room-" + room + ".drl"),
-                            ResourceType.DRL);
-                }
-                for (char room : lightsRooms) {
-                    kieHelper.addResource(ResourceFactory.newClassPathResource("rules/lights/Room-" + room + ".drl"),
-                            ResourceType.DRL);
-                }
-                for (char room : motionRoomes) {
-                    kieHelper.addResource(ResourceFactory.newClassPathResource("rules/motion/Room-" + room + ".drl"),
-                            ResourceType.DRL);
-                }
-                for (char room : rollershadesRooms) {
+                for (Entry<String, InputStream> entry : drlLoader.getDrls()) {
                     kieHelper.addResource(
-                            ResourceFactory.newClassPathResource("rules/rollershades/Room-" + room + ".drl"),
-                            ResourceType.DRL);
+                            ResourceFactory.newInputStreamResource(entry.getValue()).setSourcePath(entry.getKey()));
                 }
 
                 Results results = kieHelper.verify();
@@ -90,6 +76,12 @@ public class DroolsEventBusClient implements IEventSubscriber {
                 kSession.setGlobal("DEARMED", OpenClosedType.CLOSED);
                 kSession.setGlobal("BRIGHTNESS", OpenClosedType.CLOSED);
                 kSession.setGlobal("DARKNESS", OpenClosedType.OPEN);
+
+                if (eventPublisher != null) {
+                    kSession.setGlobal("openhab", eventPublisher);
+                }
+
+                droolsInitialized = true;
             }
             logger.debug("IncQuery droolsbundle: successfully loaded DRL file");
 
@@ -107,94 +99,131 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
     @Override
     public void stateChanged(Item item, State newState, State oldState) {
-        synchronized (lock) {
-            logger.debug("IncQuery droolsbundle: " + item.getName() + " state changed to: " + newState);
-            ItemStateChangedEvent itemStateChangedEvent = new ItemStateChangedEvent(item, newState, oldState);
-
-            updateItem(item);
-
+        if (droolsInitialized) {
             synchronized (lock) {
-                FactHandle handle = kSession.insert(itemStateChangedEvent);
-                kSession.fireAllRules();
-                kSession.delete(handle);
-                kSession.insert(new ItemStateHistory(itemStateChangedEvent));
+                logger.debug("IncQuery droolsbundle: " + item.getName() + " state changed to: " + newState);
+                ItemStateChangedEvent itemStateChangedEvent = new ItemStateChangedEvent(item, newState, oldState);
+
+                updateItem(item);
+
+                synchronized (lock) {
+                    FactHandle handle = kSession.insert(itemStateChangedEvent);
+                    kSession.fireAllRules();
+                    kSession.delete(handle);
+                    kSession.insert(new ItemStateHistory(itemStateChangedEvent));
+                }
             }
+        } else {
+            // TODO log event
         }
     }
 
     @Override
     public void commandReceived(Item item, Command command) {
-        logger.debug("IncQuery droolsbundle: " + item.getName() + " received command: " + command);
-        ItemCommandEvent itemReceivedCommand = new ItemCommandEvent(item, command);
+        if (droolsInitialized) {
+            logger.debug("IncQuery droolsbundle: " + item.getName() + " received command: " + command);
+            ItemCommandEvent itemReceivedCommand = new ItemCommandEvent(item, command);
 
-        updateItem(item);
+            updateItem(item);
 
-        synchronized (lock) {
-            FactHandle handle = kSession.insert(itemReceivedCommand);
-            kSession.fireAllRules();
-            kSession.delete(handle);
-            kSession.insert(new ItemCommandHistory(itemReceivedCommand));
+            synchronized (lock) {
+                FactHandle handle = kSession.insert(itemReceivedCommand);
+                kSession.fireAllRules();
+                kSession.delete(handle);
+                kSession.insert(new ItemCommandHistory(itemReceivedCommand));
+            }
+        } else {
+            // TODO log event
         }
     }
 
     @Override
     public void initItems(Collection<Item> items) {
-        logger.debug("IncQuery droolsbundle: init " + items.size() + " items");
-        for (Item item : items) {
-            itemAdded(item);
+        if (droolsInitialized) {
+            logger.debug("IncQuery droolsbundle: init " + items.size() + " items");
+            for (Item item : items) {
+                itemAdded(item);
+            }
+        } else {
+            // TODO log event
         }
     }
 
     @Override
     public void itemAdded(Item item) {
+        if (droolsInitialized) {
+            if (addedItems.get(item.getName()) == null) {
 
-        if (addedItems.get(item.getName()) == null) {
+                FactHandle handle = kSession.insert(item);
+                synchronized (lock) {
+                    addedItems.put(item.getName(), handle);
+                }
+                logger.info("IncQuery droolsbundle: added item to rule engine: " + item.getName());
 
-            FactHandle handle = kSession.insert(item);
-            synchronized (lock) {
-                addedItems.put(item.getName(), handle);
+            } else {
+                updateItem(item);
             }
-            logger.info("IncQuery droolsbundle: added item to rule engine: " + item.getName());
 
+            synchronized (lock) {
+                kSession.fireAllRules();
+            }
         } else {
-            updateItem(item);
-        }
-
-        synchronized (lock) {
-            kSession.fireAllRules();
+            // TODO log event
         }
     }
 
     @Override
     public void itemRemoved(String itemName) {
+        if (droolsInitialized) {
+            FactHandle handle = addedItems.get(itemName);
 
-        FactHandle handle = addedItems.get(itemName);
+            if (handle != null) {
+                synchronized (lock) {
+                    kSession.delete(handle);
+                    kSession.fireAllRules();
+                }
 
-        if (handle != null) {
-            synchronized (lock) {
-                kSession.delete(handle);
-                kSession.fireAllRules();
+                logger.debug("IncQuery droolsbundle: removed item from rule engine: " + itemName);
+            } else {
+                logger.error("IncQuery droolsbundle: tried to delete item" + itemName
+                        + ", but it wasn't in the rule engine");
             }
-
-            logger.debug("IncQuery droolsbundle: removed item from rule engine: " + itemName);
         } else {
-            logger.error(
-                    "IncQuery droolsbundle: tried to delete item" + itemName + ", but it wasn't in the rule engine");
+            // TODO log event
         }
     }
 
     @Override
     public void itemUpdated(Item newItem, String oldItemName) {
-        itemRemoved(oldItemName);
-        itemAdded(newItem);
+        if (droolsInitialized) {
+            itemRemoved(oldItemName);
+            itemAdded(newItem);
+        }
     }
 
     public void setEventPublisher(IEventPublisher eventPublisher) {
-        kSession.setGlobal("openhab", eventPublisher);
+        synchronized (lock) {
+            if (droolsInitialized) {
+                kSession.setGlobal("openhab", eventPublisher);
+            } else {
+                this.eventPublisher = eventPublisher;
+            }
+        }
     }
 
     public void unsetEventPublisher(IEventPublisher eventPublisher) {
-        kSession.setGlobal("openhab", null);
+        synchronized (lock) {
+            kSession.setGlobal("openhab", null);
+        }
+    }
+
+    public void setDrlLoader(IDrlLoader drlLoader) {
+        this.drlLoader = drlLoader;
+        loadDrools();
+    }
+
+    public void unsetDrlLoader(IDrlLoader drlLoader) {
+        this.drlLoader = null;
     }
 
     @Override
