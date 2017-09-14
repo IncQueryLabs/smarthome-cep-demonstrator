@@ -54,9 +54,9 @@ rule "Alarm for motion or door open"
         $armed : AlarmArmed()
         not ( AlarmRaised() )
         
-        ItemStateChangedEvent( this after[10s] $armed && 
+        ItemStateChangedEvent( this after[10s] $armed && ( 
         ( name matches ".*Motion_Detector" && newState == OPEN ) || 
-        ( name matches ".*Door_Detector.*" && newState == CLOSED ) )
+        ( name matches ".*Door_Detector.*" && newState == CLOSED ) ) )
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         
