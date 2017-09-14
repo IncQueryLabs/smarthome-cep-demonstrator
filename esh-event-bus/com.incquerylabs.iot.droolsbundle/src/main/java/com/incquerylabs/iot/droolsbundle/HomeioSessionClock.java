@@ -1,6 +1,9 @@
 package com.incquerylabs.iot.droolsbundle;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.kie.api.time.SessionPseudoClock;
@@ -13,8 +16,12 @@ public class HomeioSessionClock {
     private float timeMultiplier = 1;
     private Date homeioTime = null;
     private Date homeioTimeAddedTime = null;
+
+    private LinkedList<List<Date>> oldHomeioTimes = new LinkedList<List<Date>>();
+
     private Date realTimeAtLastIncrement = null;
     private long incrementedTimeSinceHomeioTimeAdded = 0;
+
     private SessionPseudoClock clock = null;
 
     public HomeioSessionClock(SessionPseudoClock clock) {
@@ -24,9 +31,7 @@ public class HomeioSessionClock {
     public void newHomeioTime(Date newHomeioTime) {
         Date realTime = new Date();
         if (homeioTime != null) {
-            timeMultiplier = Math.round(
-                    (float) elapsedTimeInHomeio(newHomeioTime) / (float) elapsedRealTimeSinceHomeioTime(realTime));
-
+            timeMultiplier = calculateTimeMultiplier(newHomeioTime, realTime);
             logger.error("IncQuery droolsbundle: timeMultiplier: " + timeMultiplier);
             clock.advanceTime(elapsedTimeInHomeio(newHomeioTime) - incrementedTimeSinceHomeioTimeAdded,
                     TimeUnit.MILLISECONDS);
@@ -64,6 +69,21 @@ public class HomeioSessionClock {
             incrementedTimeSinceHomeioTimeAdded += elapsedTime;
         }
         return elapsedTime;
+    }
+
+    private int calculateTimeMultiplier(Date newHomeioTime, Date realTime) {
+        oldHomeioTimes.add(Arrays.asList(homeioTime, homeioTimeAddedTime));
+        if (oldHomeioTimes.size() < 5) {
+            return 1;
+        }
+        if (oldHomeioTimes.size() > 10) {
+            oldHomeioTimes.removeFirst();
+        }
+        Date oldestHomeioTime = oldHomeioTimes.getFirst().get(0);
+        Date oldestHomeioTimeAdded = oldHomeioTimes.getFirst().get(1);
+        return Math.round((float) (newHomeioTime.getTime() - oldestHomeioTime.getTime())
+                / (float) (realTime.getTime() - oldestHomeioTimeAdded.getTime()));
+
     }
 
     private long elapsedTimeInHomeio(Date newHomeioTime) {
