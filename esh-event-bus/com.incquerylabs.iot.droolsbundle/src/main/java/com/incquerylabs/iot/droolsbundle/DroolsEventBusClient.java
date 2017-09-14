@@ -3,19 +3,24 @@ package com.incquerylabs.iot.droolsbundle;
 import java.io.File;
 import java.io.InputStream;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.smarthome.core.items.Item;
+import org.eclipse.smarthome.core.library.types.DateTimeType;
 import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.library.types.PercentType;
 import org.eclipse.smarthome.core.types.Command;
 import org.eclipse.smarthome.core.types.State;
+import org.kie.api.KieServices;
 import org.kie.api.builder.Results;
 import org.kie.api.conf.EventProcessingOption;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.KieSessionConfiguration;
+import org.kie.api.runtime.conf.ClockTypeOption;
 import org.kie.api.runtime.rule.FactHandle;
 import org.kie.internal.io.ResourceFactory;
 import org.kie.internal.utils.KieHelper;
@@ -29,6 +34,8 @@ import com.incquerylabs.iot.eshieventbusservice.IEventSubscriber;
 public class DroolsEventBusClient implements IEventSubscriber {
     static Logger logger = LoggerFactory.getLogger(DroolsEventBusClient.class);
     private static final String subscriberName = "Drools event bus client";
+
+    private HomeioSessionClock homeioSessionClock = null;
 
     private Object lock = new Object();
     private ConcurrentHashMap<String, FactHandle> addedItems = new ConcurrentHashMap<String, FactHandle>();
@@ -62,7 +69,10 @@ public class DroolsEventBusClient implements IEventSubscriber {
                     throw new IllegalStateException("### errors ###");
                 }
 
-                kSession = kieHelper.build(EventProcessingOption.STREAM).newKieSession();
+                KieSessionConfiguration config = KieServices.Factory.get().newKieSessionConfiguration();
+                config.setOption(ClockTypeOption.get("pseudo"));
+                kSession = kieHelper.build(EventProcessingOption.STREAM).newKieSession(config, null);
+                homeioSessionClock = new HomeioSessionClock(kSession.getSessionClock());
                 kSession.setGlobal("ON", OnOffType.ON);
                 kSession.setGlobal("OFF", OnOffType.OFF);
                 kSession.setGlobal("OPEN", OpenClosedType.OPEN);
@@ -92,6 +102,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
     private void updateItem(Item item) {
         synchronized (lock) {
+            // TODO nullptr
             kSession.update(addedItems.get(item.getName()), item);
         }
         logger.info("IncQuery droolsbundle: item " + item.getName() + " updated reference in the rule engine");
@@ -100,18 +111,26 @@ public class DroolsEventBusClient implements IEventSubscriber {
     @Override
     public void stateChanged(Item item, State newState, State oldState) {
         if (droolsInitialized) {
+            if (item.getName().equals("HomeIO_Date")) {
+                Date homeioTime = ((DateTimeType) newState).getCalendar().getTime();
+                homeioSessionClock.newHomeioTime(homeioTime);
+                return;
+            } else {
+                homeioSessionClock.advanceClock();
+            }
+
+            logger.error("IncQuery droolsbundle: " + item.getName() + " state changed to: " + newState + " time stamp: "
+                    + homeioSessionClock.getHomeioTime());
+
+            ItemStateChangedEvent itemStateChangedEvent = new ItemStateChangedEvent(item, newState, oldState);
+
+            updateItem(item);
+
             synchronized (lock) {
-                logger.debug("IncQuery droolsbundle: " + item.getName() + " state changed to: " + newState);
-                ItemStateChangedEvent itemStateChangedEvent = new ItemStateChangedEvent(item, newState, oldState);
-
-                updateItem(item);
-
-                synchronized (lock) {
-                    FactHandle handle = kSession.insert(itemStateChangedEvent);
-                    kSession.fireAllRules();
-                    kSession.delete(handle);
-                    kSession.insert(new ItemStateHistory(itemStateChangedEvent));
-                }
+                FactHandle handle = kSession.insert(itemStateChangedEvent);
+                kSession.fireAllRules();
+                kSession.delete(handle);
+                kSession.insert(new ItemStateHistory(itemStateChangedEvent));
             }
         } else {
             // TODO log event
@@ -121,6 +140,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
     @Override
     public void commandReceived(Item item, Command command) {
         if (droolsInitialized) {
+            homeioSessionClock.advanceClock();
             logger.debug("IncQuery droolsbundle: " + item.getName() + " received command: " + command);
             ItemCommandEvent itemReceivedCommand = new ItemCommandEvent(item, command);
 
@@ -140,6 +160,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
     @Override
     public void initItems(Collection<Item> items) {
         if (droolsInitialized) {
+            homeioSessionClock.advanceClock();
             logger.debug("IncQuery droolsbundle: init " + items.size() + " items");
             for (Item item : items) {
                 itemAdded(item);
@@ -152,6 +173,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
     @Override
     public void itemAdded(Item item) {
         if (droolsInitialized) {
+            homeioSessionClock.advanceClock();
             if (addedItems.get(item.getName()) == null) {
 
                 FactHandle handle = kSession.insert(item);
@@ -175,6 +197,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
     @Override
     public void itemRemoved(String itemName) {
         if (droolsInitialized) {
+            homeioSessionClock.advanceClock();
             FactHandle handle = addedItems.get(itemName);
 
             if (handle != null) {
