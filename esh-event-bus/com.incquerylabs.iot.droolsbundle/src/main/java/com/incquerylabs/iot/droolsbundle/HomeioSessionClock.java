@@ -35,6 +35,7 @@ public class HomeioSessionClock {
         homeioTime = newHomeioTime;
         homeioTimeAddedTime = realTime;
         incrementedTimeSinceHomeioTimeAdded = 0;
+        realTimeAtLastIncrement = null;
     }
 
     public void advanceClock() {
@@ -43,8 +44,7 @@ public class HomeioSessionClock {
 
     public long getHomeioTime() {
         if (homeioTime != null) {
-            Date realTime = new Date();
-            return homeioTime.getTime() + (long) (elapsedRealTimeSinceHomeioTime(realTime) * timeMultiplier * 0.9);
+            return homeioTime.getTime() + incrementedTimeSinceHomeioTimeAdded;
         }
         return 0;
     }
