@@ -10,12 +10,12 @@
 	</parent>
 
 	<artifactId>com.incquerylabs.iot.droolsbundle</artifactId>
-	<packaging>eclipse-plugin</packaging>
+	<packaging>${module.packaging}</packaging>
 
 	<properties>
-		<runtime.version>6.3.0.Final</runtime.version>
-		<bundle.symbolicName>com.incquerylabs.iot.droolsbundle</bundle.symbolicName>
-		<bundle.namespace>com.incquerylabs.iot.droolsbundle</bundle.namespace>
+		<drools.version>6.3.0.Final</drools.version>
+		<bundle.symbolicName>com.incquerylabs.smarthome.drools</bundle.symbolicName>
+		<bundle.namespace>com.incquerylabs.smarthome.drools</bundle.namespace>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -44,7 +44,6 @@
 						</goals>
 						<configuration>
 							<outputDirectory>${project.build.directory}/../lib</outputDirectory>
-							<excludes>org.eclipse.smarthome.core.*,com.incquerylabs.iot.*</excludes>
 						</configuration>
 					</execution>
 				</executions>
@@ -81,19 +80,19 @@
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-core</artifactId>
-			<version>${runtime.version}</version>
+			<version>${drools.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-compiler</artifactId>
-			<version>${runtime.version}</version>
+			<version>${drools.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.kie</groupId>
 			<artifactId>kie-api</artifactId>
-			<version>${runtime.version}</version>
+			<version>${drools.version}</version>
 		</dependency>
 	</dependencies>
 </project>

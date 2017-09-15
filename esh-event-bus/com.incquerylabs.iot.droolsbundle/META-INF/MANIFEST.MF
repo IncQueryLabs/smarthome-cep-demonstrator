@@ -45,16 +45,12 @@ Embedded-Artifacts: drools-core-7.2.0.Final.jar;g="org.drools";a="drools
  eclipse.smarthome.core";v="0.9.0.b5",com.incquerylabs.iot.eshieventbuss
  ervice-0.0.1-SNAPSHOT.jar;g="com.incquerylabs.iot.eshieventbusservice";
  a="com.incquerylabs.iot.eshieventbusservice";v="0.0.1-SNAPSHOT"
-Export-Package: com.incquerylabs.iot.droolsbundle;uses:="org.eclipse.sma
- rthome.core.items,org.eclipse.smarthome.core.library.types,org.eclipse.
- smarthome.core.types";version="1.0.0.SNAPSHOT"
 Import-Package: org.eclipse.smarthome.core.items,
  org.eclipse.smarthome.core.library.types,
  org.eclipse.smarthome.core.types,
  org.slf4j;version="[1.7,2)"
 Provide-Capability: osgi.service;effective:=active;objectClass="com.incq
  uerylabs.iot.eshieventbusservice.IEventSubscriber"
-Require-Bundle: com.incquerylabs.iot.eshieventbusservice
 Require-Capability: osgi.service;effective:=active;filter:="(objectClass
  =com.incquerylabs.iot.eshieventbusservice.IEventPublisher)",osgi.ee;fil
  ter:="(&(osgi.ee=JavaSE)(version=1.8))"

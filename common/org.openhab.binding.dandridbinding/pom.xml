@@ -3,17 +3,17 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-
-	<parent>
-		<groupId>org.openhab.binding</groupId>
-		<artifactId>pom</artifactId>
-		<version>2.1.0-SNAPSHOT</version>
-	</parent>
-
-	<artifactId>org.openhab.binding.dandridbinding</artifactId>
-	<version>2.1.0-SNAPSHOT</version>
-
 	<name>DandridBinding</name>
-	<packaging>eclipse-plugin</packaging>
+	
+	<parent>
+		<groupId>com.incquerylabs.smarthome</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.1.0</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+	
+	<artifactId>org.openhab.binding.dandridbinding</artifactId>
+
+	<packaging>${module.packaging}</packaging>
 
 </project>

@@ -11,7 +11,8 @@
 	<properties>
 		<project.version>0.1.0</project.version>
 		<tycho.version>1.0.0</tycho.version>
-		<module.packaging>eclipse-plugin</module.packaging>
+		<module.packaging>bundle</module.packaging>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<pluginRepositories>
@@ -83,8 +84,10 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
+				<module>common/org.openhab.binding.dandridbinding</module>
+				<module>esh-event-bus/com.incquerylabs.iot.eshieventbusservice</module>
 				<module>releng/com.incquerylabs.smarthome.target</module>
-				<module>esh-event-bus/com.incquerylabs.iot.droolsbundle</module>
+<!-- 				<module>esh-event-bus/com.incquerylabs.iot.droolsbundle</module> -->
 			</modules>
 			<properties>
 				<module.packaging>eclipse-plugin</module.packaging>
