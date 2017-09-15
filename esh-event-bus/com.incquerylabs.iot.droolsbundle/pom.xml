@@ -119,18 +119,6 @@
 		    <artifactId>kie-api</artifactId>
 		    <version>${runtime.version}</version>
       </dependency>
-  		
-  		<dependency>
-  		    <groupId>org.eclipse.smarthome.core</groupId>
-  		    <artifactId>org.eclipse.smarthome.core</artifactId>
-  		    <version>0.9.0.b5</version>
-  		</dependency>
-
-      <dependency>
-        <groupId>com.incquerylabs.iot.eshieventbusservice</groupId>
-        <artifactId>com.incquerylabs.iot.eshieventbusservice</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-      </dependency>
 
 	</dependencies>
 </project>

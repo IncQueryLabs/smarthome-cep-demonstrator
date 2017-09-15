@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<groupId>com.incquerylabs.smarthome</groupId>
+	<artifactId>parent</artifactId>
+	<name>Hazelcast-Based Indexer parent</name>
+	<version>0.1.0</version>
+
+	<properties>
+		<project.version>0.1.0</project.version>
+		<tycho.version>1.0.0</tycho.version>
+		<eclipse.smarthome.repo></eclipse.smarthome.repo>
+		<openhab.repo></openhab.repo>
+		<module.packaging>eclipse-plugin</module.packaging>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>eclipse-oxygen</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/oxygen/</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>tycho-snapshots</id>
+			<url>https://oss.sonatype.org/content/groups/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>com.incquerylabs.smarthome</groupId>
+							<artifactId>com.incquerylabs.smarthome.target</artifactId>
+							<version>0.1.0</version>
+							<relativePath>releng/com.incquerylabs.smarthome.target/pom.xml</relativePath>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>all</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>releng/com.incquerylabs.smarthome.target</module>
+				<!-- TODO: add modules -->
+			</modules>
+			<properties>
+				<module.packaging>eclipse-plugin</module.packaging>
+			</properties>
+		</profile>
+	</profiles>
+
+</project>
