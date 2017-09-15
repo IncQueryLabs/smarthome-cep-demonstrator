@@ -1,0 +1,8 @@
+Contact	I_Light_Switch	"I - Light Switch"	(gContact, gI)
+Contact	I_Light_Switch_Dimmer_Up	"I - Light Switch Dimmer (Up)"	(gContact, gI)
+Contact	I_Light_Switch_Dimmer_Down	"I - Light Switch Dimmer (Down)"	(gContact, gI)
+Contact	I_Motion_Detector	"I - Motion Detector"	(gContact, gI)
+Switch	I_Lights_1	"I - Lights 1"	(gLight, gI)
+Switch	I_Lights_2	"I - Lights 2"	(gLight, gI)
+Dimmer	I_Lights_1_Analog	"I - Lights 1 (Analog)"	(gLight, gI)
+Dimmer	I_Lights_2_Analog	"I - Lights 2 (Analog)"	(gLight, gI)
