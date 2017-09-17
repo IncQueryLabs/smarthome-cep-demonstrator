@@ -1,5 +1,18 @@
 package homeioexample
 
+rule "E Lights Switch"
+    when
+        $item : Item( name == "E_Lights_Analog", $state : state)
+
+        $itemState : ItemStateChangedEvent( name == "E_Light_Switch_1", newState == OPEN)
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        if ($state.equals(HUNDRED)) {
+            openhab.postCommand($item, OFF);
+        } else {
+            openhab.postCommand($item, ON);
+        }
+end
 
 rule "E Lights Switch On"
     when
@@ -41,21 +54,4 @@ rule "E Lights Switch Off"
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
 
         openhab.postCommand($item.getName(), ZERO);
-end
-
-
-rule "E Lights Switch"
-    when
-        $item : Item( name == "E_Lights_Analog", $state : state)
-
-        $itemState : ItemStateChangedEvent( name == "E_Light_Switch_1", newState == OPEN)
-    then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        if ($state.equals(HUNDRED)) {
-            openhab.postCommand($item, ZERO);
-            openhab.postCommand("G_Lights_Analog", ZERO);
-        } else {
-            openhab.postCommand($item, HUNDRED);
-            openhab.postCommand("G_Lights_Analog", HUNDRED);
-        }
 end

@@ -3,7 +3,7 @@ package homeioexample
 
 rule "A Lights Switch On"
     when
-        $item : Item( name == "A_Lights_Analog", $state : state) 
+        $item : Item( name == "A_Lights_Analog") 
 
         $itemStateOpen : ItemStateHistory( ( 
         name == "A_Light_Switch_Dimmer_1_Up" || 
@@ -21,7 +21,7 @@ rule "A Lights Switch On"
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
 
-        openhab.postCommand($item.getName(), HUNDRED);
+        openhab.postCommand($item.getName(), ON);
 end
 
 
@@ -42,9 +42,8 @@ rule "A Lights Switch Off"
         name == "A_Light_Switch_Dimmer_3_Down") && 
         newState == CLOSED )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
 
-        openhab.postCommand($item.getName(), ZERO);
+        openhab.postCommand($item.getName(), OFF);
 end
 
 
@@ -54,7 +53,6 @@ rule "A Outdoor lights 1"
 
         $itemState : ItemStateChangedEvent( name == "A_Light_Switch_1", newState == OPEN)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         if ($state == ON) {
             openhab.postCommand($item, OFF);
         } else {
@@ -65,16 +63,16 @@ end
 
 rule "A Outdoor lights 2"
     when
-        $item : Item( name == "O_Lights_Porch_2", $state : state)
+        $item1 : Item( name == "O_Lights_Porch_2", $state1 : state)
+        $item2 : Item( name == "O_Lights_Pool", $state2 : state)
 
         $itemState : ItemStateChangedEvent( name == "A_Light_Switch_2", newState == OPEN)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        if ($state == ON) {
-            openhab.postCommand($item, OFF);
-            openhab.postCommand("O_Lights_Pool", OFF);
+        if ($state1 == ON && $state2 == ON) {
+            openhab.postCommand($item1, OFF);
+            openhab.postCommand($item2, OFF);
         } else {
-            openhab.postCommand($item, ON);
-            openhab.postCommand("O_Lights_Pool", ON);
+            openhab.postCommand($item1, ON);
+            openhab.postCommand($item2, ON);
         }
 end

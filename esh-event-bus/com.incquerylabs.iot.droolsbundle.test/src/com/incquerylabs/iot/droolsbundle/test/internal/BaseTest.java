@@ -7,6 +7,7 @@ import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;
 import org.junit.Before;
 
+import com.incquerylabs.iot.drls.DrlLoader;
 import com.incquerylabs.iot.droolsbundle.DroolsEventBusClient;
 
 import junit.framework.TestCase;
@@ -29,6 +30,7 @@ public abstract class BaseTest extends TestCase {
         eventBus = new EventBusMock();
         drools = new DroolsEventBusClient();
         drools.setEventPublisher(eventBus);
+        drools.setDrlLoader(new DrlLoader());
 
         LinkedList<Item> tesetItems = getTestItems();
 

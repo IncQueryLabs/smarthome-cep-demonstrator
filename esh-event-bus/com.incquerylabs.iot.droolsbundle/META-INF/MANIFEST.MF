@@ -51,6 +51,7 @@ Export-Package: com.incquerylabs.iot.droolsbundle;uses:="org.eclipse.sma
 Import-Package: org.eclipse.smarthome.core.items,
  org.eclipse.smarthome.core.library.types,
  org.eclipse.smarthome.core.types,
+ org.joda.time,
  org.slf4j;version="[1.7,2)"
 Provide-Capability: osgi.service;effective:=active;objectClass="com.incq
  uerylabs.iot.eshieventbusservice.IEventSubscriber"

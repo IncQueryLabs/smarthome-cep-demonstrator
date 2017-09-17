@@ -1,6 +1,5 @@
 package com.incquerylabs.iot.droolsbundle;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.Date;
@@ -45,12 +44,6 @@ public class DroolsEventBusClient implements IEventSubscriber {
     private volatile boolean droolsInitialized = false;
 
     private IEventPublisher eventPublisher = null;
-
-    public DroolsEventBusClient() {
-
-        logger.debug("IncQuery droolsbundle: constructor");
-        logger.debug("IncQuery droolsbundle: location: " + new File("location.txt").getAbsolutePath());
-    }
 
     private void loadDrools() {
         try {
@@ -114,6 +107,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
             if (item.getName().equals("HomeIO_Date")) {
                 Date homeioTime = ((DateTimeType) newState).getCalendar().getTime();
                 homeioSessionClock.newHomeioTime(homeioTime);
+                // TODO DateTime date = new DateTime(homeioTime);
                 return;
             } else {
                 homeioSessionClock.advanceClock();

@@ -76,7 +76,7 @@ public class HomeioSessionClock {
         if (oldHomeioTimes.size() < 5) {
             return 1;
         }
-        if (oldHomeioTimes.size() > 10) {
+        if (oldHomeioTimes.size() > 25) {
             oldHomeioTimes.removeFirst();
         }
         Date oldestHomeioTime = oldHomeioTimes.getFirst().get(0);

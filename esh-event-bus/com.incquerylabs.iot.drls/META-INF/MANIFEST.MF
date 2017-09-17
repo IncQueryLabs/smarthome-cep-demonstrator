@@ -10,3 +10,4 @@ Import-Package: com.incquerylabs.iot.eshieventbusservice,
  org.osgi.framework;version="1.8.0"
 Bundle-ClassPath: src/main/resources/,
  .
+Export-Package: com.incquerylabs.iot.drls
