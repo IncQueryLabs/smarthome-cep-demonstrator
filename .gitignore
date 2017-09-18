@@ -24,3 +24,5 @@ smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/obj/
 smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/bin/
 
 *.suo
+
+esh-event-bus/com\.incquerylabs\.iot\.drls/bin/
