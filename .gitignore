@@ -1,3 +1,7 @@
 **/target/
 **/bin/
 **/lib/
+smarthome-simulator/HomIO-MQTT/\.vs/
+smarthome-simulator/HomIO-MQTT/packages/
+smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/obj/
+*.suo

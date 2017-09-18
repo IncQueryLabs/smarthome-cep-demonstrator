@@ -33,9 +33,6 @@ public class ExampleTest extends BaseTest {
 
     @Test
     public void testExampleLightChangeSwitch() {
-        // Light initialized to be off
-        assertEquals(OFF, Example_Light.getState());
-
         // Pressing the switch changes the light state from OFF to ON
         setState(Example_Switch, OPEN);
         assertEquals(ON, Example_Light.getState());
