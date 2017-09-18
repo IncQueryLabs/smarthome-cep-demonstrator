@@ -13,10 +13,9 @@
 	<packaging>${module.packaging}</packaging>
 
 	<properties>
-		<drools.version>6.3.0.Final</drools.version>
+		<drools.version>7.2.0.Final</drools.version>
 		<bundle.symbolicName>com.incquerylabs.smarthome.drools</bundle.symbolicName>
 		<bundle.namespace>com.incquerylabs.smarthome.drools</bundle.namespace>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<build>

@@ -86,8 +86,10 @@
 			<modules>
 				<module>common/org.openhab.binding.dandridbinding</module>
 				<module>esh-event-bus/com.incquerylabs.iot.eshieventbusservice</module>
+				<module>esh-event-bus/com.incquerylabs.iot.esheventbusclient</module>
 				<module>releng/com.incquerylabs.smarthome.target</module>
-<!-- 				<module>esh-event-bus/com.incquerylabs.iot.droolsbundle</module> -->
+				<module>esh-event-bus/com.incquerylabs.iot.droolsbundle</module>
+				<module>esh-event-bus/com.incquerylabs.iot.drls</module>
 			</modules>
 			<properties>
 				<module.packaging>eclipse-plugin</module.packaging>
