@@ -14,3 +14,11 @@ esh-event-bus/com\.incquerylabs\.iot\.droolsbundle/lib/
 esh-event-bus/com\.incquerylabs\.iot\.droolsbundle\.test/target/
 
 esh-event-bus/com\.incquerylabs\.iot\.drls/target/
+
+smarthome-simulator/HomIO-MQTT/\.vs/
+
+smarthome-simulator/HomIO-MQTT/packages/
+
+smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/obj/
+
+smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/bin/
