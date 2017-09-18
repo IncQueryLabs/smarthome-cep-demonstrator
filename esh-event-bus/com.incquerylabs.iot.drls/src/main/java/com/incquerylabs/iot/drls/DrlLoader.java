@@ -21,6 +21,7 @@ public class DrlLoader implements IDrlLoader {
 
         drlPaths.add("rules/Common.drl");
         drlPaths.add("rules/Alarm.drl");
+        drlPaths.add("rules/Timing.drl");
 
         char[] dimmeRooms = { 'A', 'D', 'E' };
         char[] lightsRooms = { 'A', 'B', 'C', 'D', 'E' };

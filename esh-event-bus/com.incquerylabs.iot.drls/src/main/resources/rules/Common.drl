@@ -14,6 +14,7 @@ import com.incquerylabs.iot.droolsbundle.ItemCommandHistory;
 import com.incquerylabs.iot.droolsbundle.ItemStateChangedEvent;
 import com.incquerylabs.iot.droolsbundle.ItemStateHistory;
 import com.incquerylabs.iot.droolsbundle.TimedDimmer;
+import com.incquerylabs.iot.droolsbundle.DateTime;
 import com.incquerylabs.iot.eshieventbusservice.IEventPublisher;
 
 
@@ -27,6 +28,13 @@ global PercentType ZERO;
 global IncreaseDecreaseType INCREASE;
 global IncreaseDecreaseType DECREASE;
 
+global Integer MONDAY;
+global Integer TUESDAY;
+global Integer WEDNESDAY;
+global Integer THURSDAY;
+global Integer FRIDAY;
+global Integer SATURDAY;
+global Integer SUNDAY;
 
 declare ItemCommandEvent
     @role ( event )
@@ -47,6 +55,9 @@ declare ItemStateHistory
     @role ( event )
 end
 
+declare DateTime
+    @role ( event )
+end
 
 
 

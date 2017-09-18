@@ -1,5 +1,6 @@
 package homeioexample
 
+
 rule "E Lights Switch"
     when
         $item : Item( name == "E_Lights_Analog", $state : state)
@@ -13,6 +14,7 @@ rule "E Lights Switch"
             openhab.postCommand($item, ON);
         }
 end
+
 
 rule "E Lights Switch On"
     when

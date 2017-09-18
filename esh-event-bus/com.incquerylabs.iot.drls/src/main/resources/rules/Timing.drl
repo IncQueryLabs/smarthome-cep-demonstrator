@@ -1,0 +1,15 @@
+package homeioexample
+
+//DateTime( name == "Sunrise_Time", hoursOfDay == $homeioHours, $sunriseMinutes : minutesOfHour)
+rule "Switch off lights at sunrise"
+    when 
+        Item(name matches ".*Lights.*", state != OFF )
+        DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
+        DateTime( name == "Sunrise_Time", $sunriseHours : hoursOfDay, $sunriseMinutes : minutesOfHour)
+        
+        eval ( $homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15)
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        System.out.println( "IncQuery droolsbundle: HomeIO " + $homeioHours + ":" + $homeioMinutes + " Sunrise " + $sunriseHours + ":" + $sunriseMinutes);
+        openhab.postCommand("gLight", OFF);
+end
