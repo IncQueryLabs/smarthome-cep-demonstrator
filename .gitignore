@@ -22,3 +22,5 @@ smarthome-simulator/HomIO-MQTT/packages/
 smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/obj/
 
 smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/bin/
+
+*.suo
