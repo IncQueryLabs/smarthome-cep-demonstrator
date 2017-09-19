@@ -52,12 +52,9 @@ public class DroolsEventBusClient implements IEventSubscriber {
         synchronized (lock) {
             // TODO nullptr
             if (item.getType().equals(CoreItemFactory.DATETIME)) {
+                kSession.delete(addedItems.get(item.getName()));
                 addedItems.put(item.getName(), kSession.insert(
                         new DateTime(item.getName(), ((DateTimeType) item.getState()).getCalendar().getTime())));
-                /*
-                 * kSession.update(addedItems.get(item.getName()),
-                 * new DateTime(item.getName(), ((DateTimeType) item.getState()).getCalendar().getTime()));
-                 */
             } else {
                 kSession.update(addedItems.get(item.getName()), item);
             }

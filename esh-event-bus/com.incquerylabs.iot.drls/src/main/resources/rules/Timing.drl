@@ -1,39 +1,60 @@
 package homeioexample
 
-declare Sunrise
+declare SunriseDuration
     @role( event )
 end
 
+declare SunriseOnce
+    @role( event )
+end
+
+
 rule "Switch off lights at sunrise"
     when 
-        $now : DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
-        Sunrise(this coincides $now)
-        Item(name matches ".*Lights.*", state != OFF )
+        SunriseOnce()
+        Item(name == "E_Lights_Analog", state != OFF )
     then
         System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        openhab.postCommand("gLight", OFF);
+        openhab.postCommand("E_Lights_Analog", OFF);
 end
+
 
 rule "Sunrise event start"
     when
-        not( Sunrise() )
+        not( SunriseDuration() )
         DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
         DateTime( name == "Sunrise_Time", $sunriseHours : hoursOfDay, $sunriseMinutes : minutesOfHour)
         
-        eval ( $homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15)
+        eval ( ($homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15) == true )
     then
-        insert(new Sunrise());
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        insert(new SunriseDuration());
+        insert(new SunriseOnce());
 end
        
-rule "Sunrise event end"
+       
+rule "Sunrise duration event end"
         salience -100
     when
-        $sunrise : Sunrise()
+        $sunriseDuration : SunriseDuration()
         
         DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
         DateTime( name == "Sunrise_Time", $sunriseHours : hoursOfDay, $sunriseMinutes : minutesOfHour)
         
-        eval ( !( $homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15) )
+        eval ( ( $homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15) == false )
+        
+        //eval ( ( $homeioHours == $sunriseHours && $homeioMinutes > $sunriseMinutes + 15) )
     then
-        retract($sunrise);
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        retract($sunriseDuration);
+end
+       
+       
+rule "Sunrise once event end"
+        salience -100
+    when
+        $sunriseOnce : SunriseOnce()
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        retract($sunriseOnce);
 end
