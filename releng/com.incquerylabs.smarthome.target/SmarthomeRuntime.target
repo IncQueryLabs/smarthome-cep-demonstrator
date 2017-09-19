@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="IQL Smarthome Runtime" sequenceNumber="44">
+<?pde version="3.8"?><target name="IQL Smarthome Runtime" sequenceNumber="45">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.openhab.feature.p2.feature.group" version="2.2.0.201706290927"/>
@@ -22,6 +22,6 @@
 <unit id="org.openhab.deps.test.feature.group" version="1.0.16"/>
 <repository location="https://dl.bintray.com/openhab/p2/openhab-deps-repo/1.0.16/"/>
 </location>
-<location path="${workspace_loc}\..\openhab-addons" type="Directory"/>
+<location path="${workspace_loc}\..\libs" type="Directory"/>
 </locations>
 </target>
