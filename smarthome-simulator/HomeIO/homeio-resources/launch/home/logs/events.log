@@ -1,0 +1,846 @@
+2017-09-18 18:27:05 - Item 'A_Light_Switch_1' has been added.
+2017-09-18 18:27:05 - Item 'A_Light_Switch_2' has been added.
+2017-09-18 18:27:05 - Item 'A_Light_Switch_3' has been added.
+2017-09-18 18:27:05 - Item 'A_Up_Down_Switch_1_Up' has been added.
+2017-09-18 18:27:05 - Item 'A_Up_Down_Switch_1_Down' has been added.
+2017-09-18 18:27:05 - Item 'A_Up_Down_Switch_2_Up' has been added.
+2017-09-18 18:27:05 - Item 'A_Up_Down_Switch_2_Down' has been added.
+2017-09-18 18:27:05 - Item 'A_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-18 18:27:05 - Item 'A_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-18 18:27:05 - Item 'A_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-18 18:27:05 - Item 'A_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-18 18:27:05 - Item 'A_Light_Switch_Dimmer_3_Up' has been added.
+2017-09-18 18:27:05 - Item 'A_Light_Switch_Dimmer_3_Down' has been added.
+2017-09-18 18:27:05 - Item 'A_Door_Detector_1' has been added.
+2017-09-18 18:27:05 - Item 'A_Door_Detector_2' has been added.
+2017-09-18 18:27:05 - Item 'A_Motion_Detector' has been added.
+2017-09-18 18:27:05 - Item 'A_Brightness_Sensor' has been added.
+2017-09-18 18:27:05 - Item 'A_Smoke_Detector' has been added.
+2017-09-18 18:27:05 - Item 'A_Lights' has been added.
+2017-09-18 18:27:05 - Item 'A_Roller_Shades_1_Up' has been added.
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_1_Down' has been added.
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_2_Up' has been added.
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_2_Down' has been added.
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_3_Up' has been added.
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_3_Down' has been added.
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_4_Up' has been added.
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_4_Down' has been added.
+2017-09-18 18:27:06 - Item 'A_Heater' has been added.
+2017-09-18 18:27:06 - Item 'A_Lights_Analog' has been added.
+2017-09-18 18:27:06 - Item 'A_Heater_Analog' has been added.
+2017-09-18 18:27:06 - Item 'B_Light_Switch_1' has been added.
+2017-09-18 18:27:06 - Item 'B_Light_Switch_2' has been added.
+2017-09-18 18:27:06 - Item 'B_Motion_Detector' has been added.
+2017-09-18 18:27:06 - Item 'B_Lights_1' has been added.
+2017-09-18 18:27:06 - Item 'B_Lights_2' has been added.
+2017-09-18 18:27:06 - Item 'B_Lights_1_Analog' has been added.
+2017-09-18 18:27:06 - Item 'B_Lights_2_Analog' has been added.
+2017-09-18 18:27:06 - Item 'C_Light_Switch' has been added.
+2017-09-18 18:27:06 - Item 'C_Lights' has been added.
+2017-09-18 18:27:06 - Item 'C_Lights_Analog' has been added.
+2017-09-18 18:27:06 - Item 'Example_Light' received command OFF
+2017-09-18 18:27:06 - Item 'A_Lights' received command OFF
+2017-09-18 18:27:06 - Item 'A_Lights_Analog' received command 0
+2017-09-18 18:27:06 - Item 'HomeIO_Date' has been added.
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_1_Up' received command OFF
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_1_Down' received command OFF
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_3_Up' received command OFF
+2017-09-18 18:27:06 - Item 'A_Roller_Shades_3_Down' received command OFF
+2017-09-18 18:27:06 - Item 'A_Light_Switch_Dimmer_3_Up' received command CLOSED
+2017-09-18 18:27:06 - Item 'A_Light_Switch_Dimmer_3_Down' received command CLOSED
+2017-09-18 18:27:06 - Item 'B_Lights_1' received command OFF
+2017-09-18 18:27:06 - Item 'B_Lights_2' received command OFF
+2017-09-18 18:27:06 - Item 'B_Lights_1_Analog' received command 0
+2017-09-18 18:27:06 - Item 'B_Lights_2_Analog' received command 0
+2017-09-18 18:27:06 - Item 'C_Lights' received command OFF
+2017-09-18 18:27:06 - Item 'C_Lights_Analog' received command 0
+2017-09-18 18:27:06 - Item 'D_Lights_1' received command OFF
+2017-09-18 18:27:06 - Item 'D_Lights_2' received command OFF
+2017-09-18 18:27:06 - Item 'D_Lights_1_Analog' received command 0
+2017-09-18 18:27:06 - Item 'D_Lights_2_Analog' received command 0
+2017-09-18 18:27:06 - Item 'D_Roller_Shades_Up' received command OFF
+2017-09-18 18:27:06 - Item 'D_Roller_Shades_Down' received command OFF
+2017-09-18 18:27:06 - Item 'E_Lights' received command OFF
+2017-09-18 18:27:06 - Item 'E_Lights_Analog' received command OFF
+2017-09-18 18:27:06 - Item 'E_Roller_Shades_Up' received command OFF
+2017-09-18 18:27:06 - Item 'E_Roller_Shades_Down' received command OFF
+2017-09-18 18:27:06 - Item 'O_Lights_Porch_1' received command OFF
+2017-09-18 18:27:06 - Item 'O_Lights_Porch_2' received command OFF
+2017-09-18 18:27:06 - Item 'D_Up_Down_Switch_Up' has been added.
+2017-09-18 18:27:06 - Item 'D_Up_Down_Switch_Down' has been added.
+2017-09-18 18:27:06 - Item 'D_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-18 18:27:06 - Item 'D_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-18 18:27:06 - Item 'D_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-18 18:27:06 - Item 'D_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-18 18:27:06 - Item 'D_Door_Detector' has been added.
+2017-09-18 18:27:06 - Item 'D_Motion_Detector' has been added.
+2017-09-18 18:27:06 - Item 'D_Brightness_Sensor' has been added.
+2017-09-18 18:27:06 - Item 'D_Lights_1' has been added.
+2017-09-18 18:27:06 - Item 'D_Lights_2' has been added.
+2017-09-18 18:27:06 - Item 'D_Roller_Shades_Up' has been added.
+2017-09-18 18:27:06 - Item 'D_Roller_Shades_Down' has been added.
+2017-09-18 18:27:06 - Item 'D_Heater' has been added.
+2017-09-18 18:27:06 - Item 'D_Lights_1_Analog' has been added.
+2017-09-18 18:27:06 - Item 'D_Lights_2_Analog' has been added.
+2017-09-18 18:27:06 - Item 'D_Heater_Analog' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_1' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_2' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_3' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_4' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_5' has been added.
+2017-09-18 18:27:06 - Item 'E_Up_Down_Switch_Up' has been added.
+2017-09-18 18:27:06 - Item 'E_Up_Down_Switch_Down' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-18 18:27:06 - Item 'E_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-18 18:27:06 - Item 'E_Door_Detector_1' has been added.
+2017-09-18 18:27:06 - Item 'E_Door_Detector_2' has been added.
+2017-09-18 18:27:06 - Item 'E_Motion_Detector' has been added.
+2017-09-18 18:27:06 - Item 'E_Brightness_Sensor' has been added.
+2017-09-18 18:27:06 - Item 'E_Alarm_Key_Pad_Armed' has been added.
+2017-09-18 18:27:06 - Item 'E_Lights' has been added.
+2017-09-18 18:27:06 - Item 'E_Roller_Shades_Up' has been added.
+2017-09-18 18:27:06 - Item 'E_Roller_Shades_Down' has been added.
+2017-09-18 18:27:06 - Item 'E_Heater' has been added.
+2017-09-18 18:27:06 - Item 'E_Siren' has been added.
+2017-09-18 18:27:06 - Item 'E_Alarm_Key_Pad_Arm' has been added.
+2017-09-18 18:27:06 - Item 'E_Alarm_Key_Pad_Disarm' has been added.
+2017-09-18 18:27:06 - Item 'E_Lights_Analog' has been added.
+2017-09-18 18:27:06 - Item 'E_Heater_Analog' has been added.
+2017-09-18 18:27:07 - Item 'F_Light_Switch_1' has been added.
+2017-09-18 18:27:07 - Item 'F_Light_Switch_2' has been added.
+2017-09-18 18:27:07 - Item 'F_Up_Down_Switch_1_Up' has been added.
+2017-09-18 18:27:07 - Item 'F_Up_Down_Switch_1_Down' has been added.
+2017-09-18 18:27:07 - Item 'F_Up_Down_Switch_2_Up' has been added.
+2017-09-18 18:27:07 - Item 'F_Up_Down_Switch_2_Down' has been added.
+2017-09-18 18:27:07 - Item 'F_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'F_Brightness_Sensor' has been added.
+2017-09-18 18:27:07 - Item 'F_Lights_1' has been added.
+2017-09-18 18:27:07 - Item 'F_Lights_2' has been added.
+2017-09-18 18:27:07 - Item 'F_Roller_Shades_Up' has been added.
+2017-09-18 18:27:07 - Item 'F_Roller_Shades_Down' has been added.
+2017-09-18 18:27:07 - Item 'F_Lights_1_Analog' has been added.
+2017-09-18 18:27:07 - Item 'F_Lights_2_Analog' has been added.
+2017-09-18 18:27:07 - Item 'G_Light_Switch_1' has been added.
+2017-09-18 18:27:07 - Item 'G_Light_Switch_2' has been added.
+2017-09-18 18:27:07 - Item 'G_Light_Switch_3' has been added.
+2017-09-18 18:27:07 - Item 'G_Light_Switch_4' has been added.
+2017-09-18 18:27:07 - Item 'G_Light_Switch_5' has been added.
+2017-09-18 18:27:07 - Item 'G_Up_Down_Switch_Up' has been added.
+2017-09-18 18:27:07 - Item 'G_Up_Down_Switch_Down' has been added.
+2017-09-18 18:27:07 - Item 'G_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'G_Smoke_Detector' has been added.
+2017-09-18 18:27:07 - Item 'G_Lights' has been added.
+2017-09-18 18:27:07 - Item 'G_Roller_Shades_Up' has been added.
+2017-09-18 18:27:07 - Item 'G_Roller_Shades_Down' has been added.
+2017-09-18 18:27:07 - Item 'G_Heater_1' has been added.
+2017-09-18 18:27:07 - Item 'G_Heater_2' has been added.
+2017-09-18 18:27:07 - Item 'G_Lights_Analog' has been added.
+2017-09-18 18:27:07 - Item 'G_Heater_1_Analog' has been added.
+2017-09-18 18:27:07 - Item 'G_Heater_2_Analog' has been added.
+2017-09-18 18:27:07 - A_Lights updated to OFF
+2017-09-18 18:27:07 - Item 'gAll' has been added.
+2017-09-18 18:27:07 - Item 'gSwitch' has been added.
+2017-09-18 18:27:07 - Item 'gContact' has been added.
+2017-09-18 18:27:07 - Item 'gLight' has been added.
+2017-09-18 18:27:07 - Item 'gA' has been added.
+2017-09-18 18:27:07 - Item 'gB' has been added.
+2017-09-18 18:27:07 - Item 'gC' has been added.
+2017-09-18 18:27:07 - Item 'gD' has been added.
+2017-09-18 18:27:07 - Item 'gE' has been added.
+2017-09-18 18:27:07 - Item 'gF' has been added.
+2017-09-18 18:27:07 - Item 'gG' has been added.
+2017-09-18 18:27:07 - Item 'gH' has been added.
+2017-09-18 18:27:07 - Item 'gI' has been added.
+2017-09-18 18:27:07 - Item 'gJ' has been added.
+2017-09-18 18:27:07 - Item 'gK' has been added.
+2017-09-18 18:27:07 - A_Lights_Analog updated to 0
+2017-09-18 18:27:07 - A_Roller_Shades_1_Up updated to OFF
+2017-09-18 18:27:07 - A_Roller_Shades_1_Down updated to OFF
+2017-09-18 18:27:07 - Item 'gL' has been added.
+2017-09-18 18:27:07 - Item 'gM' has been added.
+2017-09-18 18:27:07 - Item 'gN' has been added.
+2017-09-18 18:27:07 - Item 'gO' has been added.
+2017-09-18 18:27:07 - A_Roller_Shades_3_Up updated to OFF
+2017-09-18 18:27:07 - Item 'H_Light_Switch_1' has been added.
+2017-09-18 18:27:07 - Item 'H_Up_Down_Switch_Up' has been added.
+2017-09-18 18:27:07 - Item 'H_Up_Down_Switch_Down' has been added.
+2017-09-18 18:27:07 - Item 'H_Light_Switch_Dimmer_Up' has been added.
+2017-09-18 18:27:07 - Item 'H_Light_Switch_Dimmer_Down' has been added.
+2017-09-18 18:27:07 - Item 'H_Door_Detector_1' has been added.
+2017-09-18 18:27:07 - Item 'H_Door_Detector_2' has been added.
+2017-09-18 18:27:07 - Item 'H_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'H_Brightness_Sensor' has been added.
+2017-09-18 18:27:07 - Item 'H_Smoke_Detector' has been added.
+2017-09-18 18:27:07 - Item 'H_Lights' has been added.
+2017-09-18 18:27:07 - Item 'H_Roller_Shades_Up' has been added.
+2017-09-18 18:27:07 - Item 'H_Roller_Shades_Down' has been added.
+2017-09-18 18:27:07 - Item 'H_Heater' has been added.
+2017-09-18 18:27:07 - Item 'H_Lights_Analog' has been added.
+2017-09-18 18:27:07 - Item 'H_Heater_Analog' has been added.
+2017-09-18 18:27:07 - A_Roller_Shades_3_Down updated to OFF
+2017-09-18 18:27:07 - A_Light_Switch_Dimmer_3_Up updated to CLOSED
+2017-09-18 18:27:07 - A_Light_Switch_Dimmer_3_Down updated to CLOSED
+2017-09-18 18:27:07 - B_Lights_1 updated to OFF
+2017-09-18 18:27:07 - B_Lights_2 updated to OFF
+2017-09-18 18:27:07 - B_Lights_1_Analog updated to 0
+2017-09-18 18:27:07 - B_Lights_2_Analog updated to 0
+2017-09-18 18:27:07 - C_Lights updated to OFF
+2017-09-18 18:27:07 - C_Lights_Analog updated to 0
+2017-09-18 18:27:07 - Item 'I_Light_Switch' has been added.
+2017-09-18 18:27:07 - Item 'I_Light_Switch_Dimmer_Up' has been added.
+2017-09-18 18:27:07 - Item 'I_Light_Switch_Dimmer_Down' has been added.
+2017-09-18 18:27:07 - Item 'I_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'I_Lights_1' has been added.
+2017-09-18 18:27:07 - Item 'I_Lights_2' has been added.
+2017-09-18 18:27:07 - Item 'I_Lights_1_Analog' has been added.
+2017-09-18 18:27:07 - Item 'I_Lights_2_Analog' has been added.
+2017-09-18 18:27:07 - D_Lights_1 updated to OFF
+2017-09-18 18:27:07 - Item 'J_Light_Switch_1' has been added.
+2017-09-18 18:27:07 - Item 'J_Light_Switch_2' has been added.
+2017-09-18 18:27:07 - D_Lights_2 updated to OFF
+2017-09-18 18:27:07 - Item 'J_Up_Down_Switch_Up' has been added.
+2017-09-18 18:27:07 - Item 'J_Up_Down_Switch_Down' has been added.
+2017-09-18 18:27:07 - Item 'J_Light_Switch_Dimmer_Up' has been added.
+2017-09-18 18:27:07 - Item 'J_Light_Switch_Dimmer_Down' has been added.
+2017-09-18 18:27:07 - Item 'J_Door_Detector_1' has been added.
+2017-09-18 18:27:07 - Item 'J_Door_Detector_2' has been added.
+2017-09-18 18:27:07 - Item 'J_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'J_Brightness_Sensor' has been added.
+2017-09-18 18:27:07 - Item 'J_Smoke_Detector' has been added.
+2017-09-18 18:27:07 - Item 'J_Lights' has been added.
+2017-09-18 18:27:07 - D_Lights_1_Analog updated to 0
+2017-09-18 18:27:07 - Item 'J_Roller_Shades_Up' has been added.
+2017-09-18 18:27:07 - Item 'J_Roller_Shades_Down' has been added.
+2017-09-18 18:27:07 - Item 'J_Heater' has been added.
+2017-09-18 18:27:07 - Item 'J_Lights_Analog' has been added.
+2017-09-18 18:27:07 - Item 'J_Heater_Analog' has been added.
+2017-09-18 18:27:07 - D_Lights_2_Analog updated to 0
+2017-09-18 18:27:07 - Item 'K_Light_Switch_Dimmer_Up' has been added.
+2017-09-18 18:27:07 - Item 'K_Light_Switch_Dimmer_Down' has been added.
+2017-09-18 18:27:07 - D_Roller_Shades_Up updated to OFF
+2017-09-18 18:27:07 - Item 'K_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'K_Lights' has been added.
+2017-09-18 18:27:07 - Item 'K_Lights_Analog' has been added.
+2017-09-18 18:27:07 - D_Roller_Shades_Down updated to OFF
+2017-09-18 18:27:07 - Item 'L_Light_Switch_1' has been added.
+2017-09-18 18:27:07 - Item 'L_Light_Switch_2' has been added.
+2017-09-18 18:27:07 - Item 'L_Up_Down_Switch_Up' has been added.
+2017-09-18 18:27:07 - Item 'L_Up_Down_Switch_Down' has been added.
+2017-09-18 18:27:07 - Item 'L_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-18 18:27:07 - Item 'L_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-18 18:27:07 - Item 'L_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-18 18:27:07 - Item 'L_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-18 18:27:07 - Item 'L_Door_Detector_1' has been added.
+2017-09-18 18:27:07 - Item 'L_Door_Detector_2' has been added.
+2017-09-18 18:27:07 - Item 'L_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'L_Brightness_Sensor' has been added.
+2017-09-18 18:27:07 - Item 'L_Smoke_Detector' has been added.
+2017-09-18 18:27:07 - Item 'L_Lights' has been added.
+2017-09-18 18:27:07 - Item 'L_Roller_Shades_Up' has been added.
+2017-09-18 18:27:07 - Item 'L_Roller_Shades_Down' has been added.
+2017-09-18 18:27:07 - Item 'L_Heater' has been added.
+2017-09-18 18:27:07 - Item 'L_Lights_Analog' has been added.
+2017-09-18 18:27:07 - E_Lights updated to OFF
+2017-09-18 18:27:07 - Item 'L_Heater_Analog' has been added.
+2017-09-18 18:27:07 - Item 'M_Light_Switch' has been added.
+2017-09-18 18:27:07 - Item 'M_Up_Down_Switch_Up' has been added.
+2017-09-18 18:27:07 - Item 'M_Up_Down_Switch_Down' has been added.
+2017-09-18 18:27:07 - Item 'M_Door_Detector_1' has been added.
+2017-09-18 18:27:07 - Item 'M_Door_Detector_2' has been added.
+2017-09-18 18:27:07 - Item 'M_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'M_Brightness_Sensor' has been added.
+2017-09-18 18:27:07 - Item 'M_Lights' has been added.
+2017-09-18 18:27:07 - Item 'M_Roller_Shades_Up' has been added.
+2017-09-18 18:27:07 - Item 'M_Roller_Shades_Down' has been added.
+2017-09-18 18:27:07 - Item 'M_Heater' has been added.
+2017-09-18 18:27:07 - Item 'M_Lights_Analog' has been added.
+2017-09-18 18:27:07 - Item 'M_Heater_Analog' has been added.
+2017-09-18 18:27:07 - E_Lights_Analog updated to OFF
+2017-09-18 18:27:07 - E_Roller_Shades_Up updated to OFF
+2017-09-18 18:27:07 - Item 'N_Light_Switch_1' has been added.
+2017-09-18 18:27:07 - Item 'N_Light_Switch_2' has been added.
+2017-09-18 18:27:07 - Item 'N_Light_Switch_3' has been added.
+2017-09-18 18:27:07 - Item 'N_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-18 18:27:07 - Item 'N_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-18 18:27:07 - Item 'N_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-18 18:27:07 - Item 'N_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-18 18:27:07 - Item 'N_Light_Switch_Dimmer_3_Up' has been added.
+2017-09-18 18:27:07 - Item 'N_Light_Switch_Dimmer_3_Down' has been added.
+2017-09-18 18:27:07 - Item 'N_Up_Down_Switch_Up' has been added.
+2017-09-18 18:27:07 - Item 'N_Up_Down_Switch_Down' has been added.
+2017-09-18 18:27:07 - Item 'N_Door_Detector_1' has been added.
+2017-09-18 18:27:07 - Item 'N_Door_Detector_2' has been added.
+2017-09-18 18:27:07 - Item 'N_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'N_Brightness_Sensor' has been added.
+2017-09-18 18:27:07 - Item 'N_Smoke_Detector' has been added.
+2017-09-18 18:27:07 - Item 'N_Lights_1' has been added.
+2017-09-18 18:27:07 - Item 'N_Lights_2' has been added.
+2017-09-18 18:27:07 - Item 'N_Lights_3' has been added.
+2017-09-18 18:27:07 - Item 'N_Roller_Shades_Up' has been added.
+2017-09-18 18:27:07 - Item 'N_Roller_Shades_Down' has been added.
+2017-09-18 18:27:07 - Item 'N_Heater' has been added.
+2017-09-18 18:27:07 - Item 'N_Lights_1_Analog' has been added.
+2017-09-18 18:27:07 - Item 'N_Lights_2_Analog' has been added.
+2017-09-18 18:27:07 - Item 'N_Lights_3_Analog' has been added.
+2017-09-18 18:27:07 - Item 'N_Heater_Analog' has been added.
+2017-09-18 18:27:07 - Item 'O_Motion_Detector' has been added.
+2017-09-18 18:27:07 - Item 'O_Brightness_Sensor' has been added.
+2017-09-18 18:27:07 - Item 'O_Entrance_Gate_Opened' has been added.
+2017-09-18 18:27:07 - Item 'O_Entrance_Gate_Closed' has been added.
+2017-09-18 18:27:07 - Item 'O_Entrance_Gate_Infrared_1' has been added.
+2017-09-18 18:27:07 - Item 'O_Entrance_Gate_Infrared_2' has been added.
+2017-09-18 18:27:07 - Item 'O_Entrance_Gate_Infrared_3' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Porch_1' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Porch_2' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Pool' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Garden' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Entrance' has been added.
+2017-09-18 18:27:07 - Item 'O_Siren' has been added.
+2017-09-18 18:27:07 - Item 'O_Entrance_Gate_Open' has been added.
+2017-09-18 18:27:07 - Item 'O_Entrance_Gate_Close' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Porch_1_Analog' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Porch_2_Analog' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Pool_Analog' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Garden_Analog' has been added.
+2017-09-18 18:27:07 - Item 'O_Lights_Entrance_Analog' has been added.
+2017-09-18 18:27:07 - E_Roller_Shades_Down updated to OFF
+2017-09-18 18:27:07 - O_Lights_Porch_1 updated to OFF
+2017-09-18 18:27:07 - O_Lights_Porch_2 updated to OFF
+2017-09-18 18:27:07 - A_Lights changed from NULL to OFF
+2017-09-18 18:27:07 - A_Lights_Analog changed from NULL to 0
+2017-09-18 18:27:07 - A_Roller_Shades_1_Up changed from NULL to OFF
+2017-09-18 18:27:07 - A_Roller_Shades_1_Down changed from NULL to OFF
+2017-09-18 18:27:07 - A_Roller_Shades_3_Up changed from NULL to OFF
+2017-09-18 18:27:07 - A_Roller_Shades_3_Down changed from NULL to OFF
+2017-09-18 18:27:07 - A_Light_Switch_Dimmer_3_Up changed from NULL to CLOSED
+2017-09-18 18:27:07 - A_Light_Switch_Dimmer_3_Down changed from NULL to CLOSED
+2017-09-18 18:27:07 - B_Lights_1 changed from NULL to OFF
+2017-09-18 18:27:07 - B_Lights_2 changed from NULL to OFF
+2017-09-18 18:27:07 - B_Lights_1_Analog changed from NULL to 0
+2017-09-18 18:27:07 - B_Lights_2_Analog changed from NULL to 0
+2017-09-18 18:27:07 - C_Lights changed from NULL to OFF
+2017-09-18 18:27:07 - C_Lights_Analog changed from NULL to 0
+2017-09-18 18:27:07 - D_Lights_1 changed from NULL to OFF
+2017-09-18 18:27:07 - D_Lights_2 changed from NULL to OFF
+2017-09-18 18:27:07 - D_Lights_1_Analog changed from NULL to 0
+2017-09-18 18:27:07 - D_Lights_2_Analog changed from NULL to 0
+2017-09-18 18:27:07 - D_Roller_Shades_Up changed from NULL to OFF
+2017-09-18 18:27:07 - D_Roller_Shades_Down changed from NULL to OFF
+2017-09-18 18:27:07 - E_Lights changed from NULL to OFF
+2017-09-18 18:27:07 - E_Lights_Analog changed from NULL to 0
+2017-09-18 18:27:07 - E_Roller_Shades_Up changed from NULL to OFF
+2017-09-18 18:27:07 - E_Roller_Shades_Down changed from NULL to OFF
+2017-09-18 18:27:07 - O_Lights_Porch_1 changed from NULL to OFF
+2017-09-18 18:27:07 - O_Lights_Porch_2 changed from NULL to OFF
+2017-09-18 18:28:34 - A_Door_Detector_1 updated to OPEN
+2017-09-18 18:28:34 - A_Door_Detector_2 updated to OPEN
+2017-09-18 18:28:34 - A_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - D_Door_Detector updated to OPEN
+2017-09-18 18:28:34 - D_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - E_Door_Detector_1 updated to OPEN
+2017-09-18 18:28:34 - E_Door_Detector_2 updated to OPEN
+2017-09-18 18:28:34 - E_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - F_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - H_Door_Detector_1 updated to OPEN
+2017-09-18 18:28:34 - H_Door_Detector_2 updated to OPEN
+2017-09-18 18:28:34 - H_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - J_Door_Detector_1 updated to OPEN
+2017-09-18 18:28:34 - J_Door_Detector_2 updated to OPEN
+2017-09-18 18:28:34 - J_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - L_Door_Detector_1 updated to OPEN
+2017-09-18 18:28:34 - L_Door_Detector_2 updated to OPEN
+2017-09-18 18:28:34 - L_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - M_Door_Detector_1 updated to OPEN
+2017-09-18 18:28:34 - M_Door_Detector_2 updated to OPEN
+2017-09-18 18:28:34 - M_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - A_Door_Detector_1 changed from NULL to OPEN
+2017-09-18 18:28:34 - N_Door_Detector_1 updated to OPEN
+2017-09-18 18:28:34 - N_Door_Detector_2 updated to OPEN
+2017-09-18 18:28:34 - N_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - O_Brightness_Sensor updated to OPEN
+2017-09-18 18:28:34 - O_Entrance_Gate_Closed updated to OPEN
+2017-09-18 18:28:34 - A_Door_Detector_2 changed from NULL to OPEN
+2017-09-18 18:28:34 - A_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - D_Door_Detector changed from NULL to OPEN
+2017-09-18 18:28:34 - HomeIO_Date updated to 2017-07-28T21:53:23.000+0200
+2017-09-18 18:28:34 - D_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - E_Door_Detector_1 changed from NULL to OPEN
+2017-09-18 18:28:34 - E_Door_Detector_2 changed from NULL to OPEN
+2017-09-18 18:28:34 - E_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - F_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - H_Door_Detector_1 changed from NULL to OPEN
+2017-09-18 18:28:34 - H_Door_Detector_2 changed from NULL to OPEN
+2017-09-18 18:28:34 - H_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - J_Door_Detector_1 changed from NULL to OPEN
+2017-09-18 18:28:34 - J_Door_Detector_2 changed from NULL to OPEN
+2017-09-18 18:28:34 - J_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - L_Door_Detector_1 changed from NULL to OPEN
+2017-09-18 18:28:34 - L_Door_Detector_2 changed from NULL to OPEN
+2017-09-18 18:28:34 - L_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - M_Door_Detector_1 changed from NULL to OPEN
+2017-09-18 18:28:34 - M_Door_Detector_2 changed from NULL to OPEN
+2017-09-18 18:28:34 - M_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - N_Door_Detector_1 changed from NULL to OPEN
+2017-09-18 18:28:34 - N_Door_Detector_2 changed from NULL to OPEN
+2017-09-18 18:28:34 - N_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - O_Brightness_Sensor changed from NULL to OPEN
+2017-09-18 18:28:34 - O_Entrance_Gate_Closed changed from NULL to OPEN
+2017-09-18 18:28:34 - HomeIO_Date changed from NULL to 2017-07-28T21:53:23.000+0200
+2017-09-18 18:28:34 - HomeIO_Date updated to 2017-07-28T21:53:24.000+0200
+2017-09-18 18:28:34 - HomeIO_Date changed from 2017-07-28T21:53:23.000+0200 to 2017-07-28T21:53:24.000+0200
+2017-09-18 18:28:35 - HomeIO_Date updated to 2017-07-28T21:53:25.000+0200
+2017-09-18 18:28:35 - HomeIO_Date changed from 2017-07-28T21:53:24.000+0200 to 2017-07-28T21:53:25.000+0200
+2017-09-18 18:28:36 - HomeIO_Date updated to 2017-07-28T21:53:26.000+0200
+2017-09-18 18:28:36 - HomeIO_Date changed from 2017-07-28T21:53:25.000+0200 to 2017-07-28T21:53:26.000+0200
+2017-09-18 18:28:37 - E_Motion_Detector updated to OPEN
+2017-09-18 18:28:37 - E_Motion_Detector changed from NULL to OPEN
+2017-09-18 18:28:37 - Item 'E_Lights_Analog' received command 100
+2017-09-18 18:28:37 - E_Lights_Analog updated to 100
+2017-09-18 18:28:37 - E_Lights_Analog changed from 0 to 100
+2017-09-18 18:28:37 - HomeIO_Date updated to 2017-07-28T21:53:27.000+0200
+2017-09-18 18:28:37 - HomeIO_Date changed from 2017-07-28T21:53:26.000+0200 to 2017-07-28T21:53:27.000+0200
+2017-09-18 18:28:38 - HomeIO_Date updated to 2017-07-28T21:53:28.000+0200
+2017-09-18 18:28:38 - HomeIO_Date changed from 2017-07-28T21:53:27.000+0200 to 2017-07-28T21:53:28.000+0200
+2017-09-18 18:28:39 - HomeIO_Date updated to 2017-07-28T21:53:29.000+0200
+2017-09-18 18:28:39 - HomeIO_Date changed from 2017-07-28T21:53:28.000+0200 to 2017-07-28T21:53:29.000+0200
+2017-09-18 18:28:40 - D_Motion_Detector updated to OPEN
+2017-09-18 18:28:40 - D_Motion_Detector changed from NULL to OPEN
+2017-09-18 18:28:40 - Item 'D_Lights_1_Analog' received command 100
+2017-09-18 18:28:40 - Item 'D_Lights_2' received command ON
+2017-09-18 18:28:40 - D_Lights_1_Analog updated to 100
+2017-09-18 18:28:40 - D_Lights_2 updated to ON
+2017-09-18 18:28:40 - D_Lights_1_Analog changed from 0 to 100
+2017-09-18 18:28:40 - D_Lights_2 changed from OFF to ON
+2017-09-18 18:28:40 - HomeIO_Date updated to 2017-07-28T21:53:30.000+0200
+2017-09-18 18:28:40 - HomeIO_Date changed from 2017-07-28T21:53:29.000+0200 to 2017-07-28T21:53:30.000+0200
+2017-09-18 18:28:40 - D_Brightness_Sensor updated to CLOSED
+2017-09-18 18:28:40 - D_Brightness_Sensor changed from OPEN to CLOSED
+2017-09-18 18:28:41 - HomeIO_Date updated to 2017-07-28T21:53:31.000+0200
+2017-09-18 18:28:41 - HomeIO_Date changed from 2017-07-28T21:53:30.000+0200 to 2017-07-28T21:53:31.000+0200
+2017-09-18 18:28:42 - E_Motion_Detector updated to CLOSED
+2017-09-18 18:28:42 - E_Motion_Detector changed from OPEN to CLOSED
+2017-09-18 18:28:42 - HomeIO_Date updated to 2017-07-28T21:53:32.000+0200
+2017-09-18 18:28:42 - HomeIO_Date changed from 2017-07-28T21:53:31.000+0200 to 2017-07-28T21:53:32.000+0200
+2017-09-19 09:53:24 - Item 'A_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_2' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_3' has been added.
+2017-09-19 09:53:24 - Item 'A_Up_Down_Switch_1_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Up_Down_Switch_1_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Up_Down_Switch_2_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Up_Down_Switch_2_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_Dimmer_3_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_Dimmer_3_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Door_Detector_1' has been added.
+2017-09-19 09:53:24 - Item 'A_Door_Detector_2' has been added.
+2017-09-19 09:53:24 - Item 'A_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'A_Brightness_Sensor' has been added.
+2017-09-19 09:53:24 - Item 'A_Smoke_Detector' has been added.
+2017-09-19 09:53:24 - Item 'A_Lights' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_1_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_1_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_2_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_2_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_3_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_3_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_4_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_4_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Heater' has been added.
+2017-09-19 09:53:24 - Item 'A_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'A_Heater_Analog' has been added.
+2017-09-19 09:53:24 - Item 'B_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'B_Light_Switch_2' has been added.
+2017-09-19 09:53:24 - Item 'B_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'B_Lights_1' has been added.
+2017-09-19 09:53:24 - Item 'B_Lights_2' has been added.
+2017-09-19 09:53:24 - Item 'B_Lights_1_Analog' has been added.
+2017-09-19 09:53:24 - Item 'B_Lights_2_Analog' has been added.
+2017-09-19 09:53:24 - Item 'C_Light_Switch' has been added.
+2017-09-19 09:53:24 - Item 'C_Lights' has been added.
+2017-09-19 09:53:24 - Item 'C_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'HomeIO_Date' has been added.
+2017-09-19 09:53:24 - Item 'D_Up_Down_Switch_Up' has been added.
+2017-09-19 09:53:24 - Item 'D_Up_Down_Switch_Down' has been added.
+2017-09-19 09:53:24 - Item 'D_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-19 09:53:24 - Item 'D_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-19 09:53:24 - Item 'D_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-19 09:53:24 - Item 'D_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-19 09:53:24 - Item 'D_Door_Detector' has been added.
+2017-09-19 09:53:24 - Item 'D_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'D_Brightness_Sensor' has been added.
+2017-09-19 09:53:24 - Item 'D_Lights_1' has been added.
+2017-09-19 09:53:24 - Item 'D_Lights_2' has been added.
+2017-09-19 09:53:24 - Item 'D_Roller_Shades_Up' has been added.
+2017-09-19 09:53:24 - Item 'D_Roller_Shades_Down' has been added.
+2017-09-19 09:53:24 - Item 'D_Heater' has been added.
+2017-09-19 09:53:24 - Item 'D_Lights_1_Analog' has been added.
+2017-09-19 09:53:24 - Item 'D_Lights_2_Analog' has been added.
+2017-09-19 09:53:24 - Item 'D_Heater_Analog' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_2' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_3' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_4' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_5' has been added.
+2017-09-19 09:53:24 - Item 'E_Up_Down_Switch_Up' has been added.
+2017-09-19 09:53:24 - Item 'E_Up_Down_Switch_Down' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-19 09:53:24 - Item 'E_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-19 09:53:24 - Item 'E_Door_Detector_1' has been added.
+2017-09-19 09:53:24 - Item 'E_Door_Detector_2' has been added.
+2017-09-19 09:53:24 - Item 'E_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'E_Brightness_Sensor' has been added.
+2017-09-19 09:53:24 - Item 'E_Alarm_Key_Pad_Armed' has been added.
+2017-09-19 09:53:24 - Item 'E_Lights' has been added.
+2017-09-19 09:53:24 - Item 'E_Roller_Shades_Up' has been added.
+2017-09-19 09:53:24 - Item 'E_Roller_Shades_Down' has been added.
+2017-09-19 09:53:24 - Item 'E_Heater' has been added.
+2017-09-19 09:53:24 - Item 'E_Siren' has been added.
+2017-09-19 09:53:24 - Item 'E_Alarm_Key_Pad_Arm' has been added.
+2017-09-19 09:53:24 - Item 'E_Alarm_Key_Pad_Disarm' has been added.
+2017-09-19 09:53:24 - Item 'E_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'E_Heater_Analog' has been added.
+2017-09-19 09:53:24 - Item 'F_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'F_Light_Switch_2' has been added.
+2017-09-19 09:53:24 - Item 'F_Up_Down_Switch_1_Up' has been added.
+2017-09-19 09:53:24 - Item 'F_Up_Down_Switch_1_Down' has been added.
+2017-09-19 09:53:24 - Item 'F_Up_Down_Switch_2_Up' has been added.
+2017-09-19 09:53:24 - Item 'F_Up_Down_Switch_2_Down' has been added.
+2017-09-19 09:53:24 - Item 'F_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'F_Brightness_Sensor' has been added.
+2017-09-19 09:53:24 - Item 'F_Lights_1' has been added.
+2017-09-19 09:53:24 - Item 'F_Lights_2' has been added.
+2017-09-19 09:53:24 - Item 'F_Roller_Shades_Up' has been added.
+2017-09-19 09:53:24 - Item 'F_Roller_Shades_Down' has been added.
+2017-09-19 09:53:24 - Item 'F_Lights_1_Analog' has been added.
+2017-09-19 09:53:24 - Item 'F_Lights_2_Analog' has been added.
+2017-09-19 09:53:24 - Item 'G_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'G_Light_Switch_2' has been added.
+2017-09-19 09:53:24 - Item 'G_Light_Switch_3' has been added.
+2017-09-19 09:53:24 - Item 'G_Light_Switch_4' has been added.
+2017-09-19 09:53:24 - Item 'G_Light_Switch_5' has been added.
+2017-09-19 09:53:24 - Item 'G_Up_Down_Switch_Up' has been added.
+2017-09-19 09:53:24 - Item 'G_Up_Down_Switch_Down' has been added.
+2017-09-19 09:53:24 - Item 'G_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'G_Smoke_Detector' has been added.
+2017-09-19 09:53:24 - Item 'G_Lights' has been added.
+2017-09-19 09:53:24 - Item 'G_Roller_Shades_Up' has been added.
+2017-09-19 09:53:24 - Item 'G_Roller_Shades_Down' has been added.
+2017-09-19 09:53:24 - Item 'G_Heater_1' has been added.
+2017-09-19 09:53:24 - Item 'G_Heater_2' has been added.
+2017-09-19 09:53:24 - Item 'G_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'G_Heater_1_Analog' has been added.
+2017-09-19 09:53:24 - Item 'G_Heater_2_Analog' has been added.
+2017-09-19 09:53:24 - Item 'gAll' has been added.
+2017-09-19 09:53:24 - Item 'gSwitch' has been added.
+2017-09-19 09:53:24 - Item 'gContact' has been added.
+2017-09-19 09:53:24 - Item 'gLight' has been added.
+2017-09-19 09:53:24 - Item 'gA' has been added.
+2017-09-19 09:53:24 - Item 'gB' has been added.
+2017-09-19 09:53:24 - Item 'gC' has been added.
+2017-09-19 09:53:24 - Item 'gD' has been added.
+2017-09-19 09:53:24 - Item 'gE' has been added.
+2017-09-19 09:53:24 - Item 'gF' has been added.
+2017-09-19 09:53:24 - Item 'gG' has been added.
+2017-09-19 09:53:24 - Item 'gH' has been added.
+2017-09-19 09:53:24 - Item 'gI' has been added.
+2017-09-19 09:53:24 - Item 'gJ' has been added.
+2017-09-19 09:53:24 - Item 'gK' has been added.
+2017-09-19 09:53:24 - Item 'gL' has been added.
+2017-09-19 09:53:24 - Item 'gM' has been added.
+2017-09-19 09:53:24 - Item 'gN' has been added.
+2017-09-19 09:53:24 - Item 'gO' has been added.
+2017-09-19 09:53:24 - Item 'H_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'H_Up_Down_Switch_Up' has been added.
+2017-09-19 09:53:24 - Item 'H_Up_Down_Switch_Down' has been added.
+2017-09-19 09:53:24 - Item 'H_Light_Switch_Dimmer_Up' has been added.
+2017-09-19 09:53:24 - Item 'H_Light_Switch_Dimmer_Down' has been added.
+2017-09-19 09:53:24 - Item 'H_Door_Detector_1' has been added.
+2017-09-19 09:53:24 - Item 'H_Door_Detector_2' has been added.
+2017-09-19 09:53:24 - Item 'H_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'H_Brightness_Sensor' has been added.
+2017-09-19 09:53:24 - Item 'H_Smoke_Detector' has been added.
+2017-09-19 09:53:24 - Item 'H_Lights' has been added.
+2017-09-19 09:53:24 - Item 'H_Roller_Shades_Up' has been added.
+2017-09-19 09:53:24 - Item 'H_Roller_Shades_Down' has been added.
+2017-09-19 09:53:24 - Item 'H_Heater' has been added.
+2017-09-19 09:53:24 - Item 'H_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'H_Heater_Analog' has been added.
+2017-09-19 09:53:24 - Item 'I_Light_Switch' has been added.
+2017-09-19 09:53:24 - Item 'I_Light_Switch_Dimmer_Up' has been added.
+2017-09-19 09:53:24 - Item 'I_Light_Switch_Dimmer_Down' has been added.
+2017-09-19 09:53:24 - Item 'I_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'I_Lights_1' has been added.
+2017-09-19 09:53:24 - Item 'I_Lights_2' has been added.
+2017-09-19 09:53:24 - Item 'I_Lights_1_Analog' has been added.
+2017-09-19 09:53:24 - Item 'I_Lights_2_Analog' has been added.
+2017-09-19 09:53:24 - Item 'J_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'J_Light_Switch_2' has been added.
+2017-09-19 09:53:24 - Item 'J_Up_Down_Switch_Up' has been added.
+2017-09-19 09:53:24 - Item 'J_Up_Down_Switch_Down' has been added.
+2017-09-19 09:53:24 - Item 'J_Light_Switch_Dimmer_Up' has been added.
+2017-09-19 09:53:24 - Item 'J_Light_Switch_Dimmer_Down' has been added.
+2017-09-19 09:53:24 - Item 'J_Door_Detector_1' has been added.
+2017-09-19 09:53:24 - Item 'J_Door_Detector_2' has been added.
+2017-09-19 09:53:24 - Item 'J_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'J_Brightness_Sensor' has been added.
+2017-09-19 09:53:24 - Item 'J_Smoke_Detector' has been added.
+2017-09-19 09:53:24 - Item 'J_Lights' has been added.
+2017-09-19 09:53:24 - Item 'J_Roller_Shades_Up' has been added.
+2017-09-19 09:53:24 - Item 'J_Roller_Shades_Down' has been added.
+2017-09-19 09:53:24 - Item 'J_Heater' has been added.
+2017-09-19 09:53:24 - Item 'J_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'J_Heater_Analog' has been added.
+2017-09-19 09:53:24 - Item 'K_Light_Switch_Dimmer_Up' has been added.
+2017-09-19 09:53:24 - Item 'K_Light_Switch_Dimmer_Down' has been added.
+2017-09-19 09:53:24 - Item 'K_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'Example_Light' received command OFF
+2017-09-19 09:53:24 - Item 'K_Lights' has been added.
+2017-09-19 09:53:24 - Item 'K_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'A_Lights' received command OFF
+2017-09-19 09:53:24 - Item 'L_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'L_Light_Switch_2' has been added.
+2017-09-19 09:53:24 - Item 'A_Lights_Analog' received command 0
+2017-09-19 09:53:24 - Item 'L_Up_Down_Switch_Up' has been added.
+2017-09-19 09:53:24 - Item 'L_Up_Down_Switch_Down' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_1_Up' received command OFF
+2017-09-19 09:53:24 - Item 'L_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_1_Down' received command OFF
+2017-09-19 09:53:24 - Item 'L_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-19 09:53:24 - Item 'L_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_3_Up' received command OFF
+2017-09-19 09:53:24 - Item 'L_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-19 09:53:24 - Item 'L_Door_Detector_1' has been added.
+2017-09-19 09:53:24 - Item 'A_Roller_Shades_3_Down' received command OFF
+2017-09-19 09:53:24 - Item 'L_Door_Detector_2' has been added.
+2017-09-19 09:53:24 - Item 'L_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_Dimmer_3_Up' received command CLOSED
+2017-09-19 09:53:24 - Item 'L_Brightness_Sensor' has been added.
+2017-09-19 09:53:24 - Item 'A_Light_Switch_Dimmer_3_Down' received command CLOSED
+2017-09-19 09:53:24 - Item 'L_Smoke_Detector' has been added.
+2017-09-19 09:53:24 - Item 'L_Lights' has been added.
+2017-09-19 09:53:24 - Item 'B_Lights_1' received command OFF
+2017-09-19 09:53:24 - Item 'L_Roller_Shades_Up' has been added.
+2017-09-19 09:53:24 - Item 'L_Roller_Shades_Down' has been added.
+2017-09-19 09:53:24 - Item 'L_Heater' has been added.
+2017-09-19 09:53:24 - Item 'B_Lights_2' received command OFF
+2017-09-19 09:53:24 - Item 'L_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'B_Lights_1_Analog' received command 0
+2017-09-19 09:53:24 - Item 'L_Heater_Analog' has been added.
+2017-09-19 09:53:24 - Item 'B_Lights_2_Analog' received command 0
+2017-09-19 09:53:24 - Item 'M_Light_Switch' has been added.
+2017-09-19 09:53:24 - Item 'C_Lights' received command OFF
+2017-09-19 09:53:24 - Item 'M_Up_Down_Switch_Up' has been added.
+2017-09-19 09:53:24 - Item 'C_Lights_Analog' received command 0
+2017-09-19 09:53:24 - Item 'M_Up_Down_Switch_Down' has been added.
+2017-09-19 09:53:24 - Item 'D_Lights_1' received command OFF
+2017-09-19 09:53:24 - Item 'M_Door_Detector_1' has been added.
+2017-09-19 09:53:24 - Item 'D_Lights_2' received command OFF
+2017-09-19 09:53:24 - Item 'M_Door_Detector_2' has been added.
+2017-09-19 09:53:24 - Item 'D_Lights_1_Analog' received command 0
+2017-09-19 09:53:24 - Item 'M_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'D_Lights_2_Analog' received command 0
+2017-09-19 09:53:24 - Item 'M_Brightness_Sensor' has been added.
+2017-09-19 09:53:24 - Item 'M_Lights' has been added.
+2017-09-19 09:53:24 - Item 'M_Roller_Shades_Up' has been added.
+2017-09-19 09:53:24 - Item 'M_Roller_Shades_Down' has been added.
+2017-09-19 09:53:24 - Item 'M_Heater' has been added.
+2017-09-19 09:53:24 - Item 'M_Lights_Analog' has been added.
+2017-09-19 09:53:24 - Item 'M_Heater_Analog' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_1' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_2' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_3' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_Dimmer_1_Up' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_Dimmer_1_Down' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_Dimmer_2_Up' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_Dimmer_2_Down' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_Dimmer_3_Up' has been added.
+2017-09-19 09:53:24 - Item 'N_Light_Switch_Dimmer_3_Down' has been added.
+2017-09-19 09:53:24 - Item 'N_Up_Down_Switch_Up' has been added.
+2017-09-19 09:53:24 - Item 'N_Up_Down_Switch_Down' has been added.
+2017-09-19 09:53:24 - Item 'N_Door_Detector_1' has been added.
+2017-09-19 09:53:24 - Item 'N_Door_Detector_2' has been added.
+2017-09-19 09:53:24 - Item 'N_Motion_Detector' has been added.
+2017-09-19 09:53:24 - Item 'N_Brightness_Sensor' has been added.
+2017-09-19 09:53:25 - Item 'N_Smoke_Detector' has been added.
+2017-09-19 09:53:25 - Item 'N_Lights_1' has been added.
+2017-09-19 09:53:25 - Item 'N_Lights_2' has been added.
+2017-09-19 09:53:25 - Item 'N_Lights_3' has been added.
+2017-09-19 09:53:25 - Item 'N_Roller_Shades_Up' has been added.
+2017-09-19 09:53:25 - Item 'N_Roller_Shades_Down' has been added.
+2017-09-19 09:53:25 - Item 'N_Heater' has been added.
+2017-09-19 09:53:25 - Item 'N_Lights_1_Analog' has been added.
+2017-09-19 09:53:25 - Item 'N_Lights_2_Analog' has been added.
+2017-09-19 09:53:25 - Item 'N_Lights_3_Analog' has been added.
+2017-09-19 09:53:25 - Item 'N_Heater_Analog' has been added.
+2017-09-19 09:53:25 - Item 'O_Motion_Detector' has been added.
+2017-09-19 09:53:25 - Item 'O_Brightness_Sensor' has been added.
+2017-09-19 09:53:25 - Item 'O_Entrance_Gate_Opened' has been added.
+2017-09-19 09:53:25 - Item 'D_Roller_Shades_Up' received command OFF
+2017-09-19 09:53:25 - Item 'O_Entrance_Gate_Closed' has been added.
+2017-09-19 09:53:25 - Item 'O_Entrance_Gate_Infrared_1' has been added.
+2017-09-19 09:53:25 - Item 'D_Roller_Shades_Down' received command OFF
+2017-09-19 09:53:25 - Item 'O_Entrance_Gate_Infrared_2' has been added.
+2017-09-19 09:53:25 - Item 'O_Entrance_Gate_Infrared_3' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Porch_1' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Porch_2' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Pool' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Garden' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Entrance' has been added.
+2017-09-19 09:53:25 - Item 'O_Siren' has been added.
+2017-09-19 09:53:25 - Item 'O_Entrance_Gate_Open' has been added.
+2017-09-19 09:53:25 - Item 'O_Entrance_Gate_Close' has been added.
+2017-09-19 09:53:25 - Item 'E_Lights' received command OFF
+2017-09-19 09:53:25 - Item 'O_Lights_Porch_1_Analog' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Porch_2_Analog' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Pool_Analog' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Garden_Analog' has been added.
+2017-09-19 09:53:25 - Item 'O_Lights_Entrance_Analog' has been added.
+2017-09-19 09:53:25 - Item 'E_Lights_Analog' received command OFF
+2017-09-19 09:53:25 - Item 'E_Roller_Shades_Up' received command OFF
+2017-09-19 09:53:25 - Item 'E_Roller_Shades_Down' received command OFF
+2017-09-19 09:53:25 - Item 'O_Lights_Porch_1' received command OFF
+2017-09-19 09:53:25 - Item 'O_Lights_Porch_2' received command OFF
+2017-09-19 09:53:25 - A_Lights updated to OFF
+2017-09-19 09:53:25 - A_Lights_Analog updated to 0
+2017-09-19 09:53:25 - A_Roller_Shades_1_Up updated to OFF
+2017-09-19 09:53:25 - A_Roller_Shades_1_Down updated to OFF
+2017-09-19 09:53:25 - A_Roller_Shades_3_Up updated to OFF
+2017-09-19 09:53:25 - A_Roller_Shades_3_Down updated to OFF
+2017-09-19 09:53:25 - A_Light_Switch_Dimmer_3_Up updated to CLOSED
+2017-09-19 09:53:25 - A_Light_Switch_Dimmer_3_Down updated to CLOSED
+2017-09-19 09:53:25 - B_Lights_1 updated to OFF
+2017-09-19 09:53:25 - B_Lights_2 updated to OFF
+2017-09-19 09:53:25 - B_Lights_1_Analog updated to 0
+2017-09-19 09:53:25 - B_Lights_2_Analog updated to 0
+2017-09-19 09:53:25 - C_Lights updated to OFF
+2017-09-19 09:53:25 - C_Lights_Analog updated to 0
+2017-09-19 09:53:25 - D_Lights_1 updated to OFF
+2017-09-19 09:53:25 - D_Lights_2 updated to OFF
+2017-09-19 09:53:25 - D_Lights_1_Analog updated to 0
+2017-09-19 09:53:25 - D_Lights_2_Analog updated to 0
+2017-09-19 09:53:25 - D_Roller_Shades_Up updated to OFF
+2017-09-19 09:53:25 - D_Roller_Shades_Down updated to OFF
+2017-09-19 09:53:25 - E_Lights updated to OFF
+2017-09-19 09:53:25 - E_Lights_Analog updated to OFF
+2017-09-19 09:53:25 - E_Roller_Shades_Up updated to OFF
+2017-09-19 09:53:25 - E_Roller_Shades_Down updated to OFF
+2017-09-19 09:53:25 - O_Lights_Porch_1 updated to OFF
+2017-09-19 09:53:25 - O_Lights_Porch_2 updated to OFF
+2017-09-19 09:53:25 - A_Lights changed from NULL to OFF
+2017-09-19 09:53:25 - A_Lights_Analog changed from NULL to 0
+2017-09-19 09:53:25 - A_Roller_Shades_1_Up changed from NULL to OFF
+2017-09-19 09:53:25 - A_Roller_Shades_1_Down changed from NULL to OFF
+2017-09-19 09:53:25 - A_Roller_Shades_3_Up changed from NULL to OFF
+2017-09-19 09:53:25 - A_Roller_Shades_3_Down changed from NULL to OFF
+2017-09-19 09:53:25 - A_Light_Switch_Dimmer_3_Up changed from NULL to CLOSED
+2017-09-19 09:53:25 - A_Light_Switch_Dimmer_3_Down changed from NULL to CLOSED
+2017-09-19 09:53:25 - B_Lights_1 changed from NULL to OFF
+2017-09-19 09:53:25 - B_Lights_2 changed from NULL to OFF
+2017-09-19 09:53:25 - B_Lights_1_Analog changed from NULL to 0
+2017-09-19 09:53:25 - B_Lights_2_Analog changed from NULL to 0
+2017-09-19 09:53:25 - C_Lights changed from NULL to OFF
+2017-09-19 09:53:25 - C_Lights_Analog changed from NULL to 0
+2017-09-19 09:53:25 - D_Lights_1 changed from NULL to OFF
+2017-09-19 09:53:25 - D_Lights_2 changed from NULL to OFF
+2017-09-19 09:53:25 - D_Lights_1_Analog changed from NULL to 0
+2017-09-19 09:53:25 - D_Lights_2_Analog changed from NULL to 0
+2017-09-19 09:53:25 - D_Roller_Shades_Up changed from NULL to OFF
+2017-09-19 09:53:25 - D_Roller_Shades_Down changed from NULL to OFF
+2017-09-19 09:53:25 - E_Lights changed from NULL to OFF
+2017-09-19 09:53:25 - E_Lights_Analog changed from NULL to 0
+2017-09-19 09:53:25 - E_Roller_Shades_Up changed from NULL to OFF
+2017-09-19 09:53:25 - E_Roller_Shades_Down changed from NULL to OFF
+2017-09-19 09:53:25 - O_Lights_Porch_1 changed from NULL to OFF
+2017-09-19 09:53:25 - O_Lights_Porch_2 changed from NULL to OFF
+2017-09-19 09:55:16 - A_Door_Detector_1 updated to OPEN
+2017-09-19 09:55:16 - A_Door_Detector_2 updated to OPEN
+2017-09-19 09:55:16 - A_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - D_Door_Detector updated to OPEN
+2017-09-19 09:55:16 - D_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - E_Door_Detector_1 updated to OPEN
+2017-09-19 09:55:16 - E_Door_Detector_2 updated to OPEN
+2017-09-19 09:55:16 - E_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - F_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - H_Door_Detector_1 updated to OPEN
+2017-09-19 09:55:16 - H_Door_Detector_2 updated to OPEN
+2017-09-19 09:55:16 - H_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - J_Door_Detector_1 updated to OPEN
+2017-09-19 09:55:16 - J_Door_Detector_2 updated to OPEN
+2017-09-19 09:55:16 - J_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - L_Door_Detector_1 updated to OPEN
+2017-09-19 09:55:16 - L_Door_Detector_2 updated to OPEN
+2017-09-19 09:55:16 - L_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - M_Door_Detector_1 updated to OPEN
+2017-09-19 09:55:16 - M_Door_Detector_2 updated to OPEN
+2017-09-19 09:55:16 - M_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - N_Door_Detector_1 updated to OPEN
+2017-09-19 09:55:16 - N_Door_Detector_2 updated to OPEN
+2017-09-19 09:55:16 - N_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - O_Brightness_Sensor updated to OPEN
+2017-09-19 09:55:16 - O_Entrance_Gate_Closed updated to OPEN
+2017-09-19 09:55:16 - A_Door_Detector_1 changed from NULL to OPEN
+2017-09-19 09:55:16 - HomeIO_Date updated to 2017-07-28T21:53:47.000+0200
+2017-09-19 09:55:16 - A_Door_Detector_2 changed from NULL to OPEN
+2017-09-19 09:55:16 - A_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - D_Door_Detector changed from NULL to OPEN
+2017-09-19 09:55:16 - D_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - E_Door_Detector_1 changed from NULL to OPEN
+2017-09-19 09:55:16 - E_Door_Detector_2 changed from NULL to OPEN
+2017-09-19 09:55:16 - E_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - F_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - H_Door_Detector_1 changed from NULL to OPEN
+2017-09-19 09:55:16 - H_Door_Detector_2 changed from NULL to OPEN
+2017-09-19 09:55:16 - H_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - J_Door_Detector_1 changed from NULL to OPEN
+2017-09-19 09:55:16 - J_Door_Detector_2 changed from NULL to OPEN
+2017-09-19 09:55:16 - J_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - L_Door_Detector_1 changed from NULL to OPEN
+2017-09-19 09:55:16 - L_Door_Detector_2 changed from NULL to OPEN
+2017-09-19 09:55:16 - L_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - M_Door_Detector_1 changed from NULL to OPEN
+2017-09-19 09:55:16 - M_Door_Detector_2 changed from NULL to OPEN
+2017-09-19 09:55:16 - M_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - N_Door_Detector_1 changed from NULL to OPEN
+2017-09-19 09:55:16 - N_Door_Detector_2 changed from NULL to OPEN
+2017-09-19 09:55:16 - N_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - O_Brightness_Sensor changed from NULL to OPEN
+2017-09-19 09:55:16 - O_Entrance_Gate_Closed changed from NULL to OPEN
+2017-09-19 09:55:16 - HomeIO_Date changed from NULL to 2017-07-28T21:53:47.000+0200
+2017-09-19 09:55:16 - HomeIO_Date updated to 2017-07-28T21:53:48.000+0200
+2017-09-19 09:55:16 - HomeIO_Date changed from 2017-07-28T21:53:47.000+0200 to 2017-07-28T21:53:48.000+0200
+2017-09-19 09:55:17 - HomeIO_Date updated to 2017-07-28T21:53:49.000+0200
+2017-09-19 09:55:17 - HomeIO_Date changed from 2017-07-28T21:53:48.000+0200 to 2017-07-28T21:53:49.000+0200
+2017-09-19 09:55:18 - HomeIO_Date updated to 2017-07-28T21:53:50.000+0200
+2017-09-19 09:55:18 - HomeIO_Date changed from 2017-07-28T21:53:49.000+0200 to 2017-07-28T21:53:50.000+0200
+2017-09-19 09:55:19 - HomeIO_Date updated to 2017-07-28T21:53:51.000+0200
+2017-09-19 09:55:19 - HomeIO_Date changed from 2017-07-28T21:53:50.000+0200 to 2017-07-28T21:53:51.000+0200
+2017-09-19 09:55:20 - HomeIO_Date updated to 2017-07-28T21:53:52.000+0200
+2017-09-19 09:55:20 - HomeIO_Date changed from 2017-07-28T21:53:51.000+0200 to 2017-07-28T21:53:52.000+0200
+2017-09-19 09:55:20 - E_Motion_Detector updated to OPEN
+2017-09-19 09:55:20 - E_Motion_Detector changed from NULL to OPEN
+2017-09-19 09:55:20 - Item 'E_Lights_Analog' received command 100
+2017-09-19 09:55:20 - E_Lights_Analog updated to 100
+2017-09-19 09:55:20 - E_Lights_Analog changed from 0 to 100
+2017-09-19 09:55:21 - HomeIO_Date updated to 2017-07-28T21:53:53.000+0200
+2017-09-19 09:55:21 - HomeIO_Date changed from 2017-07-28T21:53:52.000+0200 to 2017-07-28T21:53:53.000+0200
+2017-09-19 09:55:22 - HomeIO_Date updated to 2017-07-28T21:53:54.000+0200
+2017-09-19 09:55:22 - HomeIO_Date changed from 2017-07-28T21:53:53.000+0200 to 2017-07-28T21:53:54.000+0200
+2017-09-19 09:55:23 - D_Motion_Detector updated to OPEN
+2017-09-19 09:55:23 - D_Motion_Detector changed from NULL to OPEN
+2017-09-19 09:55:23 - Item 'D_Lights_1_Analog' received command 100
+2017-09-19 09:55:23 - Item 'D_Lights_2' received command ON
+2017-09-19 09:55:23 - D_Lights_1_Analog updated to 100
+2017-09-19 09:55:23 - D_Lights_2 updated to ON
+2017-09-19 09:55:23 - D_Lights_1_Analog changed from 0 to 100
+2017-09-19 09:55:23 - D_Lights_2 changed from OFF to ON
+2017-09-19 09:55:23 - D_Brightness_Sensor updated to CLOSED
+2017-09-19 09:55:23 - D_Brightness_Sensor changed from OPEN to CLOSED
+2017-09-19 09:55:23 - HomeIO_Date updated to 2017-07-28T21:53:55.000+0200
+2017-09-19 09:55:23 - HomeIO_Date changed from 2017-07-28T21:53:54.000+0200 to 2017-07-28T21:53:55.000+0200

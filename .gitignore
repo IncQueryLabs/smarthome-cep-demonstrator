@@ -7,3 +7,7 @@ smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/obj/
 *.suo
 
 homeio-resources/launch/home/logs/
+
+smarthome-simulator/HomeIO/HomIO-MQTT/HomeIO-MQTT/obj/
+
+smarthome-simulator/HomeIO/HomIO-MQTT/packages/
