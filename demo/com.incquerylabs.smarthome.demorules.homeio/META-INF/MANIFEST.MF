@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0
 Bundle-Vendor: IncQuery Labs Ltd.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Service-Component: OSGI-INF/drlLoader.xml
-Import-Package: com.incquerylabs.iot.eshieventbusservice,
+Import-Package: com.incquerylabs.smarthome.eventbusservice,
  org.osgi.framework;version="1.8.0"
 Bundle-ClassPath: src/main/resources/,
  .

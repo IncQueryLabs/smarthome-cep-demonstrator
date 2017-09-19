@@ -12,8 +12,8 @@ import org.eclipse.smarthome.core.types.State;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.incquerylabs.iot.eshieventbusservice.IEventPublisher;
-import com.incquerylabs.iot.eshieventbusservice.ITimedCommand;
+import com.incquerylabs.smarthome.eventbusservice.IEventPublisher;
+import com.incquerylabs.smarthome.eventbusservice.ITimedCommand;
 
 public class EventBusMock implements IEventPublisher {
     static Logger logger = LoggerFactory.getLogger(EventBusMock.class);

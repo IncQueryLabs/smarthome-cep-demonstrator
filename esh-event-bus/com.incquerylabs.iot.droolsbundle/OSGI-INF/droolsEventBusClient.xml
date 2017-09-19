@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.incquerylabs.iot.droolsbundle.DroolsEventBusClient">
-   <implementation class="com.incquerylabs.iot.droolsbundle.DroolsEventBusClient"/>
-   <service>
-      <provide interface="com.incquerylabs.iot.eshieventbusservice.IEventSubscriber"/>
-   </service>
-   <reference bind="setEventPublisher" cardinality="1..1" interface="com.incquerylabs.iot.eshieventbusservice.IEventPublisher" name="IEventPublisher" policy="static" unbind="unsetEventPublisher"/>
-   <reference bind="setDrlLoader" cardinality="1..1" interface="com.incquerylabs.iot.eshieventbusservice.IDrlLoader" name="IDrlLoader" policy="static" unbind="unsetDrlLoader"/>
-</scr:component>

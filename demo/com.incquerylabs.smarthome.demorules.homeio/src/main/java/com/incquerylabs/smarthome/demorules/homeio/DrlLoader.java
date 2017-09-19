@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 
 import org.osgi.framework.FrameworkUtil;
 
-import com.incquerylabs.iot.eshieventbusservice.IDrlLoader;
+import com.incquerylabs.smarthome.eventbusservice.IDrlLoader;
 
 public class DrlLoader implements IDrlLoader {
 

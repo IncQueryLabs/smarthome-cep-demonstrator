@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.incquerylabs.smarthome</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.1.0</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>com.incquerylabs.smarthome.droolsbundle</artifactId>
+	<packaging>${module.packaging}</packaging>
+
+	<properties>
+		<drools.version>7.2.0.Final</drools.version>
+		<bundle.symbolicName>com.incquerylabs.smarthome.drools</bundle.symbolicName>
+		<bundle.namespace>com.incquerylabs.smarthome.drools</bundle.namespace>
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>.</directory>
+				<includes>
+					<include>plugin.xml</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/../lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.5.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<manifestLocation>META-INF</manifestLocation>
+					<instructions>
+						<Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Require-Bundle>com.incquerylabs.iot.eshieventbusservice</Require-Bundle>
+						<Service-Component>OSGI-INF/drools-test.xml</Service-Component>
+
+						<_exportcontents>com.incquerylabs.iot.droolsbundle</_exportcontents>
+						<Import-Package>org.slf4j,org.eclipse.smarthome.core.types,org.eclipse.smarthome.core.library.types,org.eclipse.smarthome.core.items</Import-Package>
+						<Bundle-ClassPath>.,{maven-dependencies},src/main/resources/,lib/</Bundle-ClassPath>
+
+						<Embed-Dependency>*;scope=compile|runtime;inline=true</Embed-Dependency>
+						<Embed-Transitive>true</Embed-Transitive>
+					</instructions>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-compiler</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-api</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+	</dependencies>
+	<name>Smarthome Drools Runtime</name>
+</project>
