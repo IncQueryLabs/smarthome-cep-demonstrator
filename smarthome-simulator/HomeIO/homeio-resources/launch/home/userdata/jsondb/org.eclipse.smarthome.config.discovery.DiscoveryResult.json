@@ -1,0 +1,27 @@
+{
+  "astro:moon:local": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "thingUID": {
+        "segments": [
+          "astro",
+          "moon",
+          "local"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "astro",
+          "moon"
+        ]
+      },
+      "properties": {
+        "geolocation": "47.478566699999995,19.0288809,0"
+      },
+      "flag": "NEW",
+      "label": "Local Moon",
+      "timestamp": 1505828985564,
+      "timeToLive": -1
+    }
+  }
+}

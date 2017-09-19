@@ -1,0 +1,11 @@
+{
+  "Sunrise_Time": {
+    "class": "org.eclipse.smarthome.core.items.ManagedItemProvider$PersistedItem",
+    "value": {
+      "groupNames": [],
+      "itemType": "DateTime",
+      "tags": [],
+      "label": "Start time"
+    }
+  }
+}

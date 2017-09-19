@@ -1,0 +1,982 @@
+{
+  "astro_sun_local_eveningNight_event -\u003e astro:sun:local:eveningNight#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "eveningNight#event"
+        ]
+      },
+      "itemName": "astro_sun_local_eveningNight_event"
+    }
+  },
+  "astro_sun_local_daylight_event -\u003e astro:sun:local:daylight#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "daylight#event"
+        ]
+      },
+      "itemName": "astro_sun_local_daylight_event"
+    }
+  },
+  "astro_sun_local_astroDawn_end -\u003e astro:sun:local:astroDawn#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "astroDawn#end"
+        ]
+      },
+      "itemName": "astro_sun_local_astroDawn_end"
+    }
+  },
+  "astro_sun_local_civilDawn_end -\u003e astro:sun:local:civilDawn#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "civilDawn#end"
+        ]
+      },
+      "itemName": "astro_sun_local_civilDawn_end"
+    }
+  },
+  "astro_sun_local_daylight_start -\u003e astro:sun:local:daylight#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "daylight#start"
+        ]
+      },
+      "itemName": "astro_sun_local_daylight_start"
+    }
+  },
+  "astro_sun_local_set_end -\u003e astro:sun:local:set#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "set#end"
+        ]
+      },
+      "itemName": "astro_sun_local_set_end"
+    }
+  },
+  "astro_sun_local_season_winter -\u003e astro:sun:local:season#winter": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "season#winter"
+        ]
+      },
+      "itemName": "astro_sun_local_season_winter"
+    }
+  },
+  "astro_sun_local_rise_duration -\u003e astro:sun:local:rise#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "rise#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_rise_duration"
+    }
+  },
+  "astro_sun_local_zodiac_sign -\u003e astro:sun:local:zodiac#sign": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "zodiac#sign"
+        ]
+      },
+      "itemName": "astro_sun_local_zodiac_sign"
+    }
+  },
+  "astro_sun_local_eclipse_ring -\u003e astro:sun:local:eclipse#ring": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "eclipse#ring"
+        ]
+      },
+      "itemName": "astro_sun_local_eclipse_ring"
+    }
+  },
+  "astro_sun_local_noon_duration -\u003e astro:sun:local:noon#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "noon#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_noon_duration"
+    }
+  },
+  "astro_sun_local_radiation_diffuse -\u003e astro:sun:local:radiation#diffuse": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "radiation#diffuse"
+        ]
+      },
+      "itemName": "astro_sun_local_radiation_diffuse"
+    }
+  },
+  "astro_sun_local_season_summer -\u003e astro:sun:local:season#summer": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "season#summer"
+        ]
+      },
+      "itemName": "astro_sun_local_season_summer"
+    }
+  },
+  "astro_sun_local_morningNight_event -\u003e astro:sun:local:morningNight#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "morningNight#event"
+        ]
+      },
+      "itemName": "astro_sun_local_morningNight_event"
+    }
+  },
+  "astro_sun_local_nauticDawn_event -\u003e astro:sun:local:nauticDawn#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "nauticDawn#event"
+        ]
+      },
+      "itemName": "astro_sun_local_nauticDawn_event"
+    }
+  },
+  "astro_sun_local_eveningNight_start -\u003e astro:sun:local:eveningNight#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "eveningNight#start"
+        ]
+      },
+      "itemName": "astro_sun_local_eveningNight_start"
+    }
+  },
+  "astro_sun_local_morningNight_end -\u003e astro:sun:local:morningNight#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "morningNight#end"
+        ]
+      },
+      "itemName": "astro_sun_local_morningNight_end"
+    }
+  },
+  "astro_sun_local_radiation_total -\u003e astro:sun:local:radiation#total": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "radiation#total"
+        ]
+      },
+      "itemName": "astro_sun_local_radiation_total"
+    }
+  },
+  "astro_sun_local_civilDawn_duration -\u003e astro:sun:local:civilDawn#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "civilDawn#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_civilDawn_duration"
+    }
+  },
+  "astro_sun_local_night_event -\u003e astro:sun:local:night#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "night#event"
+        ]
+      },
+      "itemName": "astro_sun_local_night_event"
+    }
+  },
+  "astro_sun_local_nauticDawn_end -\u003e astro:sun:local:nauticDawn#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "nauticDawn#end"
+        ]
+      },
+      "itemName": "astro_sun_local_nauticDawn_end"
+    }
+  },
+  "astro_sun_local_season_name -\u003e astro:sun:local:season#name": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "season#name"
+        ]
+      },
+      "itemName": "astro_sun_local_season_name"
+    }
+  },
+  "astro_sun_local_nauticDusk_duration -\u003e astro:sun:local:nauticDusk#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "nauticDusk#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_nauticDusk_duration"
+    }
+  },
+  "astro_sun_local_noon_start -\u003e astro:sun:local:noon#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "noon#start"
+        ]
+      },
+      "itemName": "astro_sun_local_noon_start"
+    }
+  },
+  "astro_sun_local_eclipse_partial -\u003e astro:sun:local:eclipse#partial": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "eclipse#partial"
+        ]
+      },
+      "itemName": "astro_sun_local_eclipse_partial"
+    }
+  },
+  "astro_sun_local_civilDusk_duration -\u003e astro:sun:local:civilDusk#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "civilDusk#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_civilDusk_duration"
+    }
+  },
+  "astro_sun_local_nauticDawn_start -\u003e astro:sun:local:nauticDawn#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "nauticDawn#start"
+        ]
+      },
+      "itemName": "astro_sun_local_nauticDawn_start"
+    }
+  },
+  "astro_sun_local_astroDawn_event -\u003e astro:sun:local:astroDawn#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "astroDawn#event"
+        ]
+      },
+      "itemName": "astro_sun_local_astroDawn_event"
+    }
+  },
+  "astro_sun_local_phase_name -\u003e astro:sun:local:phase#name": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "phase#name"
+        ]
+      },
+      "itemName": "astro_sun_local_phase_name"
+    }
+  },
+  "astro_sun_local_noon_end -\u003e astro:sun:local:noon#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "noon#end"
+        ]
+      },
+      "itemName": "astro_sun_local_noon_end"
+    }
+  },
+  "astro_sun_local_civilDusk_start -\u003e astro:sun:local:civilDusk#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "civilDusk#start"
+        ]
+      },
+      "itemName": "astro_sun_local_civilDusk_start"
+    }
+  },
+  "astro_sun_local_civilDawn_event -\u003e astro:sun:local:civilDawn#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "civilDawn#event"
+        ]
+      },
+      "itemName": "astro_sun_local_civilDawn_event"
+    }
+  },
+  "astro_sun_local_astroDusk_start -\u003e astro:sun:local:astroDusk#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "astroDusk#start"
+        ]
+      },
+      "itemName": "astro_sun_local_astroDusk_start"
+    }
+  },
+  "astro_sun_local_night_start -\u003e astro:sun:local:night#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "night#start"
+        ]
+      },
+      "itemName": "astro_sun_local_night_start"
+    }
+  },
+  "astro_sun_local_radiation_direct -\u003e astro:sun:local:radiation#direct": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "radiation#direct"
+        ]
+      },
+      "itemName": "astro_sun_local_radiation_direct"
+    }
+  },
+  "astro_sun_local_astroDawn_start -\u003e astro:sun:local:astroDawn#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "astroDawn#start"
+        ]
+      },
+      "itemName": "astro_sun_local_astroDawn_start"
+    }
+  },
+  "astro_sun_local_set_start -\u003e astro:sun:local:set#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "set#start"
+        ]
+      },
+      "itemName": "astro_sun_local_set_start"
+    }
+  },
+  "astro_sun_local_astroDusk_end -\u003e astro:sun:local:astroDusk#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "astroDusk#end"
+        ]
+      },
+      "itemName": "astro_sun_local_astroDusk_end"
+    }
+  },
+  "astro_sun_local_civilDusk_end -\u003e astro:sun:local:civilDusk#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "civilDusk#end"
+        ]
+      },
+      "itemName": "astro_sun_local_civilDusk_end"
+    }
+  },
+  "astro_sun_local_season_autumn -\u003e astro:sun:local:season#autumn": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "season#autumn"
+        ]
+      },
+      "itemName": "astro_sun_local_season_autumn"
+    }
+  },
+  "astro_sun_local_civilDawn_start -\u003e astro:sun:local:civilDawn#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "civilDawn#start"
+        ]
+      },
+      "itemName": "astro_sun_local_civilDawn_start"
+    }
+  },
+  "astro_sun_local_astroDusk_duration -\u003e astro:sun:local:astroDusk#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "astroDusk#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_astroDusk_duration"
+    }
+  },
+  "astro_sun_local_position_azimuth -\u003e astro:sun:local:position#azimuth": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "position#azimuth"
+        ]
+      },
+      "itemName": "astro_sun_local_position_azimuth"
+    }
+  },
+  "astro_sun_local_morningNight_duration -\u003e astro:sun:local:morningNight#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "morningNight#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_morningNight_duration"
+    }
+  },
+  "astro_sun_local_rise_end -\u003e astro:sun:local:rise#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "rise#end"
+        ]
+      },
+      "itemName": "astro_sun_local_rise_end"
+    }
+  },
+  "astro_sun_local_night_end -\u003e astro:sun:local:night#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "night#end"
+        ]
+      },
+      "itemName": "astro_sun_local_night_end"
+    }
+  },
+  "astro_sun_local_nauticDusk_start -\u003e astro:sun:local:nauticDusk#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "nauticDusk#start"
+        ]
+      },
+      "itemName": "astro_sun_local_nauticDusk_start"
+    }
+  },
+  "astro_sun_local_rise_event -\u003e astro:sun:local:rise#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "rise#event"
+        ]
+      },
+      "itemName": "astro_sun_local_rise_event"
+    }
+  },
+  "astro_sun_local_nauticDusk_end -\u003e astro:sun:local:nauticDusk#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "nauticDusk#end"
+        ]
+      },
+      "itemName": "astro_sun_local_nauticDusk_end"
+    }
+  },
+  "astro_sun_local_night_duration -\u003e astro:sun:local:night#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "night#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_night_duration"
+    }
+  },
+  "astro_sun_local_eclipse_total -\u003e astro:sun:local:eclipse#total": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "eclipse#total"
+        ]
+      },
+      "itemName": "astro_sun_local_eclipse_total"
+    }
+  },
+  "astro_sun_local_set_duration -\u003e astro:sun:local:set#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "set#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_set_duration"
+    }
+  },
+  "astro_sun_local_astroDawn_duration -\u003e astro:sun:local:astroDawn#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "astroDawn#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_astroDawn_duration"
+    }
+  },
+  "astro_sun_local_eveningNight_duration -\u003e astro:sun:local:eveningNight#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "eveningNight#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_eveningNight_duration"
+    }
+  },
+  "astro_sun_local_position_elevation -\u003e astro:sun:local:position#elevation": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "position#elevation"
+        ]
+      },
+      "itemName": "astro_sun_local_position_elevation"
+    }
+  },
+  "astro_sun_local_eveningNight_end -\u003e astro:sun:local:eveningNight#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "eveningNight#end"
+        ]
+      },
+      "itemName": "astro_sun_local_eveningNight_end"
+    }
+  },
+  "astro_sun_local_eclipse_event -\u003e astro:sun:local:eclipse#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "eclipse#event"
+        ]
+      },
+      "itemName": "astro_sun_local_eclipse_event"
+    }
+  },
+  "astro_sun_local_astroDusk_event -\u003e astro:sun:local:astroDusk#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "astroDusk#event"
+        ]
+      },
+      "itemName": "astro_sun_local_astroDusk_event"
+    }
+  },
+  "astro_sun_local_daylight_duration -\u003e astro:sun:local:daylight#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "daylight#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_daylight_duration"
+    }
+  },
+  "astro_sun_local_set_event -\u003e astro:sun:local:set#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "set#event"
+        ]
+      },
+      "itemName": "astro_sun_local_set_event"
+    }
+  },
+  "astro_sun_local_daylight_end -\u003e astro:sun:local:daylight#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "daylight#end"
+        ]
+      },
+      "itemName": "astro_sun_local_daylight_end"
+    }
+  },
+  "astro_sun_local_civilDusk_event -\u003e astro:sun:local:civilDusk#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "civilDusk#event"
+        ]
+      },
+      "itemName": "astro_sun_local_civilDusk_event"
+    }
+  },
+  "astro_sun_local_morningNight_start -\u003e astro:sun:local:morningNight#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "morningNight#start"
+        ]
+      },
+      "itemName": "astro_sun_local_morningNight_start"
+    }
+  },
+  "astro_sun_local_nauticDusk_event -\u003e astro:sun:local:nauticDusk#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "nauticDusk#event"
+        ]
+      },
+      "itemName": "astro_sun_local_nauticDusk_event"
+    }
+  },
+  "astro_sun_local_zodiac_start -\u003e astro:sun:local:zodiac#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "zodiac#start"
+        ]
+      },
+      "itemName": "astro_sun_local_zodiac_start"
+    }
+  },
+  "Sunrise_Time -\u003e astro:sun:local:rise#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "rise#start"
+        ]
+      },
+      "itemName": "Sunrise_Time"
+    }
+  },
+  "astro_sun_local_zodiac_end -\u003e astro:sun:local:zodiac#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "zodiac#end"
+        ]
+      },
+      "itemName": "astro_sun_local_zodiac_end"
+    }
+  },
+  "astro_sun_local_noon_event -\u003e astro:sun:local:noon#event": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "noon#event"
+        ]
+      },
+      "itemName": "astro_sun_local_noon_event"
+    }
+  },
+  "astro_sun_local_season_spring -\u003e astro:sun:local:season#spring": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "season#spring"
+        ]
+      },
+      "itemName": "astro_sun_local_season_spring"
+    }
+  },
+  "astro_sun_local_nauticDawn_duration -\u003e astro:sun:local:nauticDawn#duration": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "local",
+          "nauticDawn#duration"
+        ]
+      },
+      "itemName": "astro_sun_local_nauticDawn_duration"
+    }
+  }
+}
