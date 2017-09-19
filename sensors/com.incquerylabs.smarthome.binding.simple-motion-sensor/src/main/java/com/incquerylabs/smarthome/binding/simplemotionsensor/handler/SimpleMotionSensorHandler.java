@@ -6,9 +6,9 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.openhab.binding.dandridbinding.handler;
+package com.incquerylabs.smarthome.binding.simplemotionsensor.handler;
 
-import static org.openhab.binding.dandridbinding.DandridBindingBindingConstants.*;
+import static com.incquerylabs.smarthome.binding.simplemotionsensor.SimpleMotionSensorBindingConstants.*;
 
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.thing.ChannelUID;
@@ -20,16 +20,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The {@link DandridBindingHandler} is responsible for handling commands, which are
+ * The {@link SimpleMotionSensorHandler} is responsible for handling commands, which are
  * sent to one of the channels.
  *
  * @author dandrid - Initial contribution
  */
-public class DandridBindingHandler extends BaseThingHandler {
+public class SimpleMotionSensorHandler extends BaseThingHandler {
 
-    private final Logger logger = LoggerFactory.getLogger(DandridBindingHandler.class);
+    private final Logger logger = LoggerFactory.getLogger(SimpleMotionSensorHandler.class);
 
-    public DandridBindingHandler(Thing thing) {
+    public SimpleMotionSensorHandler(Thing thing) {
         super(thing);
     }
 

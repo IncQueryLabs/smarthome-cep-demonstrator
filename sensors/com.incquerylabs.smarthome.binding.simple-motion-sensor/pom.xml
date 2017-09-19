@@ -3,7 +3,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<name>DandridBinding</name>
+	<name>Simple Motion Sensor Binding</name>
 	
 	<parent>
 		<groupId>com.incquerylabs.smarthome</groupId>
@@ -12,7 +12,7 @@
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 	
-	<artifactId>org.openhab.binding.dandridbinding</artifactId>
+	<artifactId>com.incquerylabs.smarthome.binding.simple-motion-sensor</artifactId>
 
 	<packaging>${module.packaging}</packaging>
 

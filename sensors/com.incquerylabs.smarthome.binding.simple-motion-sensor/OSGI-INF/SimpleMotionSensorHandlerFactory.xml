@@ -9,9 +9,9 @@
     http://www.eclipse.org/legal/epl-v10.html
 
 -->
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="binding.dandridbinding">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="binding.simplemotionsensorbinding">
 
-	<implementation class="org.openhab.binding.dandridbinding.internal.DandridBindingHandlerFactory"/>
+	<implementation class="com.incquerylabs.smarthome.binding.simplemotionsensor.internal.SimpleMotionSensorHandlerFactory"/>
 
 	<service>
 		<provide interface="org.eclipse.smarthome.core.thing.binding.ThingHandlerFactory"/>

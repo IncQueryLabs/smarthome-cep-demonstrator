@@ -6,22 +6,23 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.openhab.binding.dandridbinding;
+package com.incquerylabs.smarthome.binding.simplemotionsensor;
 
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
 
 /**
- * The {@link DandridBindingBindingConstants} class defines common constants, which are
+ * The {@link SimpleMotionSensorBindingConstants} class defines common constants, which are
  * used across the whole binding.
  *
  * @author dandrid - Initial contribution
  */
-public class DandridBindingBindingConstants {
+public class SimpleMotionSensorBindingConstants {
 
-    private static final String BINDING_ID = "dandridbinding";
-
+    private static final String BINDING_ID = "simplemotionsensorbinding";
+    
+    private static final String THING_TYPE_ID = "simplemotionsensorthingtype";
     // List of all Thing Type UIDs
-    public static final ThingTypeUID THING_TYPE_DANDRID = new ThingTypeUID(BINDING_ID, "dandrid");
+    public static final ThingTypeUID THING_TYPE_SIMPLE_MOTION_SENSOR = new ThingTypeUID(BINDING_ID, THING_TYPE_ID);
 
     // List of all Channel ids
     public static final String ALLOW_PIR_SWITCH = "allow-pir-switch";
@@ -29,7 +30,7 @@ public class DandridBindingBindingConstants {
     public static final String MQTT_SWITCH = "mqtt-switch";
     public static final String MOTION = "motionEvent";
 
-    // commnads
+    // commands
     public static final String COMMAND_ON = "ON";
     public static final String COMMAND_OFF = "OFF";
 
