@@ -90,6 +90,7 @@
 				<module>releng/com.incquerylabs.smarthome.target</module>
 				<module>esh-event-bus/com.incquerylabs.iot.droolsbundle</module>
 				<module>esh-event-bus/com.incquerylabs.iot.drls</module>
+				<module>esh-event-bus/org.eclipse.smarthome.binding.incqueryeventbus</module>
 			</modules>
 			<properties>
 				<module.packaging>eclipse-plugin</module.packaging>
