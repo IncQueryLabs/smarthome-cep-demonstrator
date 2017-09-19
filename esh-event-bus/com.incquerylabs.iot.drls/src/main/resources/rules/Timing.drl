@@ -1,15 +1,39 @@
 package homeioexample
 
-//DateTime( name == "Sunrise_Time", hoursOfDay == $homeioHours, $sunriseMinutes : minutesOfHour)
+declare Sunrise
+    @role( event )
+end
+
 rule "Switch off lights at sunrise"
     when 
+        $now : DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
+        Sunrise(this coincides $now)
         Item(name matches ".*Lights.*", state != OFF )
+    then
+        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
+        openhab.postCommand("gLight", OFF);
+end
+
+rule "Sunrise event start"
+    when
+        not( Sunrise() )
         DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
         DateTime( name == "Sunrise_Time", $sunriseHours : hoursOfDay, $sunriseMinutes : minutesOfHour)
         
         eval ( $homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        System.out.println( "IncQuery droolsbundle: HomeIO " + $homeioHours + ":" + $homeioMinutes + " Sunrise " + $sunriseHours + ":" + $sunriseMinutes);
-        openhab.postCommand("gLight", OFF);
+        insert(new Sunrise());
+end
+       
+rule "Sunrise event end"
+        salience -100
+    when
+        $sunrise : Sunrise()
+        
+        DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
+        DateTime( name == "Sunrise_Time", $sunriseHours : hoursOfDay, $sunriseMinutes : minutesOfHour)
+        
+        eval ( !( $homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15) )
+    then
+        retract($sunrise);
 end
