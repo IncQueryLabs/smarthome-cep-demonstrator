@@ -21,6 +21,8 @@ namespace HomeIO_MQTT
 
         MqttClient client = new MqttClient("127.0.0.1");
 
+        private string OpenHABConfDirectory = "";
+
         private string HomeIONameToOpenHAB(string name)
         {
             return name.Replace("(", string.Empty)
@@ -163,7 +165,7 @@ namespace HomeIO_MQTT
             client.Subscribe(new string[] { "out/#/state" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
         }
 
-        private void InitHomeIO()
+        private void InitHomeIO(bool writeOpenHABConfig)
         {
             MemoryMap.Instance.InputsValueChanged += new MemoriesChangedEventHandler(OnValueChanged);
             MemoryMap.Instance.OutputsValueChanged += new MemoriesChangedEventHandler(OnValueChanged);
@@ -254,18 +256,28 @@ namespace HomeIO_MQTT
                 }
             }
             
-            System.IO.File.WriteAllLines(@"C:\OpenHAB2\conf\items\HomeIO-groups.items", groups);
-            System.IO.File.WriteAllLines(@"C:\OpenHAB2\conf\items\HomeIO-common.items", common);
-            foreach (var file in files)
+            if(writeOpenHABConfig)
             {
-                System.IO.File.WriteAllLines(@"C:\OpenHAB2\conf\items\HomeIO-" + file.Key + ".items", file.Value);
+                System.IO.File.WriteAllLines( this.OpenHABConfDirectory + @"items\HomeIO-groups.items", groups);
+                System.IO.File.WriteAllLines(this.OpenHABConfDirectory + @"items\HomeIO-common.items", common);
+                foreach (var file in files)
+                {
+                    System.IO.File.WriteAllLines(this.OpenHABConfDirectory + @"items\HomeIO-" + file.Key + ".items", file.Value);
+                }
             }
 
         }
 
         public HomeIO()
         {
-            InitHomeIO();
+            InitHomeIO(false);
+            InitMQTT();
+        }
+
+        public HomeIO(String openHABConfDir)
+        {
+            this.OpenHABConfDirectory = openHABConfDir;
+            InitHomeIO(true);
             InitMQTT();
         }
 

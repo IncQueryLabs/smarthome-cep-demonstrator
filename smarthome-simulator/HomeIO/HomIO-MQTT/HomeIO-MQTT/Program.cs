@@ -15,7 +15,15 @@ namespace HomeIO_MQTT
     {
         static void Main(string[] args)
         {
-            HomeIO homeIO = new HomeIO();
+            HomeIO homeIO;
+            if(args.Length > 0)
+            {
+                homeIO = new HomeIO(args[0]);
+            } else
+            {
+                homeIO = new HomeIO();
+            }
+            
             Console.WriteLine("Press any key to exit...");
 
             while (!Console.KeyAvailable)
