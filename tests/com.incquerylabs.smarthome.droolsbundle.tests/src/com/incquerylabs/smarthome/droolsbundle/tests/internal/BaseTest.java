@@ -7,8 +7,8 @@ import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;
 import org.junit.Before;
 
-import com.incquerylabs.iot.drls.DrlLoader;
 import com.incquerylabs.iot.droolsbundle.DroolsEventBusClient;
+import com.incquerylabs.smarthome.demorules.homeio.DrlLoader;
 
 import junit.framework.TestCase;
 

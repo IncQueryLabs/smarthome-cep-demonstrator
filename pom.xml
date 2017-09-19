@@ -88,7 +88,7 @@
 				<module>esh-event-bus/com.incquerylabs.iot.esheventbusclient</module>
 				<module>releng/com.incquerylabs.smarthome.target</module>
 				<module>esh-event-bus/com.incquerylabs.iot.droolsbundle</module>
-				<module>esh-event-bus/com.incquerylabs.iot.drls</module>
+				<module>demo/com.incquerylabs.smarthome.demorules.homeio</module>
 				<module>sensors/com.incquerylabs.smarthome.binding.simple-motion-sensor</module>
 			</modules>
 			<properties>
