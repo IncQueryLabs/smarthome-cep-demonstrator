@@ -1,13 +1,13 @@
 **/target/
 **/bin/
 **/lib/
-smarthome-simulator/HomIO-MQTT/\.vs/
-smarthome-simulator/HomIO-MQTT/packages/
-smarthome-simulator/HomIO-MQTT/HomeIO-MQTT/obj/
 *.suo
-
-homeio-resources/launch/home/logs/
+smarthome-simulator/HomeIO/HomIO-MQTT/\.vs/
 
 smarthome-simulator/HomeIO/HomIO-MQTT/HomeIO-MQTT/obj/
 
+
 smarthome-simulator/HomeIO/HomIO-MQTT/packages/
+
+
+smarthome-simulator/HomeIO/homeio-resources/launch/home/logs/
