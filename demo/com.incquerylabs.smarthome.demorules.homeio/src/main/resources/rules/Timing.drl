@@ -1,0 +1,54 @@
+package homeioexample
+
+declare SunriseDuration
+    @role( event )
+end
+
+declare SunriseOnce
+    @role( event )
+end
+
+
+rule "Switch off lights at sunrise"
+    when 
+        SunriseOnce()
+        $item : Item(name matches ".*Lights.*", state != OFF )
+    then
+        openhab.postCommand($item, OFF);
+end
+
+
+rule "Sunrise event start"
+    when
+        not( SunriseDuration() )
+        DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
+        DateTime( name == "Sunrise_Time", $sunriseHours : hoursOfDay, $sunriseMinutes : minutesOfHour)
+        
+        eval ( ($homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15) == true )
+    then
+        insert(new SunriseDuration());
+        insert(new SunriseOnce());
+end
+       
+       
+rule "Sunrise duration event end"
+        salience -100
+    when
+        $sunriseDuration : SunriseDuration()
+        
+        DateTime( name == "HomeIO_Date", $homeioHours : hoursOfDay, $homeioMinutes : minutesOfHour)
+        DateTime( name == "Sunrise_Time", $sunriseHours : hoursOfDay, $sunriseMinutes : minutesOfHour)
+        
+        eval ( ( $homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15) == false )
+    then
+        retract($sunriseDuration);
+end
+       
+       
+rule "Sunrise once event end"
+        salience -100
+    when
+        $sunriseOnce : SunriseOnce()
+    then
+        retract($sunriseOnce);
+end

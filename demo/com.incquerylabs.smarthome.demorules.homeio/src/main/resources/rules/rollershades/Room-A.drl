@@ -1,0 +1,71 @@
+package homeioexample
+
+
+rule "A RollerShades 1"
+    when
+        Item( name == "A_Roller_Shades_1_Up", $stateUp : state)
+        Item( name == "A_Roller_Shades_1_Down", $stateDown : state) 
+
+        $itemState : ItemStateChangedEvent( (
+        name == "A_Up_Down_Switch_1_Up" || 
+        name == "A_Up_Down_Switch_1_Down") && 
+        newState == OPEN )
+    then
+        if($itemState.getName().equals("A_Up_Down_Switch_1_Up") ) {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("A_Roller_Shades_1_Up", ON);
+                openhab.postCommand("A_Roller_Shades_2_Up", ON);
+            }
+            else {
+                openhab.postCommand("A_Roller_Shades_1_Down", OFF);
+                openhab.postCommand("A_Roller_Shades_2_Down", OFF);
+            }
+        }
+        else {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("A_Roller_Shades_1_Down", ON);
+                openhab.postCommand("A_Roller_Shades_2_Down", ON);
+            }
+            else {
+                openhab.postCommand("A_Roller_Shades_1_Up", OFF);
+                openhab.postCommand("A_Roller_Shades_2_Up", OFF);
+            }
+        }
+end
+
+
+rule "A RollerShades 2"
+    when
+        Item( name == "A_Roller_Shades_3_Up", $stateUp : state)
+        Item( name == "A_Roller_Shades_3_Down", $stateDown : state) 
+
+        $itemState : ItemStateChangedEvent( (
+        name == "A_Up_Down_Switch_2_Up" || 
+        name == "A_Up_Down_Switch_2_Down") && 
+        newState == OPEN )
+    then
+        if($itemState.getName().equals("A_Up_Down_Switch_2_Up") ) {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("A_Roller_Shades_3_Up", ON);
+                openhab.postCommand("A_Roller_Shades_4_Up", ON);
+            }
+            else {
+                openhab.postCommand("A_Roller_Shades_3_Down", OFF);
+                openhab.postCommand("A_Roller_Shades_4_Down", OFF);
+            }
+        }
+        else {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("A_Roller_Shades_3_Down", ON);
+                openhab.postCommand("A_Roller_Shades_4_Down", ON);
+            }
+            else {
+                openhab.postCommand("A_Roller_Shades_3_Up", OFF);
+                openhab.postCommand("A_Roller_Shades_4_Up", OFF);
+            }
+        }
+end

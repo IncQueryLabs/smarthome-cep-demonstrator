@@ -1,0 +1,17 @@
+package homeioexample
+
+
+rule "D Lights Motion"
+    when
+        $light1 : Item( name == "D_Lights_1_Analog", $lightState : state)
+        $light2 : Item( name == "D_Lights_2_Analog" )
+        
+        Item( name == "D_Brightness_Sensor", $brightnessSensorState: state)
+
+        ItemStateChangedEvent( name == "D_Motion_Detector", $motionDetectorState : newState)
+    then
+        if ($lightState.equals(ZERO) && $motionDetectorState == MOTION && $brightnessSensorState == DARKNESS) {
+            openhab.postCommand($light1, ON);
+            openhab.postCommand($light2, ON);
+        }
+end

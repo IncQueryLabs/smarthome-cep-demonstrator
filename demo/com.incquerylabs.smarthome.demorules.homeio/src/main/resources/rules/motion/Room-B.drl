@@ -1,0 +1,21 @@
+package homeioexample
+
+
+rule "B Lights Motion On"
+    when
+        $light : Item( name == "B_Lights_1", state == OFF)
+
+        ItemStateChangedEvent( name == "B_Motion_Detector", newState == MOTION )
+    then
+        openhab.postCommand($light, ON);
+end
+
+
+rule "B Lights Motion Off"
+    when
+        $light : Item( name == "B_Lights_1", state == ON)
+
+        ItemStateChangedEvent( name == "B_Motion_Detector", newState == NOMOTION)
+    then
+        openhab.postCommand($light, OFF);
+end
