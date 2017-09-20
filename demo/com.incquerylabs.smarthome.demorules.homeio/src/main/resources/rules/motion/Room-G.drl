@@ -1,0 +1,13 @@
+package homeioexample
+
+
+rule "G Lights Motion"
+    when
+        $light : Item( name == "G_Lights_Analog", $lightState : state)
+
+        ItemStateChangedEvent( name == "G_Motion_Detector", $motionDetectorState : newState)
+    then
+        if ($lightState.equals(ZERO) && $motionDetectorState == MOTION ) {
+            openhab.postCommand($light, ON);
+        }
+end

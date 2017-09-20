@@ -3,12 +3,12 @@ package homeioexample
 
 rule "E Lights Switch"
     when
-        $item1 : Item( name == "E_Lights_Analog", $state : state)
-        $item2 : Item( name == "G_Lights_Analog", $state : state)
+        $item1 : Item( name == "E_Lights_Analog", $state1 : state)
+        $item2 : Item( name == "G_Lights_Analog")
 
         $itemState : ItemStateChangedEvent( name == "E_Light_Switch_1", newState == OPEN)
     then
-        if ($state.equals(HUNDRED)) {
+        if ($state1.equals(HUNDRED)) {
             openhab.postCommand($item1, OFF);
             openhab.postCommand($item2, OFF);
         } else {

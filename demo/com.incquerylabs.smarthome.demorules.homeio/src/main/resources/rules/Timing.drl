@@ -12,9 +12,9 @@ end
 rule "Switch off lights at sunrise"
     when 
         SunriseOnce()
-        Item(name == "E_Lights_Analog", state != OFF )
+        $item : Item(name matches ".*Lights.*", state != OFF )
     then
-        openhab.postCommand("E_Lights_Analog", OFF);
+        openhab.postCommand($item, OFF);
 end
 
 

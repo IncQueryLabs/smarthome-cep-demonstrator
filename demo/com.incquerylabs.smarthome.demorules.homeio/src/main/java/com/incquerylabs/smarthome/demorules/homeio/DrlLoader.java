@@ -25,7 +25,7 @@ public class DrlLoader implements IDrlLoader {
 
         char[] dimmeRooms = { 'A', 'D', 'E' };
         char[] lightsRooms = { 'A', 'B', 'C', 'D', 'E' };
-        char[] motionRoomes = { 'A', 'B', 'D', 'E' };
+        char[] motionRoomes = { 'A', 'B', 'D', 'E', 'F', 'G' };
         char[] rollershadesRooms = { 'A', 'D', 'E' };
 
         for (char room : dimmeRooms) {
