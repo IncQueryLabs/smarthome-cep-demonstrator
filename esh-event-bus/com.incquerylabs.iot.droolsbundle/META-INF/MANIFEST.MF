@@ -78,5 +78,4 @@ Require-Capability: osgi.service;effective:=active;filter:="(objectClass
 Service-Component: OSGI-INF/droolsEventBusClient.xml
 Tool: Bnd-2.3.0.201405100607
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-ActivationPolicy: lazy
 Export-Package: com.incquerylabs.iot.droolsbundle
