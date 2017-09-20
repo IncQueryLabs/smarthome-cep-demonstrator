@@ -3,15 +3,17 @@ package homeioexample
 
 rule "E Lights Switch"
     when
-        $item : Item( name == "E_Lights_Analog", $state : state)
+        $item1 : Item( name == "E_Lights_Analog", $state : state)
+        $item2 : Item( name == "G_Lights_Analog", $state : state)
 
         $itemState : ItemStateChangedEvent( name == "E_Light_Switch_1", newState == OPEN)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         if ($state.equals(HUNDRED)) {
-            openhab.postCommand($item, OFF);
+            openhab.postCommand($item1, OFF);
+            openhab.postCommand($item2, OFF);
         } else {
-            openhab.postCommand($item, ON);
+            openhab.postCommand($item1, ON);
+            openhab.postCommand($item2, ON);
         }
 end
 
@@ -32,9 +34,7 @@ rule "E Lights Switch On"
         name == "E_Light_Switch_Dimmer_2_Up" ) && 
         newState == CLOSED )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
-        openhab.postCommand($item.getName(), HUNDRED);
+        openhab.postCommand($item.getName(), ON);
 end
 
 
@@ -53,7 +53,5 @@ rule "E Lights Switch Off"
         name == "E_Light_Switch_Dimmer_2_Down" ) && 
         newState == CLOSED )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
-        openhab.postCommand($item.getName(), ZERO);
+        openhab.postCommand($item.getName(), OFF);
 end

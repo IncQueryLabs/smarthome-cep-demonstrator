@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.eclipse.smarthome.core.items.Item;
+import org.eclipse.smarthome.core.library.types.DateTimeType;
 import org.kie.api.time.SessionPseudoClock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,10 @@ public class HomeioSessionClock {
 
     public HomeioSessionClock(SessionPseudoClock clock) {
         this.clock = clock;
+    }
+
+    public void newHomeioTime(Item homeioDate) {
+        newHomeioTime(((DateTimeType) homeioDate.getState()).getCalendar().getTime());
     }
 
     public void newHomeioTime(Date newHomeioTime) {

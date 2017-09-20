@@ -10,8 +10,6 @@ rule "D Lights Switch Dimmer Up"
         newState == OPEN )
 
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
         openhab.timedCommand(TimedDimmer.create($item, INCREASE, 2 , 1000, 50));
 end
 
@@ -26,8 +24,6 @@ rule "D Lights Switch Dimmer Down"
         newState == OPEN )
 
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
         openhab.timedCommand(TimedDimmer.create($item, DECREASE, 2 , 1000, 50));
 end
 
@@ -37,7 +33,5 @@ rule "D Dimmer off"
         $itemState : ItemStateChangedEvent( name matches "D_Light_Switch_Dimmer.*", newState == CLOSED )
     
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        
         openhab.stopTimedCommand("D_Lights_1_Analog");
 end

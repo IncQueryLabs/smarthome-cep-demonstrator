@@ -19,8 +19,6 @@ rule "Alarm armed"
         not( AlarmArmed() )
         ItemStateChangedEvent( name == "E_Alarm_Key_Pad_Armed", newState == ARMED)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
         insert(new AlarmArmed());
 end
 
@@ -30,11 +28,21 @@ rule "Alarm dearmed"
         
         ItemStateChangedEvent( name == "E_Alarm_Key_Pad_Armed", newState == DEARMED)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        
         retract($armed);
 end
 
+
+rule "Alarm for motion or door open"
+    when
+        $armed : AlarmArmed()
+        not ( AlarmRaised() )
+        
+        ItemStateChangedEvent( this after[10s] $armed && ( 
+        ( name matches ".*Motion_Detector" && newState == MOTION ) || 
+        ( name matches ".*Door_Detector.*" && newState == DOOR_OPENED ) ) )
+    then
+        insert(new AlarmRaised());
+end
 
 
 rule "Alarm for light"
@@ -49,29 +57,12 @@ rule "Alarm for light"
 end
 
 
-rule "Alarm for motion or door open"
-    when
-        $armed : AlarmArmed()
-        not ( AlarmRaised() )
-        
-        ItemStateChangedEvent( this after[10s] $armed && ( 
-        ( name matches ".*Motion_Detector" && newState == OPEN ) || 
-        ( name matches ".*Door_Detector.*" && newState == CLOSED ) ) )
-    then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        
-        insert(new AlarmRaised());
-end
-
-
 rule "Alarm raised"
     when
         AlarmRaised()
     then
-    
         openhab.postCommand("E_Siren", ON);
         openhab.postCommand("O_Siren", ON);
-        //openhab.postCommand("gLight", ON);
 end
 
 
@@ -81,10 +72,7 @@ rule "Alarm stop"
         
         $alarmRaised : AlarmRaised()
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        
         retract($alarmRaised);
         openhab.postCommand("E_Siren", OFF);
         openhab.postCommand("O_Siren", OFF);
-        //openhab.postCommand("gLight", OFF);
 end

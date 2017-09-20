@@ -11,8 +11,6 @@ rule "A RollerShades 1"
         name == "A_Up_Down_Switch_1_Down") && 
         newState == OPEN )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
         if($itemState.getName().equals("A_Up_Down_Switch_1_Up") ) {
 
             if( $stateUp == OFF && $stateDown == OFF) {
@@ -48,8 +46,6 @@ rule "A RollerShades 2"
         name == "A_Up_Down_Switch_2_Down") && 
         newState == OPEN )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
         if($itemState.getName().equals("A_Up_Down_Switch_2_Up") ) {
 
             if( $stateUp == OFF && $stateDown == OFF) {

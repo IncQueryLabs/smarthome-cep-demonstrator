@@ -14,7 +14,6 @@ rule "Switch off lights at sunrise"
         SunriseOnce()
         Item(name == "E_Lights_Analog", state != OFF )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         openhab.postCommand("E_Lights_Analog", OFF);
 end
 
@@ -27,7 +26,6 @@ rule "Sunrise event start"
         
         eval ( ($homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15) == true )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         insert(new SunriseDuration());
         insert(new SunriseOnce());
 end
@@ -42,10 +40,7 @@ rule "Sunrise duration event end"
         DateTime( name == "Sunrise_Time", $sunriseHours : hoursOfDay, $sunriseMinutes : minutesOfHour)
         
         eval ( ( $homeioHours == $sunriseHours && $homeioMinutes >= $sunriseMinutes && $homeioMinutes <= $sunriseMinutes + 15) == false )
-        
-        //eval ( ( $homeioHours == $sunriseHours && $homeioMinutes > $sunriseMinutes + 15) )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         retract($sunriseDuration);
 end
        
@@ -55,6 +50,5 @@ rule "Sunrise once event end"
     when
         $sunriseOnce : SunriseOnce()
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         retract($sunriseOnce);
 end

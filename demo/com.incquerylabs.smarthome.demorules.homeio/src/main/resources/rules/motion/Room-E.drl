@@ -4,15 +4,11 @@ package homeioexample
 rule "E Lights Motion"
     when
         $light : Item( name == "E_Lights_Analog", $lightState : state)
-        $brigthnessSensor : Item( name == "E_Brightness_Sensor", $brightnesSesnsorState: state)
+        Item( name == "E_Brightness_Sensor", $brightnessSensorState: state)
 
-        $itemState : ItemStateChangedEvent( name == "E_Motion_Detector", $motionDetectorState : newState)
+        ItemStateChangedEvent( name == "E_Motion_Detector", $motionDetectorState : newState)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-        
-        if (!$lightState.equals(ZERO) && $motionDetectorState == CLOSED) {
-            //openhab.postCommand($light, ZERO);
-        } else if ($lightState.equals(ZERO) && $motionDetectorState == OPEN && $brightnesSesnsorState == OPEN) {
-            openhab.postCommand($light, HUNDRED);
+        if ($lightState.equals(ZERO) && $motionDetectorState == MOTION && $brightnessSensorState == DARKNESS) {
+            openhab.postCommand($light, ON);
         }
 end

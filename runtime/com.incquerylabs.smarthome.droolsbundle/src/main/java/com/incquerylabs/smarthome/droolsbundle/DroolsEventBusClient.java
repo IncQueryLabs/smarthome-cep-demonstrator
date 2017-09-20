@@ -35,7 +35,7 @@ import com.incquerylabs.smarthome.eventbusservice.IEventSubscriber;
 
 public class DroolsEventBusClient implements IEventSubscriber {
     static Logger logger = LoggerFactory.getLogger(DroolsEventBusClient.class);
-    private static final String subscriberName = "Drools event bus client";
+    private static final String subscriberName = "Drools event bus client ";
 
     private HomeioSessionClock homeioSessionClock = null;
 
@@ -48,45 +48,26 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
     private IEventPublisher eventPublisher = null;
 
-    private void updateItem(Item item) {
-        synchronized (lock) {
-            // TODO nullptr
-            if (item.getType().equals(CoreItemFactory.DATETIME)) {
-                kSession.delete(addedItems.get(item.getName()));
-                addedItems.put(item.getName(), kSession.insert(
-                        new DateTime(item.getName(), ((DateTimeType) item.getState()).getCalendar().getTime())));
-            } else {
-                kSession.update(addedItems.get(item.getName()), item);
-            }
-        }
-        logger.info("IncQuery droolsbundle: item " + item.getName() + " updated reference in the rule engine");
-    }
-
     @Override
     public void stateChanged(Item item, State newState, State oldState) {
         if (droolsInitialized) {
             if (item.getName().equals("HomeIO_Date")) {
-                Date homeioTime = ((DateTimeType) item.getState()).getCalendar().getTime();
-                homeioSessionClock.newHomeioTime(homeioTime);
+                homeioSessionClock.newHomeioTime(item);
             } else {
                 homeioSessionClock.advanceClock();
             }
 
-            logger.error("IncQuery droolsbundle: " + item.getName() + " state changed to: " + newState + " time stamp: "
-                    + homeioSessionClock.getHomeioTime());
-
-            ItemStateChangedEvent itemStateChangedEvent = new ItemStateChangedEvent(item, newState, oldState);
-
             updateItem(item);
 
+            ItemStateChangedEvent itemStateChangedEvent = new ItemStateChangedEvent(item, newState, oldState);
             synchronized (lock) {
                 FactHandle handle = kSession.insert(itemStateChangedEvent);
                 kSession.fireAllRules();
                 kSession.delete(handle);
                 kSession.insert(new ItemStateHistory(itemStateChangedEvent));
             }
-        } else {
-            // TODO log event
+            logger.info(subscriberName + item.getName() + " state changed to: " + newState + " time stamp: "
+                    + homeioSessionClock.getHomeioTime());
         }
     }
 
@@ -94,10 +75,8 @@ public class DroolsEventBusClient implements IEventSubscriber {
     public void commandReceived(Item item, Command command) {
         if (droolsInitialized) {
             homeioSessionClock.advanceClock();
-            logger.debug("IncQuery droolsbundle: " + item.getName() + " received command: " + command);
-            ItemCommandEvent itemReceivedCommand = new ItemCommandEvent(item, command);
 
-            updateItem(item);
+            ItemCommandEvent itemReceivedCommand = new ItemCommandEvent(item, command);
 
             synchronized (lock) {
                 FactHandle handle = kSession.insert(itemReceivedCommand);
@@ -105,8 +84,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
                 kSession.delete(handle);
                 kSession.insert(new ItemCommandHistory(itemReceivedCommand));
             }
-        } else {
-            // TODO log event
+            logger.debug(subscriberName + item.getName() + " received command: " + command);
         }
     }
 
@@ -114,12 +92,10 @@ public class DroolsEventBusClient implements IEventSubscriber {
     public void initItems(Collection<Item> items) {
         if (droolsInitialized) {
             homeioSessionClock.advanceClock();
-            logger.debug("IncQuery droolsbundle: init " + items.size() + " items");
+            logger.debug(subscriberName + items.size() + " items");
             for (Item item : items) {
                 itemAdded(item);
             }
-        } else {
-            // TODO log event
         }
     }
 
@@ -145,7 +121,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
                     }
                     addedItems.put(item.getName(), handle);
                 }
-                logger.info("IncQuery droolsbundle: added item to rule engine: " + item.getName());
+                logger.info(subscriberName + "added item to rule engine: " + item.getName());
 
             } else {
                 updateItem(item);
@@ -154,8 +130,6 @@ public class DroolsEventBusClient implements IEventSubscriber {
             synchronized (lock) {
                 kSession.fireAllRules();
             }
-        } else {
-            // TODO log event
         }
     }
 
@@ -171,13 +145,11 @@ public class DroolsEventBusClient implements IEventSubscriber {
                     kSession.fireAllRules();
                 }
 
-                logger.debug("IncQuery droolsbundle: removed item from rule engine: " + itemName);
+                logger.debug(subscriberName + "removed item from rule engine: " + itemName);
             } else {
                 logger.error("IncQuery droolsbundle: tried to delete item" + itemName
                         + ", but it wasn't in the rule engine");
             }
-        } else {
-            // TODO log event
         }
     }
 
@@ -187,6 +159,19 @@ public class DroolsEventBusClient implements IEventSubscriber {
             itemRemoved(oldItemName);
             itemAdded(newItem);
         }
+    }
+
+    private void updateItem(Item item) {
+        synchronized (lock) {
+            if (item.getType().equals(CoreItemFactory.DATETIME)) {
+                kSession.delete(addedItems.get(item.getName()));
+                addedItems.put(item.getName(), kSession.insert(
+                        new DateTime(item.getName(), ((DateTimeType) item.getState()).getCalendar().getTime())));
+            } else {
+                kSession.update(addedItems.get(item.getName()), item);
+            }
+        }
+        logger.info(subscriberName + "item " + item.getName() + " updated reference in the rule engine");
     }
 
     public void setEventPublisher(IEventPublisher eventPublisher) {
@@ -231,7 +216,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
                 Results results = kieHelper.verify();
                 if (results.hasMessages(org.kie.api.builder.Message.Level.ERROR)) {
-                    logger.debug("IncQuery droolsbundle: error with DRL file");
+                    logger.debug(subscriberName + "error with DRL file");
                     logger.debug("" + results.getMessages());
                     throw new IllegalStateException("### errors ###");
                 }
@@ -245,7 +230,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
                 droolsInitialized = true;
             }
-            logger.debug("IncQuery droolsbundle: successfully loaded DRL file");
+            logger.debug(subscriberName + "successfully loaded DRL file");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -266,6 +251,10 @@ public class DroolsEventBusClient implements IEventSubscriber {
         kSession.setGlobal("DEARMED", OpenClosedType.CLOSED);
         kSession.setGlobal("BRIGHTNESS", OpenClosedType.CLOSED);
         kSession.setGlobal("DARKNESS", OpenClosedType.OPEN);
+        kSession.setGlobal("MOTION", OpenClosedType.OPEN);
+        kSession.setGlobal("NOMOTION", OpenClosedType.CLOSED);
+        kSession.setGlobal("DOOR_OPENED", OpenClosedType.CLOSED);
+        kSession.setGlobal("DOOR_CLOSED", OpenClosedType.OPEN);
 
         kSession.setGlobal("MONDAY", Calendar.MONDAY);
         kSession.setGlobal("TUESDAY", Calendar.TUESDAY);

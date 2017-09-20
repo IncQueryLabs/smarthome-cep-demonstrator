@@ -27,6 +27,12 @@ global PercentType HUNDRED;
 global PercentType ZERO;
 global IncreaseDecreaseType INCREASE;
 global IncreaseDecreaseType DECREASE;
+global OpenClosedType BRIGHTNESS 
+global OpenClosedType DARKNESS 
+global OpenClosedType MOTION 
+global OpenClosedType NOMOTIO
+global OpenClosedType DOOR_OPENED;
+global OpenClosedType DOOR_CLOSED;
 
 global Integer MONDAY;
 global Integer TUESDAY;
@@ -68,12 +74,10 @@ rule "Init"
     when
         eval ( true )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
         openhab.postCommand("Example_Light", OFF);
+        openhab.postCommand("A_Lights_Analog", ZERO); 
         
-        openhab.postCommand("A_Lights", OFF);
-        openhab.postCommand("A_Lights_Analog", ZERO);
+        openhab.postCommand("gLights", OFF);
         openhab.postCommand("A_Roller_Shades_1_Up", OFF);
         openhab.postCommand("A_Roller_Shades_1_Down", OFF);
         openhab.postCommand("A_Roller_Shades_3_Up", OFF);
@@ -82,28 +86,11 @@ rule "Init"
         openhab.postCommand("A_Light_Switch_Dimmer_3_Up", CLOSED);
         openhab.postCommand("A_Light_Switch_Dimmer_3_Down", CLOSED);
         
-        openhab.postCommand("B_Lights_1", OFF);
-        openhab.postCommand("B_Lights_2", OFF);
-        openhab.postCommand("B_Lights_1_Analog", ZERO);
-        openhab.postCommand("B_Lights_2_Analog", ZERO);
-        
-        openhab.postCommand("C_Lights", OFF);
-        openhab.postCommand("C_Lights_Analog", ZERO);
-        
-        openhab.postCommand("D_Lights_1", OFF);
-        openhab.postCommand("D_Lights_2", OFF);
-        openhab.postCommand("D_Lights_1_Analog", ZERO);
-        openhab.postCommand("D_Lights_2_Analog", ZERO);
         openhab.postCommand("D_Roller_Shades_Up", OFF);
         openhab.postCommand("D_Roller_Shades_Down", OFF);
 
-        openhab.postCommand("E_Lights", OFF);
-        openhab.postCommand("E_Lights_Analog", OFF);
         openhab.postCommand("E_Roller_Shades_Up", OFF);
         openhab.postCommand("E_Roller_Shades_Down", OFF);
-        
-        openhab.postCommand("O_Lights_Porch_1", OFF);
-        openhab.postCommand("O_Lights_Porch_2", OFF);
 end
 
 
@@ -130,7 +117,6 @@ rule "Exapmle Lights Switch"
 
         $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == OPEN)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         if ($state == ON) {
             openhab.postCommand($item, OFF);
         } else {

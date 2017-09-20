@@ -17,9 +17,7 @@ rule "D Lights Switch On"
         name == "D_Light_Switch_Dimmer_2_Up" ) && 
         newState == CLOSED )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
-        openhab.postCommand($item.getName(), HUNDRED);
+        openhab.postCommand($item.getName(), ON);
 end
 
 
@@ -38,9 +36,7 @@ rule "D Lights Switch Off"
         name == "D_Light_Switch_Dimmer_2_Down" ) && 
         newState == CLOSED )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
-        openhab.postCommand($item.getName(), ZERO);
+        openhab.postCommand($item.getName(), OFF);
 end
 
 
@@ -50,7 +46,6 @@ rule "D corridor lights"
 
         $itemState : ItemStateChangedEvent( ( name == "A_Light_Switch_3" || name == "E_Light_Switch_2" ) && newState == OPEN)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         if ($state == ON) {
             openhab.postCommand($item, OFF);
         } else {

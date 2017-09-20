@@ -7,7 +7,6 @@ rule "C lights"
 
         $itemState : ItemStateChangedEvent( name == "C_Light_Switch", newState == OPEN)
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
         if ($state == ON) {
             openhab.postCommand($item, OFF);
         } else {

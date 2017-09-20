@@ -19,8 +19,6 @@ rule "A Lights Switch On"
         name == "A_Light_Switch_Dimmer_3_Up") && 
         newState == CLOSED )
     then
-        System.out.println( "IncQuery droolsbundle: " + drools.getRule().getName());
-
         openhab.postCommand($item.getName(), ON);
 end
 
