@@ -1,22 +1,11 @@
-# OpenHAB
-Make sure you have read [OpenHAB wiki](https://github.com/IncQueryLabs/smarthome-cep-demonstrator/wiki/OpenHAB)
-
-## OpenHAB configuration files
-These files are taken from my OpenHAB instance, copying them to your OpenHAB instance **should** work. 
-
-### Install dependencies
-The configuration files requires the following bindings to be installed:
-
-1. **HABPanel**
-2. **Experimental Rule engine**
-4. **MQTT binding**
-5. **Astro binding**
-6. **Yahoo wheather binding**
-7. **dandridbinding**
+# _Smarthome_ demonstrator
+How to install: [Developer guide](https://github.com/IncQueryLabs/smarthome-cep-demonstrator/wiki/Developer-Guide)
 
 
-### Copy the files
-
-1. dandridbinding has to be compiled to jar file, I used the *dandridbinding.jar* name for it (not sure if it matters).
-2. **conf** folder is the configuration folder of OpenHAB, locate your configuration oflder (it depends on the install), and copy the files there. It contains MQTT configuration files, and some images for the HABPanel
-3. **userdata** folder contains rules, items, things, linking between them and the HABPanel UI panel configuration, shown in the demo (dont forget to load the UI from your HABPanel once done).
+## Layout
+1. Demo rules for HomeIO in _demo/com.incquerylabs.smarthome.demorules.homeio/src/main/resources_
+2. Target platform: _releng/com.incquerylabs.smarthome.target/SmarthomeRuntime.target_
+3. HomeIO MQTT connector: _smarthome-simulator/HomeIO/HomIO-MQTT/_
+4. OpenHAB configuration files: _smarthome-simulator/HomeIO/homeio-resources/_
+5. Event bus binding + Drools: _runtime/_
+6. Code for the physical motion sensor: sensors/
