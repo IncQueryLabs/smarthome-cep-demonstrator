@@ -21,7 +21,7 @@ public class EshEventPublisher implements IEventPublisher {
     @Override
     public synchronized void postCommand(String itemName, Command command) {
         eventPublisher.post(ItemEventFactory.createCommandEvent(itemName, command));
-        logger.debug("IncQuery: posted command to item: " + itemName + " " + command);
+        logger.debug(" posted command to item: " + itemName + " " + command);
     }
 
     @Override
@@ -58,12 +58,12 @@ public class EshEventPublisher implements IEventPublisher {
 
     public void setEventPublisher(EventPublisher eventPublisher) {
         this.eventPublisher = eventPublisher;
-        logger.info("IncQuery: set event publisher");
+        logger.info(" set event publisher");
     }
 
     public void unsetEventPublisher(EventPublisher eventPublisher) {
         this.eventPublisher = null;
-        logger.info("IncQuery: removed event publisher");
+        logger.info(" removed event publisher");
     }
 
 }

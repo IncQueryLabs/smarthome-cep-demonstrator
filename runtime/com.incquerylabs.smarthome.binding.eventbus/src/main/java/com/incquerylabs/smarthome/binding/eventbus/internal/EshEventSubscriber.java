@@ -73,11 +73,11 @@ public class EshEventSubscriber implements EventSubscriber {
 
             } else {
 
-                logger.trace("IncQuery: received event, type: " + event.getType() + " topic: " + event.getTopic()
+                logger.trace(" received event, type: " + event.getType() + " topic: " + event.getTopic()
                         + " payload: " + event.getPayload());
             }
         } catch (ItemNotFoundException e) {
-            logger.error("IncQuery: " + e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
@@ -90,7 +90,7 @@ public class EshEventSubscriber implements EventSubscriber {
             subscriber.commandReceived(item, command);
 
         }
-        logger.debug("IncQuery: " + event);
+        logger.debug(event.toString());
     }
 
     private void itemStateChangedEvent(ItemStateChangedEvent event) throws ItemNotFoundException {
@@ -104,7 +104,7 @@ public class EshEventSubscriber implements EventSubscriber {
         for (IEventSubscriber subscriber : eventSubscribers) {
             subscriber.stateChanged(item, state, oldState);
         }
-        logger.debug("IncQuery: " + event);
+        logger.debug(event.toString());
     }
 
     private void itemAddedEvent(ItemAddedEvent event) throws ItemNotFoundException {
@@ -114,7 +114,7 @@ public class EshEventSubscriber implements EventSubscriber {
         for (IEventSubscriber subscriber : eventSubscribers) {
             subscriber.itemAdded(item);
         }
-        logger.debug("IncQuery: " + event);
+        logger.debug(event.toString());
     }
 
     private void itemRemovedEvent(ItemRemovedEvent event) {
@@ -123,7 +123,7 @@ public class EshEventSubscriber implements EventSubscriber {
         for (IEventSubscriber subscriber : eventSubscribers) {
             subscriber.itemRemoved(itemName);
         }
-        logger.debug("IncQuery: " + event);
+        logger.debug(event.toString());
     }
 
     private void itemUpdatedEvent(ItemUpdatedEvent event) throws ItemNotFoundException {
@@ -135,7 +135,7 @@ public class EshEventSubscriber implements EventSubscriber {
         for (IEventSubscriber subscriber : eventSubscribers) {
             subscriber.itemUpdated(item, oldItemName);
         }
-        logger.debug("IncQuery: " + event);
+        logger.debug(event.toString());
     }
 
     public synchronized void setSubscriber(IEventSubscriber eventSubscriber) {
@@ -144,13 +144,13 @@ public class EshEventSubscriber implements EventSubscriber {
             if (itemRegistry != null) {
                 eventSubscriber.initItems(itemRegistry.getItems());
             }
-            logger.info("IncQuery: set event subscriber " + eventSubscriber.getSubscriberName());
+            logger.info("set event subscriber " + eventSubscriber.getSubscriberName());
         }
     }
 
     public synchronized void unsetSubscriber(IEventSubscriber eventSubscriber) {
         if (eventSubscribers.remove(eventSubscriber)) {
-            logger.info("IncQuery: removed event subscriber " + eventSubscriber.getSubscriberName());
+            logger.info("removed event subscriber " + eventSubscriber.getSubscriberName());
         }
     }
 
@@ -161,11 +161,11 @@ public class EshEventSubscriber implements EventSubscriber {
                 subscriber.initItems(itemRegistry.getItems());
             }
         }
-        logger.info("IncQuery: set item registry");
+        logger.info("set item registry");
     }
 
     public void unsetItemRegistry(ItemRegistry itemRegistry) {
         this.itemRegistry = null;
-        logger.info("IncQuery: unset item registry");
+        logger.info("unset item registry");
     }
 }
