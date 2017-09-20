@@ -50,7 +50,11 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
     private void updateItem(Item item) {
         synchronized (lock) {
-            // TODO nullptr
+            if (addedItems.get(item.getName()) == null) {
+                logger.warn("IncQuery droolsbundle: tried to update item " + item.getName()
+                        + ", but hasn't been added to the rule engine yet");
+                return;
+            }
             if (item.getType().equals(CoreItemFactory.DATETIME)) {
                 kSession.delete(addedItems.get(item.getName()));
                 addedItems.put(item.getName(), kSession.insert(
