@@ -53,13 +53,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IOpenHABEventPublisher.cs" />
+    <Compile Include="SensorFilter.cs" />
     <Compile Include="HomeIO.cs" />
+    <Compile Include="OpenHABConnectorMQTT.cs" />
+    <Compile Include="OpenHABTransformer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EngineIO.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

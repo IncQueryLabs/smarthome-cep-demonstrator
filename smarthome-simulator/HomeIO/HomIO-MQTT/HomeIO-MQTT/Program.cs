@@ -23,8 +23,6 @@ namespace HomeIO_MQTT
             {
                 homeIO = new HomeIO();
             }
-            
-            Console.WriteLine("Press any key to exit...");
 
             while (!Console.KeyAvailable)
             {
