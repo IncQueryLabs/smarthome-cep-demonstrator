@@ -16,11 +16,11 @@
         ]
       },
       "properties": {
-        "geolocation": "47.478566699999995,19.0288809,0"
+        "geolocation": "47.4785666,19.02882,0"
       },
       "flag": "NEW",
       "label": "Local Moon",
-      "timestamp": 1505828985564,
+      "timestamp": 1506329901704,
       "timeToLive": -1
     }
   }

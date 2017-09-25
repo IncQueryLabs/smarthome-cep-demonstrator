@@ -1688,7 +1688,7 @@
       "configuration": {
         "properties": {
           "interval": 300,
-          "geolocation": "47.478566699999995,19.0288809,0"
+          "geolocation": "47.4785666,19.02882,0"
         }
       },
       "properties": {},

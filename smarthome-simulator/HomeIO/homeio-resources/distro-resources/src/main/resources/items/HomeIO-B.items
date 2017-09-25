@@ -1,6 +1,6 @@
 Contact	B_Light_Switch_1	"B - Light Switch 1"	(gContact, gB)
 Contact	B_Light_Switch_2	"B - Light Switch 2"	(gContact, gB)
-Contact	B_Motion_Detector	"B - Motion Detector"	(gContact, gB)
+Contact	B_Motion_Detector	"B - Motion Detector"	(gMotionDetector, gB)
 Switch	B_Lights_1	"B - Lights 1"	(gLight, gB)
 Switch	B_Lights_2	"B - Lights 2"	(gLight, gB)
 Dimmer	B_Lights_1_Analog	"B - Lights 1 (Analog)"	(gLight, gB)
