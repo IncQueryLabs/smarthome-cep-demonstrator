@@ -25,7 +25,7 @@ namespace HomeIO_MQTT
             foreach (MemoryBit mem in args.MemoriesBit)
             {
                 // if a device has a name, it is set to external control, so we could use it
-                if (mem.HasName)
+                if (mem != null && mem.HasName)
                 {
                     // send update to OpenHAB
                     openhab.SendUpdate(mem);
@@ -34,7 +34,7 @@ namespace HomeIO_MQTT
 
             foreach (MemoryFloat mem in args.MemoriesFloat)
             {
-                if (mem.HasName)
+                if (mem != null && mem.HasName)
                 {
                     // send update to OpenHAB
                     openhab.SendUpdate(mem);
@@ -43,7 +43,7 @@ namespace HomeIO_MQTT
             
             foreach (MemoryDateTime mem in args.MemoriesDateTime)
             {
-                if (mem.HasName)
+                if (mem != null && mem.HasName)
                 {
                     // send update to OpenHAB
                     openhab.SendUpdate(mem);

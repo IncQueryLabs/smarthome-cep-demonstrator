@@ -23,7 +23,7 @@ namespace HomeIO_MQTT
                 float value;
                 if(lastSentValue.TryGetValue(mem, out value))
                 {
-                    if(Math.Abs(value - mem.Value) < 0.1)
+                    if(Math.Abs(value - mem.Value) < 0.1 || ((Math.Abs(value - mem.Value) / value) < 0.1 && !mem.Name.Contains("O - Brightness Sensor")))
                     {
                         return false;
                     }
@@ -43,6 +43,25 @@ namespace HomeIO_MQTT
                 if (lastSentValue.TryGetValue(mem, out value))
                 {
                     if (Math.Abs(value - mem.Value) < 0.1)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        lastSentValue[mem] = mem.Value;
+                    }
+                }
+                else
+                {
+                    lastSentValue.Add(mem, mem.Value);
+                }
+            }
+            else if (mem.Name.Contains("Roller Shades") && mem.Name.Contains("Openness"))
+            {
+                float value;
+                if (lastSentValue.TryGetValue(mem, out value))
+                {
+                    if (Math.Abs(value - mem.Value) < 0.5)
                     {
                         return false;
                     }
