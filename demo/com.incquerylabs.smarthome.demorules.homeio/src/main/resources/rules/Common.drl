@@ -34,6 +34,9 @@ global OpenClosedType NOMOTION;
 global OpenClosedType DOOR_OPENED;
 global OpenClosedType DOOR_CLOSED;
 
+global OpenClosedType ARMED
+global OpenClosedType DEARMED
+
 global Integer MONDAY;
 global Integer TUESDAY;
 global Integer WEDNESDAY;

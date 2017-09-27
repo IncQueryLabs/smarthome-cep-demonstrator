@@ -1,6 +1,6 @@
 package homeioexample
 
-
+/*
 rule "B Lights Motion On"
     when
         $light : Item( name == "B_Lights_1", state == OFF)
@@ -19,3 +19,4 @@ rule "B Lights Motion Off"
     then
         openhab.postCommand($light, OFF);
 end
+*/

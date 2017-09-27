@@ -1,5 +1,5 @@
 package homeioexample
-
+/*
 
 rule "E Lights Motion"
     when
@@ -12,3 +12,4 @@ rule "E Lights Motion"
             openhab.postCommand($light, ON);
         }
 end
+*/

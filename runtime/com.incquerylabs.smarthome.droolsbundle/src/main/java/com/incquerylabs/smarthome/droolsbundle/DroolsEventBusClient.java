@@ -18,14 +18,16 @@ import org.eclipse.smarthome.core.types.Command;
 import org.eclipse.smarthome.core.types.State;
 import org.eclipse.smarthome.core.types.UnDefType;
 import org.kie.api.KieServices;
-import org.kie.api.builder.Results;
-import org.kie.api.conf.EventProcessingOption;
+import org.kie.api.io.ResourceType;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.KieSessionConfiguration;
 import org.kie.api.runtime.conf.ClockTypeOption;
 import org.kie.api.runtime.rule.FactHandle;
+import org.kie.internal.builder.DecisionTableConfiguration;
+import org.kie.internal.builder.DecisionTableInputType;
+import org.kie.internal.builder.KnowledgeBuilder;
+import org.kie.internal.builder.KnowledgeBuilderFactory;
 import org.kie.internal.io.ResourceFactory;
-import org.kie.internal.utils.KieHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -204,26 +206,37 @@ public class DroolsEventBusClient implements IEventSubscriber {
         return subscriberName;
     }
 
+    private void addTemplates(KnowledgeBuilder kbuilder) {
+
+        DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory.newDecisionTableConfiguration();
+
+        dtableconfiguration.setInputType(DecisionTableInputType.XLSX);
+        dtableconfiguration.setWorksheetName("Motion template");
+        dtableconfiguration.addRuleTemplateConfiguration(ResourceFactory.newClassPathResource("motion-template.drt"), 2,
+                1);
+
+        kbuilder.add(ResourceFactory.newClassPathResource("motion-template-data.xlsx", getClass()), ResourceType.DTABLE,
+                dtableconfiguration);
+
+        kbuilder.add(ResourceFactory.newClassPathResource("dimmer-dtable.xlsx", getClass()), ResourceType.DTABLE);
+    }
+
     private void loadDrools() {
         try {
             synchronized (lock) {
-                KieHelper kieHelper = new KieHelper();
+                KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+
+                addTemplates(kbuilder);
 
                 for (Entry<String, InputStream> entry : drlLoader.getDrls()) {
-                    kieHelper.addResource(
-                            ResourceFactory.newInputStreamResource(entry.getValue()).setSourcePath(entry.getKey()));
-                }
-
-                Results results = kieHelper.verify();
-                if (results.hasMessages(org.kie.api.builder.Message.Level.ERROR)) {
-                    logger.debug(subscriberName + "error with DRL file");
-                    logger.debug("" + results.getMessages());
-                    throw new IllegalStateException("### errors ###");
+                    kbuilder.add(ResourceFactory.newInputStreamResource(entry.getValue()).setSourcePath(entry.getKey()),
+                            ResourceType.DRL);
                 }
 
                 KieSessionConfiguration config = KieServices.Factory.get().newKieSessionConfiguration();
                 config.setOption(ClockTypeOption.get("pseudo"));
-                kSession = kieHelper.build(EventProcessingOption.STREAM).newKieSession(config, null);
+
+                kSession = kbuilder.newKieBase().newKieSession(config, null);
                 homeioSessionClock = new HomeioSessionClock(kSession.getSessionClock());
 
                 initGlobals();
@@ -251,6 +264,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
         kSession.setGlobal("DEARMED", OpenClosedType.CLOSED);
         kSession.setGlobal("BRIGHTNESS", OpenClosedType.CLOSED);
         kSession.setGlobal("DARKNESS", OpenClosedType.OPEN);
+
         kSession.setGlobal("MOTION", OpenClosedType.OPEN);
         kSession.setGlobal("NOMOTION", OpenClosedType.CLOSED);
         kSession.setGlobal("DOOR_OPENED", OpenClosedType.CLOSED);

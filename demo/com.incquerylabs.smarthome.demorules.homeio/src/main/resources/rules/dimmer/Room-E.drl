@@ -1,5 +1,5 @@
 package homeioexample
-
+/*
 rule "E Lights Switch Dimmer Up"
     when
         $item : Item( name == "E_Lights_Analog", $state : state) 
@@ -35,3 +35,4 @@ rule "E Dimmer off"
     then
         openhab.stopTimedCommand("E_Lights_Analog");
 end
+*/
