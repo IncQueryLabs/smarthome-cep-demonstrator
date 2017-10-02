@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="com.incquerylabs.smarthome" sequenceNumber="39">
+<?pde version="3.8"?><target name="com.incquerylabs.smarthome" sequenceNumber="40">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.openhab.feature.p2.feature.group" version="2.2.0.201706290927"/>
 <repository location="https://dl.bintray.com/openhab/p2/openhab-core/2.2.x/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.smarthome.feature.runtime.binding.feature.group" version="0.9.0.201709260841"/>
-<unit id="org.eclipse.smarthome.feature.runtime.console.equinox.feature.group" version="0.9.0.201709260841"/>
-<unit id="org.eclipse.smarthome.feature.runtime.core.feature.group" version="0.9.0.201709260841"/>
-<unit id="org.eclipse.smarthome.feature.runtime.rest.feature.group" version="0.9.0.201709260841"/>
-<unit id="org.eclipse.smarthome.feature.test.feature.group" version="0.9.0.201709260841"/>
+<unit id="org.eclipse.smarthome.feature.runtime.binding.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.smarthome.feature.runtime.console.equinox.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.smarthome.feature.runtime.core.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.smarthome.feature.runtime.rest.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.smarthome.feature.test.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/smarthome/updates-stable/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
