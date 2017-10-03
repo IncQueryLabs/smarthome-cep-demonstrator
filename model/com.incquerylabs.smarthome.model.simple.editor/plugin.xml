@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated smarthome -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="smarthome.presentation.SmarthomeModelWizardID"
+            name="%_UI_SmarthomeModelWizard_label"
+            class="smarthome.presentation.SmarthomeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SmarthomeModelFile.gif">
+         <description>%_UI_SmarthomeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated smarthome -->
+      <editor
+            id="smarthome.presentation.SmarthomeEditorID"
+            name="%_UI_SmarthomeEditor_label"
+            icon="icons/full/obj16/SmarthomeModelFile.gif"
+            extensions="smarthome"
+            class="smarthome.presentation.SmarthomeEditor"
+            contributorClass="smarthome.presentation.SmarthomeActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
