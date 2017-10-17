@@ -12,9 +12,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="smarthome.presentation.SmarthomeModelWizardID"
+            id="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeModelWizardID"
             name="%_UI_SmarthomeModelWizard_label"
-            class="smarthome.presentation.SmarthomeModelWizard"
+            class="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SmarthomeModelFile.gif">
          <description>%_UI_SmarthomeModelWizard_description</description>
@@ -25,12 +25,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated smarthome -->
       <editor
-            id="smarthome.presentation.SmarthomeEditorID"
+            id="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditorID"
             name="%_UI_SmarthomeEditor_label"
             icon="icons/full/obj16/SmarthomeModelFile.gif"
             extensions="smarthome"
-            class="smarthome.presentation.SmarthomeEditor"
-            contributorClass="smarthome.presentation.SmarthomeActionBarContributor">
+            class="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditor"
+            contributorClass="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeActionBarContributor">
       </editor>
    </extension>
 

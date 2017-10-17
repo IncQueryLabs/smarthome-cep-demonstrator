@@ -10,7 +10,7 @@
       <!-- @generated smarthome -->
       <factory
             uri="http://www.example.org/smarthome"
-            class="smarthome.provider.SmarthomeItemProviderAdapterFactory"
+            class="com.incquerylabs.smarthome.model.simple.smarthome.provider.SmarthomeItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

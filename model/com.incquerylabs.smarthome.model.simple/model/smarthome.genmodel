@@ -5,32 +5,39 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>smarthome.ecore</foreignModel>
-  <genPackages prefix="Smarthome" disposableProviderFactory="true" ecorePackage="smarthome.ecore#/">
+  <genPackages prefix="Smarthome" basePackage="com.incquerylabs.smarthome.model.simple"
+      disposableProviderFactory="true" ecorePackage="smarthome.ecore#/">
     <genClasses ecoreClass="smarthome.ecore#//SmartHome">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smarthome.ecore#//SmartHome/name"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//SmartHome/items"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//SmartHome/rules"/>
     </genClasses>
-    <genClasses ecoreClass="smarthome.ecore#//SwitchItem"/>
     <genClasses image="false" ecoreClass="smarthome.ecore#//Item">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//Item/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smarthome.ecore#//Item/name"/>
     </genClasses>
     <genClasses ecoreClass="smarthome.ecore#//ContactItem"/>
     <genClasses ecoreClass="smarthome.ecore#//State">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smarthome.ecore#//State/state"/>
     </genClasses>
-    <genClasses ecoreClass="smarthome.ecore#//ItemBinding">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//ItemBinding/itemstate"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//ItemBinding/command"/>
-    </genClasses>
-    <genClasses ecoreClass="smarthome.ecore#//ItemState">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//ItemState/item"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//ItemState/state"/>
+    <genClasses ecoreClass="smarthome.ecore#//EvaluatingNode">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//EvaluatingNode/events"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//EvaluatingNode/commands"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//EvaluatingNode/filters"/>
     </genClasses>
     <genClasses ecoreClass="smarthome.ecore#//Command">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//Command/item"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute smarthome.ecore#//Command/command"/>
     </genClasses>
+    <genClasses ecoreClass="smarthome.ecore#//SwitchItem"/>
+    <genClasses ecoreClass="smarthome.ecore#//StateChangeConnection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference smarthome.ecore#//StateChangeConnection/newState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//StateChangeConnection/item"/>
+    </genClasses>
+    <genClasses ecoreClass="smarthome.ecore#//FilterConnection">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//FilterConnection/requiredState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference smarthome.ecore#//FilterConnection/item"/>
+    </genClasses>
+    <genClasses ecoreClass="smarthome.ecore#//DimmerItem"/>
+    <genClasses ecoreClass="smarthome.ecore#//NumberItem"/>
   </genPackages>
 </genmodel:GenModel>

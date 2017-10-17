@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.incquerylabs.smarthome.model.simple.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: smarthome.presentation.SmarthomeEditorPlugin$Implementation
+Bundle-Activator: com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: smarthome.presentation
+Export-Package: com.incquerylabs.smarthome.model.simple.smarthome.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  com.incquerylabs.smarthome.model.simple.edit;visibility:=reexport,
