@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.smarthome.core.items.Item;
-import org.eclipse.smarthome.core.library.CoreItemFactory;
 import org.eclipse.smarthome.core.library.types.DateTimeType;
 import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
 import org.eclipse.smarthome.core.library.types.OnOffType;
@@ -109,7 +108,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
                 synchronized (lock) {
                     item.getType();
-                    if (item.getType().equals(CoreItemFactory.DATETIME)) {
+                    if (item.getType().equals("DateTime")) {
                         if (item.getState() instanceof UnDefType) {
                             handle = kSession.insert(new DateTime(item.getName(), new Date(0)));
                         } else {
@@ -163,7 +162,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
     private void updateItem(Item item) {
         synchronized (lock) {
-            if (item.getType().equals(CoreItemFactory.DATETIME)) {
+            if (item.getType().equals("DateTime")) {
                 kSession.delete(addedItems.get(item.getName()));
                 addedItems.put(item.getName(), kSession.insert(
                         new DateTime(item.getName(), ((DateTimeType) item.getState()).getCalendar().getTime())));
