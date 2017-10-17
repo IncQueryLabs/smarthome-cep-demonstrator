@@ -91,8 +91,7 @@ class BatchViatra {
     
     def execute(){
         smarthomeRule.fireAllCurrent
-        simpleRule.fireAllCurrent
-        filterRule.fireAllCurrent
+        rulesRule.fireAllCurrent
         println("Executed queries")
     }
     

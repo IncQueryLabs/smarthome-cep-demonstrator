@@ -7,21 +7,6 @@ pattern smartHomeRules(smarthome : SmartHome, evaluatingNode : EvaluatingNode) {
     SmartHome.rules(smarthome, evaluatingNode);
 }
 
-
-pattern nodeWithFilter(evaluatingNode : EvaluatingNode, filterConnection : FilterConnection) {
-    EvaluatingNode.filters(evaluatingNode, filterConnection);
-}
-
-
-pattern simpleRules(evaluatingNode : EvaluatingNode, stateChangeConnection : StateChangeConnection, command : Command) {
-    neg find nodeWithFilter(evaluatingNode, _);
-    EvaluatingNode.events(evaluatingNode, stateChangeConnection);
-    EvaluatingNode.commands(evaluatingNode, command);
-}
-
-
-pattern filterRules(evaluatingNode : EvaluatingNode, stateChangeConnection : StateChangeConnection, filterConnection : FilterConnection, command : Command) {
-    EvaluatingNode.events(evaluatingNode, stateChangeConnection);
-    EvaluatingNode.filters(evaluatingNode, filterConnection);
-    EvaluatingNode.commands(evaluatingNode, command);
+pattern rules(evaluatingNode : EvaluatingNode) {
+    EvaluatingNode(evaluatingNode);
 }

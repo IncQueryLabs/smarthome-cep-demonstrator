@@ -9,8 +9,7 @@ import org.eclipse.viatra.transformation.runtime.emf.modelmanipulation.IModelMan
 import com.incquerylabs.smarthome.viatra.SmartHomeRulesMatcher
 import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransformationRuleFactory
 import org.apache.log4j.Logger
-import com.incquerylabs.smarthome.viatra.SimpleRulesMatcher
-import com.incquerylabs.smarthome.viatra.FilterRulesMatcher
+import com.incquerylabs.smarthome.viatra.RulesMatcher
 
 class RuleProvider {
     
@@ -19,8 +18,7 @@ class RuleProvider {
     extension Logger logger = Logger.getLogger("smarthome.viatra")
     
     BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> smarthomeRule
-    BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> simpleRule
-    BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> filterRule
+    BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> rulesRule
     
     private var ruleId = 0;
     
@@ -47,47 +45,15 @@ class RuleProvider {
     }
     
     
-    public def getSimpleRule() {
-        if (simpleRule === null) {
-            simpleRule = createRule.name("SimpleRule").precondition(SimpleRulesMatcher.querySpecification).action[
-                val node = it.evaluatingNode
+    public def getRulesRule() {
+                if (rulesRule === null) {
+            rulesRule = createRule.name("FilterRule").precondition(RulesMatcher.querySpecification).action[
+                val node = it.evaluatingNode;
                 ruleId++;
                 debug('''
                 package homeioexample;
                 
-                rule "Simple rule «ruleId»"
-                    when 
-                         «FOR command : node.commands»
-                         Item( name == "«command.item.name»" )
-                         «ENDFOR»
-                         
-                         ItemStateChaneEvent( 
-                         «FOR event : node.events SEPARATOR ' || '»
-                         ( name == "«event.item.name»" && state == «event.newState.state» )
-                         «ENDFOR» 
-                         )
-                         
-                     then
-                        «FOR command : node.commands»
-                        openhab.postCommand("«command.item.name»", «command.command»);
-                        «ENDFOR»
-                end
-                ''')
-            ].build
-        }
-        return simpleRule
-    }
-    
-    
-    public def getFilterRule() {
-        if (filterRule === null) {
-            filterRule = createRule.name("FilterRule").precondition(FilterRulesMatcher.querySpecification).action[
-                val node = it.evaluatingNode
-                ruleId++;
-                debug('''
-                package homeioexample;
-                
-                rule "Filter rule «ruleId»"
+                rule "Rule «ruleId»"
                     when 
                          «FOR command : node.commands»
                          Item( name == "«command.item.name»" )
@@ -112,7 +78,6 @@ class RuleProvider {
                 
             ].build
         }
-        return filterRule
+        return rulesRule
     }
-    
 }
