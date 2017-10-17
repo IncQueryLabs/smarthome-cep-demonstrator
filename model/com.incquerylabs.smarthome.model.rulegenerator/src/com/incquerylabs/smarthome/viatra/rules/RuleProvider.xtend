@@ -22,6 +22,7 @@ class RuleProvider {
     BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> simpleRule
     BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> filterRule
     
+    private var ruleId = 0;
     
     ViatraQueryEngine engine
     
@@ -50,11 +51,11 @@ class RuleProvider {
         if (simpleRule === null) {
             simpleRule = createRule.name("SimpleRule").precondition(SimpleRulesMatcher.querySpecification).action[
                 val node = it.evaluatingNode
-                
+                ruleId++;
                 debug('''
                 package homeioexample;
                 
-                rule "Generated simple rule name here"
+                rule "Simple rule «ruleId»"
                     when 
                          «FOR command : node.commands»
                          Item( name == "«command.item.name»" )
@@ -82,11 +83,11 @@ class RuleProvider {
         if (filterRule === null) {
             filterRule = createRule.name("FilterRule").precondition(FilterRulesMatcher.querySpecification).action[
                 val node = it.evaluatingNode
-                
+                ruleId++;
                 debug('''
                 package homeioexample;
                 
-                rule "Generated filter rule name here"
+                rule "Filter rule «ruleId»"
                     when 
                          «FOR command : node.commands»
                          Item( name == "«command.item.name»" )

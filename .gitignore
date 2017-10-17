@@ -12,3 +12,7 @@ smarthome-simulator/HomeIO/HomIO-MQTT/**.dll
 
 
 smarthome-simulator/HomeIO/homeio-resources/launch/home/logs/
+
+model/com\.incquerylabs\.smarthome\.model\.rulegenerator/xtend-gen/
+
+model/com\.incquerylabs\.smarthome\.model\.rulegenerator/src-gen/
