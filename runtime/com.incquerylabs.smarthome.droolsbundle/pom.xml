@@ -42,7 +42,8 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/../lib</outputDirectory>
+                            <outputDirectory>${project.build.directory}/../lib</outputDirectory>
+                            <excludeGroupIds>javax.xml.stream</excludeGroupIds>
 						</configuration>
 					</execution>
 				</executions>
