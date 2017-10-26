@@ -22,8 +22,7 @@
       </wizard>
    </extension>
 
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated smarthome -->
+   <!--extension point="org.eclipse.ui.editors">
       <editor
             id="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditorID"
             name="%_UI_SmarthomeEditor_label"
@@ -32,6 +31,6 @@
             class="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditor"
             contributorClass="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeActionBarContributor">
       </editor>
-   </extension>
+   </extension-->
 
 </plugin>

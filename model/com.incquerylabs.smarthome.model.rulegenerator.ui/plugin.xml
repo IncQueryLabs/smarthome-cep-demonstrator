@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="com.incquerylabs.smarthome.model.simple.smarthome.presentation.GenerateRulesActionHandler"
+            defaultHandler="com.incquerylabs.smarthome.model.rulegenerator.ui.GenerateRulesActionHandler"
             id="com.incquerylabs.smarthome.model.rulegenerator.ui.GenerateRuleCommand"
             name="Generate rules">
       </command>
@@ -13,13 +13,24 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="true"
-            locationURI="popup:com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditorID?before=additions">
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
          <command
                commandId="com.incquerylabs.smarthome.model.rulegenerator.ui.GenerateRuleCommand"
                label="Generate rules"
                style="push">
          </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditor"
+            contributorClass="com.incquerylabs.smarthome.model.rulegenerator.ui.SmarthomeActionBarContributorExtended"
+            extensions="smarthome"
+            icon="icons/full/obj16/SmarthomeModelFile.gif"
+            id="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditorID"
+            name="Smarthome Model Editor">
+      </editor>
    </extension>
 
 </plugin>

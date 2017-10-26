@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import com.incquerylabs.smarthome.model.simple.smarthome.SmarthomePackage
 import org.eclipse.emf.common.util.URI
 import org.eclipse.viatra.query.runtime.emf.EMFScope
+import org.eclipse.core.resources.ResourcesPlugin
 
 class BatchViatra {
     
@@ -24,6 +25,9 @@ class BatchViatra {
     extension RuleProvider ruleProvider
     extension BatchTransformation transformation
     extension BatchTransformationStatements statements
+    
+    private static final String instanceModelProject = "com.incquerylabs.smarthome.model.rules";
+    private static final String instanceModel = "HomeIO_Rules.smarthome";
     
     ViatraQueryEngine engine
     
@@ -74,9 +78,15 @@ class BatchViatra {
         val resSet = new ResourceSetImpl();
 
      
+        // Get model file path
+        val workspace = ResourcesPlugin.getWorkspace()
+        val root = workspace.getRoot()
+        val project = root.getProject(instanceModelProject)
+        val file = project.getFile(instanceModel)
+        
         // Get the resource
         val resource = resSet.getResource(URI
-                .createPlatformPluginURI("com.incquerylabs.smarthome.model.rules/HomeIO_Rules.smarthome", false), true);
+                .createFileURI(file.getFullPath().toOSString()), true);
         // Get the first model element and cast it to the right type, in my
         // example everything is hierarchical included in this first node
         val mySmarthome = resource.getContents().get(0) as SmartHome;
