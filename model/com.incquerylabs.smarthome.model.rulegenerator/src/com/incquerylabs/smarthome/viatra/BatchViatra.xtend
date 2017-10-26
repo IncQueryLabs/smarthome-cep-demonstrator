@@ -8,9 +8,6 @@ import com.incquerylabs.smarthome.viatra.rules.RuleProvider
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformation
 import org.eclipse.viatra.transformation.runtime.emf.transformation.batch.BatchTransformationStatements
-
-import static com.google.common.base.Preconditions.*
-import org.eclipse.viatra.query.runtime.api.AdvancedViatraQueryEngine
 import org.eclipse.emf.ecore.resource.Resource
 import com.incquerylabs.smarthome.model.simple.smarthome.SmartHome
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl

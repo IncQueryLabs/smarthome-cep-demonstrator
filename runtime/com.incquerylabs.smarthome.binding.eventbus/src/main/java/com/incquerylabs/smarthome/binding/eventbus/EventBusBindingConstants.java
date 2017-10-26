@@ -8,6 +8,7 @@
  */
 package com.incquerylabs.smarthome.binding.eventbus;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
 
 /**
@@ -18,6 +19,7 @@ import org.eclipse.smarthome.core.thing.ThingTypeUID;
  */
 public class EventBusBindingConstants {
 
+    @NonNull
     private static final String BINDING_ID = "incqueryeventbus";
 
     // List of all Thing Type UIDs
