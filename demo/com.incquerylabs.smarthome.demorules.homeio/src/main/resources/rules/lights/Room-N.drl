@@ -1,0 +1,77 @@
+package homeioexample
+
+
+rule "N Lights Switch"
+    when
+        $item1 : Item( name == "N_Lights_1_Analog", $state : state)
+        $item2 : Item( name == "N_Lights_2_Analog")
+        $item3 : Item( name == "N_Lights_3_Analog")
+
+
+        $itemState : ItemStateChangedEvent( (
+        name == "N_Light_Switch_1" || 
+        name == "N_Light_Switch_2" || 
+        name == "N_Light_Switch_3") && 
+        newState == OPEN)
+        
+    then
+        if ($state.equals(HUNDRED)) {
+            openhab.postCommand($item1, OFF);
+            openhab.postCommand($item2, OFF);
+            openhab.postCommand($item3, OFF);
+        } else {
+            openhab.postCommand($item1, ON);
+            openhab.postCommand($item2, ON);
+            openhab.postCommand($item3, ON);
+        }
+end
+
+rule "N Lights Switch On"
+    when
+        $item1 : Item( name == "N_Lights_1_Analog", $state : state)
+        $item2 : Item( name == "N_Lights_2_Analog")
+        $item3 : Item( name == "N_Lights_3_Analog")
+
+        $itemStateOpen : ItemStateHistory( ( 
+        name == "N_Light_Switch_Dimmer_1_Up" || 
+        name == "N_Light_Switch_Dimmer_2_Up" || 
+        name == "N_Light_Switch_Dimmer_3_Up" ) && 
+        newState == OPEN )
+
+
+        $itemStateClosed : ItemStateChangedEvent ( 
+        this after[0s,1s] $itemStateOpen && (
+        name == "N_Light_Switch_Dimmer_1_Up" || 
+        name == "N_Light_Switch_Dimmer_2_Up" || 
+        name == "N_Light_Switch_Dimmer_3_Up" ) && 
+        newState == CLOSED )
+    then
+        openhab.postCommand($item1, ON);
+        openhab.postCommand($item2, ON);
+        openhab.postCommand($item3, ON);
+end
+
+
+rule "N Lights Switch Off"
+    when
+        $item1 : Item( name == "N_Lights_1_Analog", $state : state)
+        $item2 : Item( name == "N_Lights_2_Analog")
+        $item3 : Item( name == "N_Lights_3_Analog")
+
+        $itemStateOpen : ItemStateHistory( ( 
+        name == "N_Light_Switch_Dimmer_1_Down" || 
+        name == "N_Light_Switch_Dimmer_2_Down" ||
+        name == "N_Light_Switch_Dimmer_3_Down" ) && 
+        newState == OPEN )
+
+        $itemStateClosed : ItemStateChangedEvent ( 
+        this after[0s,1s] $itemStateOpen && (
+        name == "N_Light_Switch_Dimmer_1_Down" || 
+        name == "N_Light_Switch_Dimmer_2_Down" ||
+        name == "N_Light_Switch_Dimmer_3_Down" ) && 
+        newState == CLOSED )
+    then
+        openhab.postCommand($item1, OFF);
+        openhab.postCommand($item2, OFF);
+        openhab.postCommand($item3, OFF);
+end

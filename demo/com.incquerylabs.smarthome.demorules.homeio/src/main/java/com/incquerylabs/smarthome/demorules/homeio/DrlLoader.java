@@ -23,10 +23,10 @@ public class DrlLoader implements IDrlLoader {
         drlPaths.add("rules/Alarm.drl");
         drlPaths.add("rules/Timing.drl");
 
-        char[] dimmeRooms = { 'A', 'D', 'E' };
-        char[] lightsRooms = { 'A', 'B', 'C', 'D', 'E' };
-        char[] motionRoomes = { 'A', 'B', 'D', 'E', 'F', 'G' };
-        char[] rollershadesRooms = { 'A', 'D', 'E' };
+        char[] dimmeRooms = { 'A', 'D', 'E', 'H', 'I', 'J', 'K', 'L', 'N' };
+        char[] lightsRooms = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N' };
+        char[] motionRoomes = { 'A', 'B', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N' };
+        char[] rollershadesRooms = { 'A', 'D', 'E', 'F', 'G', 'H', 'J', 'L', 'M', 'N' };
 
         for (char room : dimmeRooms) {
             drlPaths.add("rules/dimmer/Room-" + room + ".drl");

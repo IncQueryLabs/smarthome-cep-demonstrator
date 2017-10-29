@@ -91,6 +91,27 @@ rule "Init"
 
         openhab.postCommand("E_Roller_Shades_Up", OFF);
         openhab.postCommand("E_Roller_Shades_Down", OFF);
+        
+        openhab.postCommand("F_Roller_Shades_Up", OFF);
+        openhab.postCommand("F_Roller_Shades_Down", OFF);
+        
+        openhab.postCommand("G_Roller_Shades_Up", OFF);
+        openhab.postCommand("G_Roller_Shades_Down", OFF);
+        
+        openhab.postCommand("H_Roller_Shades_Up", OFF);
+        openhab.postCommand("H_Roller_Shades_Down", OFF);
+        
+        openhab.postCommand("J_Roller_Shades_Up", OFF);
+        openhab.postCommand("J_Roller_Shades_Down", OFF);
+        
+        openhab.postCommand("L_Roller_Shades_Up", OFF);
+        openhab.postCommand("L_Roller_Shades_Down", OFF);
+        
+        openhab.postCommand("M_Roller_Shades_Up", OFF);
+        openhab.postCommand("M_Roller_Shades_Down", OFF);
+        
+        openhab.postCommand("N_Roller_Shades_Up", OFF);
+        openhab.postCommand("N_Roller_Shades_Down", OFF);
 end
 
 

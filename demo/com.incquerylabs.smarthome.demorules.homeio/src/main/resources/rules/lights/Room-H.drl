@@ -1,0 +1,51 @@
+package homeioexample
+
+
+rule "H Lights Switch"
+    when
+        $item : Item( name == "H_Lights_Analog", $state : state)
+
+        $itemState : ItemStateChangedEvent( name == "H_Light_Switch_1", newState == OPEN)
+    then
+        if ($state.equals(HUNDRED)) {
+            openhab.postCommand($item, OFF);
+        } else {
+            openhab.postCommand($item, ON);
+        }
+end
+
+
+rule "H Lights Switch On"
+    when
+        $item : Item( name == "H_Lights_Analog", $state : state) 
+
+        $itemStateOpen : ItemStateHistory(  
+        name == "H_Light_Switch_Dimmer_Up"  && 
+        newState == OPEN )
+
+
+        $itemStateClosed : ItemStateChangedEvent ( 
+        this after[0s,1s] $itemStateOpen &&
+        name == "H_Light_Switch_Dimmer_Up" && 
+        newState == CLOSED )
+    then
+        openhab.postCommand($item.getName(), ON);
+end
+
+
+rule "H Lights Switch Off"
+    when
+        $item : Item( name == "H_Lights_Analog", $state : state) 
+
+        $itemStateOpen : ItemStateHistory(  
+        name == "H_Light_Switch_Dimmer_Down"  && 
+        newState == OPEN )
+
+
+        $itemStateClosed : ItemStateChangedEvent ( 
+        this after[0s,1s] $itemStateOpen &&
+        name == "H_Light_Switch_Dimmer_Down" && 
+        newState == CLOSED )
+    then
+        openhab.postCommand($item.getName(), OFF);
+end
