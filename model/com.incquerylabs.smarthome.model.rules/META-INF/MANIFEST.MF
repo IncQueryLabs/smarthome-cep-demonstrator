@@ -1,5 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Rules
+Bundle-Name: Generated rules
 Bundle-SymbolicName: com.incquerylabs.smarthome.model.rules
 Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: INCQUERYLABS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/drlLoader.xml
+Bundle-ActivationPolicy: lazy
+Export-Package: com.incquerylabs.smarthome.model.rules
+Import-Package: com.incquerylabs.smarthome.eventbusservice,
+ org.osgi.framework;version="1.8.0"

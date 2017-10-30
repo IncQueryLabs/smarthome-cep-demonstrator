@@ -25,6 +25,7 @@ class RuleProvider {
 
     private var ruleId = 0;
     private static final String destinationProject = "com.incquerylabs.smarthome.model.rules";
+    private static final String rulePackageName = "genrules";
 
     ViatraQueryEngine engine
 
@@ -38,7 +39,7 @@ class RuleProvider {
         
         val root = workspace.getRoot()
         val project = root.getProject(destinationProject)
-        val folder = project.getFolder("gen-rules")
+        val folder = project.getFolder("src/main/resources/gen-rules")
         val file = folder.getFile(fileName)
 
         if (!project.exists()) {
@@ -50,10 +51,12 @@ class RuleProvider {
         if (!folder.exists()) {
             folder.create(IResource.NONE, true, null)
         }
-        if (!file.exists()) {
-            val source = new ByteArrayInputStream(fileContent.getBytes())
-            file.create(source, IResource.NONE, null)
+        if (file.exists() ) {
+            file.delete(true, null)
         }
+        val source = new ByteArrayInputStream(fileContent.getBytes())
+        file.create(source, IResource.NONE, null)
+        
         workspace.save(true,null)
     }
 
@@ -80,7 +83,7 @@ class RuleProvider {
                 val ruleName = '''Rule_«ruleId»'''
                 val rule = 
                 '''
-                    package homeioexample;
+                    package «rulePackageName»
                     
                     rule "«ruleName»"
                         when 
@@ -92,9 +95,9 @@ class RuleProvider {
                                  Item( name == "«filter.item.name»", state == «filter.requiredState.state» )
                              «ENDFOR»
                              
-                             ItemStateChaneEvent( 
+                             ItemStateChangedEvent( 
                              «FOR event : node.events SEPARATOR ' || '»
-                                 ( name == "«event.item.name»" && state == «event.newState.state» )
+                                 ( name == "«event.item.name»" && newState == «event.newState.state» )
                              «ENDFOR» 
                              )
                              
