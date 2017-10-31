@@ -103,7 +103,7 @@ class RuleProvider {
                              
                          then
                             «FOR command : node.commands»
-                                openhab.postCommand("«command.item.name»", «command.command»);
+                                openhab.postCommand("«command.item.name»", «command.command.command»);
                             «ENDFOR»
                     end
                 '''

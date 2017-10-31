@@ -40,220 +40,220 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SmartHomeImpl extends MinimalEObjectImpl.Container implements SmartHome {
     /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getItems()
-     * @generated
-     * @ordered
-     */
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
     protected EList<Item> items;
 
     /**
-     * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getRules()
-     * @generated
-     * @ordered
-     */
+	 * @see #getRules()
+	 * @generated
+	 * @ordered
+	 */
     protected EList<EvaluatingNode> rules;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected SmartHomeImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return SmarthomePackage.Literals.SMART_HOME;
-    }
+		return SmarthomePackage.Literals.SMART_HOME;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getName() {
-        return name;
-    }
+		return name;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setName(String newName) {
-        String oldName = name;
-        name = newName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SmarthomePackage.SMART_HOME__NAME, oldName, name));
-    }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SmarthomePackage.SMART_HOME__NAME, oldName, name));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EList<Item> getItems() {
-        if (items == null) {
-            items = new EObjectContainmentEList<Item>(Item.class, this, SmarthomePackage.SMART_HOME__ITEMS);
-        }
-        return items;
-    }
+		if (items == null) {
+			items = new EObjectContainmentEList<Item>(Item.class, this, SmarthomePackage.SMART_HOME__ITEMS);
+		}
+		return items;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EList<EvaluatingNode> getRules() {
-        if (rules == null) {
-            rules = new EObjectContainmentEList<EvaluatingNode>(EvaluatingNode.class, this, SmarthomePackage.SMART_HOME__RULES);
-        }
-        return rules;
-    }
+		if (rules == null) {
+			rules = new EObjectContainmentEList<EvaluatingNode>(EvaluatingNode.class, this, SmarthomePackage.SMART_HOME__RULES);
+		}
+		return rules;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SmarthomePackage.SMART_HOME__ITEMS:
-                return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
-            case SmarthomePackage.SMART_HOME__RULES:
-                return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SmarthomePackage.SMART_HOME__ITEMS:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
+			case SmarthomePackage.SMART_HOME__RULES:
+				return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case SmarthomePackage.SMART_HOME__NAME:
-                return getName();
-            case SmarthomePackage.SMART_HOME__ITEMS:
-                return getItems();
-            case SmarthomePackage.SMART_HOME__RULES:
-                return getRules();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case SmarthomePackage.SMART_HOME__NAME:
+				return getName();
+			case SmarthomePackage.SMART_HOME__ITEMS:
+				return getItems();
+			case SmarthomePackage.SMART_HOME__RULES:
+				return getRules();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case SmarthomePackage.SMART_HOME__NAME:
-                setName((String)newValue);
-                return;
-            case SmarthomePackage.SMART_HOME__ITEMS:
-                getItems().clear();
-                getItems().addAll((Collection<? extends Item>)newValue);
-                return;
-            case SmarthomePackage.SMART_HOME__RULES:
-                getRules().clear();
-                getRules().addAll((Collection<? extends EvaluatingNode>)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case SmarthomePackage.SMART_HOME__NAME:
+				setName((String)newValue);
+				return;
+			case SmarthomePackage.SMART_HOME__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
+				return;
+			case SmarthomePackage.SMART_HOME__RULES:
+				getRules().clear();
+				getRules().addAll((Collection<? extends EvaluatingNode>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void eUnset(int featureID) {
-        switch (featureID) {
-            case SmarthomePackage.SMART_HOME__NAME:
-                setName(NAME_EDEFAULT);
-                return;
-            case SmarthomePackage.SMART_HOME__ITEMS:
-                getItems().clear();
-                return;
-            case SmarthomePackage.SMART_HOME__RULES:
-                getRules().clear();
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case SmarthomePackage.SMART_HOME__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case SmarthomePackage.SMART_HOME__ITEMS:
+				getItems().clear();
+				return;
+			case SmarthomePackage.SMART_HOME__RULES:
+				getRules().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case SmarthomePackage.SMART_HOME__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-            case SmarthomePackage.SMART_HOME__ITEMS:
-                return items != null && !items.isEmpty();
-            case SmarthomePackage.SMART_HOME__RULES:
-                return rules != null && !rules.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case SmarthomePackage.SMART_HOME__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SmarthomePackage.SMART_HOME__ITEMS:
+				return items != null && !items.isEmpty();
+			case SmarthomePackage.SMART_HOME__RULES:
+				return rules != null && !rules.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (name: ");
-        result.append(name);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //SmartHomeImpl

@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:smarthome="http://www.example.org/smarthome" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_S2b3EL1yEeeLdtooL_cgzg" selectedViews="_MBdUkL14EeeLdtooL_cgzg _xXdgsL2DEeeGq_nTBz6JgA" version="12.0.0.201704271200">
+    <semanticResources>platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign</semanticResources>
+    <semanticResources>environment:/viewpoint</semanticResources>
+    <semanticResources>http://www.example.org/smarthome</semanticResources>
+    <semanticResources>HomeIO_Rules.smarthome</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_lEuMcL1yEeeLdtooL_cgzg"/>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_MBdUkL14EeeLdtooL_cgzg">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/smarthome-cep-demonstrator/model/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_xXdgsL2DEeeGq_nTBz6JgA">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_7OQsAL5aEeecnuZSOoZHmg" name="Rule Creator Diagram" repPath="#_7OQE8L5aEeecnuZSOoZHmg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']"/>
+        <target xmi:type="smarthome:SmartHome" href="HomeIO_Rules.smarthome#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_7OQE8L5aEeecnuZSOoZHmg" name="Rule Creator Diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_7OQE8b5aEeecnuZSOoZHmg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_7OQE8r5aEeecnuZSOoZHmg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_7OQsAb5aEeecnuZSOoZHmg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_7OQsAr5aEeecnuZSOoZHmg" type="Sirius" element="_7OQE8L5aEeecnuZSOoZHmg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_7ORTEL5aEeecnuZSOoZHmg" type="2001" element="_7OQE9L5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7ORTE75aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7ORTFL5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OWLkL5aEeecnuZSOoZHmg" type="3001" element="_7OQE9b5aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OWLk75aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OWLlL5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OWyqL5aEeecnuZSOoZHmg" type="3003" element="_7OQE9r5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OWyqb5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OWyqr5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OWLkb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OWLkr5aEeecnuZSOoZHmg" x="192" y="60" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OWyoL5aEeecnuZSOoZHmg" type="3001" element="_7OQE975aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OWyo75aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OWypL5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OXZsL5aEeecnuZSOoZHmg" type="3003" element="_7OQE-L5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OXZsb5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OXZsr5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OWyob5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OWyor5aEeecnuZSOoZHmg" x="192" y="19" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OWypb5aEeecnuZSOoZHmg" type="3003" element="_7OQE-b5aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OWypr5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OWyp75aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7ORTEb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ORTEr5aEeecnuZSOoZHmg" x="2076" y="336" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OR6IL5aEeecnuZSOoZHmg" type="2001" element="_7OQE-r5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OR6I75aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OR6JL5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OXZs75aEeecnuZSOoZHmg" type="3001" element="_7OQE-75aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OXZtr5aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OXZt75aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OYAw75aEeecnuZSOoZHmg" type="3003" element="_7OQE_L5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OYAxL5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OYAxb5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OXZtL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OXZtb5aEeecnuZSOoZHmg" x="192" y="12" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OXZuL5aEeecnuZSOoZHmg" type="3001" element="_7OQE_b5aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OXZu75aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OXZvL5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OYAxr5aEeecnuZSOoZHmg" type="3003" element="_7OQE_r5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OYAx75aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OYAyL5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OXZub5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OXZur5aEeecnuZSOoZHmg" x="192" y="48" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OYAwL5aEeecnuZSOoZHmg" type="3003" element="_7OQE_75aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OYAwb5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OYAwr5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OR6Ib5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OR6Ir5aEeecnuZSOoZHmg" x="2076" y="504" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OTIQL5aEeecnuZSOoZHmg" type="2001" element="_7OQFAL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OTIQ75aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OTIRL5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OYAyb5aEeecnuZSOoZHmg" type="3001" element="_7OQFAb5aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OYAzL5aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OYAzb5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OZO475aEeecnuZSOoZHmg" type="3003" element="_7OQFAr5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OZO5L5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OZO5b5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OYAyr5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OYAy75aEeecnuZSOoZHmg" x="192" y="12" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OYAzr5aEeecnuZSOoZHmg" type="3001" element="_7OQFA75aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OYn0L5aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OYn0b5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OZO5r5aEeecnuZSOoZHmg" type="3003" element="_7OQFBL5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OZO575aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OZO6L5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OYAz75aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OYA0L5aEeecnuZSOoZHmg" x="192" y="60" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OZO4L5aEeecnuZSOoZHmg" type="3003" element="_7OQFBb5aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OZO4b5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OZO4r5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OTIQb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OTIQr5aEeecnuZSOoZHmg" x="2076" y="660" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OTIRb5aEeecnuZSOoZHmg" type="2001" element="_7OQFBr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OTvUL5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OTvUb5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OZ18L5aEeecnuZSOoZHmg" type="3003" element="_7OQFB75aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OZ18b5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OZ18r5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OTIRr5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OTIR75aEeecnuZSOoZHmg" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OTvUr5aEeecnuZSOoZHmg" type="2001" element="_7OQFCL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OTvVb5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OTvVr5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OZ1875aEeecnuZSOoZHmg" type="3003" element="_7OQFCb5aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OZ19L5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OZ19b5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OTvU75aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OTvVL5aEeecnuZSOoZHmg" x="264" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OTvV75aEeecnuZSOoZHmg" type="2001" element="_7OQFCr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OTvWr5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OTvW75aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OZ19r5aEeecnuZSOoZHmg" type="3003" element="_7OQFC75aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OZ1975aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OZ1-L5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OTvWL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OTvWb5aEeecnuZSOoZHmg" x="516" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OTvXL5aEeecnuZSOoZHmg" type="2001" element="_7OQFDL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OUWYL5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OUWYb5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OZ1-b5aEeecnuZSOoZHmg" type="3003" element="_7OQFDb5aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OZ1-r5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OZ1-75aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OTvXb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OTvXr5aEeecnuZSOoZHmg" x="780" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OUWYr5aEeecnuZSOoZHmg" type="2001" element="_7OQFDr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OUWZb5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OUWZr5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OZ1_L5aEeecnuZSOoZHmg" type="3003" element="_7OQFD75aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OZ1_b5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OZ1_r5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OUWY75aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OUWZL5aEeecnuZSOoZHmg" x="1044" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OUWZ75aEeecnuZSOoZHmg" type="2001" element="_7OQFEL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OUWar5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OUWa75aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OadAL5aEeecnuZSOoZHmg" type="3003" element="_7OQFEb5aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OadAb5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OadAr5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OUWaL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OUWab5aEeecnuZSOoZHmg" x="1296" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OUWbL5aEeecnuZSOoZHmg" type="2001" element="_7OQFEr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OUWb75aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OUWcL5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OadA75aEeecnuZSOoZHmg" type="3001" element="_7OQFE75aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OadBr5aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OadB75aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7ObEE75aEeecnuZSOoZHmg" type="3003" element="_7OQFFL5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7ObEFL5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ObEFb5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OadBL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OadBb5aEeecnuZSOoZHmg" x="192" y="15" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OadCL5aEeecnuZSOoZHmg" type="3001" element="_7OQFFb5aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OadC75aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OadDL5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7ObEFr5aEeecnuZSOoZHmg" type="3003" element="_7OQFFr5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7ObEF75aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ObEGL5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OadCb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OadCr5aEeecnuZSOoZHmg" x="192" y="51" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7ObEEL5aEeecnuZSOoZHmg" type="3003" element="_7OQFF75aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7ObEEb5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ObEEr5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OUWbb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OUWbr5aEeecnuZSOoZHmg" x="2304" y="192" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OUWcb5aEeecnuZSOoZHmg" type="2001" element="_7OQFGL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OU9cL5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OU9cb5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7ObEGb5aEeecnuZSOoZHmg" type="3001" element="_7OQFGb5aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7ObrIL5aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7ObrIb5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OcSML5aEeecnuZSOoZHmg" type="3003" element="_7OQFGr5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OcSMb5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OcSMr5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7ObEGr5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ObEG75aEeecnuZSOoZHmg" x="192" y="12" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7ObrIr5aEeecnuZSOoZHmg" type="3001" element="_7OQFG75aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7ObrJb5aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7ObrJr5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OcSM75aEeecnuZSOoZHmg" type="3003" element="_7OQFHL5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OcSNL5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OcSNb5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7ObrI75aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ObrJL5aEeecnuZSOoZHmg" x="192" y="48" width="100" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7ObrJ75aEeecnuZSOoZHmg" type="3003" element="_7OQFHb5aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7ObrKL5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ObrKb5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OUWcr5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OUWc75aEeecnuZSOoZHmg" x="2304" y="48" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OU9cr5aEeecnuZSOoZHmg" type="2001" element="_7OQFHr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OU9db5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OU9dr5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OcSNr5aEeecnuZSOoZHmg" type="3003" element="_7OQFH75aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OcSN75aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OcSOL5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OU9c75aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OU9dL5aEeecnuZSOoZHmg" x="1560" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OU9d75aEeecnuZSOoZHmg" type="2001" element="_7OQFIL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OU9er5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OU9e75aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OcSOb5aEeecnuZSOoZHmg" type="3003" element="_7OQFIb5aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OcSOr5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OcSO75aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OU9eL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OU9eb5aEeecnuZSOoZHmg" x="1824" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OU9fL5aEeecnuZSOoZHmg" type="2001" element="_7OQFIr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OU9f75aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OU9gL5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OcSPL5aEeecnuZSOoZHmg" type="3001" element="_7OQFI75aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7OcSP75aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7OcSQL5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7Oc5SL5aEeecnuZSOoZHmg" type="3003" element="_7OQFJL5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7Oc5Sb5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oc5Sr5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OcSPb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OcSPr5aEeecnuZSOoZHmg" x="-42" y="12" width="50" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Oc5QL5aEeecnuZSOoZHmg" type="3001" element="_7OQFJb5aEeecnuZSOoZHmg">
+            <children xmi:type="notation:Node" xmi:id="_7Oc5Q75aEeecnuZSOoZHmg" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7Oc5RL5aEeecnuZSOoZHmg" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7OdgUL5aEeecnuZSOoZHmg" type="3003" element="_7OQFJr5aEeecnuZSOoZHmg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7OdgUb5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OdgUr5aEeecnuZSOoZHmg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7Oc5Qb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oc5Qr5aEeecnuZSOoZHmg" x="-42" y="48" width="50" height="30"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Oc5Rb5aEeecnuZSOoZHmg" type="3003" element="_7OQFJ75aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7Oc5Rr5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oc5R75aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OU9fb5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OU9fr5aEeecnuZSOoZHmg" x="2952" y="396" width="200" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OU9gb5aEeecnuZSOoZHmg" type="2001" element="_7OQFKL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OVkgL5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OVkgb5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OdgU75aEeecnuZSOoZHmg" type="3017" element="_7OQFKb5aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OdgVL5aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OdgVb5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OU9gr5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OU9g75aEeecnuZSOoZHmg" x="2784" y="288" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_7OVkgr5aEeecnuZSOoZHmg" type="2001" element="_7OQFKr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OVkhb5aEeecnuZSOoZHmg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_7OVkhr5aEeecnuZSOoZHmg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OdgVr5aEeecnuZSOoZHmg" type="3017" element="_7OQFK75aEeecnuZSOoZHmg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7OdgV75aEeecnuZSOoZHmg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OdgWL5aEeecnuZSOoZHmg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_7OVkg75aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OVkhL5aEeecnuZSOoZHmg" x="2556" y="516" width="30" height="30"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_7OQsA75aEeecnuZSOoZHmg"/>
+        <edges xmi:type="notation:Edge" xmi:id="_7OeHYL5aEeecnuZSOoZHmg" type="4001" element="_7OQFLL5aEeecnuZSOoZHmg" source="_7OadA75aEeecnuZSOoZHmg" target="_7OU9gb5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OeHZL5aEeecnuZSOoZHmg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OeHZb5aEeecnuZSOoZHmg" x="21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OeHZr5aEeecnuZSOoZHmg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OeHZ75aEeecnuZSOoZHmg" x="4" y="65"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OeHaL5aEeecnuZSOoZHmg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OeHab5aEeecnuZSOoZHmg" x="19"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_7OeHYb5aEeecnuZSOoZHmg" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7OeHYr5aEeecnuZSOoZHmg" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7OeHY75aEeecnuZSOoZHmg" points="[50, 0, -203, -96]$[94, 0, -159, -96]$[94, 80, -159, -16]$[238, 80, -15, -16]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7OeHar5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7OeHa75aEeecnuZSOoZHmg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_7OeHbL5aEeecnuZSOoZHmg" type="4001" element="_7OQFL75aEeecnuZSOoZHmg" source="_7OWyoL5aEeecnuZSOoZHmg" target="_7OVkgr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OeucL5aEeecnuZSOoZHmg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oeucb5aEeecnuZSOoZHmg" x="-19"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Oeucr5aEeecnuZSOoZHmg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oeuc75aEeecnuZSOoZHmg" x="-15"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OeudL5aEeecnuZSOoZHmg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oeudb5aEeecnuZSOoZHmg" x="-15" y="-10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_7OeHbb5aEeecnuZSOoZHmg" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7OeHbr5aEeecnuZSOoZHmg" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7OeHb75aEeecnuZSOoZHmg" points="[50, 2, -203, -174]$[252, 2, -1, -174]$[252, 146, -1, -30]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Oeudr5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Oeud75aEeecnuZSOoZHmg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_7OeueL5aEeecnuZSOoZHmg" type="4001" element="_7OQFMr5aEeecnuZSOoZHmg" source="_7OXZs75aEeecnuZSOoZHmg" target="_7OVkgr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OeufL5aEeecnuZSOoZHmg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oeufb5aEeecnuZSOoZHmg" x="8"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Oeufr5aEeecnuZSOoZHmg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oeuf75aEeecnuZSOoZHmg" x="56" y="-3"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OeugL5aEeecnuZSOoZHmg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Oeugb5aEeecnuZSOoZHmg" x="-40" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_7Oeueb5aEeecnuZSOoZHmg" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7Oeuer5aEeecnuZSOoZHmg" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7Oeue75aEeecnuZSOoZHmg" points="[50, 0, -203, -15]$[238, 0, -15, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7OfVgL5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7OfVgb5aEeecnuZSOoZHmg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_7OfVgr5aEeecnuZSOoZHmg" type="4001" element="_7OQFNb5aEeecnuZSOoZHmg" source="_7OYAyb5aEeecnuZSOoZHmg" target="_7OVkgr5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OfVhr5aEeecnuZSOoZHmg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OfVh75aEeecnuZSOoZHmg" x="-97"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OfViL5aEeecnuZSOoZHmg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OfVib5aEeecnuZSOoZHmg" x="-11" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OfVir5aEeecnuZSOoZHmg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OfVi75aEeecnuZSOoZHmg" x="-47"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_7OfVg75aEeecnuZSOoZHmg" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7OfVhL5aEeecnuZSOoZHmg" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7OfVhb5aEeecnuZSOoZHmg" points="[50, 0, -203, 141]$[255, 0, 2, 141]$[255, -141, 2, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7OfVjL5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7OfVjb5aEeecnuZSOoZHmg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_7OfVjr5aEeecnuZSOoZHmg" type="4001" element="_7OQFOL5aEeecnuZSOoZHmg" source="_7ObrIr5aEeecnuZSOoZHmg" target="_7OU9gb5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OfVkr5aEeecnuZSOoZHmg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7OfVk75aEeecnuZSOoZHmg" x="-187"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Of8kL5aEeecnuZSOoZHmg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8kb5aEeecnuZSOoZHmg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Of8kr5aEeecnuZSOoZHmg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8k75aEeecnuZSOoZHmg" x="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_7OfVj75aEeecnuZSOoZHmg" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7OfVkL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7OfVkb5aEeecnuZSOoZHmg" points="[50, -3, -203, -210]$[252, -3, -1, -210]$[252, 177, -1, -30]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Of8lL5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Of8lb5aEeecnuZSOoZHmg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_7Of8lr5aEeecnuZSOoZHmg" type="4001" element="_7OQFO75aEeecnuZSOoZHmg" source="_7OU9gb5aEeecnuZSOoZHmg" target="_7Oc5QL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7Of8mr5aEeecnuZSOoZHmg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8m75aEeecnuZSOoZHmg" x="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Of8nL5aEeecnuZSOoZHmg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8nb5aEeecnuZSOoZHmg" x="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Of8nr5aEeecnuZSOoZHmg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8n75aEeecnuZSOoZHmg" x="18" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_7Of8l75aEeecnuZSOoZHmg" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7Of8mL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7Of8mb5aEeecnuZSOoZHmg" points="[0, 15, -136, -141]$[0, 153, -136, -3]$[111, 153, -25, -3]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Of8oL5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Of8ob5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_7Of8or5aEeecnuZSOoZHmg" type="4001" element="_7OQFPr5aEeecnuZSOoZHmg" source="_7OVkgr5aEeecnuZSOoZHmg" target="_7Oc5QL5aEeecnuZSOoZHmg">
+          <children xmi:type="notation:Node" xmi:id="_7OgjoL5aEeecnuZSOoZHmg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Ogjob5aEeecnuZSOoZHmg" x="58" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7Ogjor5aEeecnuZSOoZHmg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Ogjo75aEeecnuZSOoZHmg" x="160" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_7OgjpL5aEeecnuZSOoZHmg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Ogjpb5aEeecnuZSOoZHmg" x="15" y="-42"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_7Of8o75aEeecnuZSOoZHmg" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_7Of8pL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7Of8pb5aEeecnuZSOoZHmg" points="[15, -3, -349, 69]$[357, -3, -7, 69]$[357, -57, -7, 15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Ogjpr5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Ogjp75aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQE9L5aEeecnuZSOoZHmg" name="A_Light_Switch_1" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.0"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.0"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQE9b5aEeecnuZSOoZHmg" name="CLOSED" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.0/@states.0"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.0/@states.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQE9r5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQE975aEeecnuZSOoZHmg" name="OPEN" outgoingEdges="_7OQFL75aEeecnuZSOoZHmg" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.0/@states.1"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.0/@states.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQE-L5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQE-b5aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQE-r5aEeecnuZSOoZHmg" name="A_Light_Switch_2" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.1"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.1"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQE-75aEeecnuZSOoZHmg" name="OPEN" outgoingEdges="_7OQFMr5aEeecnuZSOoZHmg" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.1/@states.0"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.1/@states.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQE_L5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQE_b5aEeecnuZSOoZHmg" name="CLOSED" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.1/@states.1"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.1/@states.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQE_r5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQE_75aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFAL5aEeecnuZSOoZHmg" name="A_Light_Switch_3" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.2"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.2"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQFAb5aEeecnuZSOoZHmg" name="OPEN" outgoingEdges="_7OQFNb5aEeecnuZSOoZHmg" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.2/@states.0"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.2/@states.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFAr5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQFA75aEeecnuZSOoZHmg" name="CLOSED" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.2/@states.1"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.2/@states.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFBL5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFBb5aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFBr5aEeecnuZSOoZHmg" name="A_Light_Switch_Dimmer_1_Up" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.3"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.3"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFB75aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFCL5aEeecnuZSOoZHmg" name="A_Light_Switch_Dimmer_1_Down" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.4"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.4"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFCb5aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFCr5aEeecnuZSOoZHmg" name="A_Light_Switch_Dimmer_2_Up" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.5"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.5"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFC75aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFDL5aEeecnuZSOoZHmg" name="A_Light_Switch_Dimmer_2_Down" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.6"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.6"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFDb5aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFDr5aEeecnuZSOoZHmg" name="A_Light_Switch_Dimmer_3_Up" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.7"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.7"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFD75aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFEL5aEeecnuZSOoZHmg" name="A_Light_Switch_Dimmer_3_Down" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.8"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.8"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFEb5aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFEr5aEeecnuZSOoZHmg" name="A_Motion_Detector" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.9"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.9"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQFE75aEeecnuZSOoZHmg" name="MOTION" outgoingEdges="_7OQFLL5aEeecnuZSOoZHmg" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.9/@states.0"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.9/@states.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFFL5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQFFb5aEeecnuZSOoZHmg" name="NOMOTION" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.9/@states.1"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.9/@states.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFFr5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFF75aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFGL5aEeecnuZSOoZHmg" name="A_Brightness_Sensor" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.10"/>
+      <semanticElements xmi:type="smarthome:ContactItem" href="HomeIO_Rules.smarthome#//@items.10"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQFGb5aEeecnuZSOoZHmg" name="BRIGHTNESS" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.10/@states.0"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.10/@states.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFGr5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQFG75aEeecnuZSOoZHmg" name="DARKNESS" outgoingEdges="_7OQFOL5aEeecnuZSOoZHmg" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.10/@states.1"/>
+        <semanticElements xmi:type="smarthome:State" href="HomeIO_Rules.smarthome#//@items.10/@states.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFHL5aEeecnuZSOoZHmg" labelPosition="node" width="10" height="3" color="252,175,62">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFHb5aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFHr5aEeecnuZSOoZHmg" name="O_Lights_Porch_1" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:SwitchItem" href="HomeIO_Rules.smarthome#//@items.11"/>
+      <semanticElements xmi:type="smarthome:SwitchItem" href="HomeIO_Rules.smarthome#//@items.11"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFH75aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFIL5aEeecnuZSOoZHmg" name="O_Lights_Porch_2" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:SwitchItem" href="HomeIO_Rules.smarthome#//@items.12"/>
+      <semanticElements xmi:type="smarthome:SwitchItem" href="HomeIO_Rules.smarthome#//@items.12"/>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFIb5aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFIr5aEeecnuZSOoZHmg" name="A_Lights_Analog" width="20" height="10" resizeKind="NSEW">
+      <target xmi:type="smarthome:DimmerItem" href="HomeIO_Rules.smarthome#//@items.13"/>
+      <semanticElements xmi:type="smarthome:DimmerItem" href="HomeIO_Rules.smarthome#//@items.13"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQFI75aEeecnuZSOoZHmg" name="OFF" width="5" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.0"/>
+        <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFJL5aEeecnuZSOoZHmg" labelPosition="node" width="5" height="3" color="194,239,255">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']"/>
+      </ownedBorderedNodes>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7OQFJb5aEeecnuZSOoZHmg" name="ON" incomingEdges="_7OQFO75aEeecnuZSOoZHmg _7OQFPr5aEeecnuZSOoZHmg" width="5" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.1"/>
+        <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.1"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFJr5aEeecnuZSOoZHmg" labelPosition="node" width="5" height="3" color="194,239,255">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Square" xmi:id="_7OQFJ75aEeecnuZSOoZHmg" labelPosition="node" width="20" height="10">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFKL5aEeecnuZSOoZHmg" outgoingEdges="_7OQFO75aEeecnuZSOoZHmg" incomingEdges="_7OQFLL5aEeecnuZSOoZHmg _7OQFOL5aEeecnuZSOoZHmg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="smarthome:EvaluatingNode" href="HomeIO_Rules.smarthome#//@rules.0"/>
+      <semanticElements xmi:type="smarthome:EvaluatingNode" href="HomeIO_Rules.smarthome#//@rules.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Lozenge" xmi:id="_7OQFKb5aEeecnuZSOoZHmg" labelPosition="node" color="252,233,79">
+        <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='EvaluatingNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='EvaluatingNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7OQFKr5aEeecnuZSOoZHmg" outgoingEdges="_7OQFPr5aEeecnuZSOoZHmg" incomingEdges="_7OQFL75aEeecnuZSOoZHmg _7OQFMr5aEeecnuZSOoZHmg _7OQFNb5aEeecnuZSOoZHmg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="smarthome:EvaluatingNode" href="HomeIO_Rules.smarthome#//@rules.1"/>
+      <semanticElements xmi:type="smarthome:EvaluatingNode" href="HomeIO_Rules.smarthome#//@rules.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:Lozenge" xmi:id="_7OQFK75aEeecnuZSOoZHmg" labelPosition="node" color="252,233,79">
+        <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='EvaluatingNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='EvaluatingNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7OQFLL5aEeecnuZSOoZHmg" sourceNode="_7OQFE75aEeecnuZSOoZHmg" targetNode="_7OQFKL5aEeecnuZSOoZHmg">
+      <target xmi:type="smarthome:StateChangeConnection" href="HomeIO_Rules.smarthome#//@rules.0/@events.0"/>
+      <semanticElements xmi:type="smarthome:StateChangeConnection" href="HomeIO_Rules.smarthome#//@rules.0/@events.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7OQFLb5aEeecnuZSOoZHmg" size="2" routingStyle="manhattan" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_7OQFLr5aEeecnuZSOoZHmg" labelColor="239,41,41"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7OQFL75aEeecnuZSOoZHmg" sourceNode="_7OQE975aEeecnuZSOoZHmg" targetNode="_7OQFKr5aEeecnuZSOoZHmg">
+      <target xmi:type="smarthome:StateChangeConnection" href="HomeIO_Rules.smarthome#//@rules.1/@events.0"/>
+      <semanticElements xmi:type="smarthome:StateChangeConnection" href="HomeIO_Rules.smarthome#//@rules.1/@events.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7OQFML5aEeecnuZSOoZHmg" size="2" routingStyle="manhattan" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_7OQFMb5aEeecnuZSOoZHmg" labelColor="239,41,41"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7OQFMr5aEeecnuZSOoZHmg" sourceNode="_7OQE-75aEeecnuZSOoZHmg" targetNode="_7OQFKr5aEeecnuZSOoZHmg">
+      <target xmi:type="smarthome:StateChangeConnection" href="HomeIO_Rules.smarthome#//@rules.1/@events.1"/>
+      <semanticElements xmi:type="smarthome:StateChangeConnection" href="HomeIO_Rules.smarthome#//@rules.1/@events.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7OQFM75aEeecnuZSOoZHmg" size="2" routingStyle="manhattan" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_7OQFNL5aEeecnuZSOoZHmg" labelColor="239,41,41"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7OQFNb5aEeecnuZSOoZHmg" sourceNode="_7OQFAb5aEeecnuZSOoZHmg" targetNode="_7OQFKr5aEeecnuZSOoZHmg">
+      <target xmi:type="smarthome:StateChangeConnection" href="HomeIO_Rules.smarthome#//@rules.1/@events.2"/>
+      <semanticElements xmi:type="smarthome:StateChangeConnection" href="HomeIO_Rules.smarthome#//@rules.1/@events.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7OQFNr5aEeecnuZSOoZHmg" size="2" routingStyle="manhattan" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_7OQFN75aEeecnuZSOoZHmg" labelColor="239,41,41"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7OQFOL5aEeecnuZSOoZHmg" sourceNode="_7OQFG75aEeecnuZSOoZHmg" targetNode="_7OQFKL5aEeecnuZSOoZHmg">
+      <target xmi:type="smarthome:FilterConnection" href="HomeIO_Rules.smarthome#//@rules.0/@filters.0"/>
+      <semanticElements xmi:type="smarthome:FilterConnection" href="HomeIO_Rules.smarthome#//@rules.0/@filters.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7OQFOb5aEeecnuZSOoZHmg" size="2" routingStyle="manhattan" strokeColor="173,127,168">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='FilterConnectionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_7OQFOr5aEeecnuZSOoZHmg"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='FilterConnectionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7OQFO75aEeecnuZSOoZHmg" sourceNode="_7OQFKL5aEeecnuZSOoZHmg" targetNode="_7OQFJb5aEeecnuZSOoZHmg">
+      <target xmi:type="smarthome:CommandConnection" href="HomeIO_Rules.smarthome#//@rules.0/@commands.0"/>
+      <semanticElements xmi:type="smarthome:CommandConnection" href="HomeIO_Rules.smarthome#//@rules.0/@commands.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7OQFPL5aEeecnuZSOoZHmg" size="2" routingStyle="manhattan" strokeColor="194,239,255">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='CommandConnectionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_7OQFPb5aEeecnuZSOoZHmg"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='CommandConnectionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7OQFPr5aEeecnuZSOoZHmg" sourceNode="_7OQFKr5aEeecnuZSOoZHmg" targetNode="_7OQFJb5aEeecnuZSOoZHmg">
+      <target xmi:type="smarthome:CommandConnection" href="HomeIO_Rules.smarthome#//@rules.1/@commands.0"/>
+      <semanticElements xmi:type="smarthome:CommandConnection" href="HomeIO_Rules.smarthome#//@rules.1/@commands.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7OQFP75aEeecnuZSOoZHmg" size="2" routingStyle="manhattan" strokeColor="194,239,255">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='CommandConnectionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_7OQFQL5aEeecnuZSOoZHmg"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='CommandConnectionEdge']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_7OQFQb5aEeecnuZSOoZHmg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer"/>
+    <target xmi:type="smarthome:SmartHome" href="HomeIO_Rules.smarthome#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
