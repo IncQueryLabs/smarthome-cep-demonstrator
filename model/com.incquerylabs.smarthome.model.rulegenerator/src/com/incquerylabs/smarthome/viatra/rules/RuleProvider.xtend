@@ -1,7 +1,6 @@
 package com.incquerylabs.smarthome.viatra.rules
 
 import org.eclipse.core.resources.ResourcesPlugin
-import com.incquerylabs.smarthome.viatra.RulesMatcher
 import com.incquerylabs.smarthome.viatra.SmartHomeRulesMatcher
 import org.apache.log4j.Logger
 import org.eclipse.viatra.query.runtime.api.IPatternMatch
@@ -13,6 +12,7 @@ import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransforma
 import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransformationRuleFactory
 import org.eclipse.core.resources.IResource
 import java.io.ByteArrayInputStream
+import com.incquerylabs.smarthome.viatra.GeneralRulesMatcher
 
 class RuleProvider {
 
@@ -21,8 +21,9 @@ class RuleProvider {
     extension Logger logger = Logger.getLogger("smarthome.viatra")
 
     BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> smarthomeRule
-    BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> rulesRule
-
+    BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> generalRulesRule
+	BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> changeStateRulesRule
+	
     private var ruleId = 0;
     private static final String destinationProject = "com.incquerylabs.smarthome.model.rules";
     private static final String rulePackageName = "genrules";
@@ -74,9 +75,9 @@ class RuleProvider {
         return smarthomeRule
     }
 
-    public def getRulesRule() {
-        if (rulesRule === null) {
-            rulesRule = createRule.name("FilterRule").precondition(RulesMatcher.querySpecification).action [
+    public def getGeneralRulesRule() {
+        if (generalRulesRule === null) {
+            generalRulesRule = createRule.name("FilterRule").precondition(GeneralRulesMatcher.querySpecification).action [
                 val node = it.evaluatingNode;
                 ruleId++;
                 
@@ -113,6 +114,55 @@ class RuleProvider {
 
             ].build
         }
-        return rulesRule
+        return generalRulesRule
+    }
+    
+        public def getChangeStateRulesRule() {
+        if (changeStateRulesRule === null) {
+            changeStateRulesRule = createRule.name("FilterRule").precondition(GeneralRulesMatcher.querySpecification).action [
+                val node = it.evaluatingNode;
+                ruleId++;
+                
+                var i = 1
+                var j = 1
+                
+                val ruleName = '''Rule_«ruleId»'''
+                val rule = 
+                '''
+                    package «rulePackageName»
+                    
+                    rule "«ruleName»"
+                        when 
+                             «FOR command : node.commands»
+                                 Item( name == "«command.item.name»", $itemState«i++» : state )
+                             «ENDFOR»
+                             
+                             «FOR filter : node.filters»
+                                 Item( name == "«filter.item.name»", state == «filter.requiredState.state» )
+                             «ENDFOR»
+                             
+                             ItemStateChangedEvent( 
+                             «FOR event : node.events SEPARATOR ' || '»
+                                 ( name == "«event.item.name»" && newState == «event.newState.state» )
+                             «ENDFOR» 
+                             )
+                             
+                         then
+                            «FOR command : node.commands»
+                            if($itemState«j++» == ON) {
+                                openhab.postCommand("«command.item.name»", OFF);
+                            } else {
+                            	openhab.postCommand("«command.item.name»", ON);
+                            }
+                            «ENDFOR»
+                    end
+                '''
+                
+                debug(rule)
+                writeToFile(ruleName+".drl",rule)
+
+            ].build
+        }
+        return changeStateRulesRule
     }
 }

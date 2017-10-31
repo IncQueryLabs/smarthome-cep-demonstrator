@@ -2,7 +2,9 @@
   <extension id="com.incquerylabs.smarthome.viatra.Example" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:com.incquerylabs.smarthome.viatra.Example" id="com.incquerylabs.smarthome.viatra.Example">
       <query-specification fqn="com.incquerylabs.smarthome.viatra.smartHomeRules"/>
-      <query-specification fqn="com.incquerylabs.smarthome.viatra.rules"/>
+      <query-specification fqn="com.incquerylabs.smarthome.viatra.changeStateCommand"/>
+      <query-specification fqn="com.incquerylabs.smarthome.viatra.changeStateRules"/>
+      <query-specification fqn="com.incquerylabs.smarthome.viatra.generalRules"/>
     </group>
   </extension>
   <extension id="queryrunner" point="org.eclipse.core.runtime.applications">
