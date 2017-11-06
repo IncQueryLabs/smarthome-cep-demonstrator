@@ -13,6 +13,8 @@ import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransforma
 import org.eclipse.core.resources.IResource
 import java.io.ByteArrayInputStream
 import com.incquerylabs.smarthome.viatra.GeneralRulesMatcher
+import com.incquerylabs.smarthome.viatra.ChangeStateRulesMatcher
+import com.incquerylabs.smarthome.viatra.ChangeStateAnalogRulesMatcher
 
 class RuleProvider {
 
@@ -23,6 +25,7 @@ class RuleProvider {
     BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> smarthomeRule
     BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> generalRulesRule
 	BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> changeStateRulesRule
+	BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> changeStateAnalogRulesRule
 	
     private var ruleId = 0;
     private static final String destinationProject = "com.incquerylabs.smarthome.model.rules";
@@ -77,7 +80,7 @@ class RuleProvider {
 
     public def getGeneralRulesRule() {
         if (generalRulesRule === null) {
-            generalRulesRule = createRule.name("FilterRule").precondition(GeneralRulesMatcher.querySpecification).action [
+            generalRulesRule = createRule.name("GeneralRule").precondition(GeneralRulesMatcher.querySpecification).action [
                 val node = it.evaluatingNode;
                 ruleId++;
                 
@@ -119,7 +122,7 @@ class RuleProvider {
     
         public def getChangeStateRulesRule() {
         if (changeStateRulesRule === null) {
-            changeStateRulesRule = createRule.name("FilterRule").precondition(GeneralRulesMatcher.querySpecification).action [
+            changeStateRulesRule = createRule.name("ChangeStateRule").precondition(ChangeStateRulesMatcher.querySpecification).action [
                 val node = it.evaluatingNode;
                 ruleId++;
                 
@@ -164,5 +167,54 @@ class RuleProvider {
             ].build
         }
         return changeStateRulesRule
+    }
+    
+    public def getChangeStateAnalogRulesRule() {
+        if (changeStateAnalogRulesRule === null) {
+            changeStateAnalogRulesRule = createRule.name("ChangeStateRule").precondition(ChangeStateAnalogRulesMatcher.querySpecification).action [
+                val node = it.evaluatingNode;
+                ruleId++;
+                
+                var i = 1
+                var j = 1
+                
+                val ruleName = '''Rule_«ruleId»'''
+                val rule = 
+                '''
+                    package «rulePackageName»
+                    
+                    rule "«ruleName»"
+                        when 
+                             «FOR command : node.commands»
+                                 Item( name == "«command.item.name»", $itemState«i++» : state )
+                             «ENDFOR»
+                             
+                             «FOR filter : node.filters»
+                                 Item( name == "«filter.item.name»", state == «filter.requiredState.state» )
+                             «ENDFOR»
+                             
+                             ItemStateChangedEvent( 
+                             «FOR event : node.events SEPARATOR ' || '»
+                                 ( name == "«event.item.name»" && newState == «event.newState.state» )
+                             «ENDFOR» 
+                             )
+                             
+                         then
+                            «FOR command : node.commands»
+                            if($itemState«j++».equals(HUNDRED)) {
+                                openhab.postCommand("«command.item.name»", OFF);
+                            } else {
+                            	openhab.postCommand("«command.item.name»", ON);
+                            }
+                            «ENDFOR»
+                    end
+                '''
+                
+                debug(rule)
+                writeToFile(ruleName+".drl",rule)
+
+            ].build
+        }
+        return changeStateAnalogRulesRule
     }
 }

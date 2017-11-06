@@ -31,7 +31,7 @@
   <items xsi:type="smarthome:DimmerItem" name="A_Lights_Analog">
     <accaptedCommands command="OFF"/>
     <accaptedCommands command="ON"/>
-    <accaptedCommands command="CHANGE_STATE"/>
+    <accaptedCommands command="CHANGE_STATE_ANALOG"/>
   </items>
   <rules>
     <events newState="//@items.9/@states.0" item="//@items.9"/>

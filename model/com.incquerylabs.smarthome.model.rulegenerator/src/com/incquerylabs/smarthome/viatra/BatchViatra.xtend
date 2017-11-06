@@ -100,6 +100,7 @@ class BatchViatra {
         smarthomeRule.fireAllCurrent
         generalRulesRule.fireAllCurrent
         changeStateRulesRule.fireAllCurrent
+        changeStateAnalogRulesRule.fireAllCurrent
         println("Executed queries")
     }
     

@@ -425,17 +425,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_7Of8lr5aEeecnuZSOoZHmg" type="4001" element="_7OQFO75aEeecnuZSOoZHmg" source="_7OU9gb5aEeecnuZSOoZHmg" target="_7Oc5QL5aEeecnuZSOoZHmg">
           <children xmi:type="notation:Node" xmi:id="_7Of8mr5aEeecnuZSOoZHmg" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8m75aEeecnuZSOoZHmg" x="7"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8m75aEeecnuZSOoZHmg" x="12"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_7Of8nL5aEeecnuZSOoZHmg" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8nb5aEeecnuZSOoZHmg" x="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8nb5aEeecnuZSOoZHmg" x="12"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_7Of8nr5aEeecnuZSOoZHmg" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8n75aEeecnuZSOoZHmg" x="18" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7Of8n75aEeecnuZSOoZHmg" x="16" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_7Of8l75aEeecnuZSOoZHmg" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_7Of8mL5aEeecnuZSOoZHmg" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7Of8mb5aEeecnuZSOoZHmg" points="[0, 15, -136, -141]$[0, 153, -136, -3]$[111, 153, -25, -3]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7Of8mb5aEeecnuZSOoZHmg" points="[-3, 15, -114, -141]$[-3, 153, -114, -3]$[61, 153, -50, -3]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Of8oL5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7Of8ob5aEeecnuZSOoZHmg" id="(0.5,0.5)"/>
         </edges>
@@ -711,7 +711,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_apfxkL5gEeecnuZSOoZHmg" name="CHANGE_STATE" incomingEdges="_inxPsL5gEeecnuZSOoZHmg" width="10" height="3" resizeKind="NSEW">
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_apfxkL5gEeecnuZSOoZHmg" name="CHANGE_STATE_ANALOG" incomingEdges="_inxPsL5gEeecnuZSOoZHmg" width="10" height="3" resizeKind="NSEW">
         <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.2"/>
         <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.2"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
