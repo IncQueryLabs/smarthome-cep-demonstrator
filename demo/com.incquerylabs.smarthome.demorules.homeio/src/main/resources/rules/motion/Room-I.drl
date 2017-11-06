@@ -1,0 +1,15 @@
+package homeioexample
+
+
+rule "I Lights Motion"
+    when
+        $light1 : Item( name == "I_Lights_1_Analog", $lightState : state)
+        $light2 : Item( name == "I_Lights_2_Analog")
+
+        ItemStateChangedEvent( name == "I_Motion_Detector", $motionDetectorState : newState)
+    then
+        if ($lightState.equals(ZERO) && $motionDetectorState == MOTION) {
+            openhab.postCommand($light1, ON);
+            openhab.postCommand($light2, ON);
+        }
+end

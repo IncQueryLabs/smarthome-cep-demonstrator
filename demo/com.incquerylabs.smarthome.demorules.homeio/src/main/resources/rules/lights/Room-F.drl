@@ -1,0 +1,17 @@
+package homeioexample
+
+rule "F Lights Switch"
+    when
+        $item1 : Item( name == "F_Lights_1_Analog", $state1 : state)
+        $item2 : Item( name == "F_Lights_2_Analog")
+
+        $itemState : ItemStateChangedEvent( name == "F_Light_Switch_2" , newState == OPEN)
+    then
+        if ($state1.equals(HUNDRED)) {
+            openhab.postCommand($item1, OFF);
+            openhab.postCommand($item2, OFF);
+        } else {
+            openhab.postCommand($item1, ON);
+            openhab.postCommand($item2, ON);
+        }
+end

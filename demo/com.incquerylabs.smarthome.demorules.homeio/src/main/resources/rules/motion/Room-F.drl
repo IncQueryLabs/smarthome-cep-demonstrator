@@ -3,8 +3,8 @@ package homeioexample
 /*
 rule "F Lights Motion"
     when
-        $light1 : Item( name == "F_Lights_1_Analog")
-        $light2 : Item( name == "F_Lights_2_Analog", $lightState : state)
+        $light1 : Item( name == "F_Lights_1_Analog", $lightState : state)
+        $light2 : Item( name == "F_Lights_2_Analog")
         Item( name == "F_Brightness_Sensor", $brightnessSensorState: state)
 
         ItemStateChangedEvent( name == "F_Motion_Detector", $motionDetectorState : newState)

@@ -1,0 +1,32 @@
+package homeioexample
+
+
+rule "H RollerShades"
+    when
+        Item( name == "H_Roller_Shades_Up", $stateUp : state)
+        Item( name == "H_Roller_Shades_Down", $stateDown : state) 
+
+        $itemState : ItemStateChangedEvent( (
+        name == "H_Up_Down_Switch_Up" || 
+        name == "H_Up_Down_Switch_Down") && 
+        newState == OPEN )
+    then
+        if($itemState.getName().equals("H_Up_Down_Switch_Up") ) {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("H_Roller_Shades_Up", ON);
+            }
+            else {
+                openhab.postCommand("H_Roller_Shades_Down", OFF);
+            }
+        }
+        else {
+
+            if( $stateUp == OFF && $stateDown == OFF) {
+                openhab.postCommand("H_Roller_Shades_Down", ON);
+            }
+            else {
+                openhab.postCommand("H_Roller_Shades_Up", OFF);
+            }
+        }
+end

@@ -1,0 +1,14 @@
+package homeioexample
+
+
+rule "L Lights Motion"
+    when
+        $light : Item( name == "L_Lights_Analog", $lightState : state)
+        Item( name == "L_Brightness_Sensor", $brightnessSensorState: state)
+
+        ItemStateChangedEvent( name == "L_Motion_Detector", $motionDetectorState : newState)
+    then
+        if ($lightState.equals(ZERO) && $motionDetectorState == MOTION && $brightnessSensorState == DARKNESS) {
+            openhab.postCommand($light, ON);
+        }
+end

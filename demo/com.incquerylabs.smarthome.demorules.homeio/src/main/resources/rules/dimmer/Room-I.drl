@@ -1,0 +1,35 @@
+package homeioexample
+
+rule "I Lights Switch Dimmer Up"
+    when
+        $item : Item( name == "I_Lights_2_Analog", $state : state) 
+
+        $itemStateOpen : ItemStateChangedEvent( 
+        name == "I_Light_Switch_Dimmer_Up" && 
+        newState == OPEN )
+
+    then
+        openhab.timedCommand(TimedDimmer.create($item, INCREASE, 2 , 1000, 50));
+end
+
+
+rule "I Lights Switch Dimmer Down"
+    when
+        $item : Item( name == "I_Lights_2_Analog", $state : state) 
+
+        $itemStateOpen : ItemStateChangedEvent(
+        name == "I_Light_Switch_Dimmer_Down" && 
+        newState == OPEN )
+
+    then
+        openhab.timedCommand(TimedDimmer.create($item, DECREASE, 2 , 1000, 50));
+end
+
+
+rule "I Dimmer off"
+    when
+        $itemState : ItemStateChangedEvent( name matches "I_Light_Switch_Dimmer.*", newState == CLOSED )
+    
+    then
+        openhab.stopTimedCommand("I_Lights_2_Analog");
+end
