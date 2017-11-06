@@ -10,6 +10,7 @@ import org.eclipse.smarthome.core.events.EventSubscriber;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.items.ItemNotFoundException;
 import org.eclipse.smarthome.core.items.ItemRegistry;
+import org.eclipse.smarthome.core.items.events.GroupItemStateChangedEvent;
 import org.eclipse.smarthome.core.items.events.ItemAddedEvent;
 import org.eclipse.smarthome.core.items.events.ItemCommandEvent;
 import org.eclipse.smarthome.core.items.events.ItemRemovedEvent;
@@ -39,6 +40,7 @@ public class EshEventSubscriber implements EventSubscriber {
         types.add(ItemUpdatedEvent.TYPE);
         types.add(ItemAddedEvent.TYPE);
         types.add(ItemRemovedEvent.TYPE);
+        types.add(GroupItemStateChangedEvent.TYPE);
         return types;
     }
 
@@ -55,10 +57,14 @@ public class EshEventSubscriber implements EventSubscriber {
 
                 itemCommandEvent((ItemCommandEvent) event);
 
+            } else if (event instanceof GroupItemStateChangedEvent) {
+
+            	groupItemStateChangedEvent((GroupItemStateChangedEvent) event);
+            	
             } else if (event instanceof ItemStateChangedEvent) {
-
-                itemStateChangedEvent((ItemStateChangedEvent) event);
-
+            	
+            	itemStateChangedEvent((ItemStateChangedEvent) event);
+            	
             } else if (event instanceof ItemAddedEvent) {
 
                 itemAddedEvent((ItemAddedEvent) event);
@@ -94,6 +100,20 @@ public class EshEventSubscriber implements EventSubscriber {
     }
 
     private void itemStateChangedEvent(ItemStateChangedEvent event) throws ItemNotFoundException {
+
+        String itemName = event.getItemName();
+        State state = event.getItemState();
+        State oldState = event.getOldItemState();
+
+        Item item = itemRegistry.getItem(itemName);
+
+        for (IEventSubscriber subscriber : eventSubscribers) {
+            subscriber.stateChanged(item, state, oldState);
+        }
+        logger.debug(event.toString());
+    }
+    
+    private void groupItemStateChangedEvent(GroupItemStateChangedEvent event) throws ItemNotFoundException {
 
         String itemName = event.getItemName();
         State state = event.getItemState();
