@@ -7,7 +7,7 @@ import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;
 import org.junit.Before;
 
-import com.incquerylabs.smarthome.demorules.homeio.DrlLoader;
+import com.incquerylabs.smarthome.demorules.homeio.RuleLoader;
 import com.incquerylabs.smarthome.droolsbundle.DroolsEventBusClient;
 
 import junit.framework.TestCase;
@@ -30,7 +30,7 @@ public abstract class BaseTest extends TestCase {
         eventBus = new EventBusMock();
         drools = new DroolsEventBusClient();
         drools.setEventPublisher(eventBus);
-        drools.setDrlLoader(new DrlLoader());
+        drools.setRuleLoader(new RuleLoader());
 
         LinkedList<Item> tesetItems = getTestItems();
 

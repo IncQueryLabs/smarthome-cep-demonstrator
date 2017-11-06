@@ -1,5 +1,5 @@
 package homeioexample
-
+/*
 declare SunriseDuration
     @role( event )
 end
@@ -52,3 +52,4 @@ rule "Sunrise once event end"
     then
         retract($sunriseOnce);
 end
+*/

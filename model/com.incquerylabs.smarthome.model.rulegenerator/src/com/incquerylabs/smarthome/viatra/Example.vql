@@ -1,0 +1,36 @@
+package com.incquerylabs.smarthome.viatra
+
+import "http://www.example.org/smarthome"
+
+pattern smartHomeRules(smarthome : SmartHome, evaluatingNode : EvaluatingNode) {
+    SmartHome.rules(smarthome, evaluatingNode);
+}
+
+pattern changeStateCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command) {
+	EvaluatingNode.commands(evaluatingNode, commandConnection);
+	CommandConnection.command(commandConnection,command);
+	Command.command(command,"CHANGE_STATE");
+}
+
+pattern changeStateAnalogCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command) {
+	EvaluatingNode.commands(evaluatingNode, commandConnection);
+	CommandConnection.command(commandConnection,command);
+	Command.command(command,"CHANGE_STATE_ANALOG");
+}
+
+pattern changeStateRules(evaluatingNode : EvaluatingNode) {
+	EvaluatingNode(evaluatingNode);
+	find changeStateCommand(evaluatingNode,_,_);
+}
+
+pattern changeStateAnalogRules(evaluatingNode : EvaluatingNode) {
+	EvaluatingNode(evaluatingNode);
+	find changeStateAnalogCommand(evaluatingNode,_,_);
+}
+
+
+pattern generalRules(evaluatingNode : EvaluatingNode) {
+    EvaluatingNode(evaluatingNode);
+    neg find changeStateCommand(evaluatingNode,_,_);
+    neg find changeStateAnalogCommand(evaluatingNode,_,_);
+}

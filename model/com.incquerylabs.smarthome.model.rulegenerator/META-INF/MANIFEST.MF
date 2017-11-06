@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rule generator
+Bundle-SymbolicName: com.incquerylabs.smarthome.model.rulegenerator;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-ClassPath: .
+Export-Package: com.incquerylabs.smarthome.viatra,
+  com.incquerylabs.smarthome.viatra.util
+Require-Bundle: org.eclipse.emf.ecore,
+  org.eclipse.viatra.query.runtime,
+  org.eclipse.xtext.xbase.lib,
+  com.incquerylabs.smarthome.model.simple;bundle-version="0.1.0",
+  org.eclipse.viatra.transformation.runtime.emf;bundle-version="1.6.1",
+  org.eclipse.emf.ecore.xmi;bundle-version="2.13.0",
+  org.eclipse.core.runtime;bundle-version="3.13.0",
+  org.eclipse.core.resources;bundle-version="3.12.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.apache.log4j

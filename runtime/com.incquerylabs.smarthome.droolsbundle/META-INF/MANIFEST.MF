@@ -3,6 +3,7 @@ Bnd-LastModified: 1505214373379
 Build-Jdk: 1.8.0_144
 Built-By: dandrid
 Bundle-ClassPath: .,
+ src/main/resources/,
  lib/antlr-runtime-3.5.2.jar,
  lib/com.google.gson-2.7.0.v20170129-0911.jar,
  lib/com.google.guava-15.0.0.v201403281430.jar,

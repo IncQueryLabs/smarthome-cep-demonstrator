@@ -10,6 +10,7 @@ package com.incquerylabs.smarthome.binding.eventbus.handler;
 
 import static com.incquerylabs.smarthome.binding.eventbus.EventBusBindingConstants.CHANNEL_1;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.smarthome.core.thing.ChannelUID;
 import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingStatus;
@@ -29,7 +30,7 @@ public class EventBusHandler extends BaseThingHandler {
     @SuppressWarnings("unused")
     private final Logger logger = LoggerFactory.getLogger(EventBusHandler.class);
 
-    public EventBusHandler(Thing thing) {
+    public EventBusHandler(@NonNull Thing thing) {
         super(thing);
     }
 

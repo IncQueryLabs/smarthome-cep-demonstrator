@@ -1,6 +1,6 @@
 package homeioexample
 
-
+/*
 rule "F Lights Motion"
     when
         $light1 : Item( name == "F_Lights_1_Analog")
@@ -14,3 +14,4 @@ rule "F Lights Motion"
             openhab.postCommand($light2, ON);
         }
 end
+*/

@@ -1,8 +1,8 @@
 package homeioexample
-
+/*
 rule "A Lights Switch Dimmer Up"
     when
-        $item : Item( name == "A_Lights_Analog", $state : state) 
+        $item : Item( name == "A_Lights_Analog" ) 
 
         $itemStateOpen : ItemStateChangedEvent( ( 
         name == "A_Light_Switch_Dimmer_1_Up" || 
@@ -30,10 +30,13 @@ rule "A Lights Switch Dimmer Down"
 end
 
 
+
 rule "A Dimmer off"
     when
-        $itemState : ItemStateChangedEvent( name matches "A_Light_Switch_Dimmer.*", newState == CLOSED )
+        $itemState : ItemStateChangedEvent($name : name matches "A_Light_Switch_Dimmer.*", newState == CLOSED )
     
     then
         openhab.stopTimedCommand("A_Lights_Analog");
 end
+
+*/

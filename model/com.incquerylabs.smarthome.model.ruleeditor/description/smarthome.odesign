@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="smarthome" version="12.0.0.2017041100">
+  <ownedViewpoints name="Rule Creator" modelFileExtension="smarthome">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Rule Creator Diagram" domainClass="smarthome::SmartHome" enablePopupBars="true">
+      <metamodel href="http://www.example.org/smarthome#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="ItemNode" semanticCandidatesExpression="feature:items" domainClass="smarthome::Item">
+          <borderedNodeMappings name="StatesNode" semanticCandidatesExpression="feature:states" domainClass="smarthome::State">
+            <style xsi:type="style:SquareDescription" labelExpression="feature:state" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="CommandNode" semanticCandidatesExpression="feature:accaptedCommands" domainClass="smarthome::Command">
+            <style xsi:type="style:SquareDescription" labelExpression="feature:command" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="EvaluatingNode" semanticCandidatesExpression="feature:rules" domainClass="smarthome::EvaluatingNode">
+          <style xsi:type="style:LozengeNodeDescription" labelExpression="" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="StateChangeConnectionEdge" sourceMapping="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']" targetMapping="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='EvaluatingNode']" targetFinderExpression="aql:self.eContainer()" sourceFinderExpression="[newState/]" domainClass="smarthome::StateChangeConnection" useDomainElement="true">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="FilterConnectionEdge" sourceMapping="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']" targetMapping="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='EvaluatingNode']" targetFinderExpression="aql:self.eContainer()" sourceFinderExpression="[requiredState/]" domainClass="smarthome::FilterConnection" useDomainElement="true">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CommandConnectionEdge" sourceMapping="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='EvaluatingNode']" targetMapping="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']" targetFinderExpression="[command/]" sourceFinderExpression="aql:self.eContainer()" domainClass="smarthome::CommandConnection" useDomainElement="true">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createState" nodeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='StatesNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::State" referenceName="states"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCommand" nodeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::Command" referenceName="accaptedCommands"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createEvaluatingNode" nodeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='EvaluatingNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::EvaluatingNode" referenceName="rules"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createSwitchItem" nodeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::SwitchItem" referenceName="items"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createContactItem" nodeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::ContactItem" referenceName="items"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createDimmerItem" nodeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::DimmerItem" referenceName="items"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createNumberItem" nodeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::NumberItem" referenceName="items"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createStateChangeConnection" edgeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='StateChangeConnectionEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::StateChangeConnection" referenceName="events" variableName="stateChangeInstance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:stateChangeInstance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="newState" valueExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="item" valueExpression="aql:source.eContainer()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createFilterConnection" edgeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='FilterConnectionEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::FilterConnection" referenceName="filters" variableName="filterInstance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:filterInstance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="requiredState" valueExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="item" valueExpression="aql:source.eContainer()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createCommandConnection" edgeMappings="//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@edgeMappings[name='CommandConnectionEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::CommandConnection" referenceName="commands" variableName="filterInstance">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:commandInstance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="command" valueExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="item" valueExpression="aql:target.eContainer()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
