@@ -122,11 +122,11 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::StateChangeConnection" referenceName="events" variableName="stateChangeInstance">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:stateChangeInstance">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="newState" valueExpression="var:target"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="item" valueExpression="aql:target.eContainer()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="newState" valueExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="item" valueExpression="aql:source.eContainer()"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -138,11 +138,11 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="smarthome::FilterConnection" referenceName="filters" variableName="filterInstance">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:filterInstance">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="requiredState" valueExpression="var:target"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="item" valueExpression="aql:target.eContainer()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="requiredState" valueExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="item" valueExpression="aql:source.eContainer()"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
