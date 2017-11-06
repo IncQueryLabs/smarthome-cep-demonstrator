@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.incquerylabs.smarthome.demorules.homeio">
-   <implementation class="com.incquerylabs.smarthome.demorules.homeio.DrlLoader"/>
+   <implementation class="com.incquerylabs.smarthome.demorules.homeio.RuleLoader"/>
    <service>
-      <provide interface="com.incquerylabs.smarthome.eventbusservice.IDrlLoader"/>
+      <provide interface="com.incquerylabs.smarthome.eventbusservice.IRuleLoader"/>
    </service>
 </scr:component>

@@ -5,5 +5,5 @@
       <provide interface="com.incquerylabs.smarthome.eventbusservice.IEventSubscriber"/>
    </service>
    <reference bind="setEventPublisher" cardinality="1..1" interface="com.incquerylabs.smarthome.eventbusservice.IEventPublisher" name="IEventPublisher" policy="static" unbind="unsetEventPublisher"/>
-   <reference bind="setDrlLoader" cardinality="1..1" interface="com.incquerylabs.smarthome.eventbusservice.IDrlLoader" name="IDrlLoader" policy="static" unbind="unsetDrlLoader"/>
+   <reference bind="setRuleLoader" cardinality="1..1" interface="com.incquerylabs.smarthome.eventbusservice.IRuleLoader" name="IRuleLoader" policy="static" unbind="unsetRuleLoader"/>
 </scr:component>

@@ -1,26 +1,26 @@
 package com.incquerylabs.smarthome.model.rules;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.util.AbstractMap.SimpleEntry;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.osgi.framework.FrameworkUtil;
 
-import com.incquerylabs.smarthome.eventbusservice.IDrlLoader;
+import com.incquerylabs.smarthome.eventbusservice.DrlConfiguration;
+import com.incquerylabs.smarthome.eventbusservice.DtableConfiguration;
+import com.incquerylabs.smarthome.eventbusservice.IRuleLoader;
+import com.incquerylabs.smarthome.eventbusservice.RuleTemplateConfiguration;
 
-public class DrlLoader implements IDrlLoader {
+public class RuleLoader implements IRuleLoader {
 
     List<String> drlPaths = null;
 
     @Override
-    public List<Entry<String, InputStream>> getDrls() {
+    public List<DrlConfiguration> getDrls() {
 
-        List<Entry<String, InputStream>> list = new LinkedList<Entry<String, InputStream>>();
+        List<DrlConfiguration> list = new LinkedList<DrlConfiguration>();
 
         List<URL> loadedDrls = Collections
                 .list(FrameworkUtil.getBundle(getClass()).findEntries("/src/main/resources/base-rules", "*.drl", true));
@@ -34,11 +34,21 @@ public class DrlLoader implements IDrlLoader {
         return list;
     }
 
-    private void addInputStreamToList(URL url, List<Entry<String, InputStream>> list) {
+    private void addInputStreamToList(URL url, List<DrlConfiguration> list) {
         try {
-            list.add(new SimpleEntry<String, InputStream>(url.getFile(), url.openStream()));
+            list.add(new DrlConfiguration(url.openStream(),url.getFile()));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+	@Override
+	public List<DtableConfiguration> getDtables() {
+		return null;
+	}
+
+	@Override
+	public List<RuleTemplateConfiguration> getRuleTemplates() {
+		return null;
+	}
 }

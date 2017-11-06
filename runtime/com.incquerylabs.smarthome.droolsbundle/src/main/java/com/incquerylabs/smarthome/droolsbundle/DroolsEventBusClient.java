@@ -1,10 +1,9 @@
 package com.incquerylabs.smarthome.droolsbundle;
 
-import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Map.Entry;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.smarthome.core.items.Item;
@@ -30,7 +29,10 @@ import org.kie.internal.io.ResourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.incquerylabs.smarthome.eventbusservice.IDrlLoader;
+import com.incquerylabs.smarthome.eventbusservice.IRuleLoader;
+import com.incquerylabs.smarthome.eventbusservice.RuleTemplateConfiguration;
+import com.incquerylabs.smarthome.eventbusservice.DrlConfiguration;
+import com.incquerylabs.smarthome.eventbusservice.DtableConfiguration;
 import com.incquerylabs.smarthome.eventbusservice.IEventPublisher;
 import com.incquerylabs.smarthome.eventbusservice.IEventSubscriber;
 
@@ -42,7 +44,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
     private Object lock = new Object();
     private ConcurrentHashMap<String, FactHandle> addedItems = new ConcurrentHashMap<String, FactHandle>();
-    private IDrlLoader drlLoader = null;
+    private IRuleLoader ruleLoader = null;
 
     private KieSession kSession;
     private volatile boolean droolsInitialized = false;
@@ -191,13 +193,13 @@ public class DroolsEventBusClient implements IEventSubscriber {
         }
     }
 
-    public void setDrlLoader(IDrlLoader drlLoader) {
-        this.drlLoader = drlLoader;
+    public void setRuleLoader(IRuleLoader ruleLoader) {
+        this.ruleLoader = ruleLoader;
         loadDrools();
     }
 
-    public void unsetDrlLoader(IDrlLoader drlLoader) {
-        this.drlLoader = null;
+    public void unsetRuleLoader(IRuleLoader ruleLoader) {
+        this.ruleLoader = null;
     }
 
     @Override
@@ -205,32 +207,51 @@ public class DroolsEventBusClient implements IEventSubscriber {
         return subscriberName;
     }
 
-    private void addTemplates(KnowledgeBuilder kbuilder) {
-
-        DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory.newDecisionTableConfiguration();
-
-        dtableconfiguration.setInputType(DecisionTableInputType.XLSX);
-        dtableconfiguration.setWorksheetName("Motion template");
-        dtableconfiguration.addRuleTemplateConfiguration(ResourceFactory.newClassPathResource("motion-template.drt"), 2,
-                1);
-
-        kbuilder.add(ResourceFactory.newClassPathResource("motion-template-data.xlsx", getClass()), ResourceType.DTABLE,
-                dtableconfiguration);
-
-        kbuilder.add(ResourceFactory.newClassPathResource("dimmer-dtable.xlsx", getClass()), ResourceType.DTABLE);
+    private void addDrls(KnowledgeBuilder kbuilder) {
+    	
+    	List<DrlConfiguration> drls = ruleLoader.getDrls();
+    	if( drls != null ) {
+    		for (DrlConfiguration drlConf : drls) {
+    			kbuilder.add(ResourceFactory.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()),
+    					ResourceType.DRL);
+    		}
+    	}
+    	
+    	List<DtableConfiguration> dtables = ruleLoader.getDtables();
+    	if( dtables != null ) {
+    		for (DtableConfiguration dtableConf : dtables) {
+    			kbuilder.add(ResourceFactory.newInputStreamResource(dtableConf.getDtable()).setSourcePath(dtableConf.getPath()), ResourceType.DTABLE);
+    		}
+    	}
+        
+    	List<RuleTemplateConfiguration> ruleTeamplates = ruleLoader.getRuleTemplates();
+    	if( ruleTeamplates != null ) {
+    		for (RuleTemplateConfiguration ruleTeamplateConf : ruleTeamplates) {
+    			for(DrlConfiguration drlConf : ruleTeamplateConf.getTemplateRules()) {
+    				DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory.newDecisionTableConfiguration();
+    				
+    				dtableconfiguration.setInputType(DecisionTableInputType.XLSX);
+    				dtableconfiguration.setWorksheetName(ruleTeamplateConf.getWorksheetName());
+    				dtableconfiguration.addRuleTemplateConfiguration(ResourceFactory
+    						.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()), 
+    						ruleTeamplateConf.getStartRow(),
+    						ruleTeamplateConf.getStartColumn());
+    				
+    				kbuilder.add(ResourceFactory.newInputStreamResource(
+    						ruleTeamplateConf.getTemplateData()).setSourcePath(ruleTeamplateConf.getPath()), 
+    						ResourceType.DTABLE,
+    						dtableconfiguration);
+    			}
+    		}
+    	}
     }
-
+    
     private void loadDrools() {
         try {
             synchronized (lock) {
                 KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
 
-                addTemplates(kbuilder);
-
-                for (Entry<String, InputStream> entry : drlLoader.getDrls()) {
-                    kbuilder.add(ResourceFactory.newInputStreamResource(entry.getValue()).setSourcePath(entry.getKey()),
-                            ResourceType.DRL);
-                }
+                addDrls(kbuilder);
 
                 KieSessionConfiguration config = KieServices.Factory.get().newKieSessionConfiguration();
                 config.setOption(ClockTypeOption.get("pseudo"));
