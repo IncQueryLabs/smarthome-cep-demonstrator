@@ -9,17 +9,17 @@ import org.junit.Before;
 
 import com.incquerylabs.smarthome.demorules.homeio.RuleLoader;
 import com.incquerylabs.smarthome.droolsbundle.DroolsEventBusClient;
-
+import com.incquerylabs.smarthome.eventbusservice.events.ItemStateChangedEvent;
 import junit.framework.TestCase;
 
 public abstract class BaseTest extends TestCase {
     protected EventBusMock eventBus;
     protected DroolsEventBusClient drools;
 
-    protected void setState(GenericItem item, State state) {
+    protected void setState(GenericItem item, State newState) {
         State oldState = item.getState();
-        item.setState(state);
-        drools.stateChanged(item, state, oldState);
+        item.setState(newState);
+        drools.stateChanged(new ItemStateChangedEvent(item, newState, oldState));
     }
 
     protected abstract LinkedList<Item> getTestItems();

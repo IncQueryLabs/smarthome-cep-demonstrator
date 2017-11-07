@@ -93,8 +93,7 @@ public class EshEventSubscriber implements EventSubscriber {
 
         Item item = itemRegistry.getItem(itemName);
         for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.commandReceived(item, command);
-
+            subscriber.commandReceived(new com.incquerylabs.smarthome.eventbusservice.events.ItemCommandEvent(item, command));
         }
         logger.debug(event.toString());
     }
@@ -102,13 +101,13 @@ public class EshEventSubscriber implements EventSubscriber {
     private void itemStateChangedEvent(ItemStateChangedEvent event) throws ItemNotFoundException {
 
         String itemName = event.getItemName();
-        State state = event.getItemState();
+        State newState = event.getItemState();
         State oldState = event.getOldItemState();
 
         Item item = itemRegistry.getItem(itemName);
 
         for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.stateChanged(item, state, oldState);
+            subscriber.stateChanged(new com.incquerylabs.smarthome.eventbusservice.events.ItemStateChangedEvent(item, newState, oldState));
         }
         logger.debug(event.toString());
     }
@@ -116,13 +115,13 @@ public class EshEventSubscriber implements EventSubscriber {
     private void groupItemStateChangedEvent(GroupItemStateChangedEvent event) throws ItemNotFoundException {
 
         String itemName = event.getItemName();
-        State state = event.getItemState();
+        State newState = event.getItemState();
         State oldState = event.getOldItemState();
 
         Item item = itemRegistry.getItem(itemName);
 
         for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.stateChanged(item, state, oldState);
+            subscriber.stateChanged(new com.incquerylabs.smarthome.eventbusservice.events.ItemStateChangedEvent(item, newState, oldState));
         }
         logger.debug(event.toString());
     }

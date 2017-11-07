@@ -11,6 +11,7 @@ Bundle-ActivationPolicy: lazy
 Import-Package: com.incquerylabs.smarthome.demorules.homeio,
  com.incquerylabs.smarthome.droolsbundle,
  com.incquerylabs.smarthome.eventbusservice,
+ com.incquerylabs.smarthome.eventbusservice.events,
  junit.framework;version="4.11.0",
  org.junit;version="4.11.0",
  org.slf4j;version="1.7.2"

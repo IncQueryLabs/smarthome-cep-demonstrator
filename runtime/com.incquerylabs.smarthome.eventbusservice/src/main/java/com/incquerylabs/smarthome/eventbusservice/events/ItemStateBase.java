@@ -1,4 +1,4 @@
-package com.incquerylabs.smarthome.droolsbundle;
+package com.incquerylabs.smarthome.eventbusservice.events;
 
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;

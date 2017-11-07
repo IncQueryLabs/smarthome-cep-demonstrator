@@ -1,14 +1,13 @@
-package com.incquerylabs.smarthome.droolsbundle;
+package com.incquerylabs.smarthome.eventbusservice.events;
 
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.Command;
 
-public class ItemCommandEvent {
-
+public abstract class ItemCommandBase {
     private Item item;
     private Command command;
 
-    public ItemCommandEvent(Item item, Command command) {
+    public ItemCommandBase(Item item, Command command) {
         this.item = item;
         this.command = command;
     }

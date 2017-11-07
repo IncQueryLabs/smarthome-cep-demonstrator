@@ -9,10 +9,10 @@ import org.eclipse.smarthome.core.library.types.DecimalType;
 import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
 import org.eclipse.smarthome.core.types.Command;
 import org.eclipse.smarthome.core.types.State;
-import com.incquerylabs.smarthome.droolsbundle.ItemCommandEvent;
-import com.incquerylabs.smarthome.droolsbundle.ItemCommandHistory;
-import com.incquerylabs.smarthome.droolsbundle.ItemStateChangedEvent;
-import com.incquerylabs.smarthome.droolsbundle.ItemStateHistory;
+import com.incquerylabs.smarthome.eventbusservice.events.ItemCommandEvent;
+import com.incquerylabs.smarthome.eventbusservice.events.ItemCommandHistory;
+import com.incquerylabs.smarthome.eventbusservice.events.ItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbusservice.events.ItemStateHistory;
 import com.incquerylabs.smarthome.droolsbundle.TimedDimmer;
 import com.incquerylabs.smarthome.droolsbundle.DateTime;
 import com.incquerylabs.smarthome.eventbusservice.IEventPublisher;
@@ -36,14 +36,6 @@ global OpenClosedType DOOR_CLOSED;
 
 global OpenClosedType ARMED
 global OpenClosedType DEARMED
-
-global Integer MONDAY;
-global Integer TUESDAY;
-global Integer WEDNESDAY;
-global Integer THURSDAY;
-global Integer FRIDAY;
-global Integer SATURDAY;
-global Integer SUNDAY;
 
 declare ItemCommandEvent
     @role ( event )

@@ -6,6 +6,7 @@ Bundle-Version: 0.1.0
 Bundle-Vendor: INCQUERYLABS
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.incquerylabs.smarthome.eventbusservice,
+ com.incquerylabs.smarthome.eventbusservice.events,
  org.eclipse.jdt.annotation,
  org.eclipse.smarthome.core.items,
  org.eclipse.smarthome.core.library.types,
