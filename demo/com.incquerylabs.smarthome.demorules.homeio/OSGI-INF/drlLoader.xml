@@ -2,6 +2,6 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.incquerylabs.smarthome.demorules.homeio">
    <implementation class="com.incquerylabs.smarthome.demorules.homeio.RuleLoader"/>
    <service>
-      <provide interface="com.incquerylabs.smarthome.eventbusservice.IRuleLoader"/>
+      <provide interface="com.incquerylabs.smarthome.eventbus.api.IRuleLoader"/>
    </service>
 </scr:component>

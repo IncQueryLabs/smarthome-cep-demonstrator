@@ -85,10 +85,11 @@
 			</activation>
 			<modules>
 				<module>releng/com.incquerylabs.smarthome.target</module>
-				<module>runtime/com.incquerylabs.smarthome.eventbusservice</module>
+				<module>runtime/com.incquerylabs.smarthome.eventbus.api</module>
 				<module>runtime/com.incquerylabs.smarthome.eventbus.logger</module>
-				<module>runtime/com.incquerylabs.smarthome.droolsbundle</module>
-				<module>runtime/com.incquerylabs.smarthome.binding.eventbus</module>
+				<module>runtime/com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio</module>
+				<module>runtime/com.incquerylabs.smarthome.eventbus.ruleengine.drools</module>
+				<module>runtime/com.incquerylabs.smarthome.eventbus.service</module>
 				<module>demo/com.incquerylabs.smarthome.demorules.homeio</module>
 				<module>sensors/com.incquerylabs.smarthome.binding.simple-motion-sensor</module>
 			</modules>

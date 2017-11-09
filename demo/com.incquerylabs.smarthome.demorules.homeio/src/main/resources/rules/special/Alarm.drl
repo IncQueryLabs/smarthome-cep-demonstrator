@@ -1,5 +1,5 @@
 package homeioexample
-/*
+
 declare AlarmArmed
     @role ( event )
 end
@@ -71,4 +71,3 @@ rule "Alarm stop"
         openhab.postCommand("E_Siren", OFF);
         openhab.postCommand("O_Siren", OFF);
 end
-*/

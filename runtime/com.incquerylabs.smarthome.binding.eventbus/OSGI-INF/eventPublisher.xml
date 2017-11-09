@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.incquerylabs.smarthome.binding.eventbus.internal.EshEventPublisher">
-   <implementation class="com.incquerylabs.smarthome.binding.eventbus.internal.EshEventPublisher"/>
-   <service>
-      <provide interface="com.incquerylabs.smarthome.eventbusservice.IEventPublisher"/>
-   </service>
-   <reference bind="setEventPublisher" cardinality="1..1" interface="org.eclipse.smarthome.core.events.EventPublisher" name="EventPublisher" policy="static" unbind="unsetEventPublisher"/>
-</scr:component>
