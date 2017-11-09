@@ -9,13 +9,13 @@ import org.eclipse.smarthome.core.library.types.DecimalType;
 import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
 import org.eclipse.smarthome.core.types.Command;
 import org.eclipse.smarthome.core.types.State;
-import com.incquerylabs.smarthome.eventbusservice.events.ItemCommandEvent;
-import com.incquerylabs.smarthome.eventbusservice.events.ItemCommandHistory;
-import com.incquerylabs.smarthome.eventbusservice.events.ItemStateChangedEvent;
-import com.incquerylabs.smarthome.eventbusservice.events.ItemStateHistory;
-import com.incquerylabs.smarthome.droolsbundle.TimedDimmer;
-import com.incquerylabs.smarthome.droolsbundle.DateTime;
-import com.incquerylabs.smarthome.eventbusservice.IEventPublisher;
+import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.TimedDimmer;
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DateTime;
 
 
 global IEventPublisher openhab;

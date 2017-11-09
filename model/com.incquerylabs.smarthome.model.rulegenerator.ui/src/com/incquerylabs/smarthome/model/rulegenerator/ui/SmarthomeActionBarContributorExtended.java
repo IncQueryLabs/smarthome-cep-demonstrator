@@ -10,10 +10,9 @@ import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-
+import com.incquerylabs.smarthome.model.rulegenerator.QueryRunner;
 import com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeActionBarContributor;
 import com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditorPlugin;
-import com.incquerylabs.smarthome.viatra.QueryRunner;
 
 public class SmarthomeActionBarContributorExtended extends SmarthomeActionBarContributor {
 

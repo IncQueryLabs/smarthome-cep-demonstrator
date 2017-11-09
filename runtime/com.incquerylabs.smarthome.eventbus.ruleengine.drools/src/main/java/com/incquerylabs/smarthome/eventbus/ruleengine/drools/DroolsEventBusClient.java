@@ -20,16 +20,17 @@ import org.kie.internal.io.ResourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.incquerylabs.smarthome.eventbusservice.IRuleLoader;
-import com.incquerylabs.smarthome.eventbusservice.RuleTemplateConfiguration;
-import com.incquerylabs.smarthome.eventbusservice.events.ItemCommandEvent;
-import com.incquerylabs.smarthome.eventbusservice.events.ItemCommandHistory;
-import com.incquerylabs.smarthome.eventbusservice.events.ItemStateChangedEvent;
-import com.incquerylabs.smarthome.eventbusservice.events.ItemStateHistory;
-import com.incquerylabs.smarthome.eventbusservice.DrlConfiguration;
-import com.incquerylabs.smarthome.eventbusservice.DtableConfiguration;
-import com.incquerylabs.smarthome.eventbusservice.IEventPublisher;
-import com.incquerylabs.smarthome.eventbusservice.IEventSubscriber;
+import com.incquerylabs.smarthome.eventbus.api.DrlConfiguration;
+import com.incquerylabs.smarthome.eventbus.api.DtableConfiguration;
+import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
+import com.incquerylabs.smarthome.eventbus.api.IEventSubscriber;
+import com.incquerylabs.smarthome.eventbus.api.IRuleLoader;
+import com.incquerylabs.smarthome.eventbus.api.RuleTemplateConfiguration;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
+
 
 public class DroolsEventBusClient implements IEventSubscriber {
     static Logger logger = LoggerFactory.getLogger(DroolsEventBusClient.class);

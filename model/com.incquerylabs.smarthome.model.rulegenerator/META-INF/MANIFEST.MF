@@ -4,8 +4,9 @@ Bundle-Name: Rule generator
 Bundle-SymbolicName: com.incquerylabs.smarthome.model.rulegenerator;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-ClassPath: .
-Export-Package: com.incquerylabs.smarthome.viatra,
-  com.incquerylabs.smarthome.viatra.util
+Export-Package: com.incquerylabs.smarthome.model.rulegenerator,
+  com.incquerylabs.smarthome.model.rulegenerator.rules,
+  com.incquerylabs.smarthome.model.rulegenerator.util
 Require-Bundle: org.eclipse.emf.ecore,
   org.eclipse.viatra.query.runtime,
   org.eclipse.xtext.xbase.lib,

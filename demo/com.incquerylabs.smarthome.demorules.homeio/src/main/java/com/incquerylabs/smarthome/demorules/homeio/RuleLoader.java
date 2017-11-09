@@ -8,10 +8,10 @@ import java.util.List;
 
 import org.osgi.framework.FrameworkUtil;
 
-import com.incquerylabs.smarthome.eventbusservice.DrlConfiguration;
-import com.incquerylabs.smarthome.eventbusservice.DtableConfiguration;
-import com.incquerylabs.smarthome.eventbusservice.IRuleLoader;
-import com.incquerylabs.smarthome.eventbusservice.RuleTemplateConfiguration;
+import com.incquerylabs.smarthome.eventbus.api.DrlConfiguration;
+import com.incquerylabs.smarthome.eventbus.api.DtableConfiguration;
+import com.incquerylabs.smarthome.eventbus.api.IRuleLoader;
+import com.incquerylabs.smarthome.eventbus.api.RuleTemplateConfiguration;
 
 public class RuleLoader implements IRuleLoader {
 
