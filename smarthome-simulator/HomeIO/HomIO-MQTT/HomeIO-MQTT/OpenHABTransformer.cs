@@ -10,6 +10,17 @@ namespace HomeIO_MQTT
 {
     public class OpenHABTransformer
     {
+        // in OpenHAB 0-100
+        private const float openhabMax = 100;
+        private const float openhabMin = 0;
+
+        // in HomeIO 0-10
+        private const float homeioMax = 10;
+        private const float homeioMin = 0;
+
+        private const float openhabToHomeioRate = homeioMax / openhabMax;
+        private const float homeioToOpenhabRate = openhabMax / homeioMax;
+
         public string NameToOpenHAB(string name)
         {
             return name.Replace("(", string.Empty)
@@ -64,16 +75,6 @@ namespace HomeIO_MQTT
         public float StateToFloat(string state)
         {
 
-            // in OpenHAB 0-100
-            const float openhabMax = 100;
-            const float openhabMin = 0;
-
-            // in HomeIO 0-10
-            const float homeioMax = 10;
-            const float homeioMin = 0;
-
-            const float openhabToHomeioRate = openhabMax / homeioMax;
-
             if (state == "ON")
             {
                 return homeioMax;
@@ -90,7 +91,7 @@ namespace HomeIO_MQTT
                     float commandValue = float.Parse(state, CultureInfo.InvariantCulture.NumberFormat);
                     if (commandValue >= openhabMin && commandValue <= openhabMax)
                     {
-                        return commandValue / openhabToHomeioRate;
+                        return commandValue * openhabToHomeioRate;
                     }
                     else
                     {
@@ -112,6 +113,7 @@ namespace HomeIO_MQTT
 
         public string FloatToState(float value)
         {
+            value *= homeioToOpenhabRate;
             return value.ToString();
         }
 

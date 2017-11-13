@@ -27,7 +27,7 @@ namespace HomeIO_MQTT
             while (!Console.KeyAvailable)
             {
                 homeIO.Update();
-               Thread.Sleep(16);
+                Thread.Sleep(16);
             }
             homeIO.Dispose();
         }

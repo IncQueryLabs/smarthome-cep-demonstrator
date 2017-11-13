@@ -1,7 +1,6 @@
 package genrules
 
 import org.eclipse.smarthome.core.items.Item;
-import org.eclipse.smarthome.core.library.items.SwitchItem;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.library.types.PercentType;
@@ -66,19 +65,8 @@ rule "Init"
         openhab.postCommand("A_Lights_Analog", ZERO); 
         
         openhab.postCommand("gLight", OFF);
-        openhab.postCommand("A_Roller_Shades_1_Up", OFF);
-        openhab.postCommand("A_Roller_Shades_1_Down", OFF);
-        openhab.postCommand("A_Roller_Shades_3_Up", OFF);
-        openhab.postCommand("A_Roller_Shades_3_Down", OFF);
-
-        openhab.postCommand("A_Light_Switch_Dimmer_3_Up", CLOSED);
-        openhab.postCommand("A_Light_Switch_Dimmer_3_Down", CLOSED);
-        
-        openhab.postCommand("D_Roller_Shades_Up", OFF);
-        openhab.postCommand("D_Roller_Shades_Down", OFF);
-
-        openhab.postCommand("E_Roller_Shades_Up", OFF);
-        openhab.postCommand("E_Roller_Shades_Down", OFF);
+        openhab.postCommand("gRollerShadesUp", OFF);
+        openhab.postCommand("gRollerShadesDown", OFF);
 end
 
 
