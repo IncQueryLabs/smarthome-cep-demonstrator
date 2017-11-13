@@ -24,166 +24,195 @@ import org.slf4j.LoggerFactory;
 import com.incquerylabs.smarthome.eventbus.api.IEventSubscriber;
 
 public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubscriber {
-    static Logger logger = LoggerFactory.getLogger(EventBusImpl.class);
+	private class EventSubscriberStruct {
+		IEventSubscriber eventSubscriber;
+		boolean itemsInitialized;
 
-    private ItemRegistry itemRegistry;
-    private LinkedList<IEventSubscriber> eventSubscribers = new LinkedList<IEventSubscriber>();
+		public EventSubscriberStruct(IEventSubscriber eventSubscriber, boolean itemsInitialized) {
+			this.eventSubscriber = eventSubscriber;
+			this.itemsInitialized = itemsInitialized;
+		}
 
-    @Override
-    public Set<String> getSubscribedEventTypes() {
-        Set<String> types = new HashSet<>(6);
+		@Override
+		public boolean equals(Object obj) {
+			return eventSubscriber == obj;
+		}
+	}
 
-        types.add(ItemCommandEvent.TYPE);
-        types.add(ItemStateEvent.TYPE);
-        types.add(ItemStateChangedEvent.TYPE);
-        types.add(ItemUpdatedEvent.TYPE);
-        types.add(ItemAddedEvent.TYPE);
-        types.add(ItemRemovedEvent.TYPE);
-        types.add(GroupItemStateChangedEvent.TYPE);
-        return types;
-    }
+	static Logger logger = LoggerFactory.getLogger(EventBusImpl.class);
 
-    @Override
-    public EventFilter getEventFilter() {
-        return null;
-    }
+	private ItemRegistry itemRegistry;
+	private LinkedList<EventSubscriberStruct> eventSubscribers = new LinkedList<EventSubscriberStruct>();
 
-    @Override
-    public void receive(Event event) {
+	@Override
+	public Set<String> getSubscribedEventTypes() {
+		Set<String> types = new HashSet<>(6);
 
-        try {
-            if (event instanceof ItemCommandEvent) {
+		types.add(ItemCommandEvent.TYPE);
+		types.add(ItemStateEvent.TYPE);
+		types.add(ItemStateChangedEvent.TYPE);
+		types.add(ItemUpdatedEvent.TYPE);
+		types.add(ItemAddedEvent.TYPE);
+		types.add(ItemRemovedEvent.TYPE);
+		types.add(GroupItemStateChangedEvent.TYPE);
+		return types;
+	}
 
-                itemCommandEvent((ItemCommandEvent) event);
+	@Override
+	public EventFilter getEventFilter() {
+		return null;
+	}
 
-            } else if (event instanceof GroupItemStateChangedEvent) {
+	@Override
+	public void receive(Event event) {
+		synchronized (eventSubscribers) {
+			try {
+				if (event instanceof ItemCommandEvent) {
 
-            	groupItemStateChangedEvent((GroupItemStateChangedEvent) event);
-            	
-            } else if (event instanceof ItemStateChangedEvent) {
-            	
-            	itemStateChangedEvent((ItemStateChangedEvent) event);
-            	
-            } else if (event instanceof ItemAddedEvent) {
+					itemCommandEvent((ItemCommandEvent) event);
 
-                itemAddedEvent((ItemAddedEvent) event);
+				} else if (event instanceof GroupItemStateChangedEvent) {
 
-            } else if (event instanceof ItemRemovedEvent) {
+					groupItemStateChangedEvent((GroupItemStateChangedEvent) event);
 
-                itemRemovedEvent((ItemRemovedEvent) event);
+				} else if (event instanceof ItemStateChangedEvent) {
 
-            } else if (event instanceof ItemUpdatedEvent) {
+					itemStateChangedEvent((ItemStateChangedEvent) event);
 
-                itemUpdatedEvent((ItemUpdatedEvent) event);
+				} else if (event instanceof ItemAddedEvent) {
 
-            } else {
+					itemAddedEvent((ItemAddedEvent) event);
 
-                logger.trace(" received event, type: " + event.getType() + " topic: " + event.getTopic()
-                        + " payload: " + event.getPayload());
-            }
-        } catch (ItemNotFoundException e) {
-            logger.error(e.getMessage());
-        }
-    }
+				} else if (event instanceof ItemRemovedEvent) {
 
-    private void itemCommandEvent(ItemCommandEvent event) throws ItemNotFoundException {
-        String itemName = event.getItemName();
-        Command command = event.getItemCommand();
+					itemRemovedEvent((ItemRemovedEvent) event);
 
-        Item item = itemRegistry.getItem(itemName);
-        for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.commandReceived(new com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent(item, command));
-        }
-        logger.debug(event.toString());
-    }
+				} else if (event instanceof ItemUpdatedEvent) {
 
-    private void itemStateChangedEvent(ItemStateChangedEvent event) throws ItemNotFoundException {
+					itemUpdatedEvent((ItemUpdatedEvent) event);
 
-        String itemName = event.getItemName();
-        State newState = event.getItemState();
-        State oldState = event.getOldItemState();
+				} else {
 
-        Item item = itemRegistry.getItem(itemName);
+					logger.trace(" received event, type: " + event.getType() + " topic: " + event.getTopic()
+							+ " payload: " + event.getPayload());
+				}
+			} catch (ItemNotFoundException e) {
+				logger.error(e.getMessage());
+			}
+		}
+	}
 
-        for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.stateChanged(new com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent(item, newState, oldState));
-        }
-        logger.debug(event.toString());
-    }
-    
-    private void groupItemStateChangedEvent(GroupItemStateChangedEvent event) throws ItemNotFoundException {
+	private void itemCommandEvent(ItemCommandEvent event) throws ItemNotFoundException {
+		String itemName = event.getItemName();
+		Command command = event.getItemCommand();
 
-        String itemName = event.getItemName();
-        State newState = event.getItemState();
-        State oldState = event.getOldItemState();
+		Item item = itemRegistry.getItem(itemName);
+		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
+			subscriberStruct.eventSubscriber.commandReceived(
+					new com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent(item, command));
+		}
+		logger.debug(event.toString());
+	}
 
-        Item item = itemRegistry.getItem(itemName);
+	private void itemStateChangedEvent(ItemStateChangedEvent event) throws ItemNotFoundException {
 
-        for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.stateChanged(new com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent(item, newState, oldState));
-        }
-        logger.debug(event.toString());
-    }
+		String itemName = event.getItemName();
+		State newState = event.getItemState();
+		State oldState = event.getOldItemState();
 
-    private void itemAddedEvent(ItemAddedEvent event) throws ItemNotFoundException {
-        String itemName = event.getItem().name;
-        Item item = itemRegistry.getItem(itemName);
+		Item item = itemRegistry.getItem(itemName);
 
-        for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.itemAdded(item);
-        }
-        logger.debug(event.toString());
-    }
+		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
+			subscriberStruct.eventSubscriber.stateChanged(
+					new com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent(item, newState, oldState));
+		}
+		logger.debug(event.toString());
+	}
 
-    private void itemRemovedEvent(ItemRemovedEvent event) {
-        String itemName = event.getItem().name;
+	private void groupItemStateChangedEvent(GroupItemStateChangedEvent event) throws ItemNotFoundException {
 
-        for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.itemRemoved(itemName);
-        }
-        logger.debug(event.toString());
-    }
+		String itemName = event.getItemName();
+		State newState = event.getItemState();
+		State oldState = event.getOldItemState();
 
-    private void itemUpdatedEvent(ItemUpdatedEvent event) throws ItemNotFoundException {
-        String itemName = event.getItem().name;
-        String oldItemName = event.getOldItem().name;
+		Item item = itemRegistry.getItem(itemName);
 
-        Item item = itemRegistry.getItem(itemName);
+		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
+			subscriberStruct.eventSubscriber.stateChanged(
+					new com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent(item, newState, oldState));
+		}
+		logger.debug(event.toString());
+	}
 
-        for (IEventSubscriber subscriber : eventSubscribers) {
-            subscriber.itemUpdated(item, oldItemName);
-        }
-        logger.debug(event.toString());
-    }
+	private void itemAddedEvent(ItemAddedEvent event) throws ItemNotFoundException {
+		String itemName = event.getItem().name;
+		Item item = itemRegistry.getItem(itemName);
 
-    public synchronized void setSubscriber(IEventSubscriber eventSubscriber) {
-        if (!eventSubscribers.contains(eventSubscriber)) {
-            eventSubscribers.add(eventSubscriber);
-            if (itemRegistry != null) {
-                eventSubscriber.initItems(itemRegistry.getItems());
-            }
-            logger.info("set event subscriber " + eventSubscriber.getSubscriberName());
-        }
-    }
+		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
+			subscriberStruct.eventSubscriber.itemAdded(item);
+		}
+		logger.debug(event.toString());
+	}
 
-    public synchronized void unsetSubscriber(IEventSubscriber eventSubscriber) {
-        if (eventSubscribers.remove(eventSubscriber)) {
-            logger.info("removed event subscriber " + eventSubscriber.getSubscriberName());
-        }
-    }
+	private void itemRemovedEvent(ItemRemovedEvent event) {
+		String itemName = event.getItem().name;
 
-    public void setItemRegistry(ItemRegistry itemRegistry) {
-        this.itemRegistry = itemRegistry;
-        if (!eventSubscribers.isEmpty()) {
-            for (IEventSubscriber subscriber : eventSubscribers) {
-                subscriber.initItems(itemRegistry.getItems());
-            }
-        }
-        logger.info("set item registry");
-    }
+		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
+			subscriberStruct.eventSubscriber.itemRemoved(itemName);
+		}
+		logger.debug(event.toString());
+	}
 
-    public void unsetItemRegistry(ItemRegistry itemRegistry) {
-        this.itemRegistry = null;
-        logger.info("unset item registry");
-    }
+	private void itemUpdatedEvent(ItemUpdatedEvent event) throws ItemNotFoundException {
+		String itemName = event.getItem().name;
+		String oldItemName = event.getOldItem().name;
+
+		Item item = itemRegistry.getItem(itemName);
+
+		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
+			subscriberStruct.eventSubscriber.itemUpdated(item, oldItemName);
+		}
+		logger.debug(event.toString());
+	}
+
+	@SuppressWarnings("unlikely-arg-type")
+	public void setSubscriber(IEventSubscriber eventSubscriber) {
+		synchronized (eventSubscribers) {
+			if (!eventSubscribers.contains(eventSubscriber)) {
+				boolean itemsInitialized = false;
+				if (itemRegistry != null) {
+					eventSubscriber.initItems(itemRegistry.getItems());
+					itemsInitialized = true;
+				}
+				eventSubscribers.add(new EventSubscriberStruct(eventSubscriber, itemsInitialized));
+				logger.info("set event subscriber " + eventSubscriber.getSubscriberName());
+			}
+		}
+	}
+
+	@SuppressWarnings("unlikely-arg-type")
+	public void unsetSubscriber(IEventSubscriber eventSubscriber) {
+		synchronized (eventSubscribers) {
+			if (eventSubscribers.remove(eventSubscriber)) {
+				logger.info("removed event subscriber " + eventSubscriber.getSubscriberName());
+			}
+		}
+	}
+
+	public void setItemRegistry(ItemRegistry itemRegistry) {
+		this.itemRegistry = itemRegistry;
+		if (!eventSubscribers.isEmpty()) {
+			for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
+				if (!subscriberStruct.itemsInitialized) {
+					subscriberStruct.eventSubscriber.initItems(itemRegistry.getItems());
+				}
+			}
+		}
+		logger.info("set item registry");
+	}
+
+	public void unsetItemRegistry(ItemRegistry itemRegistry) {
+		this.itemRegistry = null;
+		logger.info("unset item registry");
+	}
 }
