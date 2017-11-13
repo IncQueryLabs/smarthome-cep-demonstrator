@@ -100,6 +100,10 @@ public class DroolsEventBusClient implements IEventSubscriber {
             for (Item item : items) {
                 itemAdded(item);
             }
+            synchronized (lock) {
+            	kSession.insert(new InitStates());
+            	kSession.fireAllRules();
+            }
         }
     }
 

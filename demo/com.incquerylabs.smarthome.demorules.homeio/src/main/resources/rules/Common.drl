@@ -15,7 +15,7 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.TimedDimmer;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DateTime;
-
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.InitStates;
 
 global IEventPublisher openhab;
 global OpenClosedType OPEN;
@@ -66,7 +66,7 @@ end
 rule "Init"
     lock-on-active
     when
-        eval ( true )
+        InitStates()
     then
         openhab.postCommand("Example_Light", OFF);
         openhab.postCommand("A_Lights_Analog", ZERO); 
