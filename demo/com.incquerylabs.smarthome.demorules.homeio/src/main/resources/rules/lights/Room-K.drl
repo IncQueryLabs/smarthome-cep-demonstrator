@@ -3,44 +3,43 @@ package homeioexample
 
 rule "K Lights Switch"
     when
-        $item : Item( name == "K_Lights_Analog", $state : state)
+        $light : Item( name == "K_Lights_Analog", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "L_Light_Switch_2", newState == OPEN)
+        ItemStateChangedEvent( name == "L_Light_Switch_2", newState == PRESSED)
     then
         if ($state.equals(HUNDRED)) {
-            openhab.postCommand($item, OFF);
+            openhab.postCommand($light, OFF);
         } else {
-            openhab.postCommand($item, ON);
+            openhab.postCommand($light, ON);
         }
 end
 
 
 rule "K Lights Switch On"
     when
-        $item : Item( name == "K_Lights_Analog", $state : state) 
+        $light : Item( name == "K_Lights_Analog", $state : state) 
 
-        $itemStateOpen : ItemStateHistory(name == "K_Light_Switch_Dimmer_Up", newState == OPEN )
+        $switchPressed : ItemStateHistory(name == "K_Light_Switch_Dimmer_Up", newState == PRESSED )
 
-
-        $itemStateClosed : ItemStateChangedEvent ( 
-        this after[0s,1s] $itemStateOpen &&
+        ItemStateChangedEvent ( 
+        this after[0s,1s] $switchPressed &&
         name == "K_Light_Switch_Dimmer_Up" && 
-        newState == CLOSED )
+        newState == RELEASED )
     then
-        openhab.postCommand($item, ON);
+        openhab.postCommand($light, ON);
 end
 
 
 rule "K Lights Switch Off"
     when
-        $item : Item( name == "K_Lights_Analog", $state : state) 
+        $light : Item( name == "K_Lights_Analog", $state : state) 
 
-        $itemStateOpen : ItemStateHistory(name == "K_Light_Switch_Dimmer_Down", newState == OPEN )
+        $switchPressed : ItemStateHistory(name == "K_Light_Switch_Dimmer_Down", newState == PRESSED )
 
-        $itemStateClosed : ItemStateChangedEvent ( 
-        this after[0s,1s] $itemStateOpen &&
+        ItemStateChangedEvent ( 
+        this after[0s,1s] $switchPressed &&
         name == "K_Light_Switch_Dimmer_Down" && 
-        newState == CLOSED )
+        newState == RELEASED )
     then
-        openhab.postCommand($item, OFF);
+        openhab.postCommand($light, OFF);
 end

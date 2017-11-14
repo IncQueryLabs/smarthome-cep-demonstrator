@@ -6,7 +6,7 @@ rule "J Lights Switch Dimmer Up"
 
         $itemStateOpen : ItemStateChangedEvent( 
         name == "J_Light_Switch_Dimmer_Up" && 
-        newState == OPEN )
+        newState == PRESSED )
 
     then
         openhab.timedCommand(TimedDimmer.create($item, INCREASE, 2 , 1000, 50));
@@ -19,7 +19,7 @@ rule "J Lights Switch Dimmer Down"
 
         $itemStateOpen : ItemStateChangedEvent(
         name == "J_Light_Switch_Dimmer_Down" && 
-        newState == OPEN )
+        newState == PRESSED )
 
     then
         openhab.timedCommand(TimedDimmer.create($item, DECREASE, 2 , 1000, 50));
@@ -28,7 +28,7 @@ end
 
 rule "J Dimmer off"
     when
-        $itemState : ItemStateChangedEvent( name matches "J_Light_Switch_Dimmer.*", newState == CLOSED )
+        $itemState : ItemStateChangedEvent( name matches "J_Light_Switch_Dimmer.*", newState == RELEASED )
     
     then
         openhab.stopTimedCommand("J_Lights_Analog");

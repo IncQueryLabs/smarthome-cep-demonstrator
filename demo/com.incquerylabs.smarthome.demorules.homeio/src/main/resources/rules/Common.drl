@@ -32,6 +32,8 @@ global OpenClosedType MOTION;
 global OpenClosedType NOMOTION;
 global OpenClosedType DOOR_OPENED;
 global OpenClosedType DOOR_CLOSED;
+global OpenClosedType PRESSED;
+global OpenClosedType RELEASED;
 
 global OpenClosedType ARMED
 global OpenClosedType DISARMED
@@ -94,11 +96,11 @@ end
 
 
 
-rule "Example Lights Switch"
+rule "Example lights rule with push switch"
     when
         $item : Item( name == "Example_Light", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == OPEN)
+        $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == PRESSED)
     then
         if ($state == ON) {
             openhab.postCommand($item, OFF);

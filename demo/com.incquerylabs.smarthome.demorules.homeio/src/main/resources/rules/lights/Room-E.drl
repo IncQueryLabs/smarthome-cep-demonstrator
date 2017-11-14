@@ -3,55 +3,54 @@ package homeioexample
 
 rule "E Lights Switch"
     when
-        $item1 : Item( name == "E_Lights_Analog", $state1 : state)
-        $item2 : Item( name == "G_Lights_Analog")
+        $light1 : Item( name == "E_Lights_Analog", $state1 : state)
+        $light2 : Item( name == "G_Lights_Analog")
 
-        $itemState : ItemStateChangedEvent( name == "E_Light_Switch_1", newState == OPEN)
+        ItemStateChangedEvent( name == "E_Light_Switch_1", newState == OPEN)
     then
         if ($state1.equals(HUNDRED)) {
-            openhab.postCommand($item1, OFF);
-            openhab.postCommand($item2, OFF);
+            openhab.postCommand($light1, OFF);
+            openhab.postCommand($light2, OFF);
         } else {
-            openhab.postCommand($item1, ON);
-            openhab.postCommand($item2, ON);
+            openhab.postCommand($light1, ON);
+            openhab.postCommand($light2, ON);
         }
 end
 
 
 rule "E Lights Switch On"
     when
-        $item : Item( name == "E_Lights_Analog", $state : state) 
+        $light : Item( name == "E_Lights_Analog", $state : state) 
 
-        $itemStateOpen : ItemStateHistory( ( 
+        $switchPressed : ItemStateHistory( ( 
         name == "E_Light_Switch_Dimmer_1_Up" || 
         name == "E_Light_Switch_Dimmer_2_Up" ) && 
-        newState == OPEN )
+        newState == PRESSED )
 
-
-        $itemStateClosed : ItemStateChangedEvent ( 
-        this after[0s,1s] $itemStateOpen && (
+        ItemStateChangedEvent ( 
+        this after[0s,1s] $switchPressed && (
         name == "E_Light_Switch_Dimmer_1_Up" || 
         name == "E_Light_Switch_Dimmer_2_Up" ) && 
-        newState == CLOSED )
+        newState == RELEASED )
     then
-        openhab.postCommand($item.getName(), ON);
+        openhab.postCommand($light, ON);
 end
 
 
 rule "E Lights Switch Off"
     when
-        $item : Item( name == "E_Lights_Analog", $state : state) 
+        $light : Item( name == "E_Lights_Analog", $state : state) 
 
-        $itemStateOpen : ItemStateHistory( ( 
+        $switchPressed : ItemStateHistory( ( 
         name == "E_Light_Switch_Dimmer_1_Down" || 
         name == "E_Light_Switch_Dimmer_2_Down" ) && 
-        newState == OPEN )
+        newState == PRESSED )
 
-        $itemStateClosed : ItemStateChangedEvent ( 
-        this after[0s,1s] $itemStateOpen && (
+        ItemStateChangedEvent ( 
+        this after[0s,1s] $switchPressed && (
         name == "E_Light_Switch_Dimmer_1_Down" || 
         name == "E_Light_Switch_Dimmer_2_Down" ) && 
-        newState == CLOSED )
+        newState == RELEASED )
     then
-        openhab.postCommand($item.getName(), OFF);
+        openhab.postCommand($light, OFF);
 end

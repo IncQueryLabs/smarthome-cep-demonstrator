@@ -32,6 +32,8 @@ global OpenClosedType MOTION;
 global OpenClosedType NOMOTION;
 global OpenClosedType DOOR_OPENED;
 global OpenClosedType DOOR_CLOSED;
+global OpenClosedType PRESSED;
+global OpenClosedType RELEASED;
 
 global OpenClosedType ARMED
 global OpenClosedType DISARMED

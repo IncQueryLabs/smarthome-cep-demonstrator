@@ -3,13 +3,13 @@ package homeioexample
 
 rule "C lights"
     when
-        $item : Item( name == "C_Lights", $state : state)
+        $light : Item( name == "C_Lights", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "C_Light_Switch", newState == OPEN)
+        ItemStateChangedEvent( name == "C_Light_Switch", newState == PRESSED)
     then
         if ($state == ON) {
-            openhab.postCommand($item, OFF);
+            openhab.postCommand($light, OFF);
         } else {
-            openhab.postCommand($item, ON);
+            openhab.postCommand($light, ON);
         }
 end

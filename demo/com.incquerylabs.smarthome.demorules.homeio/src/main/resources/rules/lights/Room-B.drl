@@ -3,27 +3,27 @@ package homeioexample
 
 rule "B lights 1"
     when
-        $item : Item( name == "B_Lights_1", $state : state)
+        $light : Item( name == "B_Lights_1", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "B_Light_Switch_1", newState == OPEN)
+        ItemStateChangedEvent( name == "B_Light_Switch_1", newState == PRESSED)
     then
         if ($state == ON) {
-            openhab.postCommand($item, OFF);
+            openhab.postCommand($light, OFF);
         } else {
-            openhab.postCommand($item, ON);
+            openhab.postCommand($light, ON);
         }
 end
 
 
 rule "B lights 2"
     when
-        $item : Item( name == "B_Lights_2", $state : state)
+        $light : Item( name == "B_Lights_2", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "B_Light_Switch_2", newState == OPEN)
+        ItemStateChangedEvent( name == "B_Light_Switch_2", newState == PRESSED)
     then
         if ($state == ON) {
-            openhab.postCommand($item, OFF);
+            openhab.postCommand($light, OFF);
         } else {
-            openhab.postCommand($item, ON);
+            openhab.postCommand($light, ON);
         }
 end
