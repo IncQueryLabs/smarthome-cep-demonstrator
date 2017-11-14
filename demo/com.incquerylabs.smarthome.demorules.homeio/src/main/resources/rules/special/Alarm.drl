@@ -17,11 +17,11 @@ rule "Alarm armed"
         insert(new AlarmArmed());
 end
 
-rule "Alarm dearmed"
+rule "Alarm disarmed"
     when
         $armed : AlarmArmed()
         
-        ItemStateChangedEvent( name == "E_Alarm_Key_Pad_Armed", newState == DEARMED)
+        ItemStateChangedEvent( name == "E_Alarm_Key_Pad_Armed", newState == DISARMED)
     then
         retract($armed);
 end
@@ -64,7 +64,6 @@ end
 rule "Alarm stop"
     when
         not( AlarmArmed() )
-        
         $alarmRaised : AlarmRaised()
     then
         retract($alarmRaised);

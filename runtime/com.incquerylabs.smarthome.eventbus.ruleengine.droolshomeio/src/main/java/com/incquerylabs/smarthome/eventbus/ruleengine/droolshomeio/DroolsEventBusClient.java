@@ -271,7 +271,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		kSession.setGlobal("DECREASE", IncreaseDecreaseType.DECREASE);
 
 		kSession.setGlobal("ARMED", OpenClosedType.OPEN);
-		kSession.setGlobal("DEARMED", OpenClosedType.CLOSED);
+		kSession.setGlobal("DISARMED", OpenClosedType.CLOSED);
 		kSession.setGlobal("BRIGHTNESS", OpenClosedType.CLOSED);
 		kSession.setGlobal("DARKNESS", OpenClosedType.OPEN);
 

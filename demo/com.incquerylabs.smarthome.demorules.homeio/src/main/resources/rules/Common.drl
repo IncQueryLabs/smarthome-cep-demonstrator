@@ -34,7 +34,7 @@ global OpenClosedType DOOR_OPENED;
 global OpenClosedType DOOR_CLOSED;
 
 global OpenClosedType ARMED
-global OpenClosedType DEARMED
+global OpenClosedType DISARMED
 
 declare ItemCommandEvent
     @role ( event )
