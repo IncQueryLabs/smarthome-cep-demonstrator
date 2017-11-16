@@ -277,8 +277,8 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
 		kSession.setGlobal("MOTION", OpenClosedType.OPEN);
 		kSession.setGlobal("NOMOTION", OpenClosedType.CLOSED);
-		kSession.setGlobal("DOOR_OPENED", OpenClosedType.CLOSED);
-		kSession.setGlobal("DOOR_CLOSED", OpenClosedType.OPEN);
+		kSession.setGlobal("DOOR_OPENED", OpenClosedType.OPEN);
+		kSession.setGlobal("DOOR_CLOSED", OpenClosedType.CLOSED);
 		kSession.setGlobal("PRESSED", OpenClosedType.OPEN);
 		kSession.setGlobal("RELEASED", OpenClosedType.CLOSED);
 

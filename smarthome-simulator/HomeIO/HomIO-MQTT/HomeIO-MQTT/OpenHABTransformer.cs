@@ -106,13 +106,18 @@ namespace HomeIO_MQTT
             return 0;
         }
 
-        public string BoolToState(bool value)
+        public string BitToState(MemoryBit mem)
         {
-            return value == true ? "OPEN" : "CLOSED";
+            if (mem.Name.Contains("Door Detector"))
+            {
+                return mem.Value == false ? "OPEN" : "CLOSED";
+            }
+            return mem.Value == true ? "OPEN" : "CLOSED";
         }
 
-        public string FloatToState(float value)
+        public string FloatToState(MemoryFloat mem)
         {
+            float value = mem.Value;
             value *= homeioToOpenhabRate;
             return value.ToString();
         }

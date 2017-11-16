@@ -43,7 +43,7 @@ namespace HomeIO_MQTT
         {
             if (filter.Apply(mem))
             {
-                client.Publish("in/" + transformer.NameToOpenHAB(mem.Name) + "/state", Encoding.ASCII.GetBytes(transformer.BoolToState(mem.Value)));
+                client.Publish("in/" + transformer.NameToOpenHAB(mem.Name) + "/state", Encoding.ASCII.GetBytes(transformer.BitToState(mem)));
             }
         }
 
@@ -51,7 +51,7 @@ namespace HomeIO_MQTT
         {
             if (filter.Apply(mem))
             {
-                client.Publish("in/" + transformer.NameToOpenHAB(mem.Name) + "/state", Encoding.ASCII.GetBytes(transformer.FloatToState(mem.Value)));
+                client.Publish("in/" + transformer.NameToOpenHAB(mem.Name) + "/state", Encoding.ASCII.GetBytes(transformer.FloatToState(mem)));
             }
         }
 
