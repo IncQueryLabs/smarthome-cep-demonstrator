@@ -38,262 +38,253 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
 
 public class DroolsEventBusClient implements IEventSubscriber {
-    static Logger logger = LoggerFactory.getLogger(DroolsEventBusClient.class);
-    private static final String subscriberName = "Drools event bus client ";
+	static Logger logger = LoggerFactory.getLogger(DroolsEventBusClient.class);
+	private static final String subscriberName = "Drools event bus client ";
 
-    private HomeioSessionClock homeioSessionClock = null;
+	private HomeioSessionClock homeioSessionClock = null;
 
-    private Object lock = new Object();
-    private ConcurrentHashMap<String, FactHandle> addedItems = new ConcurrentHashMap<String, FactHandle>();
-    private IRuleLoader ruleLoader = null;
+	private ConcurrentHashMap<String, FactHandle> addedItems = new ConcurrentHashMap<String, FactHandle>();
+	private IRuleLoader ruleLoader = null;
 
-    private KieSession kSession;
-    private volatile boolean droolsInitialized = false;
+	private KieSession kSession;
+	private volatile boolean droolsInitialized = false;
 
-    private IEventPublisher eventPublisher = null;
+	private IEventPublisher eventPublisher = null;
 
-    @Override
-    public void stateChanged(ItemStateChangedEvent itemStateChangedEvent) {
-        if (droolsInitialized) {
-        	
-        	Item item = itemStateChangedEvent.getItem();
-        	
-            if (item.getName().equals("HomeIO_Date")) {
-                homeioSessionClock.newHomeioTime(item);
-            } else {
-                homeioSessionClock.advanceClock();
-            }
+	@Override
+	public void stateChanged(ItemStateChangedEvent itemStateChangedEvent) {
+		if (droolsInitialized) {
 
-            updateItem(item);
+			Item item = itemStateChangedEvent.getItem();
 
-            synchronized (lock) {
-                FactHandle handle = kSession.insert(itemStateChangedEvent);
-                kSession.fireAllRules();
-                kSession.delete(handle);
-                kSession.insert(new ItemStateHistory(itemStateChangedEvent));
-            }
-            logger.info(subscriberName + itemStateChangedEvent + " time stamp: "
-                    + homeioSessionClock.getHomeioTime());
-        }
-    }
+			if (item.getName().equals("HomeIO_Date")) {
+				homeioSessionClock.newHomeioTime(item);
+			} else {
+				homeioSessionClock.advanceClock();
+			}
 
-    @Override
-    public void commandReceived(ItemCommandEvent itemCommandEvent) {
-        if (droolsInitialized) {
-            homeioSessionClock.advanceClock();
+			updateItem(item);
 
-            synchronized (lock) {
-                FactHandle handle = kSession.insert(itemCommandEvent);
-                kSession.fireAllRules();
-                kSession.delete(handle);
-                kSession.insert(new ItemCommandHistory(itemCommandEvent));
-            }
-            logger.debug(subscriberName + itemCommandEvent);
-        }
-    }
+			FactHandle handle = kSession.insert(itemStateChangedEvent);
+			kSession.fireAllRules();
+			kSession.delete(handle);
+			kSession.insert(new ItemStateHistory(itemStateChangedEvent));
 
-    @Override
-    public void initItems(Collection<Item> items) {
-        if (droolsInitialized) {
-            homeioSessionClock.advanceClock();
-            logger.debug(subscriberName + items.size() + " items");
-            for (Item item : items) {
-                itemAdded(item);
-            }
-        }
-    }
+			logger.trace(subscriberName + itemStateChangedEvent + " time stamp: " + homeioSessionClock.getHomeioTime());
+		}
+	}
 
-    @Override
-    public void itemAdded(Item item) {
-        if (droolsInitialized) {
-            homeioSessionClock.advanceClock();
-            if (addedItems.get(item.getName()) == null) {
+	@Override
+	public void commandReceived(ItemCommandEvent itemCommandEvent) {
+		if (droolsInitialized) {
+			homeioSessionClock.advanceClock();
 
-                FactHandle handle = null;
+			FactHandle handle = kSession.insert(itemCommandEvent);
+			kSession.fireAllRules();
+			kSession.delete(handle);
+			kSession.insert(new ItemCommandHistory(itemCommandEvent));
 
-                synchronized (lock) {
-                    item.getType();
-                    if (item.getType().equals("DateTime")) {
-                        if (item.getState() instanceof UnDefType) {
-                            handle = kSession.insert(new DateTime(item.getName(), new Date(0)));
-                        } else {
-                            handle = kSession.insert(new DateTime(item.getName(),
-                                    ((DateTimeType) item.getState()).getCalendar().getTime()));
-                        }
-                    } else {
-                        handle = kSession.insert(item);
-                    }
-                    addedItems.put(item.getName(), handle);
-                }
-                logger.info(subscriberName + "added item to rule engine: " + item.getName());
+			logger.trace(subscriberName + itemCommandEvent);
+		}
+	}
 
-            } else {
-                updateItem(item);
-            }
+	@Override
+	public void initItems(Collection<Item> items) {
+		if (droolsInitialized) {
+			homeioSessionClock.advanceClock();
+			logger.debug(subscriberName + items.size() + " items");
+			for (Item item : items) {
+				itemAdded(item);
+			}
 
-            synchronized (lock) {
-                kSession.fireAllRules();
-            }
-        }
-    }
+			kSession.insert(new InitStates());
+			kSession.fireAllRules();
 
-    @Override
-    public void itemRemoved(String itemName) {
-        if (droolsInitialized) {
-            homeioSessionClock.advanceClock();
-            FactHandle handle = addedItems.get(itemName);
+		}
+	}
 
-            if (handle != null) {
-                synchronized (lock) {
-                    kSession.delete(handle);
-                    kSession.fireAllRules();
-                }
+	@Override
+	public void itemAdded(Item item) {
+		if (droolsInitialized) {
+			homeioSessionClock.advanceClock();
+			if (addedItems.get(item.getName()) == null) {
 
-                logger.debug(subscriberName + "removed item from rule engine: " + itemName);
-            } else {
-                logger.error("IncQuery droolsbundle: tried to delete item" + itemName
-                        + ", but it wasn't in the rule engine");
-            }
-        }
-    }
+				FactHandle handle = null;
 
-    @Override
-    public void itemUpdated(Item newItem, String oldItemName) {
-        if (droolsInitialized) {
-            itemRemoved(oldItemName);
-            itemAdded(newItem);
-        }
-    }
+				item.getType();
+				if (item.getType().equals("DateTime")) {
+					if (item.getState() instanceof UnDefType) {
+						handle = kSession.insert(new DateTime(item.getName(), new Date(0)));
+					} else {
+						handle = kSession.insert(
+								new DateTime(item.getName(), ((DateTimeType) item.getState()).getCalendar().getTime()));
+					}
+				} else {
+					handle = kSession.insert(item);
+				}
+				addedItems.put(item.getName(), handle);
 
-    private void updateItem(Item item) {
-        synchronized (lock) {
-            if (item.getType().equals("DateTime")) {
-                kSession.delete(addedItems.get(item.getName()));
-                addedItems.put(item.getName(), kSession.insert(
-                        new DateTime(item.getName(), ((DateTimeType) item.getState()).getCalendar().getTime())));
-            } else {
-                kSession.update(addedItems.get(item.getName()), item);
-            }
-        }
-        logger.info(subscriberName + "item " + item.getName() + " updated reference in the rule engine");
-    }
+				logger.trace(subscriberName + "added item to rule engine: " + item.getName());
 
-    public void setEventPublisher(IEventPublisher eventPublisher) {
-        synchronized (lock) {
-            if (droolsInitialized) {
-                kSession.setGlobal("openhab", eventPublisher);
-            } else {
-                this.eventPublisher = eventPublisher;
-            }
-        }
-    }
+			} else {
+				updateItem(item);
+			}
 
-    public void unsetEventPublisher(IEventPublisher eventPublisher) {
-        synchronized (lock) {
-            kSession.setGlobal("openhab", null);
-        }
-    }
+			kSession.fireAllRules();
+		}
+	}
 
-    public void setRuleLoader(IRuleLoader ruleLoader) {
-        this.ruleLoader = ruleLoader;
-        loadDrools();
-    }
+	@Override
+	public void itemRemoved(String itemName) {
+		if (droolsInitialized) {
+			homeioSessionClock.advanceClock();
+			FactHandle handle = addedItems.get(itemName);
 
-    public void unsetRuleLoader(IRuleLoader ruleLoader) {
-        this.ruleLoader = null;
-    }
+			if (handle != null) {
+				kSession.delete(handle);
+				kSession.fireAllRules();
 
-    @Override
-    public String getSubscriberName() {
-        return subscriberName;
-    }
+				logger.trace(subscriberName + "removed item from rule engine: " + itemName);
+			} else {
+				logger.error(subscriberName + "tried to delete item" + itemName
+						+ ", but it wasn't in the rule engine");
+			}
+		}
+	}
 
-    private void addDrls(KnowledgeBuilder kbuilder) {
-    	
-    	List<DrlConfiguration> drls = ruleLoader.getDrls();
-    	if( drls != null ) {
-    		for (DrlConfiguration drlConf : drls) {
-    			kbuilder.add(ResourceFactory.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()),
-    					ResourceType.DRL);
-    		}
-    	}
-    	
-    	List<DtableConfiguration> dtables = ruleLoader.getDtables();
-    	if( dtables != null ) {
-    		for (DtableConfiguration dtableConf : dtables) {
-    			kbuilder.add(ResourceFactory.newInputStreamResource(dtableConf.getDtable()).setSourcePath(dtableConf.getPath()), ResourceType.DTABLE);
-    		}
-    	}
-        
-    	List<RuleTemplateConfiguration> ruleTeamplates = ruleLoader.getRuleTemplates();
-    	if( ruleTeamplates != null ) {
-    		for (RuleTemplateConfiguration ruleTeamplateConf : ruleTeamplates) {
-    			for(DrlConfiguration drlConf : ruleTeamplateConf.getTemplateRules()) {
-    				DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory.newDecisionTableConfiguration();
-    				
-    				dtableconfiguration.setInputType(DecisionTableInputType.XLSX);
-    				dtableconfiguration.setWorksheetName(ruleTeamplateConf.getWorksheetName());
-    				dtableconfiguration.addRuleTemplateConfiguration(ResourceFactory
-    						.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()), 
-    						ruleTeamplateConf.getStartRow(),
-    						ruleTeamplateConf.getStartColumn());
-    				
-    				kbuilder.add(ResourceFactory.newInputStreamResource(
-    						ruleTeamplateConf.getTemplateData()).setSourcePath(ruleTeamplateConf.getPath()), 
-    						ResourceType.DTABLE,
-    						dtableconfiguration);
-    			}
-    		}
-    	}
-    }
-    
-    private void loadDrools() {
-        try {
-            synchronized (lock) {
-                KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+	@Override
+	public void itemUpdated(Item newItem, String oldItemName) {
+		if (droolsInitialized) {
+			itemRemoved(oldItemName);
+			itemAdded(newItem);
+		}
+	}
 
-                addDrls(kbuilder);
+	private void updateItem(Item item) {
+		if (item.getType().equals("DateTime")) {
+			kSession.delete(addedItems.get(item.getName()));
+			addedItems.put(item.getName(), kSession
+					.insert(new DateTime(item.getName(), ((DateTimeType) item.getState()).getCalendar().getTime())));
+		} else {
+			kSession.update(addedItems.get(item.getName()), item);
+		}
 
-                KieSessionConfiguration config = KieServices.Factory.get().newKieSessionConfiguration();
-                config.setOption(ClockTypeOption.get("pseudo"));
+		logger.trace(subscriberName + "item " + item.getName() + " updated reference in the rule engine");
+	}
 
-                kSession = kbuilder.newKieBase().newKieSession(config, null);
-                homeioSessionClock = new HomeioSessionClock(kSession.getSessionClock());
+	public void setEventPublisher(IEventPublisher eventPublisher) {
 
-                initGlobals();
+		if (droolsInitialized) {
+			kSession.setGlobal("openhab", eventPublisher);
+		} else {
+			this.eventPublisher = eventPublisher;
+		}
+	}
 
-                droolsInitialized = true;
-            }
-            logger.debug(subscriberName + "successfully loaded DRL file");
+	public void unsetEventPublisher(IEventPublisher eventPublisher) {
+		kSession.setGlobal("openhab", null);
+	}
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	public void setRuleLoader(IRuleLoader ruleLoader) {
+		this.ruleLoader = ruleLoader;
+		loadDrools();
+	}
 
-    private void initGlobals() {
-        kSession.setGlobal("ON", OnOffType.ON);
-        kSession.setGlobal("OFF", OnOffType.OFF);
-        kSession.setGlobal("OPEN", OpenClosedType.OPEN);
-        kSession.setGlobal("CLOSED", OpenClosedType.CLOSED);
-        kSession.setGlobal("ZERO", PercentType.ZERO);
-        kSession.setGlobal("HUNDRED", PercentType.HUNDRED);
-        kSession.setGlobal("INCREASE", IncreaseDecreaseType.INCREASE);
-        kSession.setGlobal("DECREASE", IncreaseDecreaseType.DECREASE);
+	public void unsetRuleLoader(IRuleLoader ruleLoader) {
+		this.ruleLoader = null;
+	}
 
-        kSession.setGlobal("ARMED", OpenClosedType.OPEN);
-        kSession.setGlobal("DEARMED", OpenClosedType.CLOSED);
-        kSession.setGlobal("BRIGHTNESS", OpenClosedType.CLOSED);
-        kSession.setGlobal("DARKNESS", OpenClosedType.OPEN);
+	@Override
+	public String getSubscriberName() {
+		return subscriberName;
+	}
 
-        kSession.setGlobal("MOTION", OpenClosedType.OPEN);
-        kSession.setGlobal("NOMOTION", OpenClosedType.CLOSED);
-        kSession.setGlobal("DOOR_OPENED", OpenClosedType.CLOSED);
-        kSession.setGlobal("DOOR_CLOSED", OpenClosedType.OPEN);
-        
-        if (eventPublisher != null) {
-            kSession.setGlobal("openhab", eventPublisher);
-        }
-    }
+	private void addDrls(KnowledgeBuilder kbuilder) {
+
+		List<DrlConfiguration> drls = ruleLoader.getDrls();
+		if (drls != null) {
+			for (DrlConfiguration drlConf : drls) {
+				kbuilder.add(ResourceFactory.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()),
+						ResourceType.DRL);
+			}
+		}
+
+		List<DtableConfiguration> dtables = ruleLoader.getDtables();
+		if (dtables != null) {
+			for (DtableConfiguration dtableConf : dtables) {
+				kbuilder.add(ResourceFactory.newInputStreamResource(dtableConf.getDtable())
+						.setSourcePath(dtableConf.getPath()), ResourceType.DTABLE);
+			}
+		}
+
+		List<RuleTemplateConfiguration> ruleTeamplates = ruleLoader.getRuleTemplates();
+		if (ruleTeamplates != null) {
+			for (RuleTemplateConfiguration ruleTeamplateConf : ruleTeamplates) {
+				for (DrlConfiguration drlConf : ruleTeamplateConf.getTemplateRules()) {
+					DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory
+							.newDecisionTableConfiguration();
+
+					dtableconfiguration.setInputType(DecisionTableInputType.XLSX);
+					dtableconfiguration.setWorksheetName(ruleTeamplateConf.getWorksheetName());
+					dtableconfiguration.addRuleTemplateConfiguration(
+							ResourceFactory.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()),
+							ruleTeamplateConf.getStartRow(), ruleTeamplateConf.getStartColumn());
+
+					kbuilder.add(ResourceFactory.newInputStreamResource(ruleTeamplateConf.getTemplateData())
+							.setSourcePath(ruleTeamplateConf.getPath()), ResourceType.DTABLE, dtableconfiguration);
+				}
+			}
+		}
+	}
+
+	private void loadDrools() {
+		try {
+			KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+
+			addDrls(kbuilder);
+
+			KieSessionConfiguration config = KieServices.Factory.get().newKieSessionConfiguration();
+			config.setOption(ClockTypeOption.get("pseudo"));
+
+			kSession = kbuilder.newKieBase().newKieSession(config, null);
+			homeioSessionClock = new HomeioSessionClock(kSession.getSessionClock());
+
+			initGlobals();
+
+			droolsInitialized = true;
+
+			logger.debug(subscriberName + "successfully initialized Drools rule engine");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void initGlobals() {
+		kSession.setGlobal("ON", OnOffType.ON);
+		kSession.setGlobal("OFF", OnOffType.OFF);
+		kSession.setGlobal("OPEN", OpenClosedType.OPEN);
+		kSession.setGlobal("CLOSED", OpenClosedType.CLOSED);
+		kSession.setGlobal("ZERO", PercentType.ZERO);
+		kSession.setGlobal("HUNDRED", PercentType.HUNDRED);
+		kSession.setGlobal("INCREASE", IncreaseDecreaseType.INCREASE);
+		kSession.setGlobal("DECREASE", IncreaseDecreaseType.DECREASE);
+
+		kSession.setGlobal("ARMED", OpenClosedType.OPEN);
+		kSession.setGlobal("DISARMED", OpenClosedType.CLOSED);
+		kSession.setGlobal("BRIGHTNESS", OpenClosedType.CLOSED);
+		kSession.setGlobal("DARKNESS", OpenClosedType.OPEN);
+
+		kSession.setGlobal("MOTION", OpenClosedType.OPEN);
+		kSession.setGlobal("NOMOTION", OpenClosedType.CLOSED);
+		kSession.setGlobal("DOOR_OPENED", OpenClosedType.OPEN);
+		kSession.setGlobal("DOOR_CLOSED", OpenClosedType.CLOSED);
+		kSession.setGlobal("PRESSED", OpenClosedType.OPEN);
+		kSession.setGlobal("RELEASED", OpenClosedType.CLOSED);
+
+		if (eventPublisher != null) {
+			kSession.setGlobal("openhab", eventPublisher);
+		}
+	}
 
 }

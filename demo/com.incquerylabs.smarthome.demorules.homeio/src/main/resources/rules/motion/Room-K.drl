@@ -3,11 +3,9 @@ package homeioexample
 
 rule "K Lights Motion"
     when
-        $light : Item( name == "K_Lights_Analog", $lightState : state)
+        $light : Item( name == "K_Lights_Analog", state == ZERO)
 
-        ItemStateChangedEvent( name == "K_Motion_Detector", $motionDetectorState : newState)
+        ItemStateChangedEvent( name == "K_Motion_Detector", newState == MOTION)
     then
-        if ($lightState.equals(ZERO) && $motionDetectorState == MOTION) {
-            openhab.postCommand($light, ON);
-        }
+        openhab.postCommand($light, ON);
 end

@@ -30,3 +30,53 @@ rule "L RollerShades"
             }
         }
 end
+
+
+rule "L roller shades up switch"
+    when
+        $upMotor : Item( name == "L_Roller_Shades_Up", state == OFF)
+        $downMotor : Item( name == "L_Roller_Shades_Down", $stateDown : state) 
+
+        $itemState : ItemStateChangedEvent( name == "L_Up_Down_Switch_Up", newState == OPEN )
+    then
+        if ( $stateDown == OFF ) {
+        	openhab.postCommand($upMotor, ON);
+        } else {
+            openhab.postCommand($downMotor, OFF);
+        }
+end
+		
+		
+rule "L RollerShades down switch"
+    when
+        $upMotor : Item( name == "L_Roller_Shades_Up", $stateUp : state)
+        $downMotor : Item( name == "L_Roller_Shades_Down", state == OFF) 
+
+        $itemState : ItemStateChangedEvent( name == "L_Up_Down_Switch_Down", newState == OPEN )
+    then
+        if( $stateUp == OFF) {
+            openhab.postCommand($downMotor, ON);
+        } else {
+            openhab.postCommand($upMotor, OFF);
+        }
+end
+
+
+rule "L roller shades up off"
+	when
+		$upMotor : Item( name == "L_Roller_Shades_Up", state == ON)
+		
+		ItemStateChangedEvent( name == "L_Roller_Shades_Openness", newState == HUNDRED )
+	then
+		openhab.postCommand($upMotor, OFF);
+end
+
+
+rule "L roller shades down off"
+	when
+		$downMotor : Item( name == "L_Roller_Shades_Down", state == ON) 
+		
+		ItemStateChangedEvent( name == "L_Roller_Shades_Openness", newState == ZERO)
+	then
+		openhab.postCommand($downMotor, OFF);
+end

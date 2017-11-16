@@ -3,19 +3,19 @@ package homeioexample
 
 rule "G Lights Switch"
     when
-        $item : Item( name == "G_Lights_Analog", $state : state)
+        $light : Item( name == "G_Lights_Analog", $state : state)
 
-        $itemState : ItemStateChangedEvent( ( 
+        ItemStateChangedEvent( ( 
         name == "G_Light_Switch_1"||
         name == "G_Light_Switch_2"||
         name == "G_Light_Switch_3"||
         name == "G_Light_Switch_4"||
         name == "G_Light_Switch_5") &&
-         newState == OPEN)
+         newState == PRESSED)
     then
         if ($state.equals(HUNDRED)) {
-            openhab.postCommand($item, OFF);
+            openhab.postCommand($light, OFF);
         } else {
-            openhab.postCommand($item, ON);
+            openhab.postCommand($light, ON);
         }
 end

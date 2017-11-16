@@ -1,7 +1,6 @@
 package homeioexample
 
 import org.eclipse.smarthome.core.items.Item;
-import org.eclipse.smarthome.core.library.items.SwitchItem;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.library.types.PercentType;
@@ -16,7 +15,7 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.TimedDimmer;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DateTime;
-
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.InitStates;
 
 global IEventPublisher openhab;
 global OpenClosedType OPEN;
@@ -33,9 +32,11 @@ global OpenClosedType MOTION;
 global OpenClosedType NOMOTION;
 global OpenClosedType DOOR_OPENED;
 global OpenClosedType DOOR_CLOSED;
+global OpenClosedType PRESSED;
+global OpenClosedType RELEASED;
 
 global OpenClosedType ARMED
-global OpenClosedType DEARMED
+global OpenClosedType DISARMED
 
 declare ItemCommandEvent
     @role ( event )
@@ -67,46 +68,14 @@ end
 rule "Init"
     lock-on-active
     when
-        eval ( true )
+        InitStates()
     then
         openhab.postCommand("Example_Light", OFF);
         openhab.postCommand("A_Lights_Analog", ZERO); 
         
         openhab.postCommand("gLight", OFF);
-        openhab.postCommand("A_Roller_Shades_1_Up", OFF);
-        openhab.postCommand("A_Roller_Shades_1_Down", OFF);
-        openhab.postCommand("A_Roller_Shades_3_Up", OFF);
-        openhab.postCommand("A_Roller_Shades_3_Down", OFF);
-
-        openhab.postCommand("A_Light_Switch_Dimmer_3_Up", CLOSED);
-        openhab.postCommand("A_Light_Switch_Dimmer_3_Down", CLOSED);
-        
-        openhab.postCommand("D_Roller_Shades_Up", OFF);
-        openhab.postCommand("D_Roller_Shades_Down", OFF);
-
-        openhab.postCommand("E_Roller_Shades_Up", OFF);
-        openhab.postCommand("E_Roller_Shades_Down", OFF);
-        
-        openhab.postCommand("F_Roller_Shades_Up", OFF);
-        openhab.postCommand("F_Roller_Shades_Down", OFF);
-        
-        openhab.postCommand("G_Roller_Shades_Up", OFF);
-        openhab.postCommand("G_Roller_Shades_Down", OFF);
-        
-        openhab.postCommand("H_Roller_Shades_Up", OFF);
-        openhab.postCommand("H_Roller_Shades_Down", OFF);
-        
-        openhab.postCommand("J_Roller_Shades_Up", OFF);
-        openhab.postCommand("J_Roller_Shades_Down", OFF);
-        
-        openhab.postCommand("L_Roller_Shades_Up", OFF);
-        openhab.postCommand("L_Roller_Shades_Down", OFF);
-        
-        openhab.postCommand("M_Roller_Shades_Up", OFF);
-        openhab.postCommand("M_Roller_Shades_Down", OFF);
-        
-        openhab.postCommand("N_Roller_Shades_Up", OFF);
-        openhab.postCommand("N_Roller_Shades_Down", OFF);
+        openhab.postCommand("gRollerShadesUp", OFF);
+        openhab.postCommand("gRollerShadesDown", OFF);
 end
 
 
@@ -127,11 +96,11 @@ end
 
 
 
-rule "Example Lights Switch"
+rule "Example lights rule with push switch"
     when
         $item : Item( name == "Example_Light", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == OPEN)
+        $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == PRESSED)
     then
         if ($state == ON) {
             openhab.postCommand($item, OFF);

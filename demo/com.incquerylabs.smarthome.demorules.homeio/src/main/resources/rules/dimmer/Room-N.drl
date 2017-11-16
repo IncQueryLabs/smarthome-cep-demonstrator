@@ -10,7 +10,7 @@ rule "N Lights Switch Dimmer Up"
         name == "N_Light_Switch_Dimmer_1_Up" || 
         name == "N_Light_Switch_Dimmer_2_Up" || 
         name == "N_Light_Switch_Dimmer_3_Up" ) && 
-        newState == OPEN )
+        newState == PRESSED )
 
     then
         openhab.timedCommand(TimedDimmer.create($item1, INCREASE, 2 , 1000, 50));
@@ -29,7 +29,7 @@ rule "N Lights Switch Dimmer Down"
         name == "N_Light_Switch_Dimmer_1_Down" || 
         name == "N_Light_Switch_Dimmer_2_Down" || 
         name == "N_Light_Switch_Dimmer_3_Down" ) && 
-        newState == OPEN )
+        newState == PRESSED )
 
     then
         openhab.timedCommand(TimedDimmer.create($item1, DECREASE, 2 , 1000, 50));
@@ -40,7 +40,7 @@ end
 
 rule "N Dimmer off"
     when
-        $itemState : ItemStateChangedEvent( name matches "N_Light_Switch_Dimmer.*", newState == CLOSED )
+        $itemState : ItemStateChangedEvent( name matches "N_Light_Switch_Dimmer.*", newState == RELEASED )
     
     then
         openhab.stopTimedCommand("N_Lights_1_Analog");

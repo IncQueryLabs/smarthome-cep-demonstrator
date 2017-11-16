@@ -1,5 +1,6 @@
 template header
-motiondetector
+motionDetector
+brightnesSensor
 light
 
 package homeioexample
@@ -38,13 +39,13 @@ global OpenClosedType NOMOTION;
 template "lights for motion"
 rule "Lights for motion_@{row.rowNumber}"
     when
-        $light : Item( name == "@{light}", $lightState : state)
-
-        ItemStateChangedEvent( name == "@{motiondetector}", $motionDetectorState : newState)
+        $light : Item( name == "@{light}", state == ZERO)
+        
+		Item( name == "@{brightnesSensor}", state == DARKNESS )
+		
+        ItemStateChangedEvent( name == "@{motionDetector}", newState == MOTION)
     then
-        if ($lightState.equals(ZERO) && $motionDetectorState == MOTION) {
-            openhab.postCommand($light, ON);
-        }
+        openhab.postCommand($light, ON);
 end
 
 end template

@@ -61,7 +61,11 @@ namespace HomeIO_MQTT
                 float value;
                 if (lastSentValue.TryGetValue(mem, out value))
                 {
-                    if (Math.Abs(value - mem.Value) < 0.5)
+                    if (mem.Value > 1 && mem.Value < 9 && Math.Abs(value - mem.Value) < 0.5)
+                    {
+                        return false;
+                    }
+                    else if (mem.Value != 0 && mem.Value != 10 && Math.Abs(value - mem.Value) < 0.2)
                     {
                         return false;
                     }
