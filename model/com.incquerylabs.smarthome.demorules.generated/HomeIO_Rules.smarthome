@@ -42,6 +42,5 @@
     <events newState="//@items.1/@states.0" item="//@items.1"/>
     <events newState="//@items.2/@states.0" item="//@items.2"/>
     <commands item="//@items.12" command="//@items.12/@accaptedCommands.2"/>
-    <commands/>
   </rules>
 </smarthome:SmartHome>

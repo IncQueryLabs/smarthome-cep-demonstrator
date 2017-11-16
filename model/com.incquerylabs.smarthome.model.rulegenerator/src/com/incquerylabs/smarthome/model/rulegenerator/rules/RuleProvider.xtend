@@ -120,7 +120,7 @@ class RuleProvider {
         return generalRulesRule
     }
     
-        public def getChangeStateRulesRule() {
+        public def getChangeStateSwitchRulesRule() {
         if (changeStateSwitchRulesRule === null) {
             changeStateSwitchRulesRule = createRule.name("ChangeStateRule").precondition(ChangeStateSwitchRulesMatcher.querySpecification).action [
                 val node = it.evaluatingNode;
@@ -169,7 +169,7 @@ class RuleProvider {
         return changeStateSwitchRulesRule
     }
     
-    public def getChangeStateAnalogRulesRule() {
+    public def getChangeStateDimmerRulesRule() {
         if (changeStateDimmerRulesRule === null) {
             changeStateDimmerRulesRule = createRule.name("ChangeStateRule").precondition(ChangeStateDimmerRulesMatcher.querySpecification).action [
                 val node = it.evaluatingNode;

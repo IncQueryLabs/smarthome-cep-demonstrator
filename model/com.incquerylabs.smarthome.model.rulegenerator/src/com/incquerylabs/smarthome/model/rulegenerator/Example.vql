@@ -6,35 +6,30 @@ pattern smartHomeRules(smarthome : SmartHome, evaluatingNode : EvaluatingNode) {
     SmartHome.rules(smarthome, evaluatingNode);
 }
 
-pattern changeStateSwitchCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command) {
+pattern changeStateSwitchCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command, item : SwitchItem) {
 	EvaluatingNode.commands(evaluatingNode, commandConnection);
 	CommandConnection.item(commandConnection, item);
-	SwitchItem(item);
 	CommandConnection.command(commandConnection,command);
-	Command.command(command,"CHANGE_STATE");
+	Command.command(command, "CHANGE_STATE");
 }
 
-pattern changeStateDimmerCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command) {
+pattern changeStateDimmerCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command, item : DimmerItem) {
 	EvaluatingNode.commands(evaluatingNode, commandConnection);
 	CommandConnection.item(commandConnection, item);
-	DimmerItem(item);
 	CommandConnection.command(commandConnection,command);
-	Command.command(command,"CHANGE_STATE");
+	Command.command(command, "CHANGE_STATE");
 }
 
 pattern changeStateSwitchRules(evaluatingNode : EvaluatingNode) {
-	EvaluatingNode(evaluatingNode);
-	find changeStateSwitchCommand(evaluatingNode,_,_);
+	find changeStateSwitchCommand(evaluatingNode,_,_,_);
 }
 
 pattern changeStateDimmerRules(evaluatingNode : EvaluatingNode) {
-	EvaluatingNode(evaluatingNode);
-	find changeStateDimmerCommand(evaluatingNode,_,_);
+	find changeStateDimmerCommand(evaluatingNode,_,_,_);
 }
 
 
 pattern generalRules(evaluatingNode : EvaluatingNode) {
-    EvaluatingNode(evaluatingNode);
-    neg find changeStateSwitchCommand(evaluatingNode,_,_);
-    neg find changeStateDimmerCommand(evaluatingNode,_,_);
+    neg find changeStateSwitchCommand(evaluatingNode,_,_,_);
+    neg find changeStateDimmerCommand(evaluatingNode,_,_,_);
 }
