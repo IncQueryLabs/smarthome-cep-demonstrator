@@ -265,17 +265,6 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_vFpAE8MKEeeYPJ_rk-dicA" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vFpAFMMKEeeYPJ_rk-dicA" x="1560" width="200" height="100"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_vFpnIMMKEeeYPJ_rk-dicA" type="2001" element="_vFU3MMMKEeeYPJ_rk-dicA">
-          <children xmi:type="notation:Node" xmi:id="_vFpnI8MKEeeYPJ_rk-dicA" type="5002">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_vFpnJMMKEeeYPJ_rk-dicA" y="5"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_vGIIQ8MKEeeYPJ_rk-dicA" type="3003" element="_vFU3McMKEeeYPJ_rk-dicA">
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_vGIIRMMKEeeYPJ_rk-dicA" fontName="Segoe UI"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vGIIRcMKEeeYPJ_rk-dicA"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_vFpnIcMKEeeYPJ_rk-dicA" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vFpnIsMKEeeYPJ_rk-dicA" x="1824" width="200" height="100"/>
-        </children>
         <children xmi:type="notation:Node" xmi:id="_vFpnJcMKEeeYPJ_rk-dicA" type="2001" element="_vFU3MsMKEeeYPJ_rk-dicA">
           <children xmi:type="notation:Node" xmi:id="_vFqOMMMKEeeYPJ_rk-dicA" type="5002">
             <layoutConstraint xmi:type="notation:Location" xmi:id="_vFqOMcMKEeeYPJ_rk-dicA" y="5"/>
@@ -675,20 +664,12 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/smarthome-cep-demonstrator/model/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_vFU3MMMKEeeYPJ_rk-dicA" name="O_Lights_Porch_2" width="20" height="10" resizeKind="NSEW">
-      <target xmi:type="smarthome:SwitchItem" href="HomeIO_Rules.smarthome#//@items.12"/>
-      <semanticElements xmi:type="smarthome:SwitchItem" href="HomeIO_Rules.smarthome#//@items.12"/>
-      <ownedStyle xmi:type="diagram:Square" xmi:id="_vFU3McMKEeeYPJ_rk-dicA" labelPosition="node" width="20" height="10">
-        <description xmi:type="style:SquareDescription" href="platform:/resource/smarthome-cep-demonstrator/model/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@style"/>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/smarthome-cep-demonstrator/model/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']"/>
-    </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_vFU3MsMKEeeYPJ_rk-dicA" name="A_Lights_Analog" width="20" height="10" resizeKind="NSEW">
-      <target xmi:type="smarthome:DimmerItem" href="HomeIO_Rules.smarthome#//@items.13"/>
-      <semanticElements xmi:type="smarthome:DimmerItem" href="HomeIO_Rules.smarthome#//@items.13"/>
+      <target xmi:type="smarthome:DimmerItem" href="HomeIO_Rules.smarthome#//@items.12"/>
+      <semanticElements xmi:type="smarthome:DimmerItem" href="HomeIO_Rules.smarthome#//@items.12"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_vFU3M8MKEeeYPJ_rk-dicA" name="OFF" width="10" height="3" resizeKind="NSEW">
-        <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.0"/>
-        <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.0"/>
+        <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.12/@accaptedCommands.0"/>
+        <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.12/@accaptedCommands.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -698,8 +679,8 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/smarthome-cep-demonstrator/model/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']"/>
       </ownedBorderedNodes>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_vFU3NcMKEeeYPJ_rk-dicA" name="ON" incomingEdges="_vFU3TcMKEeeYPJ_rk-dicA" width="10" height="3" resizeKind="NSEW">
-        <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.1"/>
-        <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.1"/>
+        <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.12/@accaptedCommands.1"/>
+        <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.12/@accaptedCommands.1"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -708,9 +689,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/smarthome-cep-demonstrator/model/com.incquerylabs.smarthome.model.ruleeditor/description/smarthome.odesign#//@ownedViewpoints[name='Rule%20Creator']/@ownedRepresentations[name='Rule%20Creator%20Diagram']/@defaultLayer/@nodeMappings[name='ItemNode']/@borderedNodeMappings[name='CommandNode']"/>
       </ownedBorderedNodes>
-      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_vFU3N8MKEeeYPJ_rk-dicA" name="CHANGE_STATE_ANALOG" incomingEdges="_vFU3UMMKEeeYPJ_rk-dicA" width="10" height="3" resizeKind="NSEW">
-        <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.2"/>
-        <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.13/@accaptedCommands.2"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_vFU3N8MKEeeYPJ_rk-dicA" name="CHANGE_STATE" incomingEdges="_vFU3UMMKEeeYPJ_rk-dicA" width="10" height="3" resizeKind="NSEW">
+        <target xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.12/@accaptedCommands.2"/>
+        <semanticElements xmi:type="smarthome:Command" href="HomeIO_Rules.smarthome#//@items.12/@accaptedCommands.2"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>

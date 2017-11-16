@@ -2,10 +2,10 @@
   <extension id="com.incquerylabs.smarthome.model.rulegenerator.Example" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:com.incquerylabs.smarthome.model.rulegenerator.Example" id="com.incquerylabs.smarthome.model.rulegenerator.Example">
       <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.smartHomeRules"/>
-      <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.changeStateCommand"/>
-      <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.changeStateAnalogCommand"/>
-      <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.changeStateRules"/>
-      <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.changeStateAnalogRules"/>
+      <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.changeStateSwitchCommand"/>
+      <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.changeStateDimmerCommand"/>
+      <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.changeStateSwitchRules"/>
+      <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.changeStateDimmerRules"/>
       <query-specification fqn="com.incquerylabs.smarthome.model.rulegenerator.generalRules"/>
     </group>
   </extension>

@@ -13,8 +13,8 @@ import org.eclipse.viatra.transformation.runtime.emf.rules.batch.BatchTransforma
 import org.eclipse.core.resources.IResource
 import java.io.ByteArrayInputStream
 import com.incquerylabs.smarthome.model.rulegenerator.GeneralRulesMatcher
-import com.incquerylabs.smarthome.model.rulegenerator.ChangeStateRulesMatcher
-import com.incquerylabs.smarthome.model.rulegenerator.ChangeStateAnalogRulesMatcher
+import com.incquerylabs.smarthome.model.rulegenerator.ChangeStateSwitchRulesMatcher
+import com.incquerylabs.smarthome.model.rulegenerator.ChangeStateDimmerRulesMatcher
 
 class RuleProvider {
 
@@ -24,8 +24,8 @@ class RuleProvider {
 
     BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> smarthomeRule
     BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> generalRulesRule
-	BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> changeStateRulesRule
-	BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> changeStateAnalogRulesRule
+	BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> changeStateSwitchRulesRule
+	BatchTransformationRule<? extends IPatternMatch, ? extends ViatraQueryMatcher<?>> changeStateDimmerRulesRule
 	
     private var ruleId = 0;
     private static final String destinationProject = "com.incquerylabs.smarthome.demorules.generated";
@@ -121,8 +121,8 @@ class RuleProvider {
     }
     
         public def getChangeStateRulesRule() {
-        if (changeStateRulesRule === null) {
-            changeStateRulesRule = createRule.name("ChangeStateRule").precondition(ChangeStateRulesMatcher.querySpecification).action [
+        if (changeStateSwitchRulesRule === null) {
+            changeStateSwitchRulesRule = createRule.name("ChangeStateRule").precondition(ChangeStateSwitchRulesMatcher.querySpecification).action [
                 val node = it.evaluatingNode;
                 ruleId++;
                 
@@ -166,12 +166,12 @@ class RuleProvider {
 
             ].build
         }
-        return changeStateRulesRule
+        return changeStateSwitchRulesRule
     }
     
     public def getChangeStateAnalogRulesRule() {
-        if (changeStateAnalogRulesRule === null) {
-            changeStateAnalogRulesRule = createRule.name("ChangeStateRule").precondition(ChangeStateAnalogRulesMatcher.querySpecification).action [
+        if (changeStateDimmerRulesRule === null) {
+            changeStateDimmerRulesRule = createRule.name("ChangeStateRule").precondition(ChangeStateDimmerRulesMatcher.querySpecification).action [
                 val node = it.evaluatingNode;
                 ruleId++;
                 
@@ -215,6 +215,6 @@ class RuleProvider {
 
             ].build
         }
-        return changeStateAnalogRulesRule
+        return changeStateDimmerRulesRule
     }
 }
