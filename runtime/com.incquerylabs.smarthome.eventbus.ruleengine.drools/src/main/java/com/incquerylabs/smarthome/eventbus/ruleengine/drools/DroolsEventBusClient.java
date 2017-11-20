@@ -37,8 +37,10 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemStateEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemUpdatedEvent;
 
 public class DroolsEventBusClient implements IEventSubscriber {
+	private static class DroolsLogger {}
 	static Logger logger = LoggerFactory.getLogger(DroolsEventBusClient.class);
-	private static final String subscriberName = "Drools event bus client ";
+	static Logger droolsLogger = LoggerFactory.getLogger(DroolsLogger.class);
+	private static final String subscriberName = "Drools event bus client";
 
 	private ConcurrentHashMap<String, FactHandle> addedItems = new ConcurrentHashMap<String, FactHandle>();
 	private IRuleLoader ruleLoader = null;
@@ -59,7 +61,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	public void stateChanged(ItemStateChangedEvent itemStateChangedEvent) {
 		if (droolsInitialized) {
 			changeStateInRuleEngine(itemStateChangedEvent);
-			logger.info(subscriberName + itemStateChangedEvent);
+			logger.info(itemStateChangedEvent.toString());
 		}
 	}
 
@@ -67,7 +69,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	public void groupStateChanged(GroupItemStateChangedEvent groupItemStateChangedEvent) {
 		if (droolsInitialized) {
 			changeStateInRuleEngine(groupItemStateChangedEvent);
-			logger.info(subscriberName + groupItemStateChangedEvent);
+			logger.info(groupItemStateChangedEvent.toString());
 		}
 	}
 
@@ -75,14 +77,14 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	public void commandReceived(ItemCommandEvent itemCommandEvent) {
 		if (droolsInitialized) {
 			addItemCommandToRuleEngine(itemCommandEvent);
-			logger.debug(subscriberName + itemCommandEvent);
+			logger.debug(itemCommandEvent.toString());
 		}
 	}
 
 	@Override
 	public void initItems(Collection<Item> items) {
 		if (droolsInitialized) {
-			logger.debug(subscriberName + " initializing " + items.size() + " items");
+			logger.debug("Initializing {} items", items.size());
 			for (Item item : items) {
 				addItemToRuleEngine(item);
 			}
@@ -133,7 +135,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 			FactHandle handle = kSession.insert(item);
 			addedItems.put(item.getName(), handle);
 
-			logger.trace(subscriberName + "added item to rule engine: " + item.getName());
+			logger.trace("Added item to rule engine: ", item.getName());
 
 		} else {
 			updateItemInRuleEngine(item);
@@ -148,15 +150,15 @@ public class DroolsEventBusClient implements IEventSubscriber {
 			kSession.delete(handle);
 			kSession.fireAllRules();
 
-			logger.trace(subscriberName + "removed item from rule engine: " + itemName);
+			logger.trace("Removed item from rule engine: ", itemName);
 		} else {
-			logger.error(subscriberName + "tried to delete item" + itemName + ", but it wasn't in the rule engine");
+			logger.error("Tried to delete item {}, but it wasn't in the rule engine", itemName);
 		}
 	}
 
 	private void updateItemInRuleEngine(Item item) {
 		kSession.update(addedItems.get(item.getName()), item);
-		logger.info(subscriberName + "item " + item.getName() + " updated reference in the rule engine");
+		logger.trace("Item {} updated reference in the rule engine", item.getName());
 	}
 
 	public void setEventPublisher(IEventPublisher eventPublisher) {
@@ -188,6 +190,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	private void addDrls(KnowledgeBuilder kbuilder) {
 
 		List<DrlConfiguration> drls = ruleLoader.getDrls();
+		logger.debug("Loading {} drl files", drls.size());
 		if (drls != null) {
 			for (DrlConfiguration drlConf : drls) {
 				kbuilder.add(ResourceFactory.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()),
@@ -196,6 +199,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		}
 
 		List<DtableConfiguration> dtables = ruleLoader.getDtables();
+		logger.debug("Loading {} decision tables", dtables.size());
 		if (dtables != null) {
 			for (DtableConfiguration dtableConf : dtables) {
 				kbuilder.add(ResourceFactory.newInputStreamResource(dtableConf.getDtable())
@@ -204,6 +208,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		}
 
 		List<RuleTemplateConfiguration> ruleTeamplates = ruleLoader.getRuleTemplates();
+		logger.debug("Loading {} rule templates", ruleTeamplates.size());
 		if (ruleTeamplates != null) {
 			for (RuleTemplateConfiguration ruleTeamplateConf : ruleTeamplates) {
 				for (DrlConfiguration drlConf : ruleTeamplateConf.getTemplateRules()) {
@@ -225,20 +230,24 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
 	private void loadDrools() {
 		try {
+			logger.info("Initializing Drools rule engine");
 			KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
 			addDrls(kbuilder);
 
+			logger.debug("Compiling rules");
 			kSession = kbuilder.newKieBase().newKieSession();
 			initGlobals();
 			droolsInitialized = true;
-			logger.debug(subscriberName + "successfully loaded DRL file");
+			logger.debug("Successfully initialized Drools rule engine");
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Exiting because of an exception during the Drools initialization ", e);
+			new RuntimeException("Exiting because of an exception during the Drools initialization");
 		}
 	}
 
 	private void initGlobals() {
+		kSession.setGlobal("logger", droolsLogger);
 		kSession.setGlobal("ON", OnOffType.ON);
 		kSession.setGlobal("OFF", OnOffType.OFF);
 		kSession.setGlobal("OPEN", OpenClosedType.OPEN);
@@ -251,5 +260,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		if (eventPublisher != null) {
 			kSession.setGlobal("openhab", eventPublisher);
 		}
+		
+		logger.debug("Initialized global variables");
 	}
 }

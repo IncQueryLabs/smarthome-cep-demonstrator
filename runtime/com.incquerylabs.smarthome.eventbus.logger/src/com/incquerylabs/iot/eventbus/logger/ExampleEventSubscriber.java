@@ -18,8 +18,8 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemUpdatedEvent;
 public class ExampleEventSubscriber implements IEventSubscriber {
     static Logger logger = LoggerFactory.getLogger(ExampleEventSubscriber.class);
 
-    private static final String subscriberName = "IncQuery event bus logger ";
-
+    private static final String subscriberName = "Extended event bus logger";
+    
 	@Override
 	public void stateUpdated(ItemStateEvent event) {
 		logger.info(event.toString());
@@ -27,41 +27,41 @@ public class ExampleEventSubscriber implements IEventSubscriber {
     
     @Override
     public void stateChanged(ItemStateChangedEvent event) {
-        logger.info(subscriberName + event);
+        logger.info(event.toString());
     }
     
     @Override
     public void groupStateChanged(GroupItemStateChangedEvent event) {
-        logger.info(subscriberName + event);
+        logger.info(event.toString());
     }
 
     @Override
     public void commandReceived(ItemCommandEvent event) {
-        logger.info(subscriberName + event);
+        logger.info(event.toString());
     }
 
     @Override
     public void initItems(Collection<Item> items) {
         for (Item item : items) {
-            logger.info(subscriberName + "init item: " + item.getName());
+            logger.info("init item: " + item.getName());
         }
     }
 
     @Override
     public void itemAdded(ItemAddedEvent event) {
-        logger.info(subscriberName + "added item " + event.getItemName());
+        logger.info(event.toString());
 
     }
 
     @Override
     public void itemRemoved(ItemRemovedEvent event) {
-        logger.info(subscriberName + "removed item " + event.getItemName());
+        logger.info(event.toString());
 
     }
 
     @Override
     public void itemUpdated(ItemUpdatedEvent event) {
-        logger.info(subscriberName + "updated item " + event.getNewItem().getName());
+        logger.info(event.toString());
     }
 
     @Override

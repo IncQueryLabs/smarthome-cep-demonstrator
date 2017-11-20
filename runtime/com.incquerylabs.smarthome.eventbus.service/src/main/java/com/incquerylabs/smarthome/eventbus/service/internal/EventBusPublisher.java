@@ -20,7 +20,7 @@ public class EventBusPublisher implements IEventPublisher {
     @Override
     public synchronized void postCommand(String itemName, Command command) {
         eventPublisher.post(ItemEventFactory.createCommandEvent(itemName, command));
-        logger.debug(" posted command to item: " + itemName + " " + command);
+        logger.debug("Posted command to item: {} {} ", itemName, command);
     }
 
     @Override
@@ -30,12 +30,12 @@ public class EventBusPublisher implements IEventPublisher {
     }
 
     @Override
-    public synchronized void startComplexCommand(IComplexCommand timedCommand) {
-        String itemName = timedCommand.getItemName();
+    public synchronized void startComplexCommand(IComplexCommand complexCommand) {
+        String itemName = complexCommand.getItemName();
         stopComplexCommand(complexCommands.get(itemName));
 
-        timedCommand.start(this);
-        complexCommands.put(itemName, timedCommand);
+        complexCommand.start(this);
+        complexCommands.put(itemName, complexCommand);
     }
 
     @Override
@@ -48,21 +48,21 @@ public class EventBusPublisher implements IEventPublisher {
     	stopComplexCommand(item.getName());
     }
 
-    private void stopComplexCommand(IComplexCommand timedCommand) {
-        if (timedCommand != null) {
-            timedCommand.stop();
-            complexCommands.remove(timedCommand.getItemName());
+    private void stopComplexCommand(IComplexCommand complexCommand) {
+        if (complexCommand != null) {
+        	complexCommand.stop();
+            complexCommands.remove(complexCommand.getItemName());
         }
     }
 
     public void setEventPublisher(org.eclipse.smarthome.core.events.EventPublisher eventPublisher) {
         this.eventPublisher = eventPublisher;
-        logger.info(" set event publisher");
+        logger.info("Set event publisher");
     }
 
     public void unsetEventPublisher(org.eclipse.smarthome.core.events.EventPublisher eventPublisher) {
         this.eventPublisher = null;
-        logger.info(" removed event publisher");
+        logger.info("Removed event publisher");
     }
 
 }
