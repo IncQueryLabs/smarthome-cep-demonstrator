@@ -12,7 +12,8 @@ import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
-import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemEvent;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DimmerCommand;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DateTime;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.InitStates;
@@ -53,7 +54,7 @@ declare ItemStateChangedEvent
 end
 
 
-declare ItemStateHistory
+declare ItemStateChangedHistory
     @role ( event )
 end
 
@@ -72,17 +73,8 @@ rule "Init"
 end
 
 
-rule "Item command event"
+rule "Item event"
     when
-        $itemCommand : ItemCommandEvent( name : name, command : command)
+        $event : ItemEvent()
     then
-        System.out.println( "IncQuery droolsbundle: " + $itemCommand);
-end
-
-
-rule "Item state changed event"
-    when
-        $itemState : ItemStateChangedEvent( $item : item, name : name, newState : newState, oldState : oldState)
-    then
-        System.out.println( "IncQuery droolsbundle: item " + $itemState);
 end

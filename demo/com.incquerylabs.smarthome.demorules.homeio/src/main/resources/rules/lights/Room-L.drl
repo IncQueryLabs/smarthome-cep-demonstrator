@@ -18,7 +18,7 @@ rule "L Lights Switch On"
     when
         $light : Item( name == "L_Lights_Analog") 
 
-        $switchPressed : ItemStateHistory( ( 
+        $switchPressed : ItemStateChangedHistory( ( 
         name == "L_Light_Switch_Dimmer_1_Up" || 
         name == "L_Light_Switch_Dimmer_2_Up" ) && 
         newState == PRESSED )
@@ -38,7 +38,7 @@ rule "L Lights Switch Off"
     when
         $light : Item( name == "L_Lights_Analog") 
 
-        $switchPressed : ItemStateHistory( ( 
+        $switchPressed : ItemStateChangedHistory( ( 
         name == "L_Light_Switch_Dimmer_1_Down" || 
         name == "L_Light_Switch_Dimmer_2_Down" ) && 
         newState == PRESSED )

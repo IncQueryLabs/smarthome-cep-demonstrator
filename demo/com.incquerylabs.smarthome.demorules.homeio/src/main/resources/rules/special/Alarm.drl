@@ -20,7 +20,6 @@ end
 rule "Alarm disarmed"
     when
         $armed : AlarmArmed()
-        
         ItemStateChangedEvent( name == "E_Alarm_Key_Pad_Armed", newState == DISARMED)
     then
         retract($armed);
@@ -44,7 +43,7 @@ rule "Alarm for light"
     when
         $armed : AlarmArmed()
         not ( AlarmRaised() )
-        $firstBrigthness : ItemStateHistory(this after[10s] $armed, name matches ".*Brightness_Sensor", newState == BRIGHTNESS)
+        $firstBrigthness : ItemStateChangedHistory(this after[10s] $armed, name matches ".*Brightness_Sensor", newState == BRIGHTNESS)
         
         $secondBrigthness : ItemStateChangedEvent(this after[5s, 1m] $firstBrigthness, name matches ".*Brightness_Sensor", newState == BRIGHTNESS)
     then

@@ -32,7 +32,8 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemRemovedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
-import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemUpdatedEvent;
 
 public class DroolsEventBusClient implements IEventSubscriber {
@@ -47,6 +48,13 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
 	private IEventPublisher eventPublisher = null;
 
+	@Override
+	public void stateUpdated(ItemStateEvent itemStateEvent) {
+		if (droolsInitialized) {
+			logger.trace(itemStateEvent.toString());
+		}
+	}
+	
 	@Override
 	public void stateChanged(ItemStateChangedEvent itemStateChangedEvent) {
 		if (droolsInitialized) {
@@ -91,7 +99,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	@Override
 	public void itemRemoved(ItemRemovedEvent itemRemovedEvent) {
 		if (droolsInitialized) {
-			removeItemFromRuleEngine(itemRemovedEvent.getItemName());
+			removeItemFromRuleEngine(itemRemovedEvent.getName());
 		}
 	}
 
@@ -109,7 +117,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		FactHandle handle = kSession.insert(itemStateChangedEvent);
 		kSession.fireAllRules();
 		kSession.delete(handle);
-		kSession.insert(new ItemStateHistory(itemStateChangedEvent));
+		kSession.insert(new ItemStateChangedHistory(itemStateChangedEvent));
 	}
 
 	private void addItemCommandToRuleEngine(ItemCommandEvent itemCommandEvent) {

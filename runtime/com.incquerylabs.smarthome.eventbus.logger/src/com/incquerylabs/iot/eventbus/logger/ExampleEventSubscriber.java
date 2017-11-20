@@ -12,6 +12,7 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemAddedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemRemovedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemUpdatedEvent;
 
 public class ExampleEventSubscriber implements IEventSubscriber {
@@ -19,6 +20,11 @@ public class ExampleEventSubscriber implements IEventSubscriber {
 
     private static final String subscriberName = "IncQuery event bus logger ";
 
+	@Override
+	public void stateUpdated(ItemStateEvent event) {
+		logger.info(event.toString());
+	}
+    
     @Override
     public void stateChanged(ItemStateChangedEvent event) {
         logger.info(subscriberName + event);

@@ -2,7 +2,7 @@ package com.incquerylabs.smarthome.eventbus.api.events;
 
 import org.eclipse.smarthome.core.items.Item;
 
-public class ItemAddedEvent {
+public class ItemAddedEvent implements ItemEvent {
 	private Item item;
 
 	public ItemAddedEvent(Item item) {
@@ -14,7 +14,12 @@ public class ItemAddedEvent {
 		return item;
 	}
 	
-	public String getItemName() {
+	public String getName() {
 		return item.getName();
 	}
+	
+    @Override
+    public String toString() {
+        return "Item '" + item.getName() + "' has been added.";
+    }
 }

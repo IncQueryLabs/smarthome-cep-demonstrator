@@ -1,6 +1,6 @@
 package com.incquerylabs.smarthome.eventbus.api.events;
 
-public class ItemRemovedEvent {
+public class ItemRemovedEvent implements ItemEvent {
 	private String itemName;
 
 	public ItemRemovedEvent(String itemName) {
@@ -8,7 +8,12 @@ public class ItemRemovedEvent {
 		this.itemName = itemName;
 	}
 	
-	public String getItemName() {
+	public String getName() {
 		return itemName;
 	}
+	
+    @Override
+    public String toString() {
+        return "Item '" + itemName + "' has been removed.";
+    }
 }

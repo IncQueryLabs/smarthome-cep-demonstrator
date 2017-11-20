@@ -19,4 +19,9 @@ public class ItemUpdatedEvent {
 	public String getOldItemName() {
 		return oldItemName;
 	}
+	
+    @Override
+    public String toString() {
+        return "Item '" + oldItemName + "' has been updated.";
+    }
 }
