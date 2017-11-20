@@ -1,13 +1,11 @@
 package com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.library.types.DateTimeType;
+import org.eclipse.smarthome.core.library.types.DecimalType;
 import org.kie.api.time.SessionPseudoClock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,11 +13,10 @@ import org.slf4j.LoggerFactory;
 public class HomeioSessionClock {
     static Logger logger = LoggerFactory.getLogger(HomeioSessionClock.class);
 
-    private float timeMultiplier = 1;
+    private float timeScale = 1;
+    private float timeSlowerFactor = 0.9f;
     private Date homeioTime = null;
     private Date homeioTimeAddedTime = null;
-
-    private LinkedList<List<Date>> oldHomeioTimes = new LinkedList<List<Date>>();
 
     private Date realTimeAtLastIncrement = null;
     private long incrementedTimeSinceHomeioTimeAdded = 0;
@@ -37,8 +34,6 @@ public class HomeioSessionClock {
     public void newHomeioTime(Date newHomeioTime) {
         Date realTime = new Date();
         if (homeioTime != null) {
-            timeMultiplier = calculateTimeMultiplier(newHomeioTime, realTime);
-            logger.error("IncQuery droolsbundle: timeMultiplier: " + timeMultiplier);
             clock.advanceTime(elapsedTimeInHomeio(newHomeioTime) - incrementedTimeSinceHomeioTimeAdded,
                     TimeUnit.MILLISECONDS);
         }
@@ -48,9 +43,13 @@ public class HomeioSessionClock {
         incrementedTimeSinceHomeioTimeAdded = 0;
         realTimeAtLastIncrement = null;
     }
+    
+    public void setTimeScale(Item timeScaleItem) {
+    	this.timeScale = ((DecimalType) timeScaleItem.getState()).floatValue();
+    }
 
     public void advanceClock() {
-        clock.advanceTime(getElapsedTime(), TimeUnit.MILLISECONDS);
+        clock.advanceTime(getElapsedTimeSinceLastAdvance(), TimeUnit.MILLISECONDS);
     }
 
     public long getHomeioTime() {
@@ -60,36 +59,21 @@ public class HomeioSessionClock {
         return 0;
     }
 
-    private long getElapsedTime() {
+    private long getElapsedTimeSinceLastAdvance() {
         long elapsedTime = 0;
         if (homeioTime != null) {
             Date realTime = new Date();
 
             if (realTimeAtLastIncrement != null) {
-                elapsedTime = (long) (elapsedRealTimeSinceLastIncrement(realTime) * timeMultiplier * 0.9);
+                elapsedTime = (long) (elapsedRealTimeSinceLastIncrement(realTime) * timeScale * timeSlowerFactor);
             } else {
-                elapsedTime = (long) (elapsedRealTimeSinceHomeioTime(realTime) * timeMultiplier * 0.9);
+                elapsedTime = (long) (elapsedRealTimeSinceHomeioTime(realTime) * timeScale * timeSlowerFactor);
             }
 
             realTimeAtLastIncrement = realTime;
             incrementedTimeSinceHomeioTimeAdded += elapsedTime;
         }
         return elapsedTime;
-    }
-
-    private int calculateTimeMultiplier(Date newHomeioTime, Date realTime) {
-        oldHomeioTimes.add(Arrays.asList(homeioTime, homeioTimeAddedTime));
-        if (oldHomeioTimes.size() < 5) {
-            return 1;
-        }
-        if (oldHomeioTimes.size() > 25) {
-            oldHomeioTimes.removeFirst();
-        }
-        Date oldestHomeioTime = oldHomeioTimes.getFirst().get(0);
-        Date oldestHomeioTimeAdded = oldHomeioTimes.getFirst().get(1);
-        return Math.round((float) (newHomeioTime.getTime() - oldestHomeioTime.getTime())
-                / (float) (realTime.getTime() - oldestHomeioTimeAdded.getTime()));
-
     }
 
     private long elapsedTimeInHomeio(Date newHomeioTime) {

@@ -61,8 +61,10 @@ public class DroolsEventBusClient implements IEventSubscriber {
 			Item item = itemStateChangedEvent.getItem();
 			if (item.getName().equals("HomeIO_Date")) {
 				homeioSessionClock.newHomeioTime(item);
+			} else if (item.getName().equals("Time_Scale")) {
+				homeioSessionClock.setTimeScale(item);
 			} else {
-				homeioSessionClock.advanceClock();
+				homeioSessionClock.advanceClock();				
 			}
 
 			changeStateInRuleEngine(itemStateChangedEvent);

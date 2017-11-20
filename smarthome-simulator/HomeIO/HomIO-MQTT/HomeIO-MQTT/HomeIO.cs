@@ -20,7 +20,7 @@ namespace HomeIO_MQTT
 
 
         // HomeIO value changed, sending it to OpenHAB
-        private void OnValueChanged(MemoryMap sender, MemoriesChangedEventArgs args)
+        private void OnInputValueChanged(MemoryMap sender, MemoriesChangedEventArgs args)
         {
             foreach (MemoryBit mem in args.MemoriesBit)
             {
@@ -44,6 +44,23 @@ namespace HomeIO_MQTT
             foreach (MemoryDateTime mem in args.MemoriesDateTime)
             {
                 if (mem != null && mem.HasName)
+                {
+                    // send update to OpenHAB
+                    openhab.SendUpdate(mem);
+                }
+            }
+        }
+
+        private void OnOutputValueChanged(MemoryMap sender, MemoriesChangedEventArgs args)
+        {
+            // If no output listener is set, we can't use the outputs to change their value, probably a HomeIO bug.
+        }
+
+            private void OnMemoryValueChanged(MemoryMap sender, MemoriesChangedEventArgs args)
+        {
+            foreach (MemoryFloat mem in args.MemoriesFloat)
+            {
+                if (mem != null && mem.HasName && mem.Name == "Time Scale")
                 {
                     // send update to OpenHAB
                     openhab.SendUpdate(mem);
@@ -81,8 +98,9 @@ namespace HomeIO_MQTT
 
         private void InitHomeIO(string openHABConfDir = "")
         {
-            MemoryMap.Instance.InputsValueChanged += new MemoriesChangedEventHandler(OnValueChanged);
-            MemoryMap.Instance.OutputsValueChanged += new MemoriesChangedEventHandler(OnValueChanged);
+            MemoryMap.Instance.InputsValueChanged += new MemoriesChangedEventHandler(OnInputValueChanged);
+            MemoryMap.Instance.OutputsValueChanged += new MemoriesChangedEventHandler(OnOutputValueChanged);
+            MemoryMap.Instance.MemoriesValueChanged += new MemoriesChangedEventHandler(OnMemoryValueChanged);
             openhab.StateChanged += OnUpdateState;
 
             // NOTE, update only works, if you have active listeners, probably HomeIO bug.
