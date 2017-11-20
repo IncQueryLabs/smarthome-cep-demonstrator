@@ -20,7 +20,7 @@ end
 
 rule "E Lights Switch On"
     when
-        $light : Item( name == "E_Lights_Analog", $state : state) 
+        $light : Item( name == "E_Lights_Analog") 
 
         $switchPressed : ItemStateHistory( ( 
         name == "E_Light_Switch_Dimmer_1_Up" || 
@@ -39,7 +39,7 @@ end
 
 rule "E Lights Switch Off"
     when
-        $light : Item( name == "E_Lights_Analog", $state : state) 
+        $light : Item( name == "E_Lights_Analog") 
 
         $switchPressed : ItemStateHistory( ( 
         name == "E_Light_Switch_Dimmer_1_Down" || 

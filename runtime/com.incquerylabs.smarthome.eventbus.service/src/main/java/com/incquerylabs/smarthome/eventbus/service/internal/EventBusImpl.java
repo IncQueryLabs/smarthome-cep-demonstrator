@@ -138,8 +138,8 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 		Item item = itemRegistry.getItem(itemName);
 
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.stateChanged(
-					new com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent(item, newState, oldState));
+			subscriberStruct.eventSubscriber.groupStateChanged(
+					new com.incquerylabs.smarthome.eventbus.api.events.GroupItemStateChangedEvent(item, newState, oldState));
 		}
 		logger.debug(event.toString());
 	}
@@ -149,7 +149,7 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 		Item item = itemRegistry.getItem(itemName);
 
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.itemAdded(item);
+			subscriberStruct.eventSubscriber.itemAdded(new com.incquerylabs.smarthome.eventbus.api.events.ItemAddedEvent(item));
 		}
 		logger.debug(event.toString());
 	}
@@ -158,7 +158,7 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 		String itemName = event.getItem().name;
 
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.itemRemoved(itemName);
+			subscriberStruct.eventSubscriber.itemRemoved(new com.incquerylabs.smarthome.eventbus.api.events.ItemRemovedEvent(itemName));
 		}
 		logger.debug(event.toString());
 	}
@@ -170,7 +170,7 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 		Item item = itemRegistry.getItem(itemName);
 
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.itemUpdated(item, oldItemName);
+			subscriberStruct.eventSubscriber.itemUpdated(new com.incquerylabs.smarthome.eventbus.api.events.ItemUpdatedEvent(item, oldItemName));
 		}
 		logger.debug(event.toString());
 	}

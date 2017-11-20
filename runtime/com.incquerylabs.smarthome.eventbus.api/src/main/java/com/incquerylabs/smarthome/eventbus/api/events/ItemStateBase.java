@@ -4,9 +4,9 @@ import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;
 
 public abstract class ItemStateBase {
-    private Item item;
-    private State newState;
-    private State oldState;
+    protected Item item;
+    protected State newState;
+    protected State oldState;
 
     public ItemStateBase(Item item, State newState, State oldState) {
         this.item = item;

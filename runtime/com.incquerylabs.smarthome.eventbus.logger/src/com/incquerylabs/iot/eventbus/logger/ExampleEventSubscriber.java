@@ -7,8 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.incquerylabs.smarthome.eventbus.api.IEventSubscriber;
+import com.incquerylabs.smarthome.eventbus.api.events.GroupItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemAddedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemRemovedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemUpdatedEvent;
 
 public class ExampleEventSubscriber implements IEventSubscriber {
     static Logger logger = LoggerFactory.getLogger(ExampleEventSubscriber.class);
@@ -16,13 +20,18 @@ public class ExampleEventSubscriber implements IEventSubscriber {
     private static final String subscriberName = "IncQuery event bus logger ";
 
     @Override
-    public void stateChanged(ItemStateChangedEvent itemStateChangedEvent) {
-        logger.info(subscriberName + itemStateChangedEvent);
+    public void stateChanged(ItemStateChangedEvent event) {
+        logger.info(subscriberName + event);
+    }
+    
+    @Override
+    public void groupStateChanged(GroupItemStateChangedEvent event) {
+        logger.info(subscriberName + event);
     }
 
     @Override
-    public void commandReceived(ItemCommandEvent itemCommandEvent) {
-        logger.info(subscriberName + itemCommandEvent);
+    public void commandReceived(ItemCommandEvent event) {
+        logger.info(subscriberName + event);
     }
 
     @Override
@@ -33,20 +42,20 @@ public class ExampleEventSubscriber implements IEventSubscriber {
     }
 
     @Override
-    public void itemAdded(Item item) {
-        logger.info(subscriberName + "added item " + item.getName());
+    public void itemAdded(ItemAddedEvent event) {
+        logger.info(subscriberName + "added item " + event.getItemName());
 
     }
 
     @Override
-    public void itemRemoved(String itemName) {
-        logger.info(subscriberName + "removed item " + itemName);
+    public void itemRemoved(ItemRemovedEvent event) {
+        logger.info(subscriberName + "removed item " + event.getItemName());
 
     }
 
     @Override
-    public void itemUpdated(Item newItem, String oldItemName) {
-        logger.info(subscriberName + "updated item " + newItem.getName());
+    public void itemUpdated(ItemUpdatedEvent event) {
+        logger.info(subscriberName + "updated item " + event.getNewItem().getName());
     }
 
     @Override

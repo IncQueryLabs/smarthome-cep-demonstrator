@@ -17,7 +17,7 @@ end
 
 rule "H Lights Switch On"
     when
-        $light : Item( name == "H_Lights_Analog", $state : state) 
+        $light : Item( name == "H_Lights_Analog") 
 
         $switchPressed : ItemStateHistory(  
         name == "H_Light_Switch_Dimmer_Up"  && 
@@ -35,7 +35,7 @@ end
 
 rule "H Lights Switch Off"
     when
-        $light : Item( name == "H_Lights_Analog", $state : state) 
+        $light : Item( name == "H_Lights_Analog") 
 
         $switchPressed : ItemStateHistory(  
         name == "H_Light_Switch_Dimmer_Down"  && 

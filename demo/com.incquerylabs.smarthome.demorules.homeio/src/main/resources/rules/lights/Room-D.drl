@@ -3,7 +3,7 @@ package homeioexample
 
 rule "D Lights Switch On"
     when
-        $light : Item( name == "D_Lights_1_Analog", $state : state) 
+        $light : Item( name == "D_Lights_1_Analog") 
 
         $switchPressed : ItemStateHistory( ( 
         name == "D_Light_Switch_Dimmer_1_Up" || 
@@ -22,7 +22,7 @@ end
 
 rule "D Lights Switch Off"
     when
-        $light : Item( name == "D_Lights_1_Analog", $state : state) 
+        $light : Item( name == "D_Lights_1_Analog") 
 
         $switchPressed : ItemStateHistory( ( 
         name == "D_Light_Switch_Dimmer_1_Down" || 
