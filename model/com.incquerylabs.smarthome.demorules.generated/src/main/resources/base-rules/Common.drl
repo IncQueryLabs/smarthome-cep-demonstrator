@@ -13,7 +13,7 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
-import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.TimedDimmer;
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DimmerCommand;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DateTime;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.InitStates;
 

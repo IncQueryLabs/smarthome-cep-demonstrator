@@ -9,7 +9,7 @@ rule "K Lights Switch Dimmer Up"
         newState == PRESSED )
 
     then
-        openhab.timedCommand(TimedDimmer.create($item, INCREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item, INCREASE, 2 , 1000, 50));
 end
 
 
@@ -22,7 +22,7 @@ rule "K Lights Switch Dimmer Down"
         newState == PRESSED )
 
     then
-        openhab.timedCommand(TimedDimmer.create($item, DECREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item, DECREASE, 2 , 1000, 50));
 end
 
 
@@ -31,5 +31,5 @@ rule "K Dimmer off"
         $itemState : ItemStateChangedEvent( name matches "K_Light_Switch_Dimmer.*", newState == RELEASED )
     
     then
-        openhab.stopTimedCommand("K_Lights_Analog");
+        openhab.stopComplexCommand("K_Lights_Analog");
 end

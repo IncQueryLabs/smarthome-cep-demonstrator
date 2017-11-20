@@ -9,13 +9,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
-import com.incquerylabs.smarthome.eventbus.api.ITimedCommand;
+import com.incquerylabs.smarthome.eventbus.api.IComplexCommand;
 
 public class EventBusPublisher implements IEventPublisher {
     static Logger logger = LoggerFactory.getLogger(EventBusPublisher.class);
 
     private org.eclipse.smarthome.core.events.EventPublisher eventPublisher;
-    private ConcurrentHashMap<String, ITimedCommand> timedCommands = new ConcurrentHashMap<String, ITimedCommand>();
+    private ConcurrentHashMap<String, IComplexCommand> complexCommands = new ConcurrentHashMap<String, IComplexCommand>();
 
     @Override
     public synchronized void postCommand(String itemName, Command command) {
@@ -30,28 +30,28 @@ public class EventBusPublisher implements IEventPublisher {
     }
 
     @Override
-    public synchronized void timedCommand(ITimedCommand timedCommand) {
+    public synchronized void startComplexCommand(IComplexCommand timedCommand) {
         String itemName = timedCommand.getItemName();
-        stopTimedCommand(timedCommands.get(itemName));
+        stopComplexCommand(complexCommands.get(itemName));
 
         timedCommand.start(this);
-        timedCommands.put(itemName, timedCommand);
+        complexCommands.put(itemName, timedCommand);
     }
 
     @Override
-    public synchronized void stopTimedCommand(String itemName) {
-        stopTimedCommand(timedCommands.get(itemName));
+    public synchronized void stopComplexCommand(String itemName) {
+    	stopComplexCommand(complexCommands.get(itemName));
     }
 
     @Override
-    public synchronized void stopTimedCommand(Item item) {
-        stopTimedCommand(item.getName());
+    public synchronized void stopComplexCommand(Item item) {
+    	stopComplexCommand(item.getName());
     }
 
-    private void stopTimedCommand(ITimedCommand timedCommand) {
+    private void stopComplexCommand(IComplexCommand timedCommand) {
         if (timedCommand != null) {
             timedCommand.stop();
-            timedCommands.remove(timedCommand.getItemName());
+            complexCommands.remove(timedCommand.getItemName());
         }
     }
 

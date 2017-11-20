@@ -8,9 +8,9 @@ public interface IEventPublisher {
 
     public void postCommand(Item item, Command command);
 
-    public void timedCommand(ITimedCommand timedCommand);
+    public void startComplexCommand(IComplexCommand complexCommand);
 
-    public void stopTimedCommand(String itemName);
+    public void stopComplexCommand(String itemName);
 
-    public void stopTimedCommand(Item item);
+    public void stopComplexCommand(Item item);
 }
