@@ -4,13 +4,17 @@ import java.io.InputStream;
 import java.util.List;
 
 public class RuleTemplateConfiguration {
+	// Table of data
+	protected final InputStream templateData;
+	protected final String path;
+	protected final String worksheetName;
 
-	private InputStream templateData;
-	private String path;
-	private String worksheetName;
-	private int startRow;
-	private int startColumn;
-	private List<DrlConfiguration> templateRules;
+	//parameters where the data starts in the table
+	protected final int startRow;
+	protected final int startColumn;
+	
+	// The template data can be applied on many template rules
+	protected final List<DrlConfiguration> templateRules;
 
 	public RuleTemplateConfiguration(InputStream templateData, String path, String worksheetName, int startRow,
 			int startColumn, List<DrlConfiguration> templateRules) {
@@ -26,48 +30,23 @@ public class RuleTemplateConfiguration {
 		return templateData;
 	}
 
-	public void setTemplateData(InputStream templateData) {
-		this.templateData = templateData;
-	}
-
 	public String getPath() {
 		return path;
 	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
+	
 	public String getWorksheetName() {
 		return worksheetName;
-	}
-
-	public void setWorksheetName(String worksheetName) {
-		this.worksheetName = worksheetName;
 	}
 
 	public int getStartRow() {
 		return startRow;
 	}
 
-	public void setStartRow(int startRow) {
-		this.startRow = startRow;
-	}
-
 	public int getStartColumn() {
 		return startColumn;
-	}
-
-	public void setStartColumn(int startColumn) {
-		this.startColumn = startColumn;
 	}
 
 	public List<DrlConfiguration> getTemplateRules() {
 		return templateRules;
 	}
-
-	public void setTemplateRules(List<DrlConfiguration> templateRules) {
-		this.templateRules = templateRules;
-	}
-
 }

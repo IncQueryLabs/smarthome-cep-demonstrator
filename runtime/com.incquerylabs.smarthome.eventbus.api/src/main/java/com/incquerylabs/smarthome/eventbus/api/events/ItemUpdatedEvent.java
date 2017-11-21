@@ -3,8 +3,8 @@ package com.incquerylabs.smarthome.eventbus.api.events;
 import org.eclipse.smarthome.core.items.Item;
 
 public class ItemUpdatedEvent {
-	private Item newItem;
-	private String oldItemName;
+    protected final Item newItem;
+    protected final String oldItemName;
 	
 	public ItemUpdatedEvent(Item newItem, String oldItemName) {
 		super();

@@ -4,8 +4,8 @@ import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;
 
 public class ItemStateEvent implements ItemEvent {
-	protected Item item;
-	protected State itemState;
+    protected final Item item;
+    protected final State itemState;
 
 	public ItemStateEvent(Item item, State itemState) {
 		super();

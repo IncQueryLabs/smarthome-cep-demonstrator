@@ -3,7 +3,7 @@ package com.incquerylabs.smarthome.eventbus.api.events;
 import org.eclipse.smarthome.core.items.Item;
 
 public class ItemAddedEvent implements ItemEvent {
-	private Item item;
+    protected final Item item;
 
 	public ItemAddedEvent(Item item) {
 		super();

@@ -1,7 +1,7 @@
 package com.incquerylabs.smarthome.eventbus.api.events;
 
 public class ItemRemovedEvent implements ItemEvent {
-	private String itemName;
+    protected final String itemName;
 
 	public ItemRemovedEvent(String itemName) {
 		super();
