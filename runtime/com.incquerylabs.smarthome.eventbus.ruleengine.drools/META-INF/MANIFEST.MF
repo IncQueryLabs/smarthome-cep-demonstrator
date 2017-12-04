@@ -39,5 +39,5 @@ Bundle-ClassPath: lib/antlr-runtime-3.5.2.jar,
  lib/xpp3_min-1.1.4c.jar,
  lib/xstream-1.4.9.jar,
  .,
- lib/org.eclipse.smarthome.core-0.9.0.201711151730.jar
+ lib/org.eclipse.smarthome.core-0.9.0.201711182209.jar
 Bundle-ActivationPolicy: lazy
