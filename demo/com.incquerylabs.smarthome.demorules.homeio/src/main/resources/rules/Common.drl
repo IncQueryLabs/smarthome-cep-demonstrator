@@ -13,6 +13,7 @@ import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.GroupItemStateChangedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedHistory;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemEvent;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DimmerCommand;
@@ -56,9 +57,20 @@ declare ItemStateChangedEvent
 end
 
 
+declare GroupItemStateChangedEvent
+    @role ( event )
+end
+
+
 declare ItemStateChangedHistory
     @role ( event )
 end
+
+
+declare InitStates
+	@role ( event )
+end
+
 
 declare DateTime
     @role ( event )
@@ -92,13 +104,14 @@ end
 
 rule "Example lights rule with push switch"
     when
-        $item : Item( name == "Example_Light", $state : state)
+        $light : Item( name == "Example_Light", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == PRESSED)
+        ItemStateChangedEvent( name == "Example_Switch", newState == PRESSED)
     then
         if ($state == ON) {
-            openhab.postCommand($item, OFF);
+            openhab.postCommand($light, OFF);
         } else {
-            openhab.postCommand($item, ON);
+            openhab.postCommand($light, ON);
         }
 end
+

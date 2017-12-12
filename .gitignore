@@ -21,4 +21,5 @@ model/com\.incquerylabs\.smarthome\.model\.rules/gen-rules/
 
 model/com\.incquerylabs\.smarthome\.model\.rules/src/main/resources/gen-rules/
 
-model/com\.incquerylabs\.smarthome\.demorules\.generated/src/main/resources/gen-rules/
+
+demo/com\.incquerylabs\.smarthome\.demorules\.generated/src/main/resources/gen-rules/

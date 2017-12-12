@@ -236,8 +236,8 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
 	private void addDrls(KnowledgeBuilder kbuilder) {
 		List<DrlConfiguration> drls = ruleLoader.getDrls();
-		logger.debug("Loading {} drl files", drls.size());
 		if (drls != null) {
+			logger.debug("Loading {} drl files", drls.size());
 			for (DrlConfiguration drlConf : drls) {
 				kbuilder.add(ResourceFactory.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()),
 						ResourceType.DRL);
@@ -245,8 +245,8 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		}
 
 		List<DtableConfiguration> dtables = ruleLoader.getDtables();
-		logger.debug("Loading {} decision tables", dtables.size());
 		if (dtables != null) {
+			logger.debug("Loading {} decision tables", dtables.size());
 			for (DtableConfiguration dtableConf : dtables) {
 				kbuilder.add(ResourceFactory.newInputStreamResource(dtableConf.getDtable())
 						.setSourcePath(dtableConf.getPath()), ResourceType.DTABLE);
@@ -254,8 +254,8 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		}
 
 		List<RuleTemplateConfiguration> ruleTeamplates = ruleLoader.getRuleTemplates();
-		logger.debug("Loading {} rule templates", ruleTeamplates.size());
 		if (ruleTeamplates != null) {
+			logger.debug("Loading {} rule templates", ruleTeamplates.size());
 			for (RuleTemplateConfiguration ruleTeamplateConf : ruleTeamplates) {
 				for (DrlConfiguration drlConf : ruleTeamplateConf.getTemplateRules()) {
 					DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory

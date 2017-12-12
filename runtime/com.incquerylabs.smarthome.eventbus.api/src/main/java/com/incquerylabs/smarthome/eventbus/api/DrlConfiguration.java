@@ -5,6 +5,7 @@ import java.io.InputStream;
 public class DrlConfiguration {
 	protected final InputStream drl;
 	protected final String path;
+	
 	public DrlConfiguration(InputStream drl, String path) {
 		this.drl = drl;
 		this.path = path;

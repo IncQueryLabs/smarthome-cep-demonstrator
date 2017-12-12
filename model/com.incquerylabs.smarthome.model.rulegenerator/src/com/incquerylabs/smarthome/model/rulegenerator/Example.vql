@@ -6,17 +6,17 @@ pattern smartHomeRules(smarthome : SmartHome, evaluatingNode : EvaluatingNode) {
     SmartHome.rules(smarthome, evaluatingNode);
 }
 
-pattern changeStateSwitchCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command, item : SwitchItem) {
+pattern changeStateSwitchCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command, switchItem : SwitchItem) {
 	EvaluatingNode.commands(evaluatingNode, commandConnection);
-	CommandConnection.item(commandConnection, item);
-	CommandConnection.command(commandConnection,command);
+	CommandConnection.item(commandConnection, switchItem);
+	CommandConnection.command(commandConnection, command);
 	Command.command(command, "CHANGE_STATE");
 }
 
-pattern changeStateDimmerCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command, item : DimmerItem) {
+pattern changeStateDimmerCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command, dimmerItem : DimmerItem) {
 	EvaluatingNode.commands(evaluatingNode, commandConnection);
-	CommandConnection.item(commandConnection, item);
-	CommandConnection.command(commandConnection,command);
+	CommandConnection.item(commandConnection, dimmerItem);
+	CommandConnection.command(commandConnection, command);
 	Command.command(command, "CHANGE_STATE");
 }
 
