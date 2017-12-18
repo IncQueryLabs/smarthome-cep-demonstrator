@@ -28,11 +28,11 @@ end
 
 rule "N Lights Switch On"
     when
-        $light1 : Item( name == "N_Lights_1_Analog", $state : state)
+        $light1 : Item( name == "N_Lights_1_Analog")
         $light2 : Item( name == "N_Lights_2_Analog")
         $light3 : Item( name == "N_Lights_3_Analog")
 
-        $switchPressed : ItemStateHistory( ( 
+        $switchPressed : ItemStateChangedHistory( ( 
         name == "N_Light_Switch_Dimmer_1_Up" || 
         name == "N_Light_Switch_Dimmer_2_Up" || 
         name == "N_Light_Switch_Dimmer_3_Up" ) && 
@@ -54,11 +54,11 @@ end
 
 rule "N Lights Switch Off"
     when
-        $light1 : Item( name == "N_Lights_1_Analog", $state : state)
+        $light1 : Item( name == "N_Lights_1_Analog")
         $light2 : Item( name == "N_Lights_2_Analog")
         $light3 : Item( name == "N_Lights_3_Analog")
 
-        $switchPressed : ItemStateHistory( ( 
+        $switchPressed : ItemStateChangedHistory( ( 
         name == "N_Light_Switch_Dimmer_1_Down" || 
         name == "N_Light_Switch_Dimmer_2_Down" ||
         name == "N_Light_Switch_Dimmer_3_Down" ) && 

@@ -61,6 +61,7 @@ Embedded-Artifacts: drools-core-7.2.0.Final.jar;g="org.drools";a="drools
  ervice-0.0.1-SNAPSHOT.jar;g="com.incquerylabs.iot.eshieventbusservice";
  a="com.incquerylabs.iot.eshieventbusservice";v="0.0.1-SNAPSHOT"
 Import-Package: org.eclipse.smarthome.core.items,
+ org.eclipse.smarthome.core.items.events,
  org.eclipse.smarthome.core.library.types,
  org.eclipse.smarthome.core.types,
  org.slf4j;version="[1.7,2)"

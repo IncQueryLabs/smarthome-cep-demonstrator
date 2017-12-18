@@ -79,6 +79,32 @@ namespace HomeIO_MQTT
                     lastSentValue.Add(mem, mem.Value);
                 }
             }
+            else if (mem.Name.Contains("Time Scale"))
+            {
+                float value;
+                if (lastSentValue.TryGetValue(mem, out value))
+                {
+                    if (value == mem.Value) 
+                    {
+                        return false;
+                    }
+                    else if (value < mem.Value && mem.Value != 1 && mem.Value != 50 && mem.Value != 500 && mem.Value != 5000)
+                    {
+                        if ((Math.Abs(value - mem.Value) < 0.5 || Math.Abs((value / mem.Value) - mem.Value) < 0.05))
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        lastSentValue[mem] = mem.Value;
+                    }
+                }
+                else
+                {
+                    lastSentValue.Add(mem, mem.Value);
+                }
+            }
             return true;
         }
 

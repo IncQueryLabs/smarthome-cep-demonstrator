@@ -3,9 +3,9 @@ package com.incquerylabs.smarthome.eventbus.api;
 import java.io.InputStream;
 
 public class DrlConfiguration {
-	private InputStream drl;
-	private String path;
-
+	protected final InputStream drl;
+	protected final String path;
+	
 	public DrlConfiguration(InputStream drl, String path) {
 		this.drl = drl;
 		this.path = path;
@@ -15,15 +15,7 @@ public class DrlConfiguration {
 		return drl;
 	}
 
-	public void setDrl(InputStream drl) {
-		this.drl = drl;
-	}
-
 	public String getPath() {
 		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
 	}
 }

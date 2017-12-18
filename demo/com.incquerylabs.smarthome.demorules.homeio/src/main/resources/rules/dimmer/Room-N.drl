@@ -13,9 +13,9 @@ rule "N Lights Switch Dimmer Up"
         newState == PRESSED )
 
     then
-        openhab.timedCommand(TimedDimmer.create($item1, INCREASE, 2 , 1000, 50));
-        openhab.timedCommand(TimedDimmer.create($item2, INCREASE, 2 , 1000, 50));
-        openhab.timedCommand(TimedDimmer.create($item3, INCREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item1, INCREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item2, INCREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item3, INCREASE, 2 , 1000, 50));
 end
 
 
@@ -32,9 +32,9 @@ rule "N Lights Switch Dimmer Down"
         newState == PRESSED )
 
     then
-        openhab.timedCommand(TimedDimmer.create($item1, DECREASE, 2 , 1000, 50));
-        openhab.timedCommand(TimedDimmer.create($item2, DECREASE, 2 , 1000, 50));
-        openhab.timedCommand(TimedDimmer.create($item3, DECREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item1, DECREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item2, DECREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item3, DECREASE, 2 , 1000, 50));
 end
 
 
@@ -43,7 +43,7 @@ rule "N Dimmer off"
         $itemState : ItemStateChangedEvent( name matches "N_Light_Switch_Dimmer.*", newState == RELEASED )
     
     then
-        openhab.stopTimedCommand("N_Lights_1_Analog");
-        openhab.stopTimedCommand("N_Lights_2_Analog");
-        openhab.stopTimedCommand("N_Lights_3_Analog"); 
+        openhab.stopComplexCommand("N_Lights_1_Analog");
+        openhab.stopComplexCommand("N_Lights_2_Analog");
+        openhab.stopComplexCommand("N_Lights_3_Analog"); 
 end

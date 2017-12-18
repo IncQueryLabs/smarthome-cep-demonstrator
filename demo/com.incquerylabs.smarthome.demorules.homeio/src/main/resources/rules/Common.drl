@@ -1,5 +1,6 @@
 package homeioexample
 
+import org.slf4j.Logger;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.OpenClosedType;
@@ -12,11 +13,14 @@ import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
-import com.incquerylabs.smarthome.eventbus.api.events.ItemStateHistory;
-import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.TimedDimmer;
+import com.incquerylabs.smarthome.eventbus.api.events.GroupItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemEvent;
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DimmerCommand;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DateTime;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.InitStates;
 
+global Logger logger;
 global IEventPublisher openhab;
 global OpenClosedType OPEN;
 global OpenClosedType CLOSED;
@@ -53,9 +57,20 @@ declare ItemStateChangedEvent
 end
 
 
-declare ItemStateHistory
+declare GroupItemStateChangedEvent
     @role ( event )
 end
+
+
+declare ItemStateChangedHistory
+    @role ( event )
+end
+
+
+declare InitStates
+	@role ( event )
+end
+
 
 declare DateTime
     @role ( event )
@@ -79,32 +94,24 @@ rule "Init"
 end
 
 
-rule "Item command event"
+rule "Item event"
     when
-        $itemCommand : ItemCommandEvent( name : name, command : command)
+        $event : ItemEvent()
     then
-        System.out.println( "IncQuery droolsbundle: " + $itemCommand);
+        logger.debug( $event.toString() );
 end
-
-
-rule "Item state changed event"
-    when
-        $itemState : ItemStateChangedEvent( $item : item, name : name, newState : newState, oldState : oldState)
-    then
-        System.out.println( "IncQuery droolsbundle: item " + $itemState);
-end
-
 
 
 rule "Example lights rule with push switch"
     when
-        $item : Item( name == "Example_Light", $state : state)
+        $light : Item( name == "Example_Light", $state : state)
 
-        $itemState : ItemStateChangedEvent( name == "Example_Switch", newState == PRESSED)
+        ItemStateChangedEvent( name == "Example_Switch", newState == PRESSED)
     then
         if ($state == ON) {
-            openhab.postCommand($item, OFF);
+            openhab.postCommand($light, OFF);
         } else {
-            openhab.postCommand($item, ON);
+            openhab.postCommand($light, ON);
         }
 end
+

@@ -33,8 +33,9 @@
 		<appender-ref ref="STDOUT" />
 	</logger>
 
-	<logger name="org.openhab" level="DEBUG" />
-	<logger name="org.eclipse.smarthome" level="DEBUG" />
+	<logger name="com.incquerylabs" level="DEBUG" />
+	<logger name="org.openhab" level="WARN" />
+	<logger name="org.eclipse.smarthome" level="WARN" />
 
 	<logger name="org.eclipse.jetty" level="INFO" />
     <logger name="org.jupnp" level="ERROR"/>

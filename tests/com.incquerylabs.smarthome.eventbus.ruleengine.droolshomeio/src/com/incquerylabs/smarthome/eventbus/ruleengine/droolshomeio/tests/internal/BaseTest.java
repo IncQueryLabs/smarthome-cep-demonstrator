@@ -8,6 +8,7 @@ import org.eclipse.smarthome.core.types.State;
 import org.junit.Before;
 
 import com.incquerylabs.smarthome.demorules.homeio.RuleLoader;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemAddedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
 import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DroolsEventBusClient;
 
@@ -40,7 +41,7 @@ public abstract class BaseTest extends TestCase {
         }
 
         for (Item item : tesetItems) {
-            drools.itemAdded(item);
+            drools.itemAdded(new ItemAddedEvent(item));
         }
     }
 }

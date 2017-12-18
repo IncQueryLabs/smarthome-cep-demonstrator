@@ -17,9 +17,9 @@ end
 
 rule "K Lights Switch On"
     when
-        $light : Item( name == "K_Lights_Analog", $state : state) 
+        $light : Item( name == "K_Lights_Analog") 
 
-        $switchPressed : ItemStateHistory(name == "K_Light_Switch_Dimmer_Up", newState == PRESSED )
+        $switchPressed : ItemStateChangedHistory(name == "K_Light_Switch_Dimmer_Up", newState == PRESSED )
 
         ItemStateChangedEvent ( 
         this after[0s,1s] $switchPressed &&
@@ -32,9 +32,9 @@ end
 
 rule "K Lights Switch Off"
     when
-        $light : Item( name == "K_Lights_Analog", $state : state) 
+        $light : Item( name == "K_Lights_Analog") 
 
-        $switchPressed : ItemStateHistory(name == "K_Light_Switch_Dimmer_Down", newState == PRESSED )
+        $switchPressed : ItemStateChangedHistory(name == "K_Light_Switch_Dimmer_Down", newState == PRESSED )
 
         ItemStateChangedEvent ( 
         this after[0s,1s] $switchPressed &&

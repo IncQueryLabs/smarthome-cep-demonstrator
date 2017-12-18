@@ -4,8 +4,8 @@ import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.Command;
 
 public abstract class ItemCommandBase {
-    private Item item;
-    private Command command;
+    protected final Item item;
+    protected final Command command;
 
     public ItemCommandBase(Item item, Command command) {
         this.item = item;

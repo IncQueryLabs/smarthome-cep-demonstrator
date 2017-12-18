@@ -8,9 +8,9 @@ import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
 import org.eclipse.smarthome.core.library.types.PercentType;
 
 import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
-import com.incquerylabs.smarthome.eventbus.api.ITimedCommand;
+import com.incquerylabs.smarthome.eventbus.api.IComplexCommand;
 
-public class TimedDimmer implements ITimedCommand {
+public class DimmerCommand implements IComplexCommand {
 
     private Item item;
     private int value;
@@ -18,19 +18,19 @@ public class TimedDimmer implements ITimedCommand {
     private long period;
     private Timer timer;
 
-    public static TimedDimmer create(Item item, IncreaseDecreaseType type, int value, long first, long period) {
-        return new TimedDimmer(item, type, value, first, period);
+    public static DimmerCommand create(Item item, IncreaseDecreaseType type, int value, long first, long period) {
+        return new DimmerCommand(item, type, value, first, period);
     }
 
-    public static TimedDimmer create(Item item, IncreaseDecreaseType type, int value) {
-        return new TimedDimmer(item, type, value, 50, 50);
+    public static DimmerCommand create(Item item, IncreaseDecreaseType type, int value) {
+        return new DimmerCommand(item, type, value, 50, 50);
     }
 
-    public static TimedDimmer create(Item item, IncreaseDecreaseType type) {
-        return new TimedDimmer(item, type, 2, 50, 50);
+    public static DimmerCommand create(Item item, IncreaseDecreaseType type) {
+        return new DimmerCommand(item, type, 2, 50, 50);
     }
 
-    public TimedDimmer(Item item, IncreaseDecreaseType type, int value, long first, long period) {
+    public DimmerCommand(Item item, IncreaseDecreaseType type, int value, long first, long period) {
 
         if (type != null && type == IncreaseDecreaseType.DECREASE) {
             if (value > 0) {

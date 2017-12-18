@@ -1,6 +1,6 @@
 package com.incquerylabs.smarthome.eventbus.api;
 
-public interface ITimedCommand {
+public interface IComplexCommand {
 
     public void start(IEventPublisher publisher);
 

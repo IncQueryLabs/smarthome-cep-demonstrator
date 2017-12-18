@@ -48,13 +48,13 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 	public Set<String> getSubscribedEventTypes() {
 		Set<String> types = new HashSet<>(6);
 
-		types.add(ItemCommandEvent.TYPE);
 		types.add(ItemStateEvent.TYPE);
 		types.add(ItemStateChangedEvent.TYPE);
-		types.add(ItemUpdatedEvent.TYPE);
+		types.add(GroupItemStateChangedEvent.TYPE);
+		types.add(ItemCommandEvent.TYPE);
 		types.add(ItemAddedEvent.TYPE);
 		types.add(ItemRemovedEvent.TYPE);
-		types.add(GroupItemStateChangedEvent.TYPE);
+		types.add(ItemUpdatedEvent.TYPE);
 		return types;
 	}
 
@@ -67,17 +67,21 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 	public void receive(Event event) {
 		synchronized (eventSubscribers) {
 			try {
-				if (event instanceof ItemCommandEvent) {
+				if (event instanceof ItemStateEvent) {
 
-					itemCommandEvent((ItemCommandEvent) event);
+					itemStateEvent((ItemStateEvent) event);
+
+				} else if (event instanceof ItemStateChangedEvent) {
+
+					itemStateChangedEvent((ItemStateChangedEvent) event);
 
 				} else if (event instanceof GroupItemStateChangedEvent) {
 
 					groupItemStateChangedEvent((GroupItemStateChangedEvent) event);
 
-				} else if (event instanceof ItemStateChangedEvent) {
+				} else if (event instanceof ItemCommandEvent) {
 
-					itemStateChangedEvent((ItemStateChangedEvent) event);
+					itemCommandEvent((ItemCommandEvent) event);
 
 				} else if (event instanceof ItemAddedEvent) {
 
@@ -92,26 +96,27 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 					itemUpdatedEvent((ItemUpdatedEvent) event);
 
 				} else {
-
-					logger.trace(" received event, type: " + event.getType() + " topic: " + event.getTopic()
-							+ " payload: " + event.getPayload());
+					logger.trace("Received event, type: {} topic: {} payload: {}", event.getType(), event.getTopic(),
+							event.getPayload());
 				}
 			} catch (ItemNotFoundException e) {
-				logger.error(e.getMessage());
+				logger.error("Item not found", e);
 			}
 		}
 	}
 
-	private void itemCommandEvent(ItemCommandEvent event) throws ItemNotFoundException {
+	private void itemStateEvent(ItemStateEvent event) throws ItemNotFoundException {
+
 		String itemName = event.getItemName();
-		Command command = event.getItemCommand();
+		State itemState = event.getItemState();
 
 		Item item = itemRegistry.getItem(itemName);
+
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.commandReceived(
-					new com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent(item, command));
+			subscriberStruct.eventSubscriber
+					.stateUpdated(new com.incquerylabs.smarthome.eventbus.api.events.ItemStateEvent(item, itemState));
 		}
-		logger.debug(event.toString());
+		logger.trace(event.toString());
 	}
 
 	private void itemStateChangedEvent(ItemStateChangedEvent event) throws ItemNotFoundException {
@@ -126,7 +131,7 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 			subscriberStruct.eventSubscriber.stateChanged(
 					new com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent(item, newState, oldState));
 		}
-		logger.debug(event.toString());
+		logger.trace(event.toString());
 	}
 
 	private void groupItemStateChangedEvent(GroupItemStateChangedEvent event) throws ItemNotFoundException {
@@ -138,10 +143,23 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 		Item item = itemRegistry.getItem(itemName);
 
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.stateChanged(
-					new com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent(item, newState, oldState));
+			subscriberStruct.eventSubscriber.groupStateChanged(
+					new com.incquerylabs.smarthome.eventbus.api.events.GroupItemStateChangedEvent(item, newState,
+							oldState));
 		}
-		logger.debug(event.toString());
+		logger.trace(event.toString());
+	}
+
+	private void itemCommandEvent(ItemCommandEvent event) throws ItemNotFoundException {
+		String itemName = event.getItemName();
+		Command command = event.getItemCommand();
+
+		Item item = itemRegistry.getItem(itemName);
+		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
+			subscriberStruct.eventSubscriber.commandReceived(
+					new com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent(item, command));
+		}
+		logger.trace(event.toString());
 	}
 
 	private void itemAddedEvent(ItemAddedEvent event) throws ItemNotFoundException {
@@ -149,18 +167,20 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 		Item item = itemRegistry.getItem(itemName);
 
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.itemAdded(item);
+			subscriberStruct.eventSubscriber
+					.itemAdded(new com.incquerylabs.smarthome.eventbus.api.events.ItemAddedEvent(item));
 		}
-		logger.debug(event.toString());
+		logger.trace(event.toString());
 	}
 
 	private void itemRemovedEvent(ItemRemovedEvent event) {
 		String itemName = event.getItem().name;
 
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.itemRemoved(itemName);
+			subscriberStruct.eventSubscriber
+					.itemRemoved(new com.incquerylabs.smarthome.eventbus.api.events.ItemRemovedEvent(itemName));
 		}
-		logger.debug(event.toString());
+		logger.trace(event.toString());
 	}
 
 	private void itemUpdatedEvent(ItemUpdatedEvent event) throws ItemNotFoundException {
@@ -170,9 +190,10 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 		Item item = itemRegistry.getItem(itemName);
 
 		for (EventSubscriberStruct subscriberStruct : eventSubscribers) {
-			subscriberStruct.eventSubscriber.itemUpdated(item, oldItemName);
+			subscriberStruct.eventSubscriber.itemUpdated(
+					new com.incquerylabs.smarthome.eventbus.api.events.ItemUpdatedEvent(item, oldItemName));
 		}
-		logger.debug(event.toString());
+		logger.trace(event.toString());
 	}
 
 	@SuppressWarnings("unlikely-arg-type")
@@ -185,7 +206,7 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 					itemsInitialized = true;
 				}
 				eventSubscribers.add(new EventSubscriberStruct(eventSubscriber, itemsInitialized));
-				logger.info("set event subscriber " + eventSubscriber.getSubscriberName());
+				logger.info("set event subscriber ", eventSubscriber.getSubscriberName());
 			}
 		}
 	}
@@ -194,7 +215,7 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 	public void unsetSubscriber(IEventSubscriber eventSubscriber) {
 		synchronized (eventSubscribers) {
 			if (eventSubscribers.remove(eventSubscriber)) {
-				logger.info("removed event subscriber " + eventSubscriber.getSubscriberName());
+				logger.info("Removed event subscriber ", eventSubscriber.getSubscriberName());
 			}
 		}
 	}
@@ -208,11 +229,11 @@ public class EventBusImpl implements org.eclipse.smarthome.core.events.EventSubs
 				}
 			}
 		}
-		logger.info("set item registry");
+		logger.info("Set item registry");
 	}
 
 	public void unsetItemRegistry(ItemRegistry itemRegistry) {
 		this.itemRegistry = null;
-		logger.info("unset item registry");
+		logger.info("Unset item registry");
 	}
 }

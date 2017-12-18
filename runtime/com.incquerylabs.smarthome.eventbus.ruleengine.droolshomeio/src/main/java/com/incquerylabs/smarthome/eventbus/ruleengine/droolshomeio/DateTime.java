@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class DateTime {
 
-    private Calendar calendar = null;
-    private String name = null;
+    protected final Calendar calendar;
+    protected final String name;
 
     public DateTime(String name, Date date) {
         calendar = Calendar.getInstance();

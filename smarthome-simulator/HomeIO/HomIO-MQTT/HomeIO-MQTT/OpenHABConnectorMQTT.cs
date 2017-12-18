@@ -59,7 +59,7 @@ namespace HomeIO_MQTT
         {
             if (filter.Apply(mem))
             {
-                client.Publish("in/" + "HomeIO_Date" + "/state", Encoding.ASCII.GetBytes(mem.Value.ToString("o")));
+                client.Publish("in/" + transformer.NameToOpenHAB(mem.Name) + "/state", Encoding.ASCII.GetBytes(mem.Value.ToString("o")));
             }
         }
 

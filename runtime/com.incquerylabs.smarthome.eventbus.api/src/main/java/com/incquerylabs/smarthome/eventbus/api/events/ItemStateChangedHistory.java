@@ -3,13 +3,13 @@ package com.incquerylabs.smarthome.eventbus.api.events;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;
 
-public class ItemStateHistory extends ItemStateBase {
+public class ItemStateChangedHistory extends ItemStateChangedBase implements ItemEventHistory {
 
-    public ItemStateHistory(Item item, State newState, State oldState) {
+    public ItemStateChangedHistory(Item item, State newState, State oldState) {
         super(item, newState, oldState);
     }
 
-    public ItemStateHistory(ItemStateChangedEvent event) {
+    public ItemStateChangedHistory(ItemStateChangedEvent event) {
         super(event.getItem(), event.getNewState(), event.getOldState());
     }
 }

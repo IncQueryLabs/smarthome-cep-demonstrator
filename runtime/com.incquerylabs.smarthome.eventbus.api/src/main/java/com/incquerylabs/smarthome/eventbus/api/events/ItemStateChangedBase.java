@@ -3,12 +3,12 @@ package com.incquerylabs.smarthome.eventbus.api.events;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.types.State;
 
-public abstract class ItemStateBase {
-    private Item item;
-    private State newState;
-    private State oldState;
+public abstract class ItemStateChangedBase {
+    protected final Item item;
+    protected final State newState;
+    protected final State oldState;
 
-    public ItemStateBase(Item item, State newState, State oldState) {
+    public ItemStateChangedBase(Item item, State newState, State oldState) {
         this.item = item;
         this.newState = newState;
         this.oldState = oldState;

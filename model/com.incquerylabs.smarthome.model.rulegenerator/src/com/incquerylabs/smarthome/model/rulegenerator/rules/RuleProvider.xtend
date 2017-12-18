@@ -36,6 +36,23 @@ class RuleProvider {
     new(ViatraQueryEngine engine) {
         this.engine = engine
         manipulation = new SimpleModelManipulations(engine)
+        
+        val workspace = ResourcesPlugin.getWorkspace()
+        
+        val root = workspace.getRoot()
+        val project = root.getProject(destinationProject)
+        val folder = project.getFolder("src/main/resources/gen-rules")
+        if (!project.exists()) {
+            project.create(null)
+        }
+        if (!project.isOpen()) {
+            project.open(null)
+        }
+        if (folder.exists()) {
+        	folder.delete(true, null);
+        }
+        folder.create(IResource.NONE, true, null)
+        workspace.save(true,null)
     }
 
     def writeToFile(String fileName, String fileContent) {

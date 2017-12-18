@@ -23,12 +23,24 @@ namespace HomeIO_MQTT
 
         public string NameToOpenHAB(string name)
         {
-            return name.Replace("(", string.Empty)
+            if (name.Contains("Date and Time"))
+            {
+                name = "HomeIO_Date";
+            }
+            else if (name.Contains("Time Scale"))
+            {
+                name = name.Replace(' ', '_');
+            }
+            else
+            {
+                name = name.Replace("(", string.Empty)
                 .Replace(")", string.Empty)
                 .Replace("-", string.Empty)
                 .Replace(' ', '_')
                 .Replace('/', '_')
                 .Remove(1, 1);
+            }
+            return name;
         }
 
         public string NameToHomeIO(string name)
@@ -118,7 +130,10 @@ namespace HomeIO_MQTT
         public string FloatToState(MemoryFloat mem)
         {
             float value = mem.Value;
-            value *= homeioToOpenhabRate;
+            if(mem.Name.Contains("Openness"))
+            {
+                value *= homeioToOpenhabRate;
+            }
             return value.ToString();
         }
 
@@ -170,7 +185,8 @@ namespace HomeIO_MQTT
 
             string[] common =
             {
-                "DateTime HomeIO_Date \"HomeIO Date\""
+                "DateTime HomeIO_Date \"HomeIO Date\"",
+                "Number Time_Scale \"Time Scale\""
             };
 
             foreach (MemoryBit mem in MemoryMap.Instance.GetBitMemories(MemoryType.Input))
