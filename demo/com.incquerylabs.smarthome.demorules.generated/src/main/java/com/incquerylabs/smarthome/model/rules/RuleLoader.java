@@ -3,6 +3,7 @@ package com.incquerylabs.smarthome.model.rules;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,11 +23,18 @@ public class RuleLoader implements IRuleLoader {
 
         List<DrlConfiguration> list = new LinkedList<DrlConfiguration>();
 
-        List<URL> loadedDrls = Collections
-                .list(FrameworkUtil.getBundle(getClass()).findEntries("/src/main/resources/base-rules", "*.drl", true));
-
-        loadedDrls.addAll(Collections
-                .list(FrameworkUtil.getBundle(getClass()).findEntries("/src/main/resources/gen-rules", "*.drl", true)));
+        Enumeration<URL> baseRules = FrameworkUtil.getBundle(getClass()).findEntries("/src/main/resources/base-rules", "*.drl", true);
+        Enumeration<URL> genRules = FrameworkUtil.getBundle(getClass()).findEntries("/src/main/resources/gen-rules", "*.drl", true);
+        
+        if(baseRules == null) {
+        	throw new RuntimeException("Error, base-rules folder shouldn't be empty.");
+        }
+        if(genRules == null) {
+        	throw new RuntimeException("Error, gen-rules folder shouldn't be empty. Have you forget to generate the rules?");
+        }
+        
+        List<URL> loadedDrls = Collections.list(baseRules);
+        loadedDrls.addAll(Collections.list(genRules));
 
         for (URL url : loadedDrls) {
             addInputStreamToList(url, list);
