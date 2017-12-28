@@ -61,7 +61,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	public void stateChanged(ItemStateChangedEvent itemStateChangedEvent) {
 		if (droolsInitialized) {
 			changeStateInRuleEngine(itemStateChangedEvent);
-			logger.info(itemStateChangedEvent.toString());
+			logger.trace(itemStateChangedEvent.toString());
 		}
 	}
 
@@ -69,7 +69,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	public void groupStateChanged(GroupItemStateChangedEvent groupItemStateChangedEvent) {
 		if (droolsInitialized) {
 			changeStateInRuleEngine(groupItemStateChangedEvent);
-			logger.info(groupItemStateChangedEvent.toString());
+			logger.trace(groupItemStateChangedEvent.toString());
 		}
 	}
 
@@ -77,7 +77,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	public void commandReceived(ItemCommandEvent itemCommandEvent) {
 		if (droolsInitialized) {
 			addItemCommandToRuleEngine(itemCommandEvent);
-			logger.debug(itemCommandEvent.toString());
+			logger.trace(itemCommandEvent.toString());
 		}
 	}
 
@@ -188,10 +188,9 @@ public class DroolsEventBusClient implements IEventSubscriber {
 	}
 
 	private void addDrls(KnowledgeBuilder kbuilder) {
-
 		List<DrlConfiguration> drls = ruleLoader.getDrls();
-		logger.debug("Loading {} drl files", drls.size());
 		if (drls != null) {
+			logger.debug("Loading {} drl files", drls.size());
 			for (DrlConfiguration drlConf : drls) {
 				kbuilder.add(ResourceFactory.newInputStreamResource(drlConf.getDrl()).setSourcePath(drlConf.getPath()),
 						ResourceType.DRL);
@@ -199,8 +198,8 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		}
 
 		List<DtableConfiguration> dtables = ruleLoader.getDtables();
-		logger.debug("Loading {} decision tables", dtables.size());
 		if (dtables != null) {
+			logger.debug("Loading {} decision tables", dtables.size());
 			for (DtableConfiguration dtableConf : dtables) {
 				kbuilder.add(ResourceFactory.newInputStreamResource(dtableConf.getDtable())
 						.setSourcePath(dtableConf.getPath()), ResourceType.DTABLE);
@@ -208,8 +207,8 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		}
 
 		List<RuleTemplateConfiguration> ruleTeamplates = ruleLoader.getRuleTemplates();
-		logger.debug("Loading {} rule templates", ruleTeamplates.size());
 		if (ruleTeamplates != null) {
+			logger.debug("Loading {} rule templates", ruleTeamplates.size());
 			for (RuleTemplateConfiguration ruleTeamplateConf : ruleTeamplates) {
 				for (DrlConfiguration drlConf : ruleTeamplateConf.getTemplateRules()) {
 					DecisionTableConfiguration dtableconfiguration = KnowledgeBuilderFactory
@@ -226,18 +225,22 @@ public class DroolsEventBusClient implements IEventSubscriber {
 				}
 			}
 		}
+		logger.info("Successfully loaded all Drools resources!");
 	}
 
 	private void loadDrools() {
 		try {
 			logger.info("Initializing Drools rule engine");
 			KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+
 			addDrls(kbuilder);
 
 			logger.debug("Compiling rules");
 			kSession = kbuilder.newKieBase().newKieSession();
 			initGlobals();
+
 			droolsInitialized = true;
+
 			logger.debug("Successfully initialized Drools rule engine");
 
 		} catch (Exception e) {
@@ -260,7 +263,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 		if (eventPublisher != null) {
 			kSession.setGlobal("openhab", eventPublisher);
 		}
-		
 		logger.debug("Initialized global variables");
 	}
+
 }
