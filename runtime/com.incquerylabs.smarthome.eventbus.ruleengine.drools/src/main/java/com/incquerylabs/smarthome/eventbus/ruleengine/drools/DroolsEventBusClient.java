@@ -241,7 +241,7 @@ public class DroolsEventBusClient implements IEventSubscriber {
 
 			droolsInitialized = true;
 
-			logger.debug("Successfully initialized Drools rule engine");
+			logger.info("Successfully initialized Drools rule engine");
 
 		} catch (Exception e) {
 			logger.error("Exiting because of an exception during the Drools initialization ", e);
