@@ -1,3 +1,0 @@
-Contact	C_Light_Switch	"C - Light Switch"	(gContact, gC)
-Switch	C_Lights	"C - Lights"	(gLight, gC)
-Dimmer	C_Lights_Analog	"C - Lights (Analog)"	(gLight, gC)
