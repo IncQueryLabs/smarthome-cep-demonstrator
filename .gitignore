@@ -1,0 +1,7 @@
+**/target/
+**/bin/
+**/lib/
+launch/home/logs/
+
+
+rules/com\.incquerylabs\.smarthome\.rules/\.settings/

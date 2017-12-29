@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IEventBusService
+Bundle-SymbolicName: com.incquerylabs.smarthome.eventbus.api
+Bundle-Version: 0.1.0
+Bundle-Vendor: INCQUERYLABS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.incquerylabs.smarthome.eventbus.api,
+ com.incquerylabs.smarthome.eventbus.api.events
+Require-Bundle: org.eclipse.smarthome.core

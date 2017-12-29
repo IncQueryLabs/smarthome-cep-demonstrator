@@ -1,0 +1,110 @@
+package rules
+
+import org.slf4j.Logger;
+import org.eclipse.smarthome.core.items.Item;
+import org.eclipse.smarthome.core.library.types.OnOffType;
+import org.eclipse.smarthome.core.library.types.OpenClosedType;
+import org.eclipse.smarthome.core.library.types.PercentType;
+import org.eclipse.smarthome.core.library.types.DecimalType;
+import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
+import org.eclipse.smarthome.core.types.Command;
+import org.eclipse.smarthome.core.types.State;
+import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.GroupItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemEvent;
+
+
+global Logger logger;
+global IEventPublisher openhab;
+global OpenClosedType OPEN;
+global OpenClosedType CLOSED;
+global OnOffType ON;
+global OnOffType OFF;
+global PercentType HUNDRED;
+global PercentType ZERO;
+global IncreaseDecreaseType INCREASE;
+global IncreaseDecreaseType DECREASE;
+/*
+    the above variables are set from java code
+    you can define custom global variables
+*/
+
+
+declare ItemCommandEvent
+    @role ( event )
+end
+
+
+declare ItemCommandHistory
+    @role ( event )
+end
+
+
+declare ItemStateChangedEvent
+    @role ( event )
+end
+
+
+declare GroupItemStateChangedEvent
+    @role ( event )
+end
+
+
+declare ItemStateChangedHistory
+    @role ( event )
+end
+
+
+declare InitStates
+	@role ( event )
+end
+
+
+
+
+rule "Item event"
+    when
+        $event : ItemEvent()
+    then
+        logger.debug( $event.toString() );
+end
+
+/*
+
+rule "Example rule, turn on light when switch is turned on"
+    when
+        ItemStateChangedEvent( name == "Example_Switch", newState == ON)
+    then
+        openhab.postCommand($light, ON);
+end
+
+
+rule "Example rule, switch light on/off with a push switch"
+    when
+        $light : Item( name == "Example_Light", $state : state)
+
+        ItemStateChangedEvent( name == "Example_Switch", newState == PRESSED)
+    then
+        if ($state == ON) {
+            openhab.postCommand($light, OFF);
+        } else {
+            openhab.postCommand($light, ON);
+        }
+end
+
+
+rule "Example rule, switch on light for motion in dark"
+    when
+        $light : Item( name == "Example_Light" )
+        Item( name == "Example_Brightness_Sensor", state == DARKNESS )
+
+        ItemStateChangedEvent(name == "Example_Motion_Detector", newState == MOTION)
+    then
+        openhab.postCommand($light, ON);
+end
+
+*/
