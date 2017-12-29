@@ -1,4 +1,4 @@
-package homeioexample
+package rules
 
 import org.slf4j.Logger;
 import org.eclipse.smarthome.core.items.Item;
@@ -16,9 +16,7 @@ import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.GroupItemStateChangedEvent;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedHistory;
 import com.incquerylabs.smarthome.eventbus.api.events.ItemEvent;
-import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DimmerCommand;
-import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DateTime;
-import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.InitStates;
+
 
 global Logger logger;
 global IEventPublisher openhab;
@@ -30,17 +28,11 @@ global PercentType HUNDRED;
 global PercentType ZERO;
 global IncreaseDecreaseType INCREASE;
 global IncreaseDecreaseType DECREASE;
-global OpenClosedType BRIGHTNESS; 
-global OpenClosedType DARKNESS; 
-global OpenClosedType MOTION;
-global OpenClosedType NOMOTION;
-global OpenClosedType DOOR_OPENED;
-global OpenClosedType DOOR_CLOSED;
-global OpenClosedType PRESSED;
-global OpenClosedType RELEASED;
+/*
+    the above variables are set from java code
+    you can define custom global variables
+*/
 
-global OpenClosedType ARMED
-global OpenClosedType DISARMED
 
 declare ItemCommandEvent
     @role ( event )
@@ -72,26 +64,6 @@ declare InitStates
 end
 
 
-declare DateTime
-    @role ( event )
-end
-
-
-
-
-
-rule "Init"
-    lock-on-active
-    when
-        InitStates()
-    then
-        openhab.postCommand("Example_Light", OFF);
-        openhab.postCommand("A_Lights_Analog", ZERO); 
-        
-        openhab.postCommand("gLight", OFF);
-        openhab.postCommand("gRollerShadesUp", OFF);
-        openhab.postCommand("gRollerShadesDown", OFF);
-end
 
 
 rule "Item event"
@@ -101,8 +73,17 @@ rule "Item event"
         logger.debug( $event.toString() );
 end
 
+/*
 
-rule "Example lights rule with push switch"
+rule "Example rule, turn on light when switch is turned on"
+    when
+        ItemStateChangedEvent( name == "Example_Switch", newState == ON)
+    then
+        openhab.postCommand($light, ON);
+end
+
+
+rule "Example rule, switch light on/off with a push switch"
     when
         $light : Item( name == "Example_Light", $state : state)
 
@@ -115,3 +96,15 @@ rule "Example lights rule with push switch"
         }
 end
 
+
+rule "Example rule, switch on light for motion in dark"
+    when
+        $light : Item( name == "Example_Light" )
+        Item( name == "Example_Brightness_Sensor", state == DARKNESS )
+
+        ItemStateChangedEvent(name == "Example_Motion_Detector", newState == MOTION)
+    then
+        openhab.postCommand($light, ON);
+end
+
+*/
