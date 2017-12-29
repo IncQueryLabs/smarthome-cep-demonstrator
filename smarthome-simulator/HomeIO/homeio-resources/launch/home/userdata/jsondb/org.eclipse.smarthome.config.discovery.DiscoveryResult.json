@@ -1,0 +1,52 @@
+{
+  "astro:moon:local": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "thingUID": {
+        "segments": [
+          "astro",
+          "moon",
+          "local"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "astro",
+          "moon"
+        ]
+      },
+      "properties": {
+        "geolocation": "47.4785666,19.02882,0"
+      },
+      "flag": "NEW",
+      "label": "Local Moon",
+      "timestamp": 1506329901704,
+      "timeToLive": -1
+    }
+  },
+  "ntp:ntp:local": {
+    "class": "org.eclipse.smarthome.config.discovery.internal.DiscoveryResultImpl",
+    "value": {
+      "thingUID": {
+        "segments": [
+          "ntp",
+          "ntp",
+          "local"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "ntp",
+          "ntp"
+        ]
+      },
+      "properties": {
+        "timeZone": "Europe/Prague"
+      },
+      "flag": "NEW",
+      "label": "Local Time",
+      "timestamp": 1512341937669,
+      "timeToLive": -1
+    }
+  }
+}

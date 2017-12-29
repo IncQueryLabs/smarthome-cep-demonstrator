@@ -1,0 +1,6 @@
+Contact	K_Light_Switch_Dimmer_Up	"K - Light Switch Dimmer (Up)"	(gContact, gK)
+Contact	K_Light_Switch_Dimmer_Down	"K - Light Switch Dimmer (Down)"	(gContact, gK)
+Contact	K_Motion_Detector	"K - Motion Detector"	(gMotionDetector, gK)
+Number	K_Thermostat_Room_Temperature	"K - Thermostat (Room Temperature)"	(gTemperature, gK)
+Switch	K_Lights	"K - Lights"	(gLight, gK)
+Dimmer	K_Lights_Analog	"K - Lights (Analog)"	(gLight, gK)

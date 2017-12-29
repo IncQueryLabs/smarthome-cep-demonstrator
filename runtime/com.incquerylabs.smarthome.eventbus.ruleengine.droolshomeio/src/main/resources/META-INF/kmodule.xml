@@ -1,0 +1,5 @@
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+    <kbase name="rules" default="true" packages="rules">
+        <ksession name="ksession-rules" default="true" />
+    </kbase>
+</kmodule>

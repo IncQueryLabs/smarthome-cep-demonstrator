@@ -1,0 +1,282 @@
+{
+  "dandridbinding_dandrid_da7e4cb3_motion_stop -\u003e dandridbinding:dandrid:da7e4cb3:motion-stop": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "da7e4cb3",
+          "motion-stop"
+        ]
+      },
+      "itemName": "dandridbinding_dandrid_da7e4cb3_motion_stop"
+    }
+  },
+  "mqttSwitch -\u003e dandridbinding:dandrid:lamp:mqtt-switch": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "lamp",
+          "mqtt-switch"
+        ]
+      },
+      "itemName": "mqttSwitch"
+    }
+  },
+  "AstroSunData_Rise_StartTime -\u003e astro:sun:sun:rise#start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "sun",
+          "rise#start"
+        ]
+      },
+      "itemName": "AstroSunData_Rise_StartTime"
+    }
+  },
+  "WeatherInformation_Humidity -\u003e yahooweather:weather:budapest:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "yahooweather",
+          "weather",
+          "budapest",
+          "humidity"
+        ]
+      },
+      "itemName": "WeatherInformation_Humidity"
+    }
+  },
+  "DandridBindingThing_AllowPIR -\u003e dandridbinding:dandrid:thing1:allow-pir-switch": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "thing1",
+          "allow-pir-switch"
+        ]
+      },
+      "itemName": "DandridBindingThing_AllowPIR"
+    }
+  },
+  "LocalTime_Date -\u003e ntp:ntp:local:dateTime": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "ntp",
+          "ntp",
+          "local",
+          "dateTime"
+        ]
+      },
+      "itemName": "LocalTime_Date"
+    }
+  },
+  "LocalTime_Time -\u003e ntp:ntp:local:string": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "ntp",
+          "ntp",
+          "local",
+          "string"
+        ]
+      },
+      "itemName": "LocalTime_Time"
+    }
+  },
+  "allowPirSwitch -\u003e dandridbinding:dandrid:lamp:allow-pir-switch": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "lamp",
+          "allow-pir-switch"
+        ]
+      },
+      "itemName": "allowPirSwitch"
+    }
+  },
+  "dandridbinding_dandrid_da7e4cb3_motion_start -\u003e dandridbinding:dandrid:da7e4cb3:motion-start": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "da7e4cb3",
+          "motion-start"
+        ]
+      },
+      "itemName": "dandridbinding_dandrid_da7e4cb3_motion_start"
+    }
+  },
+  "DandridBindingThing_TimerSwitch -\u003e dandridbinding:dandrid:thing1:timer-switch": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "thing1",
+          "timer-switch"
+        ]
+      },
+      "itemName": "DandridBindingThing_TimerSwitch"
+    }
+  },
+  "AstroSunData_Set_EndTime -\u003e astro:sun:sun:set#end": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "astro",
+          "sun",
+          "sun",
+          "set#end"
+        ]
+      },
+      "itemName": "AstroSunData_Set_EndTime"
+    }
+  },
+  "WeatherInformation_Humidity -\u003e yahooweather:weather:Budapest:humidity": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "yahooweather",
+          "weather",
+          "Budapest",
+          "humidity"
+        ]
+      },
+      "itemName": "WeatherInformation_Humidity"
+    }
+  },
+  "WeatherInformation_Pressure -\u003e yahooweather:weather:budapest:pressure": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "yahooweather",
+          "weather",
+          "budapest",
+          "pressure"
+        ]
+      },
+      "itemName": "WeatherInformation_Pressure"
+    }
+  },
+  "WeatherInformation_Temperature -\u003e yahooweather:weather:budapest:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "yahooweather",
+          "weather",
+          "budapest",
+          "temperature"
+        ]
+      },
+      "itemName": "WeatherInformation_Temperature"
+    }
+  },
+  "mqttPir -\u003e dandridbinding:dandrid:lamp:pir-switch": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "lamp",
+          "pir-switch"
+        ]
+      },
+      "itemName": "mqttPir"
+    }
+  },
+  "Command_Running_Switch -\u003e exec:command:mail:run": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "exec",
+          "command",
+          "mail",
+          "run"
+        ]
+      },
+      "itemName": "Command_Running_Switch"
+    }
+  },
+  "WeatherInformation_Pressure -\u003e yahooweather:weather:Budapest:pressure": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "yahooweather",
+          "weather",
+          "Budapest",
+          "pressure"
+        ]
+      },
+      "itemName": "WeatherInformation_Pressure"
+    }
+  },
+  "DandridBindingThing_AllowPIR -\u003e dandridbinding:dandrid:thing2:allow-pir-switch": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "thing2",
+          "allow-pir-switch"
+        ]
+      },
+      "itemName": "DandridBindingThing_AllowPIR"
+    }
+  },
+  "DandridBindingThing_AllowPIR -\u003e dandridbinding:dandrid:Thing1:allow-pir-switch": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "dandridbinding",
+          "dandrid",
+          "Thing1",
+          "allow-pir-switch"
+        ]
+      },
+      "itemName": "DandridBindingThing_AllowPIR"
+    }
+  },
+  "WeatherInformation_Temperature -\u003e yahooweather:weather:Budapest:temperature": {
+    "class": "org.eclipse.smarthome.core.thing.link.ItemChannelLink",
+    "value": {
+      "channelUID": {
+        "segments": [
+          "yahooweather",
+          "weather",
+          "Budapest",
+          "temperature"
+        ]
+      },
+      "itemName": "WeatherInformation_Temperature"
+    }
+  }
+}

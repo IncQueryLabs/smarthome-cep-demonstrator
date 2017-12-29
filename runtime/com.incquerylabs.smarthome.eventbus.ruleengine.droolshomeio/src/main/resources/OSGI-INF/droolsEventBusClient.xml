@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="DroolsEventBusClient">
+   <implementation class="com.incquerylabs.smarthome.droolsbundle.DroolsEventBusClient"/>
+   <service>
+      <provide interface="com.incquerylabs.smarthome.eventbusservice.IEventSubscriber"/>
+   </service>
+   <reference bind="setEventPublisher" cardinality="1..1" interface="com.incquerylabs.smarthome.eventbusservice.IEventPublisher" name="IEventPublisher" policy="static" unbind="unsetEventPublisher"/>
+   <reference bind="setRuleLoader" cardinality="1..1" interface="com.incquerylabs.smarthome.eventbusservice.IRuleLoader" name="IRuleLoader" policy="static" unbind="unsetRuleLoader"/>
+</scr:component>

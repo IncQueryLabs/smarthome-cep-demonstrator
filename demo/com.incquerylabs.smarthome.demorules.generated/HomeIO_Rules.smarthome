@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smarthome:SmartHome xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smarthome="http://www.example.org/smarthome" name="">
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_1">
+    <states state="CLOSED"/>
+    <states state="OPEN"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_2">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_3">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Motion_Detector">
+    <states state="MOTION"/>
+    <states state="NOMOTION"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Brightness_Sensor">
+    <states state="BRIGHTNESS"/>
+    <states state="DARKNESS"/>
+  </items>
+  <items xsi:type="smarthome:DimmerItem" name="A_Lights_Analog">
+    <accaptedCommands command="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="CHANGE_STATE"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_Dimmer_1_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem"/>
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_Dimmer_3_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_Dimmer_2_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_Dimmer_1_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_Dimmer_2_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Light_Switch_Dimmer_3_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="A_Roller_Shades_1_Up">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="A_Roller_Shades_1_Down">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="A_Roller_Shades_2_Up">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="A_Roller_Shades_2_Down">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="A_Roller_Shades_3_Up">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="A_Roller_Shades_3_Down">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="A_Roller_Shades_4_Up">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="A_Roller_Shades_4_Down">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Up_Down_Switch_1_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Up_Down_Switch_1_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:NumberItem" name="A_Roller_Shades_1_Openness">
+    <states state="HUNDRED"/>
+    <states state="ZERO"/>
+  </items>
+  <items xsi:type="smarthome:NumberItem" name="A_Roller_Shades_2_Openness">
+    <states state="HUNDRED"/>
+    <states state="ZERO"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Up_Down_Switch_2_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="A_Up_Down_Switch_2_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:NumberItem" name="A_Roller_Shades_3_Openness">
+    <states state="HUNDRED"/>
+    <states state="ZERO"/>
+  </items>
+  <items xsi:type="smarthome:NumberItem" name="A_Roller_Shades_4_Openness">
+    <states state="HUNDRED"/>
+    <states state="ZERO"/>
+  </items>
+  <items xsi:type="smarthome:DimmerItem" name="D_Lights_1_Analog">
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:DimmerItem" name="D_Lights_2_Analog">
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="D_Light_Switch_Dimmer_1_Up">
+    <states state="CLOSED"/>
+    <states state="OPEN"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="D_Light_Switch_Dimmer_1_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="D_Light_Switch_Dimmer_2_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="D_Light_Switch_Dimmer_2_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="D_Motion_Detector">
+    <states state="MOTION"/>
+    <states state="NOMOTION"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="D_Brightness_Sensor">
+    <states state="BRIGHTNESS"/>
+    <states state="DARKNESS"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="D_Up_Down_Switch_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="D_Up_Down_Switch_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="D_Roller_Shades_Up">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="OFF"/>
+    <accaptedCommands command="ON"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="D_Roller_Shades_Down">
+    <states state="OFF"/>
+    <states state="ON"/>
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+  </items>
+  <items xsi:type="smarthome:NumberItem" name="D_Roller_Shades_Openness">
+    <states state="HUNDRED"/>
+    <states state="ZERO"/>
+  </items>
+  <items xsi:type="smarthome:DimmerItem" name="E_Lights_Analog">
+    <accaptedCommands command="ON"/>
+    <accaptedCommands command="OFF"/>
+    <accaptedCommands command="CHANGE_STATE"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_1">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_2">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_3">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_4">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_5">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_Dimmer_1_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_Dimmer_2_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_Dimmer_1_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Light_Switch_Dimmer_2_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Motion_Detector">
+    <states state="MOTION"/>
+    <states state="NOMOTION"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Brightness_Sensor">
+    <states state="BRIGHTNESS"/>
+    <states state="DARKNESS"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="E_Roller_Shades_Up">
+    <states state="OFF"/>
+    <states state="ON"/>
+    <accaptedCommands command="OFF"/>
+    <accaptedCommands command="ON"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="E_Roller_Shades_Down">
+    <states state="OFF"/>
+    <states state="ON"/>
+    <accaptedCommands command="OFF"/>
+    <accaptedCommands command="ON"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Up_Down_Switch_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Up_Down_Switch_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:NumberItem" name="E_Roller_Shades_Openness">
+    <states state="HUNDRED"/>
+    <states state="ZERO"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="E_Roller_Shades_Down">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="OFF"/>
+    <accaptedCommands command="ON"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Up_Down_Switch_Down">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <items xsi:type="smarthome:SwitchItem" name="E_Roller_Shades_Up">
+    <states state="ON"/>
+    <states state="OFF"/>
+    <accaptedCommands command="OFF"/>
+    <accaptedCommands command="ON"/>
+  </items>
+  <items xsi:type="smarthome:ContactItem" name="E_Up_Down_Switch_Up">
+    <states state="OPEN"/>
+    <states state="CLOSED"/>
+  </items>
+  <rules>
+    <events newState="//@items.3/@states.0" item="//@items.3"/>
+    <commands item="//@items.5" command="//@items.5/@accaptedCommands.1"/>
+    <filters requiredState="//@items.4/@states.1" item="//@items.4"/>
+  </rules>
+  <rules>
+    <events newState="//@items.0/@states.1" item="//@items.0"/>
+    <events newState="//@items.1/@states.0" item="//@items.1"/>
+    <events newState="//@items.2/@states.0" item="//@items.2"/>
+    <commands item="//@items.5" command="//@items.5/@accaptedCommands.2"/>
+  </rules>
+  <rules>
+    <events newState="//@items.6/@states.0" item="//@items.6"/>
+    <events newState="//@items.9/@states.0" item="//@items.9"/>
+    <events newState="//@items.8/@states.0" item="//@items.8"/>
+    <commands item="//@items.5" command="//@items.5/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.10/@states.0" item="//@items.10"/>
+    <events newState="//@items.11/@states.0" item="//@items.11"/>
+    <events newState="//@items.12/@states.0" item="//@items.12"/>
+    <commands item="//@items.5" command="//@items.5/@accaptedCommands.0"/>
+  </rules>
+  <rules>
+    <events newState="//@items.21/@states.0" item="//@items.21"/>
+    <commands item="//@items.13" command="//@items.13/@accaptedCommands.0"/>
+    <commands item="//@items.15" command="//@items.15/@accaptedCommands.0"/>
+    <filters requiredState="//@items.13/@states.1" item="//@items.13"/>
+    <filters requiredState="//@items.14/@states.1" item="//@items.14"/>
+  </rules>
+  <rules>
+    <events newState="//@items.21/@states.0" item="//@items.21"/>
+    <commands item="//@items.14" command="//@items.14/@accaptedCommands.1"/>
+    <commands item="//@items.16" command="//@items.16/@accaptedCommands.1"/>
+    <filters requiredState="//@items.14/@states.0" item="//@items.14"/>
+  </rules>
+  <rules>
+    <events newState="//@items.22/@states.0" item="//@items.22"/>
+    <commands item="//@items.16" command="//@items.16/@accaptedCommands.0"/>
+    <commands item="//@items.14" command="//@items.14/@accaptedCommands.0"/>
+    <filters requiredState="//@items.13/@states.1" item="//@items.13"/>
+    <filters requiredState="//@items.14/@states.1" item="//@items.14"/>
+  </rules>
+  <rules>
+    <events newState="//@items.22/@states.0" item="//@items.22"/>
+    <commands item="//@items.15" command="//@items.15/@accaptedCommands.1"/>
+    <commands item="//@items.13" command="//@items.13/@accaptedCommands.1"/>
+    <filters requiredState="//@items.13/@states.0" item="//@items.13"/>
+  </rules>
+  <rules>
+    <events newState="//@items.23/@states.0" item="//@items.23"/>
+    <commands item="//@items.13" command="//@items.13/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.23/@states.1" item="//@items.23"/>
+    <commands item="//@items.14" command="//@items.14/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.24/@states.0" item="//@items.24"/>
+    <commands item="//@items.15" command="//@items.15/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.24/@states.1" item="//@items.24"/>
+    <commands item="//@items.16" command="//@items.16/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.25/@states.0" item="//@items.25"/>
+    <commands item="//@items.17" command="//@items.17/@accaptedCommands.0"/>
+    <commands item="//@items.19" command="//@items.19/@accaptedCommands.0"/>
+    <filters requiredState="//@items.17/@states.1" item="//@items.17"/>
+    <filters requiredState="//@items.18/@states.1" item="//@items.18"/>
+  </rules>
+  <rules>
+    <events newState="//@items.25/@states.0" item="//@items.25"/>
+    <commands item="//@items.18" command="//@items.18/@accaptedCommands.1"/>
+    <commands item="//@items.20" command="//@items.20/@accaptedCommands.1"/>
+    <filters requiredState="//@items.18/@states.0" item="//@items.18"/>
+  </rules>
+  <rules>
+    <events newState="//@items.26/@states.0" item="//@items.26"/>
+    <commands item="//@items.18" command="//@items.18/@accaptedCommands.0"/>
+    <commands item="//@items.20" command="//@items.20/@accaptedCommands.0"/>
+    <filters requiredState="//@items.18/@states.1" item="//@items.18"/>
+    <filters requiredState="//@items.17/@states.1" item="//@items.17"/>
+  </rules>
+  <rules>
+    <events newState="//@items.26/@states.0" item="//@items.26"/>
+    <commands item="//@items.19" command="//@items.19/@accaptedCommands.1"/>
+    <commands item="//@items.17" command="//@items.17/@accaptedCommands.1"/>
+    <filters requiredState="//@items.17/@states.0" item="//@items.17"/>
+  </rules>
+  <rules>
+    <events newState="//@items.27/@states.0" item="//@items.27"/>
+    <commands item="//@items.17" command="//@items.17/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.27/@states.1" item="//@items.27"/>
+    <commands item="//@items.18" command="//@items.18/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.28/@states.1" item="//@items.28"/>
+    <commands item="//@items.20" command="//@items.20/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.28/@states.0" item="//@items.28"/>
+    <commands item="//@items.19" command="//@items.19/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.31/@states.1" item="//@items.31"/>
+    <events newState="//@items.33/@states.0" item="//@items.33"/>
+    <commands item="//@items.29" command="//@items.29/@accaptedCommands.0"/>
+    <commands item="//@items.30" command="//@items.30/@accaptedCommands.0"/>
+  </rules>
+  <rules>
+    <events newState="//@items.32/@states.0" item="//@items.32"/>
+    <events newState="//@items.34/@states.0" item="//@items.34"/>
+    <commands item="//@items.29" command="//@items.29/@accaptedCommands.1"/>
+    <commands item="//@items.30" command="//@items.30/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.35/@states.0" item="//@items.35"/>
+    <commands item="//@items.30" command="//@items.30/@accaptedCommands.0"/>
+    <commands item="//@items.29" command="//@items.29/@accaptedCommands.0"/>
+    <filters requiredState="//@items.36/@states.1" item="//@items.36"/>
+  </rules>
+  <rules>
+    <events newState="//@items.37/@states.0" item="//@items.37"/>
+    <commands item="//@items.39" command="//@items.39/@accaptedCommands.1"/>
+    <filters requiredState="//@items.39/@states.1" item="//@items.39"/>
+    <filters requiredState="//@items.40/@states.0" item="//@items.40"/>
+  </rules>
+  <rules>
+    <events newState="//@items.37/@states.0" item="//@items.37"/>
+    <commands item="//@items.40" command="//@items.40/@accaptedCommands.1"/>
+    <filters requiredState="//@items.40/@states.1" item="//@items.40"/>
+  </rules>
+  <rules>
+    <events newState="//@items.38/@states.0" item="//@items.38"/>
+    <commands item="//@items.40" command="//@items.40/@accaptedCommands.0"/>
+    <filters requiredState="//@items.39/@states.1" item="//@items.39"/>
+    <filters requiredState="//@items.40/@states.0" item="//@items.40"/>
+  </rules>
+  <rules>
+    <events newState="//@items.38/@states.0" item="//@items.38"/>
+    <commands item="//@items.39" command="//@items.39/@accaptedCommands.0"/>
+    <filters requiredState="//@items.39/@states.0" item="//@items.39"/>
+  </rules>
+  <rules>
+    <events newState="//@items.41/@states.0" item="//@items.41"/>
+    <commands item="//@items.39" command="//@items.39/@accaptedCommands.0"/>
+  </rules>
+  <rules>
+    <events newState="//@items.41/@states.1" item="//@items.41"/>
+    <commands item="//@items.40" command="//@items.40/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.43/@states.0" item="//@items.43"/>
+    <events newState="//@items.44/@states.0" item="//@items.44"/>
+    <events newState="//@items.45/@states.0" item="//@items.45"/>
+    <events newState="//@items.46/@states.0" item="//@items.46"/>
+    <events newState="//@items.47/@states.0" item="//@items.47"/>
+    <commands item="//@items.42" command="//@items.42/@accaptedCommands.2"/>
+  </rules>
+  <rules>
+    <events newState="//@items.48/@states.0" item="//@items.48"/>
+    <events newState="//@items.49/@states.0" item="//@items.49"/>
+    <commands item="//@items.42" command="//@items.42/@accaptedCommands.0"/>
+  </rules>
+  <rules>
+    <events newState="//@items.50/@states.0" item="//@items.50"/>
+    <events newState="//@items.51/@states.0" item="//@items.51"/>
+    <commands item="//@items.42" command="//@items.42/@accaptedCommands.1"/>
+  </rules>
+  <rules>
+    <events newState="//@items.52/@states.0" item="//@items.52"/>
+    <commands item="//@items.42" command="//@items.42/@accaptedCommands.0"/>
+    <filters requiredState="//@items.53/@states.1" item="//@items.53"/>
+  </rules>
+  <rules>
+    <events newState="//@items.56/@states.0" item="//@items.56"/>
+    <commands item="//@items.54" command="//@items.54/@accaptedCommands.1"/>
+    <filters requiredState="//@items.54/@states.0" item="//@items.54"/>
+    <filters requiredState="//@items.55/@states.0" item="//@items.55"/>
+  </rules>
+  <rules>
+    <events newState="//@items.57/@states.0" item="//@items.57"/>
+    <commands item="//@items.55" command="//@items.55/@accaptedCommands.1"/>
+    <filters requiredState="//@items.54/@states.0" item="//@items.54"/>
+    <filters requiredState="//@items.55/@states.0" item="//@items.55"/>
+  </rules>
+  <rules>
+    <events newState="//@items.58/@states.0" item="//@items.58"/>
+    <commands item="//@items.54" command="//@items.54/@accaptedCommands.0"/>
+  </rules>
+  <rules>
+    <events newState="//@items.58/@states.1" item="//@items.58"/>
+    <commands item="//@items.55" command="//@items.55/@accaptedCommands.0"/>
+  </rules>
+  <rules>
+    <events newState="//@items.62/@states.0" item="//@items.62"/>
+    <commands item="//@items.59" command="//@items.59/@accaptedCommands.0"/>
+    <filters requiredState="//@items.59/@states.0" item="//@items.59"/>
+  </rules>
+  <rules>
+    <events newState="//@items.60/@states.0" item="//@items.60"/>
+    <commands item="//@items.61" command="//@items.61/@accaptedCommands.0"/>
+    <filters requiredState="//@items.61/@states.0" item="//@items.61"/>
+  </rules>
+</smarthome:SmartHome>

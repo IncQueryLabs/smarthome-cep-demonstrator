@@ -1,0 +1,1710 @@
+{
+  "astro:sun:local": {
+    "class": "org.eclipse.smarthome.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Local Sun",
+      "channels": [
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "rise#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "rise#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "rise#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "rise#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "set#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "set#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "set#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "set#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "noon#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "noon#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "noon#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "noon#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "night#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "night#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "night#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "night#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "morningNight#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "morningNight#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "morningNight#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "morningNight#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "astroDawn#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "astroDawn#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "astroDawn#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "astroDawn#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "nauticDawn#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "nauticDawn#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "nauticDawn#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "nauticDawn#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "civilDawn#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "civilDawn#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "civilDawn#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "civilDawn#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "astroDusk#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "astroDusk#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "astroDusk#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "astroDusk#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "nauticDusk#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "nauticDusk#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "nauticDusk#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "nauticDusk#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "civilDusk#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "civilDusk#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "civilDusk#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "civilDusk#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "eveningNight#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "eveningNight#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "eveningNight#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "eveningNight#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "daylight#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "daylight#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "daylight#duration"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "duration"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "daylight#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "rangeEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "position#azimuth"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "azimuth"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "position#elevation"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "elevation"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "radiation#direct"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "directRadiation"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "radiation#diffuse"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "diffuseRadiation"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "radiation#total"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "totalRadiation"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "zodiac#start"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "start"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "zodiac#end"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "end"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "zodiac#sign"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "sign"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "season#name"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "seasonName"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "season#spring"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "spring"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "season#summer"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "summer"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "season#autumn"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "autumn"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "season#winter"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "winter"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "eclipse#total"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "total"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "eclipse#partial"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "partial"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "eclipse#ring"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "ring"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "kind": "TRIGGER",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "eclipse#event"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "sunEclipseEvent"
+            ]
+          },
+          "configuration": {
+            "properties": {
+              "offset": 0
+            }
+          },
+          "properties": {},
+          "defaultTags": []
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "astro",
+              "sun",
+              "local",
+              "phase#name"
+            ]
+          },
+          "channelTypeUID": {
+            "segments": [
+              "astro",
+              "sunPhaseName"
+            ]
+          },
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": []
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "interval": 300,
+          "geolocation": "47.4785666,19.02882,0"
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "astro",
+          "sun",
+          "local"
+        ]
+      },
+      "thingTypeUID": {
+        "segments": [
+          "astro",
+          "sun"
+        ]
+      }
+    }
+  }
+}

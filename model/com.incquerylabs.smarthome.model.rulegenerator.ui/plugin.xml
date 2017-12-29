@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditor"
+            contributorClass="com.incquerylabs.smarthome.model.rulegenerator.ui.SmarthomeActionBarContributorExtended"
+            extensions="smarthome"
+            icon="icons/full/obj16/SmarthomeModelFile.gif"
+            id="com.incquerylabs.smarthome.model.simple.smarthome.presentation.SmarthomeEditorID"
+            name="Smarthome Model Editor">
+      </editor>
+   </extension>
+
+</plugin>

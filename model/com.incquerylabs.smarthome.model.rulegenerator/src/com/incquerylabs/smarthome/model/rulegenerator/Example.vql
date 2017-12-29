@@ -1,0 +1,35 @@
+package com.incquerylabs.smarthome.model.rulegenerator
+
+import "http://www.example.org/smarthome"
+
+pattern smartHomeRules(smarthome : SmartHome, evaluatingNode : EvaluatingNode) {
+    SmartHome.rules(smarthome, evaluatingNode);
+}
+
+pattern changeStateSwitchCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command, switchItem : SwitchItem) {
+	EvaluatingNode.commands(evaluatingNode, commandConnection);
+	CommandConnection.item(commandConnection, switchItem);
+	CommandConnection.command(commandConnection, command);
+	Command.command(command, "CHANGE_STATE");
+}
+
+pattern changeStateDimmerCommand(evaluatingNode : EvaluatingNode, commandConnection : CommandConnection, command : Command, dimmerItem : DimmerItem) {
+	EvaluatingNode.commands(evaluatingNode, commandConnection);
+	CommandConnection.item(commandConnection, dimmerItem);
+	CommandConnection.command(commandConnection, command);
+	Command.command(command, "CHANGE_STATE");
+}
+
+pattern changeStateSwitchRules(evaluatingNode : EvaluatingNode) {
+	find changeStateSwitchCommand(evaluatingNode,_,_,_);
+}
+
+pattern changeStateDimmerRules(evaluatingNode : EvaluatingNode) {
+	find changeStateDimmerCommand(evaluatingNode,_,_,_);
+}
+
+
+pattern generalRules(evaluatingNode : EvaluatingNode) {
+    neg find changeStateSwitchCommand(evaluatingNode,_,_,_);
+    neg find changeStateDimmerCommand(evaluatingNode,_,_,_);
+}

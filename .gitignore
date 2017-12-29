@@ -1,7 +1,15 @@
 **/target/
 **/bin/
 **/lib/
-launch/home/logs/
+smarthome-simulator/HomeIO/homeio-resources/launch/home/logs/
+
+model/com\.incquerylabs\.smarthome\.model\.rulegenerator/xtend-gen/
+
+model/com\.incquerylabs\.smarthome\.model\.rulegenerator/src-gen/
+
+model/com\.incquerylabs\.smarthome\.model\.rules/gen-rules/
+
+model/com\.incquerylabs\.smarthome\.model\.rules/src/main/resources/gen-rules/
 
 
-rules/com\.incquerylabs\.smarthome\.rules/\.settings/
+demo/com\.incquerylabs\.smarthome\.demorules\.generated/src/main/resources/gen-rules/

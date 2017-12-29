@@ -1,0 +1,15 @@
+package homeioexample
+
+
+rule "M Lights Switch"
+    when
+        $light : Item( name == "M_Lights_Analog", $state : state)
+
+        ItemStateChangedEvent( name == "M_Light_Switch", newState == PRESSED)
+    then
+        if ($state.equals(HUNDRED)) {
+            openhab.postCommand($light, OFF);
+        } else {
+            openhab.postCommand($light, ON);
+        }
+end

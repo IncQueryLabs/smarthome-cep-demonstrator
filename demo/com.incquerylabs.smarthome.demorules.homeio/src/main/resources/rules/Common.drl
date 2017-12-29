@@ -1,0 +1,117 @@
+package homeioexample
+
+import org.slf4j.Logger;
+import org.eclipse.smarthome.core.items.Item;
+import org.eclipse.smarthome.core.library.types.OnOffType;
+import org.eclipse.smarthome.core.library.types.OpenClosedType;
+import org.eclipse.smarthome.core.library.types.PercentType;
+import org.eclipse.smarthome.core.library.types.DecimalType;
+import org.eclipse.smarthome.core.library.types.IncreaseDecreaseType;
+import org.eclipse.smarthome.core.types.Command;
+import org.eclipse.smarthome.core.types.State;
+import com.incquerylabs.smarthome.eventbus.api.IEventPublisher;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemCommandHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.GroupItemStateChangedEvent;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemStateChangedHistory;
+import com.incquerylabs.smarthome.eventbus.api.events.ItemEvent;
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DimmerCommand;
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.DateTime;
+import com.incquerylabs.smarthome.eventbus.ruleengine.droolshomeio.InitStates;
+
+global Logger logger;
+global IEventPublisher openhab;
+global OpenClosedType OPEN;
+global OpenClosedType CLOSED;
+global OnOffType ON;
+global OnOffType OFF;
+global PercentType HUNDRED;
+global PercentType ZERO;
+global IncreaseDecreaseType INCREASE;
+global IncreaseDecreaseType DECREASE;
+global OpenClosedType BRIGHTNESS; 
+global OpenClosedType DARKNESS; 
+global OpenClosedType MOTION;
+global OpenClosedType NOMOTION;
+global OpenClosedType DOOR_OPENED;
+global OpenClosedType DOOR_CLOSED;
+global OpenClosedType PRESSED;
+global OpenClosedType RELEASED;
+
+global OpenClosedType ARMED
+global OpenClosedType DISARMED
+
+declare ItemCommandEvent
+    @role ( event )
+end
+
+
+declare ItemCommandHistory
+    @role ( event )
+end
+
+
+declare ItemStateChangedEvent
+    @role ( event )
+end
+
+
+declare GroupItemStateChangedEvent
+    @role ( event )
+end
+
+
+declare ItemStateChangedHistory
+    @role ( event )
+end
+
+
+declare InitStates
+	@role ( event )
+end
+
+
+declare DateTime
+    @role ( event )
+end
+
+
+
+
+
+rule "Init"
+    lock-on-active
+    when
+        InitStates()
+    then
+        openhab.postCommand("Example_Light", OFF);
+        openhab.postCommand("A_Lights_Analog", ZERO); 
+        
+        openhab.postCommand("gLight", OFF);
+        openhab.postCommand("gRollerShadesUp", OFF);
+        openhab.postCommand("gRollerShadesDown", OFF);
+end
+
+
+rule "Item event"
+    when
+        $event : ItemEvent()
+    then
+        logger.debug( $event.toString() );
+end
+
+
+rule "Example lights rule with push switch"
+    when
+        $light : Item( name == "Example_Light", $state : state)
+
+        ItemStateChangedEvent( name == "Example_Switch", newState == PRESSED)
+    then
+        if ($state == ON) {
+            openhab.postCommand($light, OFF);
+        } else {
+            openhab.postCommand($light, ON);
+        }
+end
+

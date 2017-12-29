@@ -1,0 +1,11 @@
+package homeioexample
+
+
+rule "K Lights Motion"
+    when
+        $light : Item( name == "K_Lights_Analog", state == ZERO)
+
+        ItemStateChangedEvent( name == "K_Motion_Detector", newState == MOTION)
+    then
+        openhab.postCommand($light, ON);
+end

@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simple Motion Sensor
+Bundle-SymbolicName: com.incquerylabs.smarthome.binding.simple-motion-sensor;singleton:=true
+Bundle-Version: 0.1.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: .
+Import-Package: 
+ org.eclipse.jdt.annotation,
+ org.eclipse.smarthome.config.core,
+ org.eclipse.smarthome.core.library.types,
+ org.eclipse.smarthome.core.thing,
+ org.eclipse.smarthome.core.thing.binding,
+ org.eclipse.smarthome.core.thing.binding.builder,
+ org.eclipse.smarthome.core.thing.type,
+ org.eclipse.smarthome.core.types,
+ org.slf4j
+Service-Component: OSGI-INF/*.xml
+Export-Package: com.incquerylabs.smarthome.binding.simplemotionsensor,
+ com.incquerylabs.smarthome.binding.simplemotionsensor.handler
+Bundle-ActivationPolicy: lazy

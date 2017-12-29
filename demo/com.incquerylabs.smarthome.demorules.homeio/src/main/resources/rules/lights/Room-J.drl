@@ -1,0 +1,48 @@
+package homeioexample
+
+
+rule "J Lights Switch"
+    when
+        $light : Item( name == "J_Lights_Analog", $state : state)
+
+        ItemStateChangedEvent( (
+        name == "J_Light_Switch_1" ||
+        name == "J_Light_Switch_2" ) &&
+         newState == PRESSED)
+    then
+        if ($state.equals(HUNDRED)) {
+            openhab.postCommand($light, OFF);
+        } else {
+            openhab.postCommand($light, ON);
+        }
+end
+
+
+rule "J Lights Switch On"
+    when
+        $light : Item( name == "J_Lights_Analog") 
+
+        $switchPressed : ItemStateChangedHistory(name == "J_Light_Switch_Dimmer_Up", newState == PRESSED )
+
+        ItemStateChangedEvent ( 
+        this after[0s,1s] $switchPressed &&
+        name == "J_Light_Switch_Dimmer_Up" && 
+        newState == RELEASED )
+    then
+        openhab.postCommand($light, ON);
+end
+
+
+rule "J Lights Switch Off"
+    when
+        $light : Item( name == "J_Lights_Analog") 
+
+        $switchPressed : ItemStateChangedHistory(name == "J_Light_Switch_Dimmer_Down", newState == PRESSED )
+
+        ItemStateChangedEvent ( 
+        this after[0s,1s] $switchPressed &&
+        name == "J_Light_Switch_Dimmer_Down" && 
+        newState == RELEASED )
+    then
+        openhab.postCommand($light, OFF);
+end

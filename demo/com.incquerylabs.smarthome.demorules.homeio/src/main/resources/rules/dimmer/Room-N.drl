@@ -1,0 +1,49 @@
+package homeioexample
+
+rule "N Lights Switch Dimmer Up"
+    when
+        $item1 : Item( name == "N_Lights_1_Analog", $state : state)
+        $item2 : Item( name == "N_Lights_2_Analog")
+        $item3 : Item( name == "N_Lights_3_Analog")
+
+        $itemStateOpen : ItemStateChangedEvent( ( 
+        name == "N_Light_Switch_Dimmer_1_Up" || 
+        name == "N_Light_Switch_Dimmer_2_Up" || 
+        name == "N_Light_Switch_Dimmer_3_Up" ) && 
+        newState == PRESSED )
+
+    then
+        openhab.startComplexCommand(DimmerCommand.create($item1, INCREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item2, INCREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item3, INCREASE, 2 , 1000, 50));
+end
+
+
+rule "N Lights Switch Dimmer Down"
+    when
+        $item1 : Item( name == "N_Lights_1_Analog", $state : state)
+        $item2 : Item( name == "N_Lights_2_Analog")
+        $item3 : Item( name == "N_Lights_3_Analog")
+
+        $itemStateOpen : ItemStateChangedEvent( ( 
+        name == "N_Light_Switch_Dimmer_1_Down" || 
+        name == "N_Light_Switch_Dimmer_2_Down" || 
+        name == "N_Light_Switch_Dimmer_3_Down" ) && 
+        newState == PRESSED )
+
+    then
+        openhab.startComplexCommand(DimmerCommand.create($item1, DECREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item2, DECREASE, 2 , 1000, 50));
+        openhab.startComplexCommand(DimmerCommand.create($item3, DECREASE, 2 , 1000, 50));
+end
+
+
+rule "N Dimmer off"
+    when
+        $itemState : ItemStateChangedEvent( name matches "N_Light_Switch_Dimmer.*", newState == RELEASED )
+    
+    then
+        openhab.stopComplexCommand("N_Lights_1_Analog");
+        openhab.stopComplexCommand("N_Lights_2_Analog");
+        openhab.stopComplexCommand("N_Lights_3_Analog"); 
+end
