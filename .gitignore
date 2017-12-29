@@ -1,25 +1,7 @@
 **/target/
 **/bin/
 **/lib/
-*.suo
-smarthome-simulator/HomeIO/HomIO-MQTT/\.vs/
-
-smarthome-simulator/HomeIO/HomIO-MQTT/HomeIO-MQTT/obj/
+launch/home/logs/
 
 
-smarthome-simulator/HomeIO/HomIO-MQTT/packages/
-smarthome-simulator/HomeIO/HomIO-MQTT/**.dll
-
-
-smarthome-simulator/HomeIO/homeio-resources/launch/home/logs/
-
-model/com\.incquerylabs\.smarthome\.model\.rulegenerator/xtend-gen/
-
-model/com\.incquerylabs\.smarthome\.model\.rulegenerator/src-gen/
-
-model/com\.incquerylabs\.smarthome\.model\.rules/gen-rules/
-
-model/com\.incquerylabs\.smarthome\.model\.rules/src/main/resources/gen-rules/
-
-
-demo/com\.incquerylabs\.smarthome\.demorules\.generated/src/main/resources/gen-rules/
+rules/com\.incquerylabs\.smarthome\.rules/\.settings/
