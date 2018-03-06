@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.smarthome.core-0.10.0.201712141004.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.smarthome.core-0.10.0.201802191927.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/antlr-runtime-3.5.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/com.google.gson-2.7.0.v20170129-0911.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/com.google.guava-15.0.0.v201403281430.jar"/>
