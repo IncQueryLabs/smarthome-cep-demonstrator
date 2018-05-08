@@ -6,7 +6,6 @@ light
 package homeioexample
 
 import org.eclipse.smarthome.core.items.Item;
-import org.eclipse.smarthome.core.library.items.SwitchItem;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.library.types.PercentType;
